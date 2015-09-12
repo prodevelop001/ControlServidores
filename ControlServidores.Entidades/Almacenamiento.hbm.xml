@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.Almacenamiento, ControlSevidores.Entidades" table="Almacenamiento">
+    <id name="IdAlmacenamieto" column="IdAlmacenamieto" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="IdServidor" column="IdServidor" type="int"></property>
+    <property name="IdTipoMemoria" column="IdTipoMemoria" type="int"></property>
+    <property name="Capacidad" column="Capacidad" type="String"></property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlServidores.Entidades.MarcaServidor, ControlServidores.Entidades" table="MarcaServidor">
+    <id name="IdMarca" column="IdMarca" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="NombreMarca" column="NombreMarca" type="String"></property>
+  </class>
+</hibernate-mapping>

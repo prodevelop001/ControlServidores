@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.BitacoraMantenimiento, ControlSevidores.Entidades" table="BitacoraMantenimiento">
+    <id name="IdBitacora" column="IdBitacora" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="FechaCaptura" column="FechaCaptura" type="DateTime"></property>
+    <property name="FechaMantenimiento" column="FechaMantenimiento" type="DateTime"></property>
+    <property name="DescripcionMantenimiento" column="DescripcionMantenimiento" type="String"></property>
+	<property name="Observaciones" column="Observaciones" type="String"></property>
+  </class>
+</hibernate-mapping>

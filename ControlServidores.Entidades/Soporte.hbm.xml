@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.Soporte, ControlSevidores.Entidades" table="Soporte">
+    <id name="IdSoporte" column="IdSoporte" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="IdEmpresa" column="IdEmpresa" type="int"></property>
+    <property name="IdMarca" column="IdMarca" type="int"></property>
+    <property name="FechaInicio" column="FechaInicio" type="Date"></property>
+	<property name="FechaFin" column="FechaFin" type="Date"></property>
+  </class>
+</hibernate-mapping>

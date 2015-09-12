@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.RolUsuario, ControlSevidores.Entidades" table="RolUsuario">
+    <id name="IdRol" column="IdRol" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="NombreRol" column="NombreRol" type="String"></property>
+    <property name="C" column="C" type="Boolean"></property>
+   <property name="R" column="R" type="Boolean"></property>
+   <property name="U" column="U" type="Boolean"></property>
+   <property name="D" column="D" type="Boolean"></property>
+  </class>
+</hibernate-mapping>

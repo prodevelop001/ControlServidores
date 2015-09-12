@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.SO, ControlSevidores.Entidades" table="SO">
+    <id name="IdSO" column="IdSO" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="NombreSO" column="Capacidad" type="String"></property>
+  </class>
+</hibernate-mapping>

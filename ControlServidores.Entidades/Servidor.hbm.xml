@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.Servidor, ControlSevidores.Entidades" table="Servidor">
+    <id name="IdServidor" column="IdServidor" type="int">
+      <generator class="identity"></generator>
+    </id>
+	<property name="AliasServidor" column="AliasServidor" type="String"></property>
+    <property name="IdModelo" column="IdModelo" type="int"></property>
+    <property name="IdEspecificacion" column="IdEspecificacion" type="int"></property>
+    <property name="IdTipoServidor" column="IdTipoServidor" type="int"></property>
+	<property name="IdVirtualizador" column="IdVirtualizador" type="int"></property>
+	<property name="DescripcionUso" column="DescripcionUso" type="String"></property>
+  </class>
+</hibernate-mapping>

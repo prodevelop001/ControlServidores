@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ControlSevidores.Entidades.ConfRed, ControlSevidores.Entidades" table="ConfRed">
+    <id name="IdConfRed" column="IdConfRed" type="int">
+      <generator class="identity"></generator>
+    </id>
+    <property name="IdServidor" column="IdServidor" type="int"></property>
+    <property name="InterfazaRed" column="InterfazaRed" type="string"></property>
+    <property name="DirMac" column="DirMac" type="String"></property>
+	<property name="DirIP" column="DirIP" type="String"></property>
+	<property name="MascaraSubRed" column="MascaraSubRed" type="String"></property>
+	<property name="Gateway" column="Gateway" type="String"></property>
+	<property name="DNS" column="DNS" type="String"></property>
+	<property name="VLAN" column="VLAN" type="String"></property>
+  </class>
+</hibernate-mapping>
