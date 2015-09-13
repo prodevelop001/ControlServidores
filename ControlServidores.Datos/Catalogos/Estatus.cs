@@ -19,8 +19,8 @@ namespace ControlServidores.Datos.Catalogos
                         crit.Add(Expression.Eq("IdEstatus", a.IdEstatus));
                     if (a.IdConceptoEstatus != 0 && a.IdConceptoEstatus.ToString() != "")
                         crit.Add(Expression.Eq("IdConceptoEstatus", a.IdConceptoEstatus));
-					if (!string.IsNullOrEmpty(a.Estatus))
-                        crit.Add(Expression.Like("Estatus", a.Estatus));					
+					if (!string.IsNullOrEmpty(a._Estatus))
+                        crit.Add(Expression.Like("Estatus", a._Estatus));					
 					
                     lista = (List<Entidades.Estatus>)crit.List();
                 }

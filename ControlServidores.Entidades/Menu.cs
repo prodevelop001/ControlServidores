@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ControlServidores.Entidades
 {
@@ -14,10 +10,12 @@ namespace ControlServidores.Entidades
 
         public virtual string Url { get; set; }
 
-        public virtual int NODO { get; set; }
+        public virtual int Nodo { get; set; }
 
         public virtual int Orden { get; set; }
 
         public virtual bool Sesion { get; set; }
+
+        public virtual ISet<MenuXrol> MenuXrol { get; set; }
     }
 }

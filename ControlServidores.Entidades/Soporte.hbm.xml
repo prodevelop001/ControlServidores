@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="ControlSevidores.Entidades.Soporte, ControlSevidores.Entidades" table="Soporte">
+  <class name="ControlServidores.Entidades.Soporte, ControlServidores.Entidades" table="Soporte">
     <id name="IdSoporte" column="IdSoporte" type="int">
       <generator class="identity"></generator>
     </id>

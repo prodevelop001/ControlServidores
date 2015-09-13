@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ControlServidores.Entidades
 {
@@ -13,6 +14,7 @@ namespace ControlServidores.Entidades
         /// Id de persona
         /// </summary>
         public virtual int IdPersona { get; set; }
+        //public virtual ISet<Personas> IdPersona { get; set; }
 
         /// <summary>
         /// Usuario
@@ -32,6 +34,12 @@ namespace ControlServidores.Entidades
         /// <summary>
         /// Id de Rol de usuario.
         /// </summary>
-        public virtual int IdRol { get; set; }
+        //public virtual int IdRol { get; set; }
+        public virtual RolUsuario IdRol { get; set; }
+
+        public Usuarios()
+        {
+            IdRol = new RolUsuario();
+        }        
     }
 }

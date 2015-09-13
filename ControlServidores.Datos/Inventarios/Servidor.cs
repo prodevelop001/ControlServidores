@@ -20,7 +20,7 @@ namespace ControlServidores.Datos.Inventarios
                    if (!string.IsNullOrEmpty(a.AliasServidor))
                         crit.Add(Expression.Like("AliasServidor", a.AliasServidor));
 					if (a.IdModelo != 0 && a.IdModelo.ToString() != "")
-                        crit.Add(Expression.Eq("IdMarca", a.IdMarca));
+                        crit.Add(Expression.Eq("IdMarca", a.IdModelo));
 					if (a.IdEspecificacion != 0 && a.IdEspecificacion.ToString() != "")
                         crit.Add(Expression.Eq("IdEspecificacion", a.IdEspecificacion));
 					if (a.IdTipoServidor != 0 && a.IdTipoServidor.ToString() != "")

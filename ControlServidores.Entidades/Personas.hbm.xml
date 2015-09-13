@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="ControlSevidores.Entidades.Personas, ControlSevidores.Entidades" table="Personas">
+  <class name="ControlServidores.Entidades.Personas, ControlServidores.Entidades" table="Personas">
     <id name="IdPersona" column="IdPersona" type="int">
       <generator class="identity"></generator>
     </id>
     <property name="Nombre" column="Nombre" type="String"></property>
     <property name="Puesto" column="Puesto" type="String"></property>
     <property name="Extension" column="Extension" type="String"></property>
-	<property name="Correo" column="Correo" type="String"></property>
+	  <property name="Correo" column="Correo" type="String"></property>
+    <set name="Usuarios" inverse="true" cascade="save-update">
+      <key column= "IdUsuario" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Usuarios" />
+    </set>
   </class>
 </hibernate-mapping>

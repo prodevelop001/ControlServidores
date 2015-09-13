@@ -1,27 +1,34 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Seguridad
 {
-	public class MenuXrol 
-	{
-		public static List<Entidades.MenuXrol> Obtener(Entidades.MenuXrol a)
-		{
-			List<Entidades.MenuXrol> lista = new List<Entidades.MenuXrol>();
+    public class MenuXrol
+    {
+        public static List<Entidades.MenuXrol> Obtener(Entidades.MenuXrol a)
+        {
+            List<Entidades.MenuXrol> lista = new List<Entidades.MenuXrol>();
             try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.MenuXrol));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.MenuXrol), "mr");
                     if (a.Id != 0 && a.Id.ToString() != "")
                         crit.Add(Expression.Eq("Id", a.Id));
-                   if (a.IdMenu != 0 && a.IdMenu.ToString()  != "")
-                        crit.Add(Expression.Eq("IdMenu", a.IdMenu));
-					if (a.IdRol != 0 && a.IdRol.ToString()  != "")
-                        crit.Add(Expression.Eq("IdRol", a.IdRol));
-                    lista = (List<Entidades.MenuXrol>)crit.List();
+                    if (a.IdMenu.IdMenu != 0 && a.IdMenu.IdMenu.ToString() != "")
+                    {
+                        crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("IdMenu", a.IdMenu.IdMenu)));
+                    }                        
+                    if (a.IdRol.IdRol != 0 && a.IdRol.ToString() != "")
+                    {                        
+                        crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idRol.IdRol", a.IdRol.IdRol)));
+                    }
+                    lista = (List<Entidades.MenuXrol>)crit.List<Entidades.MenuXrol>();
                 }
             }
             catch
@@ -30,39 +37,24 @@ namespace ControlServidores.Datos.Seguridad
             }
 
             return lista;
-		}
-		
-		public static bool Nuevo(Entidades.MenuXrol a)
-		{
-			try
-            {
-                using (ISession session = NHibernateHelper.OpenSession())
-                {
-                    session.Save(a);
-                    session.Flush();
-                    session.Close();
-                }
-            }
-            catch
-            {
-                return false;
-            }
+        }
 
-            return true;
-		}
-		
-		public static bool Actualizar(Entidades.MenuXrol a)
-		{
-			try
+        public static bool Nuevo(List<Entidades.MenuXrol> a)
+        {
+            try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
+                    a.ForEach(delegate (Entidades.MenuXrol menuRol)
                     {
-                        session.Update(a);
-                        transaction.Commit();                        
-                    }
-                    session.Close();
+                        Entidades.Menu m = session.Load<Entidades.Menu>(menuRol.IdMenu.IdMenu);
+                        Entidades.MenuXrol c = new Entidades.MenuXrol();
+                        c.IdMenu = m;
+                        c.IdRol = menuRol.IdRol;
+                        m.MenuXrol.Add(c);
+                        session.Save(c);
+                        session.Flush();
+                    });
                 }
             }
             catch
@@ -71,20 +63,24 @@ namespace ControlServidores.Datos.Seguridad
             }
 
             return true;
-		}
-		
-		public static bool Eliminar(Entidades.MenuXrol a)
-		{
-			try
+        }
+
+        public static bool Actualizar(List<Entidades.MenuXrol> a)
+        {
+            try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
+                    a.ForEach(delegate (Entidades.MenuXrol menuRol)
                     {
-                        session.Delete(a);
-                        transaction.Commit();
-                    }
-                    session.Close();
+                        Entidades.Menu m = session.Load<Entidades.Menu>(menuRol.IdMenu.IdMenu);
+                        Entidades.MenuXrol c = new Entidades.MenuXrol();
+                        c.IdMenu = m;
+                        c.IdRol = menuRol.IdRol;
+                        m.MenuXrol.Add(c);
+                        session.Update(c);
+                        session.Flush();
+                    });
                 }
             }
             catch
@@ -93,7 +89,33 @@ namespace ControlServidores.Datos.Seguridad
             }
 
             return true;
-		}
-		
-	}
+        }
+
+        public static bool Eliminar(List<Entidades.MenuXrol> a)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    a.ForEach(delegate (Entidades.MenuXrol menuRol)
+                    {
+                        Entidades.Menu m = session.Load<Entidades.Menu>(menuRol.IdMenu.IdMenu);
+                        Entidades.MenuXrol c = new Entidades.MenuXrol();
+                        c.IdMenu = m;
+                        c.IdRol = menuRol.IdRol;
+                        m.MenuXrol.Add(c);
+                        session.Delete(c);
+                        session.Flush();
+                    });
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+    }
 }

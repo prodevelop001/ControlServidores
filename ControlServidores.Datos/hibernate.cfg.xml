@@ -10,7 +10,30 @@
     <property name="connection.connection_string">Server=localhost\DEVELOP;Database=Control_Servidores_Des;User Id=sa; Password=root;</property>
     <!-- mapping files -->
     <mapping resource="ControlServidores.Entidades.MarcaServidor.hbm.xml" assembly="ControlServidores.Entidades" />
-    
+    <mapping resource="ControlServidores.Entidades.Almacenamiento.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.BitacoraMantenimiento.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.ConceptoEstatus.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.ConfRed.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Empresa.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.EspServidor.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Estatus.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Menu.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.MenuXrol.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Modelo.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Personas.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.PersonaXservidor.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Procesador.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.RolUsuario.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Servidor.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.SO.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Soporte.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.SOxServidor.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Storage.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.TipoArregloDisco.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.TipoMemoria.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.TipoServidor.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.TipoStorage.hbm.xml" assembly="ControlServidores.Entidades" />
+    <mapping resource="ControlServidores.Entidades.Usuarios.hbm.xml" assembly="ControlServidores.Entidades" />
   </session-factory>
 
 </hibernate-configuration>

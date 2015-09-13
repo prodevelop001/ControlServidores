@@ -28,8 +28,8 @@ namespace ControlServidores.Datos.Seguridad
                         crit.Add(Expression.Eq("Usuario", us.Usuario));
                     if (!string.IsNullOrEmpty(us.Pwd))
                         crit.Add(Expression.Eq("Pwd", us.Pwd));
-                    if (us.IdRol != 0 && us.IdRol.ToString() != "")
-                        crit.Add(Expression.Eq("IdRol", us.IdRol));
+                    if (us.IdRol.IdRol != 0 && us.IdRol.ToString() != "")
+                        crit.Add(Expression.Eq("IdRol", us.IdRol.IdRol));
 
                     lista = (List<Entidades.Usuarios>)crit.List();
                 }

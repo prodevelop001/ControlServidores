@@ -1,3 +1,5 @@
+using System;
+
 namespace ControlServidores.Entidades
 {
 	public class Soporte
@@ -8,8 +10,8 @@ namespace ControlServidores.Entidades
 		
 		public virtual int IdMarca {get;set;}
 		
-		public virtual DateTime FechaInicio {get;set;}
+		public virtual DateTime? FechaInicio {get;set;}
 		
-		public virtual DateTime FechaFin {get;set;}
+		public virtual DateTime? FechaFin {get;set;}
 	}
 }

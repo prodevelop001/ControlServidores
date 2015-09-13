@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="ControlSevidores.Entidades.TipoStorage, ControlSevidores.Entidades" table="TipoStorage">
+  <class name="ControlServidores.Entidades.TipoStorage, ControlServidores.Entidades" table="TipoStorage">
     <id name="IdTipoStorage" column="IdTipoStorage" type="int">
       <generator class="identity"></generator>
     </id>

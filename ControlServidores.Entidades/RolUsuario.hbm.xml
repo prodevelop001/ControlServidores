@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="ControlSevidores.Entidades.RolUsuario, ControlSevidores.Entidades" table="RolUsuario">
+  <class name="ControlServidores.Entidades.RolUsuario, ControlServidores.Entidades" table="RolUsuario">
     <id name="IdRol" column="IdRol" type="int">
       <generator class="identity"></generator>
     </id>
@@ -9,5 +9,13 @@
    <property name="R" column="R" type="Boolean"></property>
    <property name="U" column="U" type="Boolean"></property>
    <property name="D" column="D" type="Boolean"></property>
+    <set name="MenuXrol" inverse="true" cascade="save-update">
+      <key column= "IdRol" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.MenuXrol" />
+    </set>
+    <set name="Usuarios" inverse="true" cascade="save-update">
+      <key column= "IdUsuarios" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Usuarios" />
+    </set>
   </class>
 </hibernate-mapping>

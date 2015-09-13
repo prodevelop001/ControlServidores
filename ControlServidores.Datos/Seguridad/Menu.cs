@@ -25,8 +25,8 @@ namespace ControlServidores.Datos.Seguridad
                         crit.Add(Expression.Eq("Nombre", mn.Nombre));
                     if (!string.IsNullOrEmpty(mn.Url))
                         crit.Add(Expression.Eq("Url", mn.Url));
-                    if (mn.NODO != 0 && mn.NODO.ToString() != "")
-                        crit.Add(Expression.Eq("NODO", mn.NODO));
+                    if (mn.Nodo != 0 && mn.Nodo.ToString() != "")
+                        crit.Add(Expression.Eq("NODO", mn.Nodo));
                     if (mn.Orden != 0 && mn.Orden.ToString() != "")
                         crit.Add(Expression.Eq("Orden", mn.Orden));
                     crit.Add(Expression.Eq("Sesion", mn.Sesion));

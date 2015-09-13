@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="ControlSevidores.Entidades.PersonaXservidor, ControlSevidores.Entidades" table="PersonaXservidor">
+  <class name="ControlServidores.Entidades.PersonaXservidor, ControlServidores.Entidades" table="PersonaXservidor">
     <id name="IdPersonaServidor" column="IdPersonaServidor" type="int">
       <generator class="identity"></generator>
     </id>

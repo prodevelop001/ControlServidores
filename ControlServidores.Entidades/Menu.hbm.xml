@@ -6,8 +6,12 @@
     </id>
     <property name="Nombre" column="Nombre" type="String"></property>
     <property name="Url" column="Url" type="String"></property>
-    <property name="NODO" column="NODO" type="int"></property>
-    <property name="Orden" column="Orden" type="Int"></property>
+    <property name="Nodo" column="Nodo" type="int"></property>
+    <property name="Orden" column="Orden" type="int"></property>
     <property name="Sesion" column="Sesion" type="boolean"></property>
+    <set name="MenuXrol" inverse="true" cascade="save-update">
+      <key column= "IdMenu" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.MenuXrol" />
+    </set>
   </class>
 </hibernate-mapping>

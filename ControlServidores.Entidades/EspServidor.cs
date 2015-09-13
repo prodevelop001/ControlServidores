@@ -8,7 +8,7 @@ namespace ControlServidores.Entidades
 		
 		public virtual int NumProcesadores {get;set;}
 		
-		public virtual string CapacidadRam {get;set;}
+		public virtual string CapacidadRAM { get;set;}
 		
 		public virtual int IdTipoArreglo {get; set;}
 		

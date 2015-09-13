@@ -34,10 +34,13 @@
             </div>
             <div class="clear hideSkiplink">
                 <asp:Menu ID="MyMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                   <%-- <Items>
+                    <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="#" Text="Catalogos">
+                            <asp:MenuItem NavigateUrl="#" Text="Cat1"/>
+                        </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                    </Items>--%>
+                    </Items>
                 </asp:Menu>
             </div>
         </div>

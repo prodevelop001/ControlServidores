@@ -17,8 +17,7 @@ namespace ControlServidores.Datos.Catalogos
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.TipoMemoria));
                     if (a.IdTipoMemoria != 0 && a.IdTipoMemoria.ToString() != "")
                         crit.Add(Expression.Eq("IdTipoMemoria", a.IdTipoMemoria));
-                   if (!string.IsNullOrEmpty(a.Dispositivo))
-                        crit.Add(Expression.Like("Dispositivo", a.Dispositivo));
+                   
 					if (!string.IsNullOrEmpty(a.Tipo))
                         crit.Add(Expression.Like("Tipo", a.Tipo));
 					

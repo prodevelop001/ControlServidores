@@ -19,11 +19,11 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Expression.Eq("IdEspecificacion", a.IdEspecificacion));
 					if (a.IdProcesador != 0 && a.IdProcesador.ToString() != "")
                         crit.Add(Expression.Eq("IdProcesador", a.IdProcesador));
-                   if (a.NumProcesadores != 0 && a.NumProcesadores.ToString() != "")) 
+                   if (a.NumProcesadores != 0 && a.NumProcesadores.ToString() != "")
                         crit.Add(Expression.Eq("NumProcesadores", a.NumProcesadores));
-					if (!string.IsNullOrEmpty(a.CapacidadRam))
-                        crit.Add(Expression.Like("CapacidadRam", a.CapacidadRam));
-					if (a.IdTipoArreglo != 0 && a.IdTipoArreglo.ToString() != "")) 
+					if (!string.IsNullOrEmpty(a.CapacidadRAM))
+                        crit.Add(Expression.Like("CapacidadRam", a.CapacidadRAM));
+					if (a.IdTipoArreglo != 0 && a.IdTipoArreglo.ToString() != "") 
                         crit.Add(Expression.Eq("IdTipoArreglo", a.IdTipoArreglo));
 					if (!string.IsNullOrEmpty(a.NumSerie))
                         crit.Add(Expression.Eq("NumSerie", a.NumSerie));

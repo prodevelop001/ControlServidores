@@ -6,7 +6,7 @@ namespace ControlServidores.Entidades
 			
 			public virtual int IdServidor {get;set;}
 			
-			public virtual string InterfazRed{ get; set }
+			public virtual string InterfazRed{ get; set; }
 			
 			public virtual string DirMac {get;set;}
 			

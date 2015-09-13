@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Seguridad
 {
@@ -18,14 +19,14 @@ namespace ControlServidores.Datos.Seguridad
                     if (a.IdRol != 0 && a.IdRol.ToString() != "")
                         crit.Add(Expression.Eq("IdRol", a.IdRol));
                    if (!string.IsNullOrEmpty(a.NombreRol))
-                        crit.Add(Expression.Eq("NombreRol", a.NombreRol));
+                        crit.Add(Expression.Like("NombreRol", a.NombreRol));
 					
 					//crit.Add(Expression.Eq("C", a.C));
 					//crit.Add(Expression.Eq("R", a.R));
 					//crit.Add(Expression.Eq("U", a.U));
 					//crit.Add(Expression.Eq("D", a.D));
                     
-					lista = (List<Entidades.RolUsuario>)crit.List();
+					lista = (List<Entidades.RolUsuario>)crit.List<Entidades.RolUsuario>();
                 }
             }
             catch
@@ -47,7 +48,7 @@ namespace ControlServidores.Datos.Seguridad
                     session.Close();
                 }
             }
-            catch
+            catch 
             {
                 return false;
             }

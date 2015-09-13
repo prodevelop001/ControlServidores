@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ControlServidores.Entidades
 {
 	public class Personas
@@ -11,5 +13,7 @@ namespace ControlServidores.Entidades
 		public virtual string Extension {get;set;}
 		
 		public virtual string Correo {get;set;}
+
+        public virtual ISet<Usuarios> Usuarios { get; set; }
 	}
 }

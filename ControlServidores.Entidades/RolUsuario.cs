@@ -1,3 +1,7 @@
+
+
+using System.Collections.Generic;
+
 namespace ControlServidores.Entidades
 {
 	public class RolUsuario
@@ -13,5 +17,9 @@ namespace ControlServidores.Entidades
 		public virtual bool U {get;set;}
 		
 		public virtual bool D {get;set;}
-	}
+
+        public virtual ISet<MenuXrol> MenuXrol { get; set; }
+
+        public virtual ISet<Usuarios> Usuarios { get; set; }
+    }
 }

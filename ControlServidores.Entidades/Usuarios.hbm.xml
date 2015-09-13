@@ -9,6 +9,8 @@
     <property name="Usuario" column="Usuario" type="String"></property>
     <property name="Pwd" column="Pwd" type="String"></property>
     <property name="FechaUltimoAcceso" column="FechaUltimoAcceso" type="DateTime"></property>
-    <property name="IdRol" column="IdRol" type="int"></property>
+    <!--<property name="IdRol" column="IdRol" type="int"></property>-->
+    <!--<many-to-one name="IdPersona" class="ControlServidores.Entidades.Personas" column="IdPersonas"/>-->
+    <many-to-one name="IdRol" class="ControlServidores.Entidades.RolUsuario" column="IdRol"/>
   </class>
 </hibernate-mapping>
