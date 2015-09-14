@@ -13,5 +13,10 @@ namespace ControlServidores.Entidades.Logica
         /// Regresa lista de errores entendibles por una persona
         /// </summary>
         public List<Error> errores { get; set; }
+
+        public Ejecucion()
+        {
+            errores = new List<Error>();
+        }
     }
 }

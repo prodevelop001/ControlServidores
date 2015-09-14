@@ -19,28 +19,34 @@ namespace ControlServidores.Web
 
         private void llenarGrid()
         {
-            gdvPrueba.DataSource = Negocio.Seguridad.MenuXrol.Obtener(new Entidades.MenuXrol() { IdRol= new Entidades.RolUsuario() { IdRol= 4} });
+            gdvPrueba.DataSource = Negocio.Seguridad.MenuXrol.Obtener(new Entidades.MenuXrol() { IdRol= new Entidades.RolUsuario() { IdRol= 7}});
             gdvPrueba.DataBind();
         }
 
         protected void btnPrueba_Click(object sender, EventArgs e)
         {
             Entidades.RolUsuario rol = new Entidades.RolUsuario();
+            rol.IdRol = 7;
             rol.NombreRol = "Nuevo Rol";
 
-            List<Entidades.MenuXrol> mrL = new List<Entidades.MenuXrol>();
-            Entidades.MenuXrol mr = new Entidades.MenuXrol();
+            //List<Entidades.MenuXrol> mrL = new List<Entidades.MenuXrol>();
+            //Entidades.MenuXrol mr = new Entidades.MenuXrol();
 
-            mr.IdMenu.IdMenu = 1;
-            mr.IdRol.IdRol = 4;
-            mrL.Add(mr);
+            //mr.IdMenu.IdMenu = 1;
+            //mr.IdRol.IdRol = 7;
+            //mrL.Add(mr);
 
-            mr = new Entidades.MenuXrol();
-            mr.IdMenu.IdMenu = 2;
-            mr.IdRol.IdRol = 4;
-            mrL.Add(mr);
+            //mr = new Entidades.MenuXrol();
+            //mr.IdMenu.IdMenu = 2;
+            //mr.IdRol.IdRol = 7;
+            //mrL.Add(mr);
 
-            Negocio.Seguridad.RolUsuario.Nuevo(rol, mrL);
+            //mr = new Entidades.MenuXrol();
+            //mr.IdMenu.IdMenu = 3;
+            //mr.IdRol.IdRol = 4;
+            //mrL.Add(mr);
+
+            Negocio.Seguridad.RolUsuario.Borrar(rol);
         }
     }
 }

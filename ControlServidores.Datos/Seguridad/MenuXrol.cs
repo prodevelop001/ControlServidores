@@ -99,12 +99,7 @@ namespace ControlServidores.Datos.Seguridad
                 {
                     a.ForEach(delegate (Entidades.MenuXrol menuRol)
                     {
-                        Entidades.Menu m = session.Load<Entidades.Menu>(menuRol.IdMenu.IdMenu);
-                        Entidades.MenuXrol c = new Entidades.MenuXrol();
-                        c.IdMenu = m;
-                        c.IdRol = menuRol.IdRol;
-                        m.MenuXrol.Add(c);
-                        session.Delete(c);
+                        session.Delete(menuRol);
                         session.Flush();
                     });
                 }

@@ -7,7 +7,8 @@
     <!-- properties -->
     <property name="dialect">NHibernate.Dialect.MsSql2012Dialect</property>
     <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
-    <property name="connection.connection_string">Server=localhost\DEVELOP;Database=Control_Servidores_Des;User Id=sa; Password=root;</property>
+    <!--<property name="connection.connection_string">Server=localhost\DEVELOP;Database=Control_Servidores_Des;User Id=sa; Password=root;</property>-->
+    <property name="connection.connection_string">Server=localhost\SQLEXPRESS;Database=Control_Servidores_Des;User Id=sa; Password=root;</property>
     <!-- mapping files -->
     <mapping resource="ControlServidores.Entidades.MarcaServidor.hbm.xml" assembly="ControlServidores.Entidades" />
     <mapping resource="ControlServidores.Entidades.Almacenamiento.hbm.xml" assembly="ControlServidores.Entidades" />
