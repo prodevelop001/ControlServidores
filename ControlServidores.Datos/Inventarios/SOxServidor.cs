@@ -16,13 +16,15 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.SOxServidor));
                     if (a.IdSOxServidor != 0 && a.IdSOxServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdSOxServidor", a.IdSOxServidor));
+                        crit.Add(Restrictions.Eq("IdSOxServidor", a.IdSOxServidor));
                     if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdServidor", a.IdServidor));
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
 					if (a.IdSO != 0 && a.IdSO.ToString() != "")
-                        crit.Add(Expression.Eq("IdSO", a.IdSO));
-					
-                    lista = (List<Entidades.SOxServidor>)crit.List();
+                        crit.Add(Restrictions.Eq("IdSO", a.IdSO));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
+                    lista = (List<Entidades.SOxServidor>)crit.List<Entidades.SOxServidor>();
                 }
             }
             catch

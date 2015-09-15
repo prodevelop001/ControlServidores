@@ -13,8 +13,8 @@ namespace ControlServidores.Entidades
         /// <summary>
         /// Id de persona
         /// </summary>
-        public virtual int IdPersona { get; set; }
-        //public virtual ISet<Personas> IdPersona { get; set; }
+        //public virtual int IdPersona { get; set; }
+        public virtual Personas IdPersona { get; set; }
 
         /// <summary>
         /// Usuario
@@ -29,7 +29,7 @@ namespace ControlServidores.Entidades
         /// <summary>
         /// Fecha de ultimo acceso al sistema.
         /// </summary>
-        public virtual DateTime FechaUltimoAcceso { get; set; }
+        public virtual DateTime? FechaUltimoAcceso { get; set; }
 
         /// <summary>
         /// Id de Rol de usuario.
@@ -40,6 +40,7 @@ namespace ControlServidores.Entidades
         public Usuarios()
         {
             IdRol = new RolUsuario();
+            IdPersona = new Personas();
         }        
     }
 }

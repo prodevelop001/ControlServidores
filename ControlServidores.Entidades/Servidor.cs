@@ -15,5 +15,7 @@ namespace ControlServidores.Entidades
 		public virtual int IdVirtualizador {get;set;}
 		
 		public virtual string DescripcionUso {get;set;}
+
+        public virtual int IdEstatus { get; set; }
 	}
 }

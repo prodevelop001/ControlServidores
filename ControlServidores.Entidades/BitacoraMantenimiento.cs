@@ -21,5 +21,7 @@ namespace ControlServidores.Entidades
 		public virtual string fchMantenimiento_ini {get;set;}
 		
 		public virtual string fchMantenimiento_fin {get;set;}
+
+        public virtual int IdEstatus { get; set; }
 	}
 }

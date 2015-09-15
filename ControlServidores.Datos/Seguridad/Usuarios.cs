@@ -23,9 +23,11 @@ namespace ControlServidores.Datos.Seguridad
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Usuarios), "us");
                     if (us.IdUsuario != 0 && us.IdUsuario.ToString() != "")
                         crit.Add(Restrictions.Eq("IdUsuario", us.IdUsuario));
-                    if (us.IdPersona != 0 && us.IdPersona.ToString() != "")
+                    if (us.IdPersona.IdPersona != 0 && us.IdPersona.IdPersona.ToString() != "")
                     {
-                        crit.Add(Restrictions.Eq("IdPersona", us.IdPersona));
+                        crit.CreateAlias("us.IdPersona", "IdPersona", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        //crit.Add(Restrictions.Eq("IdPersona.IdPersona", us.IdPersona));
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdPersona.IdPersona", us.IdPersona.IdPersona)));
                     }
                     if (!string.IsNullOrEmpty(us.Usuario))
                         crit.Add(Restrictions.Like("Usuario", us.Usuario));
@@ -35,7 +37,7 @@ namespace ControlServidores.Datos.Seguridad
                     {
                         crit.CreateAlias("us.IdRol", "IdRol", NHibernate.SqlCommand.JoinType.InnerJoin);
                         //crit.Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol));
-                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("IdRol.IdRol", us.IdRol.IdRol)));
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol)));
                     }
 
                     lista = (List<Entidades.Usuarios>)crit.List<Entidades.Usuarios>();

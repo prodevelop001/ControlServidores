@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?> 
+<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <class name="ControlServidores.Entidades.BitacoraMantenimiento, ControlServidores.Entidades" table="BitacoraMantenimiento">
     <id name="IdBitacora" column="IdBitacora" type="int">
@@ -7,6 +7,7 @@
     <property name="FechaCaptura" column="FechaCaptura" type="DateTime"></property>
     <property name="FechaMantenimiento" column="FechaMantenimiento" type="DateTime"></property>
     <property name="DescripcionMantenimiento" column="DescripcionMantenimiento" type="String"></property>
-	<property name="Observaciones" column="Observaciones" type="String"></property>
+    <property name="Observaciones" column="Observaciones" type="String"></property>
+    <property name="IdEstatus" column="IdEstatus" type="int"></property>
   </class>
 </hibernate-mapping>

@@ -7,5 +7,7 @@ namespace ControlServidores.Entidades
 		public virtual int IdServidor {get;set;}
 		
 		public virtual int IdSO {get;set;}
+
+        public virtual int IdEstatus { get; set; }
 	}
 }

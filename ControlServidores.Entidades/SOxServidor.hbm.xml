@@ -6,5 +6,6 @@
     </id>
     <property name="IdServidor" column="IdServidor" type="int"></property>
     <property name="IdSO" column="IdSO" type="int"></property>
+    <property name="IdEstatus" column="IdEstatus" type="int"></property>
   </class>
 </hibernate-mapping>

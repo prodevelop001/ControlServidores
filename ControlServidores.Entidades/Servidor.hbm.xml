@@ -8,7 +8,8 @@
     <property name="IdModelo" column="IdModelo" type="int"></property>
     <property name="IdEspecificacion" column="IdEspecificacion" type="int"></property>
     <property name="IdTipoServidor" column="IdTipoServidor" type="int"></property>
-	<property name="IdVirtualizador" column="IdVirtualizador" type="int"></property>
-	<property name="DescripcionUso" column="DescripcionUso" type="String"></property>
+	  <property name="IdVirtualizador" column="IdVirtualizador" type="int"></property>
+	  <property name="DescripcionUso" column="DescripcionUso" type="String"></property>
+    <property name="IdEstatus" column="IdEstatus" type="int"></property>
   </class>
 </hibernate-mapping>

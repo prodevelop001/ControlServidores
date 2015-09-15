@@ -8,6 +8,7 @@
     <property name="Puesto" column="Puesto" type="String"></property>
     <property name="Extension" column="Extension" type="String"></property>
 	  <property name="Correo" column="Correo" type="String"></property>
+    <property name="IdEstatus" column="IdEstatus" type="int"></property>
     <set name="Usuarios" inverse="true" cascade="save-update">
       <key column= "IdUsuario" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Usuarios" />

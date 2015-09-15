@@ -17,17 +17,19 @@ namespace ControlServidores.Datos.Bitacoras
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.BitacoraMantenimiento));
                     if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
-                        crit.Add(Expression.Eq("IdBitacora", a.IdBitacora));
+                        crit.Add(Restrictions.Eq("IdBitacora", a.IdBitacora));
 					if (!string.IsNullOrEmpty(a.DescripcionMantenimiento))
-                        crit.Add(Expression.Like("DescripcionMantenimiento", a.DescripcionMantenimiento));
+                        crit.Add(Restrictions.Like("DescripcionMantenimiento", a.DescripcionMantenimiento));
 					if (!string.IsNullOrEmpty(a.Observaciones))
-                        crit.Add(Expression.Like("Observaciones", a.Observaciones));					
+                        crit.Add(Restrictions.Like("Observaciones", a.Observaciones));					
 					if (!string.IsNullOrEmpty(a.fchCaptura_ini) && !string.IsNullOrEmpty(a.fchCaptura_fin) )
-                        crit.Add(Expression.Between("FechaCaptura", a.fchCaptura_ini, a.fchCaptura_fin));
+                        crit.Add(Restrictions.Between("FechaCaptura", a.fchCaptura_ini, a.fchCaptura_fin));
 					if (!string.IsNullOrEmpty(a.fchMantenimiento_ini) && !string.IsNullOrEmpty(a.fchMantenimiento_fin) )
-                        crit.Add(Expression.Between("FechaMantenimiento", a.fchMantenimiento_ini, a.fchMantenimiento_fin));
-                   				
-                    lista = (List<Entidades.BitacoraMantenimiento>)crit.List();
+                        crit.Add(Restrictions.Between("FechaMantenimiento", a.fchMantenimiento_ini, a.fchMantenimiento_fin));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
+                    lista = (List<Entidades.BitacoraMantenimiento>)crit.List<Entidades.BitacoraMantenimiento>();
                 }
             }
             catch

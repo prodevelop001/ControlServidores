@@ -9,5 +9,7 @@ namespace ControlServidores.Entidades
 		public virtual int IdTipoStorage {get;set;}
 		
 		public virtual string CapacidadAsignada {get;set;}
+
+        public virtual int IdEstatus { get; set; }
 	}
 }

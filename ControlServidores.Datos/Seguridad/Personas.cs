@@ -17,16 +17,18 @@ namespace ControlServidores.Datos.Seguridad
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Personas));
                     if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
-                        crit.Add(Expression.Eq("IdPersona", a.IdPersona));
+                        crit.Add(Restrictions.Eq("IdPersona", a.IdPersona));
                    if (!string.IsNullOrEmpty(a.Nombre))
-                        crit.Add(Expression.Like("Nombre", a.Nombre));
+                        crit.Add(Restrictions.Like("Nombre", a.Nombre));
 					if (!string.IsNullOrEmpty(a.Puesto))
-                        crit.Add(Expression.Eq("Puesto", a.Puesto));
+                        crit.Add(Restrictions.Eq("Puesto", a.Puesto));
 					if (!string.IsNullOrEmpty(a.Extension))
-                        crit.Add(Expression.Eq("Extension", a.Extension));
+                        crit.Add(Restrictions.Eq("Extension", a.Extension));
 					if (!string.IsNullOrEmpty(a.Correo))
-                        crit.Add(Expression.Like("Correo", a.Correo));
-					
+                        crit.Add(Restrictions.Like("Correo", a.Correo));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
                     lista = (List<Entidades.Personas>)crit.List<Entidades.Personas>();
                 }
             }

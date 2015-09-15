@@ -16,24 +16,26 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.MenuXrol));
                     if (a.IdConfRed != 0 && a.IdConfRed.ToString() != "")
-                        crit.Add(Expression.Eq("IdConfRed", a.IdConfRed));
+                        crit.Add(Restrictions.Eq("IdConfRed", a.IdConfRed));
                    if (a.IdServidor != 0 && a.IdServidor.ToString()  != "")
-                        crit.Add(Expression.Eq("IdServidor", a.IdServidor));
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
 					if (!string.IsNullOrEmpty(a.InterfazRed))
-                        crit.Add(Expression.Like("InterfazRed", a.InterfazRed));
+                        crit.Add(Restrictions.Like("InterfazRed", a.InterfazRed));
 					if (!string.IsNullOrEmpty(a.DirMac))
-                        crit.Add(Expression.Eq("DirMac", a.DirMac));
+                        crit.Add(Restrictions.Eq("DirMac", a.DirMac));
 					if (!string.IsNullOrEmpty(a.DirIP))
-                        crit.Add(Expression.Like("DirIP", a.DirIP));
+                        crit.Add(Restrictions.Like("DirIP", a.DirIP));
 					if (!string.IsNullOrEmpty(a.MascaraSubRed))
-                        crit.Add(Expression.Like("MascaraSubRed", a.MascaraSubRed));
+                        crit.Add(Restrictions.Like("MascaraSubRed", a.MascaraSubRed));
 					if (!string.IsNullOrEmpty(a.Gateway))
-                        crit.Add(Expression.Like("Gateway", a.Gateway));
+                        crit.Add(Restrictions.Like("Gateway", a.Gateway));
 					if (!string.IsNullOrEmpty(a.DNS))
-                        crit.Add(Expression.Like("DNS", a.DNS));
+                        crit.Add(Restrictions.Like("DNS", a.DNS));
 					if (!string.IsNullOrEmpty(a.VLAN))
-                        crit.Add(Expression.Like("VLAN", a.VLAN));
-					
+                        crit.Add(Restrictions.Like("VLAN", a.VLAN));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
                     lista = (List<Entidades.ConfRed>)crit.List();
                 }
             }

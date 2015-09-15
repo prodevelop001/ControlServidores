@@ -16,21 +16,23 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Servidor));
                     if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdServidor", a.IdServidor));
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
                    if (!string.IsNullOrEmpty(a.AliasServidor))
-                        crit.Add(Expression.Like("AliasServidor", a.AliasServidor));
+                        crit.Add(Restrictions.Like("AliasServidor", a.AliasServidor));
 					if (a.IdModelo != 0 && a.IdModelo.ToString() != "")
-                        crit.Add(Expression.Eq("IdMarca", a.IdModelo));
+                        crit.Add(Restrictions.Eq("IdMarca", a.IdModelo));
 					if (a.IdEspecificacion != 0 && a.IdEspecificacion.ToString() != "")
-                        crit.Add(Expression.Eq("IdEspecificacion", a.IdEspecificacion));
+                        crit.Add(Restrictions.Eq("IdEspecificacion", a.IdEspecificacion));
 					if (a.IdTipoServidor != 0 && a.IdTipoServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdTipoServidor", a.IdTipoServidor));
+                        crit.Add(Restrictions.Eq("IdTipoServidor", a.IdTipoServidor));
 					if (a.IdVirtualizador != 0 && a.IdVirtualizador.ToString() != "")
-                        crit.Add(Expression.Eq("IdVirtualizador", a.IdVirtualizador));
+                        crit.Add(Restrictions.Eq("IdVirtualizador", a.IdVirtualizador));
 					if (!string.IsNullOrEmpty(a.DescripcionUso))
-                        crit.Add(Expression.Like("DescripcionUso", a.DescripcionUso));
-					
-                    lista = (List<Entidades.Servidor>)crit.List();
+                        crit.Add(Restrictions.Like("DescripcionUso", a.DescripcionUso));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
+                    lista = (List<Entidades.Servidor>)crit.List<Entidades.Servidor>();
                 }
             }
             catch

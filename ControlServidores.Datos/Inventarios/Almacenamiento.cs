@@ -16,14 +16,17 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Almacenamiento));
                     if (a.IdAlmacenamiento != 0 && a.IdAlmacenamiento.ToString() != "")
-                        crit.Add(Expression.Eq("IdAlmacenamiento", a.IdAlmacenamiento));
+                        crit.Add(Restrictions.Eq("IdAlmacenamiento", a.IdAlmacenamiento));
                    if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdServidor", a.IdServidor));
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
 					if (a.IdTipoMemoria != 0 && a.IdTipoMemoria.ToString() != "")
-                        crit.Add(Expression.Eq("IdTipoMemoria", a.IdTipoMemoria));
+                        crit.Add(Restrictions.Eq("IdTipoMemoria", a.IdTipoMemoria));
 					if (!string.IsNullOrEmpty(a.Capacidad))
-                        crit.Add(Expression.Like("Capacidad", a.Capacidad));
-                    lista = (List<Entidades.Almacenamiento>)crit.List();
+                        crit.Add(Restrictions.Like("Capacidad", a.Capacidad));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
+                    lista = (List<Entidades.Almacenamiento>)crit.List<Entidades.Almacenamiento>();
                 }
             }
             catch

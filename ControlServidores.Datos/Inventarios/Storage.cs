@@ -16,15 +16,17 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Storage));
                     if (a.IdStorage != 0 && a.IdStorage.ToString() != "")
-                        crit.Add(Expression.Eq("IdStorage", a.IdStorage));
+                        crit.Add(Restrictions.Eq("IdStorage", a.IdStorage));
 					if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdServidor", a.IdServidor));
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
 					if (a.IdTipoStorage != 0 && a.IdTipoStorage.ToString() != "")
-                        crit.Add(Expression.Eq("IdTipoStorage", a.IdTipoStorage));
+                        crit.Add(Restrictions.Eq("IdTipoStorage", a.IdTipoStorage));
 					if (!string.IsNullOrEmpty(a.CapacidadAsignada))
-                        crit.Add(Expression.Like("CapacidadAsignada", a.CapacidadAsignada));
-                   
-                    lista = (List<Entidades.Storage>)crit.List();
+                        crit.Add(Restrictions.Like("CapacidadAsignada", a.CapacidadAsignada));
+                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+
+                    lista = (List<Entidades.Storage>)crit.List<Entidades.Storage>();
                 }
             }
             catch

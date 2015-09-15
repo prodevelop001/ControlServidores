@@ -27,7 +27,7 @@ namespace ControlServidores.Web
         {
             Entidades.Usuarios u = new Entidades.Usuarios();
             u.Usuario = "Perro";
-            u.IdPersona = 1;
+            u.IdPersona.IdPersona = 1;
             u.Pwd = "guau";
             u.IdRol.IdRol = 4;
 

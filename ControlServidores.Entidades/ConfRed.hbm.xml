@@ -12,5 +12,6 @@
 	<property name="Gateway" column="Gateway" type="String"></property>
 	<property name="DNS" column="DNS" type="String"></property>
 	<property name="VLAN" column="VLAN" type="String"></property>
+    <property name="IdEstatus" column="IdEstatus" type="int"></property>
   </class>
 </hibernate-mapping>

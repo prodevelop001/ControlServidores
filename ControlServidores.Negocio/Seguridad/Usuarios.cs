@@ -28,6 +28,7 @@ namespace ControlServidores.Negocio.Seguridad
                 error = new Entidades.Logica.Error();
                 error.idError = 2;
                 error.descripcionCorta = "Ya existe un usuario asignado para esta persona.";
+                resultado.errores.Add(error);
             }
             userL = Datos.Seguridad.Usuarios.Obtener(new Entidades.Usuarios() { Usuario = a.Usuario});
             if (userL.Count > 0)
@@ -36,7 +37,43 @@ namespace ControlServidores.Negocio.Seguridad
                 error = new Entidades.Logica.Error();
                 error.idError = 2;
                 error.descripcionCorta = "Ya existe un usuario con el mismo alias.";
+                resultado.errores.Add(error);
             }
+
+            if(resultado.resultado == true)
+            {
+                resultado.resultado = Datos.Seguridad.Usuarios.nuevo(a);
+                if(resultado.resultado == true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Usuario almacenado correctamente.";
+                    resultado.errores.Add(error);
+                }
+                else
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Proceso no completado correctamente.";
+                    resultado.errores.Add(error);
+                }
+            }
+
+            return resultado;
+        }
+
+        public static Entidades.Logica.Ejecucion Actualizar(Entidades.Usuarios a)
+        {
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            Entidades.Logica.Error error;
+
+            return resultado;
+        }
+
+        public static Entidades.Logica.Ejecucion Eliminar (Entidades.Usuarios a)
+        {
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            Entidades.Logica.Error error;
 
             return resultado;
         }
