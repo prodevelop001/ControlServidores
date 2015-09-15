@@ -43,7 +43,9 @@
     <Compile Include="Catalogos\MarcaServidor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\MenuXrol.cs" />
+    <Compile Include="Seguridad\Personas.cs" />
     <Compile Include="Seguridad\RolUsuario.cs" />
+    <Compile Include="Seguridad\Usuarios.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ControlServidores.Datos\ControlServidores.Datos.csproj">

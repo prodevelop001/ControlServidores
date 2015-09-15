@@ -5,7 +5,7 @@
       <generator class="identity"></generator>
     </id>
     <property name="IdPersona" column="IdPersona" type="int"></property>
-    <property name="IdServidor" column="IdTipoMemoria" type="int"></property>
+    <property name="IdServidor" column="IdServidor" type="int"></property>
     <property name="IdBitacora" column="IdBitacora" type="int"></property>
   </class>
 </hibernate-mapping>

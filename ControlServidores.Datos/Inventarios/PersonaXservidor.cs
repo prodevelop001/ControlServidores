@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -24,7 +25,7 @@ namespace ControlServidores.Datos.Inventarios
 					if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
                         crit.Add(Expression.Eq("IdBitacora", a.IdBitacora));
                    
-                    lista = (List<Entidades.PersonaXservidor>)crit.List();
+                    lista = (List<Entidades.PersonaXservidor>)crit.List<Entidades.PersonaXservidor>();
                 }
             }
             catch
@@ -60,11 +61,8 @@ namespace ControlServidores.Datos.Inventarios
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
-                    {
-                        session.Update(a);
-                        transaction.Commit();                        
-                    }
+                    session.Update(a);
+                    session.Flush();
                     session.Close();
                 }
             }
@@ -81,12 +79,9 @@ namespace ControlServidores.Datos.Inventarios
 			try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
-                {
-                    using (ITransaction transaction = session.BeginTransaction())
-                    {
-                        session.Delete(a);
-                        transaction.Commit();
-                    }
+                {                   
+                    session.Delete(a);
+                    session.Flush();
                     session.Close();
                 }
             }

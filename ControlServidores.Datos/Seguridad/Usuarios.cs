@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Seguridad
 {
@@ -11,7 +12,7 @@ namespace ControlServidores.Datos.Seguridad
         /// </summary>
         /// <param name="us"></param>
         /// <returns></returns>
-        public static List<Entidades.Usuarios> obtenerUsuarios(Entidades.Usuarios us)
+        public static List<Entidades.Usuarios> Obtener(Entidades.Usuarios us)
         {
             List<Entidades.Usuarios> lista = new List<Entidades.Usuarios>();
             try
@@ -19,22 +20,28 @@ namespace ControlServidores.Datos.Seguridad
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Usuarios));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Usuarios), "us");
                     if (us.IdUsuario != 0 && us.IdUsuario.ToString() != "")
-                        crit.Add(Expression.Eq("IdUsuario", us.IdUsuario));
+                        crit.Add(Restrictions.Eq("IdUsuario", us.IdUsuario));
                     if (us.IdPersona != 0 && us.IdPersona.ToString() != "")
-                        crit.Add(Expression.Eq("IdPersona", us.IdPersona));
+                    {
+                        crit.Add(Restrictions.Eq("IdPersona", us.IdPersona));
+                    }
                     if (!string.IsNullOrEmpty(us.Usuario))
-                        crit.Add(Expression.Eq("Usuario", us.Usuario));
+                        crit.Add(Restrictions.Like("Usuario", us.Usuario));
                     if (!string.IsNullOrEmpty(us.Pwd))
-                        crit.Add(Expression.Eq("Pwd", us.Pwd));
-                    if (us.IdRol.IdRol != 0 && us.IdRol.ToString() != "")
-                        crit.Add(Expression.Eq("IdRol", us.IdRol.IdRol));
+                        crit.Add(Restrictions.Eq("Pwd", us.Pwd));
+                    if (us.IdRol.IdRol != 0 && us.IdRol.IdRol.ToString() != "")
+                    {
+                        crit.CreateAlias("us.IdRol", "IdRol", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        //crit.Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol));
+                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("IdRol.IdRol", us.IdRol.IdRol)));
+                    }
 
-                    lista = (List<Entidades.Usuarios>)crit.List();
+                    lista = (List<Entidades.Usuarios>)crit.List<Entidades.Usuarios>();
                 }
             }
-            catch
+            catch (Exception err)
             {
                 return lista;
             }
@@ -47,7 +54,7 @@ namespace ControlServidores.Datos.Seguridad
         /// </summary>
         /// <param name="us"></param>
         /// <returns></returns>
-        public bool nuevo(Entidades.Usuarios us)
+        public static bool nuevo(Entidades.Usuarios us)
         {
             try
             {
@@ -71,17 +78,14 @@ namespace ControlServidores.Datos.Seguridad
         /// </summary>
         /// <param name="us"></param>
         /// <returns></returns>
-        public bool actualizar(Entidades.Usuarios us)
+        public static bool actualizar(Entidades.Usuarios us)
         {
             try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
-                    {
-                        session.Update(us);
-                        transaction.Commit();
-                    }
+                    session.Update(us);
+                    session.Flush();
                     session.Close();
                 }
             }
@@ -98,17 +102,14 @@ namespace ControlServidores.Datos.Seguridad
         /// </summary>
         /// <param name="us"></param>
         /// <returns></returns>
-        public bool eliminar(Entidades.Usuarios us)
+        public static bool eliminar(Entidades.Usuarios us)
         {
             try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
-                    {
-                        session.Delete(us);
-                        transaction.Commit();
-                    }
+                    session.Delete(us);
+                    session.Flush();
                     session.Close();
                 }
             }

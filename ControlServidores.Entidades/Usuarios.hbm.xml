@@ -4,7 +4,6 @@
     <id name="IdUsuario" column="IdUsuario" type="int">
       <generator class="identity"></generator>
     </id>
-    <property name="IdUsuario" column="IdUsuario" type="int"></property>
     <property name="IdPersona" column="IdPersona" type="int"></property>
     <property name="Usuario" column="Usuario" type="String"></property>
     <property name="Pwd" column="Pwd" type="String"></property>

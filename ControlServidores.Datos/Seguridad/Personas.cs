@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Seguridad
 {
@@ -18,18 +19,18 @@ namespace ControlServidores.Datos.Seguridad
                     if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
                         crit.Add(Expression.Eq("IdPersona", a.IdPersona));
                    if (!string.IsNullOrEmpty(a.Nombre))
-                        crit.Add(Expression.Eq("Nombre", a.Nombre));
+                        crit.Add(Expression.Like("Nombre", a.Nombre));
 					if (!string.IsNullOrEmpty(a.Puesto))
                         crit.Add(Expression.Eq("Puesto", a.Puesto));
 					if (!string.IsNullOrEmpty(a.Extension))
                         crit.Add(Expression.Eq("Extension", a.Extension));
 					if (!string.IsNullOrEmpty(a.Correo))
-                        crit.Add(Expression.Eq("Correo", a.Correo));
+                        crit.Add(Expression.Like("Correo", a.Correo));
 					
-                    lista = (List<Entidades.Personas>)crit.List();
+                    lista = (List<Entidades.Personas>)crit.List<Entidades.Personas>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }
@@ -62,11 +63,8 @@ namespace ControlServidores.Datos.Seguridad
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
-                    {
-                        session.Update(a);
-                        transaction.Commit();                        
-                    }
+                    session.Update(a);
+                    session.Flush();
                     session.Close();
                 }
             }
@@ -84,15 +82,12 @@ namespace ControlServidores.Datos.Seguridad
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
-                    using (ITransaction transaction = session.BeginTransaction())
-                    {
-                        session.Delete(a);
-                        transaction.Commit();
-                    }
+                    session.Delete(a);
+                    session.Flush();
                     session.Close();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return false;
             }

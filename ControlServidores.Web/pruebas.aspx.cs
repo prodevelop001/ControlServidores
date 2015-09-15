@@ -19,34 +19,19 @@ namespace ControlServidores.Web
 
         private void llenarGrid()
         {
-            gdvPrueba.DataSource = Negocio.Seguridad.MenuXrol.Obtener(new Entidades.MenuXrol() { IdRol= new Entidades.RolUsuario() { IdRol= 7}});
+            gdvPrueba.DataSource = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios());
             gdvPrueba.DataBind();
         }
 
         protected void btnPrueba_Click(object sender, EventArgs e)
         {
-            Entidades.RolUsuario rol = new Entidades.RolUsuario();
-            rol.IdRol = 7;
-            rol.NombreRol = "Nuevo Rol";
+            Entidades.Usuarios u = new Entidades.Usuarios();
+            u.Usuario = "Perro";
+            u.IdPersona = 1;
+            u.Pwd = "guau";
+            u.IdRol.IdRol = 4;
 
-            //List<Entidades.MenuXrol> mrL = new List<Entidades.MenuXrol>();
-            //Entidades.MenuXrol mr = new Entidades.MenuXrol();
-
-            //mr.IdMenu.IdMenu = 1;
-            //mr.IdRol.IdRol = 7;
-            //mrL.Add(mr);
-
-            //mr = new Entidades.MenuXrol();
-            //mr.IdMenu.IdMenu = 2;
-            //mr.IdRol.IdRol = 7;
-            //mrL.Add(mr);
-
-            //mr = new Entidades.MenuXrol();
-            //mr.IdMenu.IdMenu = 3;
-            //mr.IdRol.IdRol = 4;
-            //mrL.Add(mr);
-
-            Negocio.Seguridad.RolUsuario.Borrar(rol);
+            Negocio.Seguridad.Usuarios.Nuevo(u);
         }
     }
 }

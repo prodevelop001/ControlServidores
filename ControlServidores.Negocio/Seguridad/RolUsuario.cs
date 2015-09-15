@@ -154,7 +154,7 @@ namespace ControlServidores.Negocio.Seguridad
             List<Entidades.Usuarios> usuariosL = new List<Entidades.Usuarios>();
             Entidades.Usuarios us = new Entidades.Usuarios();
             us.IdRol.IdRol = a.IdRol;
-            usuariosL = Datos.Seguridad.Usuarios.obtenerUsuarios(us);
+            usuariosL = Datos.Seguridad.Usuarios.Obtener(us);
             if (usuariosL.Count == 0)
             {
                 List<Entidades.MenuXrol> _mrL = new List<Entidades.MenuXrol>();
