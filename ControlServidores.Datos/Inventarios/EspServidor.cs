@@ -16,19 +16,19 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.EspServidor));
                     if (a.IdEspecificacion != 0 && a.IdEspecificacion.ToString() != "")
-                        crit.Add(Expression.Eq("IdEspecificacion", a.IdEspecificacion));
+                        crit.Add(Restrictions.Eq("IdEspecificacion", a.IdEspecificacion));
 					if (a.IdProcesador != 0 && a.IdProcesador.ToString() != "")
-                        crit.Add(Expression.Eq("IdProcesador", a.IdProcesador));
+                        crit.Add(Restrictions.Eq("IdProcesador", a.IdProcesador));
                    if (a.NumProcesadores != 0 && a.NumProcesadores.ToString() != "")
-                        crit.Add(Expression.Eq("NumProcesadores", a.NumProcesadores));
+                        crit.Add(Restrictions.Eq("NumProcesadores", a.NumProcesadores));
 					if (!string.IsNullOrEmpty(a.CapacidadRAM))
-                        crit.Add(Expression.Like("CapacidadRam", a.CapacidadRAM));
+                        crit.Add(Restrictions.Like("CapacidadRam", a.CapacidadRAM));
 					if (a.IdTipoArreglo != 0 && a.IdTipoArreglo.ToString() != "") 
-                        crit.Add(Expression.Eq("IdTipoArreglo", a.IdTipoArreglo));
+                        crit.Add(Restrictions.Eq("IdTipoArreglo", a.IdTipoArreglo));
 					if (!string.IsNullOrEmpty(a.NumSerie))
-                        crit.Add(Expression.Eq("NumSerie", a.NumSerie));
+                        crit.Add(Restrictions.Like("NumSerie", a.NumSerie));
 					
-                    lista = (List<Entidades.EspServidor>)crit.List();
+                    lista = (List<Entidades.EspServidor>)crit.List<Entidades.EspServidor>();
                 }
             }
             catch

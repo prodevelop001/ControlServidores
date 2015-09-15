@@ -17,13 +17,13 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.PersonaXservidor));
                     if (a.IdPersonaServidor != 0 && a.IdPersonaServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdPersonaServidor", a.IdPersonaServidor));
+                        crit.Add(Restrictions.Eq("IdPersonaServidor", a.IdPersonaServidor));
 					if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
-                        crit.Add(Expression.Eq("IdPersona", a.IdPersona));
+                        crit.Add(Restrictions.Eq("IdPersona", a.IdPersona));
 					if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdServidor", a.IdServidor));
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
 					if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
-                        crit.Add(Expression.Eq("IdBitacora", a.IdBitacora));
+                        crit.Add(Restrictions.Eq("IdBitacora", a.IdBitacora));
                    
                     lista = (List<Entidades.PersonaXservidor>)crit.List<Entidades.PersonaXservidor>();
                 }

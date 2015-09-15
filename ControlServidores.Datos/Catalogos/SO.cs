@@ -16,11 +16,11 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.SO));
                     if (a.IdSO != 0 && a.IdSO.ToString() != "")
-                        crit.Add(Expression.Eq("IdSO", a.IdSO));
+                        crit.Add(Restrictions.Eq("IdSO", a.IdSO));
                    if (!string.IsNullOrEmpty(a.NombreSO))
-                        crit.Add(Expression.Like("NombreSO", a.NombreSO));
+                        crit.Add(Restrictions.Like("NombreSO", a.NombreSO));
 					
-                    lista = (List<Entidades.SO>)crit.List();
+                    lista = (List<Entidades.SO>)crit.List<Entidades.SO>();
                 }
             }
             catch

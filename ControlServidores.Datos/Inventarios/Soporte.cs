@@ -16,13 +16,13 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Soporte));
                     if (a.IdSoporte != 0 && a.IdSoporte.ToString() != "")
-                        crit.Add(Expression.Eq("IdSoporte", a.IdSoporte));
+                        crit.Add(Restrictions.Eq("IdSoporte", a.IdSoporte));
 					if (a.IdEmpresa != 0 && a.IdEmpresa.ToString() != "")
-                        crit.Add(Expression.Eq("IdEmpresa", a.IdEmpresa));
+                        crit.Add(Restrictions.Eq("IdEmpresa", a.IdEmpresa));
 					if (a.IdMarca != 0 && a.IdMarca.ToString() != "")
-                        crit.Add(Expression.Eq("IdMarca", a.IdMarca));
+                        crit.Add(Restrictions.Eq("IdMarca", a.IdMarca));
                    				
-                    lista = (List<Entidades.Soporte>)crit.List();
+                    lista = (List<Entidades.Soporte>)crit.List<Entidades.Soporte>();
                 }
             }
             catch

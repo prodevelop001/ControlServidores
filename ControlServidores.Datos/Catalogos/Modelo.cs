@@ -16,13 +16,13 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Modelo));
                     if (a.IdModelo != 0 && a.IdModelo.ToString() != "")
-                        crit.Add(Expression.Eq("IdModelo", a.IdModelo));
+                        crit.Add(Restrictions.Eq("IdModelo", a.IdModelo));
 				    if (a.IdMarca != 0 && a.IdMarca.ToString() != "")
-						crit.Add(Expression.Eq("IdMarca", a.IdMarca));
+						crit.Add(Restrictions.Eq("IdMarca", a.IdMarca));
 					if (!string.IsNullOrEmpty(a.NombreModelo))
-                        crit.Add(Expression.Like("NombreModelo", a.NombreModelo));
+                        crit.Add(Restrictions.Like("NombreModelo", a.NombreModelo));
 					
-                    lista = (List<Entidades.Modelo>)crit.List();
+                    lista = (List<Entidades.Modelo>)crit.List<Entidades.Modelo>();
                 }
             }
             catch

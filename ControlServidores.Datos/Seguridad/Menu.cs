@@ -20,16 +20,17 @@ namespace ControlServidores.Datos.Seguridad
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Menu));
                     if (mn.IdMenu != 0 && mn.IdMenu.ToString() != "")
-                        crit.Add(Expression.Eq("IdMenu", mn.IdMenu));
+                        crit.Add(Restrictions.Eq("IdMenu", mn.IdMenu));
                     if (!string.IsNullOrEmpty(mn.Nombre))
-                        crit.Add(Expression.Eq("Nombre", mn.Nombre));
+                        crit.Add(Restrictions.Eq("Nombre", mn.Nombre));
                     if (!string.IsNullOrEmpty(mn.Url))
-                        crit.Add(Expression.Eq("Url", mn.Url));
+                        crit.Add(Restrictions.Eq("Url", mn.Url));
                     if (mn.Nodo != 0 && mn.Nodo.ToString() != "")
-                        crit.Add(Expression.Eq("NODO", mn.Nodo));
+                        crit.Add(Restrictions.Eq("NODO", mn.Nodo));
                     if (mn.Orden != 0 && mn.Orden.ToString() != "")
-                        crit.Add(Expression.Eq("Orden", mn.Orden));
-                    crit.Add(Expression.Eq("Sesion", mn.Sesion));
+                        crit.Add(Restrictions.Eq("Orden", mn.Orden));
+
+                    crit.Add(Restrictions.Eq("Sesion", mn.Sesion));
 
                     lista = (List<Entidades.Menu>)crit.List();
                 }

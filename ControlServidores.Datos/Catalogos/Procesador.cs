@@ -16,19 +16,19 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Procesador));
                     if (a.IdProcesador != 0 && a.IdProcesador.ToString() != "")
-                        crit.Add(Expression.Eq("IdProcesador", a.IdProcesador));
+                        crit.Add(Restrictions.Eq("IdProcesador", a.IdProcesador));
                    if (!string.IsNullOrEmpty(a.Nombre))
-                        crit.Add(Expression.Like("Nombre", a.Nombre));
+                        crit.Add(Restrictions.Like("Nombre", a.Nombre));
 					if (a.NumCores != 0 && a.NumCores.ToString() != "")
-                        crit.Add(Expression.Eq("NumCores", a.NumCores));
+                        crit.Add(Restrictions.Eq("NumCores", a.NumCores));
 					if (!string.IsNullOrEmpty(a.Velocidad))
-                        crit.Add(Expression.Like("Velocidad", a.Velocidad));
+                        crit.Add(Restrictions.Like("Velocidad", a.Velocidad));
 					if (!string.IsNullOrEmpty(a.Cache))
-                        crit.Add(Expression.Like("Cache", a.Cache));
+                        crit.Add(Restrictions.Like("Cache", a.Cache));
 					if (!string.IsNullOrEmpty(a.TamanoPalabra))
-                        crit.Add(Expression.Like("TamanoPalabra", a.TamanoPalabra));
+                        crit.Add(Restrictions.Like("TamanoPalabra", a.TamanoPalabra));
 					
-                    lista = (List<Entidades.Procesador>)crit.List();
+                    lista = (List<Entidades.Procesador>)crit.List<Entidades.Procesador>();
                 }
             }
             catch

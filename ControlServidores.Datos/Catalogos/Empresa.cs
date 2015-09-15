@@ -16,15 +16,15 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Empresa));
                     if (a.IdEmpresa != 0 && a.IdEmpresa.ToString() != "")
-                        crit.Add(Expression.Eq("IdEmpresa", a.IdEmpresa));
+                        crit.Add(Restrictions.Eq("IdEmpresa", a.IdEmpresa));
                    if (!string.IsNullOrEmpty(a.Nombre))
-                        crit.Add(Expression.Like("Nombre", a.Nombre));
+                        crit.Add(Restrictions.Like("Nombre", a.Nombre));
 					if (!string.IsNullOrEmpty(a.Telefono))
-                        crit.Add(Expression.Like("Telefono", a.Telefono));
+                        crit.Add(Restrictions.Like("Telefono", a.Telefono));
 					if (!string.IsNullOrEmpty(a.Direccion))
-                        crit.Add(Expression.Like("Direccion", a.Direccion));
+                        crit.Add(Restrictions.Like("Direccion", a.Direccion));
 					
-                    lista = (List<Entidades.Empresa>)crit.List();
+                    lista = (List<Entidades.Empresa>)crit.List<Entidades.Empresa>();
                 }
             }
             catch

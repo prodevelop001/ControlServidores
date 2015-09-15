@@ -16,12 +16,12 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.TipoMemoria));
                     if (a.IdTipoMemoria != 0 && a.IdTipoMemoria.ToString() != "")
-                        crit.Add(Expression.Eq("IdTipoMemoria", a.IdTipoMemoria));
+                        crit.Add(Restrictions.Eq("IdTipoMemoria", a.IdTipoMemoria));
                    
 					if (!string.IsNullOrEmpty(a.Tipo))
-                        crit.Add(Expression.Like("Tipo", a.Tipo));
+                        crit.Add(Restrictions.Like("Tipo", a.Tipo));
 					
-                    lista = (List<Entidades.TipoMemoria>)crit.List();
+                    lista = (List<Entidades.TipoMemoria>)crit.List<Entidades.TipoMemoria>();
                 }
             }
             catch

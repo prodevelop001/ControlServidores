@@ -7,7 +7,7 @@ namespace ControlServidores.Datos.Catalogos
 {
     public class MarcaServidor
     {
-        public static List<Entidades.MarcaServidor> obtenerMarcaServidor(Entidades.MarcaServidor ms)
+        public static List<Entidades.MarcaServidor> ObtenerMarcaServidor(Entidades.MarcaServidor ms)
         {
             List<Entidades.MarcaServidor> lista = new List<Entidades.MarcaServidor>();
             try
@@ -17,9 +17,9 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.MarcaServidor));
                     if (ms.IdMarca != 0 && ms.IdMarca.ToString() != "")
-                        crit.Add(Expression.Eq("IdMarcas", ms.IdMarca));
+                        crit.Add(Restrictions.Eq("IdMarcas", ms.IdMarca));
                     if (!string.IsNullOrEmpty(ms.NombreMarca))
-                        crit.Add(Expression.Eq("Nombrerca", ms.NombreMarca));
+                        crit.Add(Restrictions.Like("Nombrerca", ms.NombreMarca));
 
                     lista = (List<Entidades.MarcaServidor>)crit.List<Entidades.MarcaServidor>();
                 }
@@ -31,6 +31,63 @@ namespace ControlServidores.Datos.Catalogos
 
             return lista;
 
+        }
+
+        public static bool Nuevo(Entidades.MarcaServidor a)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    session.Save(a);
+                    session.Flush();
+                    session.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool Actualizar(Entidades.MarcaServidor a)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    session.Update(a);
+                    session.Flush();
+                    session.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool Eliminar(Entidades.MarcaServidor a)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    session.Delete(a);
+                    session.Flush();
+                    session.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

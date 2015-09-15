@@ -16,11 +16,11 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.TipoStorage));
                     if (a.IdTipoStorage != 0 && a.IdTipoStorage.ToString() != "")
-                        crit.Add(Expression.Eq("IdTipoStorage", a.IdTipoStorage));
+                        crit.Add(Restrictions.Eq("IdTipoStorage", a.IdTipoStorage));
 					if (!string.IsNullOrEmpty(a.Tipo))
-                        crit.Add(Expression.Like("Tipo", a.Tipo));
+                        crit.Add(Restrictions.Like("Tipo", a.Tipo));
 			
-                    lista = (List<Entidades.TipoStorage>)crit.List();
+                    lista = (List<Entidades.TipoStorage>)crit.List<Entidades.TipoStorage>();
                 }
             }
             catch

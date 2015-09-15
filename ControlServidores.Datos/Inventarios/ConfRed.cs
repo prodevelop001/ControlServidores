@@ -36,7 +36,7 @@ namespace ControlServidores.Datos.Inventarios
                     if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
 
-                    lista = (List<Entidades.ConfRed>)crit.List();
+                    lista = (List<Entidades.ConfRed>)crit.List<Entidades.ConfRed>();
                 }
             }
             catch

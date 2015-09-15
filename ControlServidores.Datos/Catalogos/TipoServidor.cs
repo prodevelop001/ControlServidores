@@ -16,13 +16,13 @@ namespace ControlServidores.Datos.Catalogos
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.TipoServidor));
                     if (a.IdTipoServidor != 0 && a.IdTipoServidor.ToString() != "")
-                        crit.Add(Expression.Eq("IdTipoServidor", a.IdTipoServidor));
+                        crit.Add(Restrictions.Eq("IdTipoServidor", a.IdTipoServidor));
                    if (!string.IsNullOrEmpty(a.Tipo))
-                        crit.Add(Expression.Like("Tipo", a.Tipo));
+                        crit.Add(Restrictions.Like("Tipo", a.Tipo));
 					if (!string.IsNullOrEmpty(a.Descripcion))
-                        crit.Add(Expression.Like("Descripcion", a.Descripcion));
+                        crit.Add(Restrictions.Like("Descripcion", a.Descripcion));
 					
-                    lista = (List<Entidades.TipoServidor>)crit.List();
+                    lista = (List<Entidades.TipoServidor>)crit.List<Entidades.TipoServidor>();
                 }
             }
             catch
