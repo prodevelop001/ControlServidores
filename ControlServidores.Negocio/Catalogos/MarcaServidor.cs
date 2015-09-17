@@ -24,7 +24,7 @@ namespace ControlServidores.Negocio.Catalogos
 
             List<Entidades.MarcaServidor> marcaL = new List<Entidades.MarcaServidor>();
             marcaL = Datos.Catalogos.MarcaServidor.ObtenerMarcaServidor(new Entidades.MarcaServidor() { NombreMarca = a.NombreMarca });
-            if(resultado.resultado == true)
+            if(marcaL.Count > 0)
             {
                 resultado.resultado = false;
                 error = new Entidades.Logica.Error();
@@ -68,7 +68,7 @@ namespace ControlServidores.Negocio.Catalogos
                                where l.IdMarca != a.IdMarca
                                select l;
             marcaL = validarDatos.ToList();
-            if (resultado.resultado == true)
+            if (marcaL.Count > 0)
             {
                 resultado.resultado = false;
                 error = new Entidades.Logica.Error();
@@ -105,7 +105,49 @@ namespace ControlServidores.Negocio.Catalogos
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
 
+            resultado.resultado = true;
+
             //consultar idMarcaservidor en Soporte y Modelos.
+            List<Entidades.Modelo> modeloL = new List<Entidades.Modelo>();
+            modeloL = Datos.Catalogos.Modelo.Obtener(new Entidades.Modelo() { IdMarca = a.IdMarca });
+            if(modeloL.Count > 0)
+            {
+                resultado.resultado = false;
+                error = new Entidades.Logica.Error();
+                error.idError = 3;
+                error.descripcionCorta = "Hay modelos ligados a esta marca, no se puede realizar esta acción.";
+                resultado.errores.Add(error);
+            }
+
+            List<Entidades.Soporte> soporteL = new List<Entidades.Soporte>();
+            soporteL = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdMarca = a.IdMarca });
+            if(soporteL.Count > 0)
+            {
+                resultado.resultado = false;
+                error = new Entidades.Logica.Error();
+                error.idError = 4;
+                error.descripcionCorta = "Hay un soporte ligado a esta marca, no se puede realizar esta acción.";
+                resultado.errores.Add(error);
+            }
+
+            if(resultado.resultado == true)
+            {
+                resultado.resultado = Datos.Catalogos.MarcaServidor.Eliminar(a);
+                if(resultado.resultado==true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Marca eliminada.";
+                    resultado.errores.Add(error);
+                }
+                else
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 2;
+                    error.descripcionCorta = "Error en la operacion, el proceso no pudo continuar.";
+                    resultado.errores.Add(error);
+                }
+            }
 
             return resultado;
         }

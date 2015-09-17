@@ -19,19 +19,18 @@ namespace ControlServidores.Web
 
         private void llenarGrid()
         {
-            gdvPrueba.DataSource = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios());
+            gdvPrueba.DataSource = Negocio.Catalogos.ConceptoEstatus.Obtener(new Entidades.ConceptoEstatus());
             gdvPrueba.DataBind();
         }
 
         protected void btnPrueba_Click(object sender, EventArgs e)
         {
-            Entidades.Usuarios u = new Entidades.Usuarios();
-            u.Usuario = "Perro";
-            u.IdPersona.IdPersona = 1;
-            u.Pwd = "guau";
-            u.IdRol.IdRol = 4;
+            Negocio.Catalogos.ConceptoEstatus.Eliminar(new Entidades.ConceptoEstatus()
+            {   IdConceptoEstatus = 8,
+                Concepto = "Nuevo concepto"
+            });
 
-            Negocio.Seguridad.Usuarios.Nuevo(u);
+            llenarGrid();
         }
     }
 }

@@ -19,12 +19,12 @@ namespace ControlServidores.Datos.Catalogos
                     if (ms.IdMarca != 0 && ms.IdMarca.ToString() != "")
                         crit.Add(Restrictions.Eq("IdMarcas", ms.IdMarca));
                     if (!string.IsNullOrEmpty(ms.NombreMarca))
-                        crit.Add(Restrictions.Like("Nombrerca", ms.NombreMarca));
+                        crit.Add(Restrictions.Like("NombreMarca", ms.NombreMarca));
 
                     lista = (List<Entidades.MarcaServidor>)crit.List<Entidades.MarcaServidor>();
                 }
             }
-            catch(Exception err)
+            catch
             {
                 return lista;
             }

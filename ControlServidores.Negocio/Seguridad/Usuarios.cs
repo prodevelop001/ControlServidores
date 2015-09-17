@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControlServidores.Negocio.Seguridad
 {
     public class Usuarios
     {
+        /// <summary>
+        /// Obtiene a los usuarios que estan registrados.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns>List<Entidades.Usuarios></returns>
         public static List<Entidades.Usuarios> Obtener(Entidades.Usuarios a)
         {
             return Datos.Seguridad.Usuarios.Obtener(a);
         }
 
+        /// <summary>
+        /// Nuevo usuario para el sistema.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns>Entidades.Logica.Ejecucion</returns>
         public static Entidades.Logica.Ejecucion Nuevo(Entidades.Usuarios a)
         {
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
@@ -62,6 +69,11 @@ namespace ControlServidores.Negocio.Seguridad
             return resultado;
         }
 
+        /// <summary>
+        /// Actualiza a un usuario.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static Entidades.Logica.Ejecucion Actualizar(Entidades.Usuarios a)
         {
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
@@ -119,6 +131,11 @@ namespace ControlServidores.Negocio.Seguridad
             return resultado;
         }
 
+        /// <summary>
+        /// Elimina un usuario del sistema.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns>Entidades.Logica.Ejecucion</returns>
         public static Entidades.Logica.Ejecucion Eliminar(Entidades.Usuarios a)
         {
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();

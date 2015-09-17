@@ -43,7 +43,7 @@ namespace ControlServidores.Datos.Seguridad
                     lista = (List<Entidades.Usuarios>)crit.List<Entidades.Usuarios>();
                 }
             }
-            catch (Exception err)
+            catch
             {
                 return lista;
             }
@@ -121,6 +121,6 @@ namespace ControlServidores.Datos.Seguridad
             }
 
             return true;
-        }
+        }        
     }
 }
