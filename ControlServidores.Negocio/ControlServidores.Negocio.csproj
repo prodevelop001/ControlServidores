@@ -52,6 +52,14 @@
     <Compile Include="Catalogos\TipoMemoria.cs" />
     <Compile Include="Catalogos\TipoServidor.cs" />
     <Compile Include="Catalogos\TipoStorage.cs" />
+    <Compile Include="Inventarios\Almacenamiento.cs" />
+    <Compile Include="Inventarios\ConfRed.cs" />
+    <Compile Include="Inventarios\EspServidor.cs" />
+    <Compile Include="Inventarios\PersonaXservidor.cs" />
+    <Compile Include="Inventarios\Servidor.cs" />
+    <Compile Include="Inventarios\Soporte.cs" />
+    <Compile Include="Inventarios\SOxServidor.cs" />
+    <Compile Include="Inventarios\Storage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\MenuXrol.cs" />
     <Compile Include="Seguridad\Personas.cs" />
