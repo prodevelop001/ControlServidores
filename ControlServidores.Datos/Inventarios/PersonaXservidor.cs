@@ -92,6 +92,28 @@ namespace ControlServidores.Datos.Inventarios
 
             return true;
 		}
-		
-	}
+
+        public static bool Eliminar(List<Entidades.PersonaXservidor> a)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    a.ForEach(delegate (Entidades.PersonaXservidor b)
+                    {
+                        session.Delete(b);
+                        session.Flush();
+                    });
+                    session.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+    }
 }

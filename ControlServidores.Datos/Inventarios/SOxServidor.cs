@@ -97,6 +97,28 @@ namespace ControlServidores.Datos.Inventarios
 
             return true;
 		}
-		
-	}
+
+        public static bool Eliminar(List<Entidades.SOxServidor> a)
+        {
+            try
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    a.ForEach(delegate (Entidades.SOxServidor b)
+                    {
+                        session.Delete(b);
+                        session.Flush();
+                    });
+                    session.Close();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+    }
 }

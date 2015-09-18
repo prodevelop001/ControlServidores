@@ -6,9 +6,9 @@ namespace ControlServidores.Entidades
 	{
 		public virtual int IdBitacora { get; set; }
 		
-		public virtual DateTime FechaCaptura { get; set; }
+		public virtual DateTime? FechaCaptura { get; set; }
 		
-		public virtual DateTime FechaMantenimiento { get; set; }
+		public virtual DateTime? FechaMantenimiento { get; set; }
 		
 		public virtual string DescripcionMantenimiento { get; set; }
 		
