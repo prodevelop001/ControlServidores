@@ -66,9 +66,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="packages.config" />
     <Content Include="Site.Master" />
+    <Content Include="Styles\general.css" />
+    <Content Include="Styles\iconos.css" />
+    <Content Include="Styles\login.css" />
     <Content Include="web.aspx" />
+    <Content Include="fonts\ctrl_srvs.eot" />
+    <Content Include="fonts\ctrl_srvs.ttf" />
+    <Content Include="fonts\ctrl_srvs.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

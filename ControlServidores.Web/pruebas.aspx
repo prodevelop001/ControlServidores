@@ -6,6 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link rel="stylesheet" href="./Styles/Site.css">
 </head>
 
 <body>
@@ -14,7 +15,9 @@
             <asp:GridView ID="gdvPrueba" runat="server"></asp:GridView>
             <asp:Button ID="btnPrueba" runat="server" Text="Prueba" OnClick="btnPrueba_Click" />
         </div>
-        
+        <div id="btnSubmit">
+            <asp:LinkButton ID="submitText" runat="server">Iniciar Sesión</asp:LinkButton>
+		</div>
     </form>
 </body>
 </html>
