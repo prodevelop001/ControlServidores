@@ -25,8 +25,10 @@
 		<input type="password" name="usrPass" id="usrPass" placeholder="Contraseña" maxlength="23">
 		<div class="limpiar"></div>
 		<div id="btnSubmit">
-			<div id="submitText">Iniciar Sesión</div>
-			<span id="submitIcon" class="icon-enter"></span>
+            <asp:LinkButton ID="lnkBtnSubmit" runat="server">
+			    <div id="submitText">Iniciar Sesión</div>
+			    <span id="submitIcon" class="icon-enter"></span>
+            </asp:LinkButton>
 		</div>
 	</div>
     </form>

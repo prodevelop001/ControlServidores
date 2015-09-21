@@ -98,6 +98,11 @@
 		
 	}
 
+    #lnkBtnSubmit{
+        text-decoration: none;
+        color: white;
+    }
+
 	#btnSubmit #submitText{
 		width: 80%;
 		text-align: right;

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlServidores.Web", "ControlServidores.Web\ControlServidores.Web.csproj", "{77CEBB96-B9E4-4AEF-85FD-31E229626245}"
+	ProjectSection(ProjectDependencies) = postProject
+		{36ED390F-845F-421E-BD48-9B44EDE6F1E5} = {36ED390F-845F-421E-BD48-9B44EDE6F1E5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlServidores.Negocio", "ControlServidores.Negocio\ControlServidores.Negocio.csproj", "{D552185D-909D-4ADC-A8EA-8818B72BE602}"
 EndProject
