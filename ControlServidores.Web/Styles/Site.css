@@ -356,3 +356,9 @@ div.accountInfo
 		display: block;
 		float: left;
 	}
+
+
+    /*****************************/
+    .hide{
+        display:none;
+    }

@@ -35,7 +35,7 @@ namespace ControlServidores.Negocio.Catalogos
                 resultado.resultado = false;
                 error = new Entidades.Logica.Error();
                 error.idError = 3;
-                error.descripcionCorta = "Ya exixte un cocepto con el mismo nombre.";
+                error.descripcionCorta = "Ya existe un concepto con el mismo nombre.";
                 resultado.errores.Add(error);
             }
 
@@ -129,7 +129,7 @@ namespace ControlServidores.Negocio.Catalogos
                 resultado.resultado = false;
                 error = new Entidades.Logica.Error();
                 error.idError = 3;
-                error.descripcionCorta = "Existe un estatus con este concpeto, no se puede eliminar.";
+                error.descripcionCorta = "Existe un estatus con este concepto, no se puede eliminar.";
                 resultado.errores.Add(error);
             }
 
@@ -140,7 +140,7 @@ namespace ControlServidores.Negocio.Catalogos
                 {
                     error = new Entidades.Logica.Error();
                     error.idError = 1;
-                    error.descripcionCorta = "Estatus eliminado.";
+                    error.descripcionCorta = "Concepto eliminado.";
                     resultado.errores.Add(error);
                 }
                 else

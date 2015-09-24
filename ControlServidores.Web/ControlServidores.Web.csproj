@@ -66,8 +66,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Catalogos\ConceptoEstatus.aspx" />
+    <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\Scripts.js" />
     <Content Include="Site.Master" />
     <Content Include="Styles\general.css" />
     <Content Include="Styles\iconos.css" />
@@ -90,6 +93,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\ConceptoEstatus.aspx.cs">
+      <DependentUpon>ConceptoEstatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\ConceptoEstatus.aspx.designer.cs">
+      <DependentUpon>ConceptoEstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorAcceso.aspx.cs">
+      <DependentUpon>errorAcceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorAcceso.aspx.designer.cs">
+      <DependentUpon>errorAcceso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,7 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
