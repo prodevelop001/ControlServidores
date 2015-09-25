@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -49,6 +46,7 @@ namespace ControlServidores.Web.Catalogos
         {
             hdfEstado.Value = "0";
             btnNuevo.Visible = true;
+            btnNuevo.Text = "Nuevo";
             pnlCatalogo.Visible = true;
             pnlFormulario.Visible = false;
         }
@@ -95,7 +93,8 @@ namespace ControlServidores.Web.Catalogos
             {
                 lblStatus.ForeColor = System.Drawing.Color.Green;
                 hdfEstado.Value = "0";
-                //btnNuevo.Visible = true;
+                btnNuevo.Visible = true;
+                btnNuevo.Text = "Nuevo";
                 pnlCatalogo.Visible = true;
                 pnlFormulario.Visible = false;
                 llenarGdvConceptos();

@@ -71,6 +71,7 @@
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="packages.config" />
     <Content Include="Scripts\Scripts.js" />
+    <Content Include="Seguridad\Roles.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Styles\general.css" />
     <Content Include="Styles\iconos.css" />
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="pruebas.aspx.designer.cs">
       <DependentUpon>pruebas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

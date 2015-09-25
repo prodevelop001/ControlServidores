@@ -8,7 +8,7 @@
     <property name="Url" column="Url" type="String"></property>
     <property name="Nodo" column="Nodo" type="int"></property>
     <property name="Orden" column="Orden" type="int"></property>
-    <property name="Sesion" column="Sesion" type="boolean"></property>
+    <property name="Sesion" column="Sesion" type="int"></property>
     <set name="MenuXrol" inverse="true" cascade="save-update">
       <key column= "IdMenu" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.MenuXrol" />

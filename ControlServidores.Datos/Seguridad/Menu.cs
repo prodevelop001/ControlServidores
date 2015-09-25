@@ -1,10 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Criterion;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ControlServidores.Datos.Seguridad
 {
@@ -25,14 +21,14 @@ namespace ControlServidores.Datos.Seguridad
                         crit.Add(Restrictions.Eq("Nombre", mn.Nombre));
                     if (!string.IsNullOrEmpty(mn.Url))
                         crit.Add(Restrictions.Eq("Url", mn.Url));
-                    if (mn.Nodo != 0 && mn.Nodo.ToString() != "")
-                        crit.Add(Restrictions.Eq("NODO", mn.Nodo));
+                    //if (mn.Nodo != 0 && mn.Nodo.ToString() != "")
+                    crit.Add(Restrictions.Eq("Nodo", mn.Nodo));
                     if (mn.Orden != 0 && mn.Orden.ToString() != "")
                         crit.Add(Restrictions.Eq("Orden", mn.Orden));
-
+                    //if (mn.Sesion != 0 && mn.Sesion.ToString() != "")
                     crit.Add(Restrictions.Eq("Sesion", mn.Sesion));
 
-                    lista = (List<Entidades.Menu>)crit.List();
+                    lista = (List<Entidades.Menu>)crit.List<Entidades.Menu>();
                 }
             }
             catch

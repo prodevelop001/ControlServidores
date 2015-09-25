@@ -23,7 +23,7 @@ namespace ControlServidores.Datos.Seguridad
                         crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.Add(Restrictions.Disjunction().Add(Expression.Eq("IdMenu", a.IdMenu.IdMenu)));
                     }                        
-                    if (a.IdRol.IdRol != 0 && a.IdRol.ToString() != "")
+                    if (a.IdRol.IdRol != 0 && a.IdRol.IdRol.ToString() != "")
                     {                        
                         crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idRol.IdRol", a.IdRol.IdRol)));

@@ -14,7 +14,7 @@ namespace ControlServidores.Entidades
 
         public virtual int Orden { get; set; }
 
-        public virtual bool Sesion { get; set; }
+        public virtual int Sesion { get; set; }
 
         public virtual ISet<MenuXrol> MenuXrol { get; set; }
     }
