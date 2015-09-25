@@ -69,8 +69,10 @@
     <Content Include="Catalogos\ConceptoEstatus.aspx" />
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
+    <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Scripts\Scripts.js" />
+    <Content Include="Seguridad\Personas.aspx" />
     <Content Include="Seguridad\Roles.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Styles\general.css" />
@@ -108,6 +110,9 @@
     <Compile Include="errorAcceso.aspx.designer.cs">
       <DependentUpon>errorAcceso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,6 +127,13 @@
     </Compile>
     <Compile Include="pruebas.aspx.designer.cs">
       <DependentUpon>pruebas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Personas.aspx.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Personas.aspx.designer.cs">
+      <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\Roles.aspx.cs">
       <DependentUpon>Roles.aspx</DependentUpon>

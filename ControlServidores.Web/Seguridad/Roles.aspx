@@ -17,7 +17,7 @@
                     <label>Nombre</label>
                     <div>
                         <div>
-                            <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Roles"></asp:RequiredFieldValidator>
                         </div>
                         <label><b>Permisos: </b></label>
                         <div>
@@ -43,7 +43,7 @@
                         </asp:Repeater>
                     </div>
                     <div>
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click"></asp:Button>
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Roles"></asp:Button>
                         <asp:Button ID ="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
                     </div>
                 </asp:Panel>

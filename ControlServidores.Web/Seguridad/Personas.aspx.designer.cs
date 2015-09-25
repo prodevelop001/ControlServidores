@@ -10,7 +10,7 @@
 namespace ControlServidores.Web.Seguridad {
     
     
-    public partial class Roles {
+    public partial class Personas {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -49,22 +49,22 @@ namespace ControlServidores.Web.Seguridad {
         protected global::System.Web.UI.WebControls.Button btnNuevo;
         
         /// <summary>
-        /// pnlFormRol control.
+        /// pnlFormulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFormRol;
+        protected global::System.Web.UI.WebControls.Panel pnlFormulario;
         
         /// <summary>
-        /// lblIdRol control.
+        /// lblIdPersona control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdRol;
+        protected global::System.Web.UI.WebControls.Label lblIdPersona;
         
         /// <summary>
         /// txtNombre control.
@@ -85,49 +85,67 @@ namespace ControlServidores.Web.Seguridad {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombre;
         
         /// <summary>
-        /// cbxCrear control.
+        /// txtPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbxCrear;
+        protected global::System.Web.UI.WebControls.TextBox txtPuesto;
         
         /// <summary>
-        /// cbxConsultar control.
+        /// rfvPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbxConsultar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPuesto;
         
         /// <summary>
-        /// cbxEditar control.
+        /// txtExtension control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbxEditar;
+        protected global::System.Web.UI.WebControls.TextBox txtExtension;
         
         /// <summary>
-        /// cbxEliminar control.
+        /// rfvExtension control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbxEliminar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvExtension;
         
         /// <summary>
-        /// rptMenu control.
+        /// txtCorreo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMenu;
+        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
+        
+        /// <summary>
+        /// rfvCorreo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCorreo;
+        
+        /// <summary>
+        /// ddlEstatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstatus;
         
         /// <summary>
         /// btnGuardar control.
@@ -148,22 +166,22 @@ namespace ControlServidores.Web.Seguridad {
         protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
-        /// pnlRoles control.
+        /// pnlPersonas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlRoles;
+        protected global::System.Web.UI.WebControls.Panel pnlPersonas;
         
         /// <summary>
-        /// gdvRoles control.
+        /// gdvPersonas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvRoles;
+        protected global::System.Web.UI.WebControls.GridView gdvPersonas;
         
         /// <summary>
         /// lblResultado control.

@@ -7,6 +7,8 @@ namespace ControlServidores.Web.Seguridad
 {
     public partial class Roles : System.Web.UI.Page
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Este ID debe coincidir con el Menú registrado en la BD
@@ -15,8 +17,13 @@ namespace ControlServidores.Web.Seguridad
             {
                 if (!IsPostBack)
                 {
-                    pnlFormRol.Visible = false;
-                    llenarGdvRoles();
+                    permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                    if (permisos.R == true)
+                    {
+                        pnlFormRol.Visible = false;
+                        llenarGdvRoles();
+                    }
+                    btnNuevo.Enabled = permisos.C;
                 }
             }
             else
@@ -27,6 +34,7 @@ namespace ControlServidores.Web.Seguridad
 
         private void llenarGdvRoles()
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             gdvRoles.DataSource = Negocio.Seguridad.RolUsuario.Obtener(new Entidades.RolUsuario());
             gdvRoles.DataBind();
         }
@@ -81,9 +89,11 @@ namespace ControlServidores.Web.Seguridad
 
         protected void gdvRoles_SelectedIndexChanged(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "2";
             btnNuevo.Visible = false;
-            btnGuardar.Text = "Actualizar";            
+            btnGuardar.Text = "Actualizar";
+            btnGuardar.Enabled = permisos.U;            
             lblIdRol.Text = gdvRoles.SelectedRow.Cells[1].Text;
             int IdRol = Convert.ToInt32(gdvRoles.SelectedRow.Cells[1].Text);
             txtNombre.Text = gdvRoles.SelectedRow.Cells[2].Text;
@@ -127,7 +137,11 @@ namespace ControlServidores.Web.Seguridad
                     {
                         LinkButton button = control as LinkButton;
                         if (button != null && button.Text == "Eliminar")
-                            button.OnClientClick = "return checkMe()";
+                        {
+                            button.Enabled = permisos.D;
+                            if(button.Enabled)
+                                button.OnClientClick = "return checkMe()";
+                        }
                     }
                 }
             }
@@ -158,11 +172,12 @@ namespace ControlServidores.Web.Seguridad
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            int IdRol = Convert.ToInt32(lblIdRol.Text);
+            
             List<Entidades.MenuXrol> listMenu = new List<Entidades.MenuXrol>();
 
-            if (hdfEstado.Value == "1")
+            if (hdfEstado.Value == "1" && permisos.C)
             {
                 Entidades.RolUsuario nuevoRol = new Entidades.RolUsuario()
                 {
@@ -174,6 +189,9 @@ namespace ControlServidores.Web.Seguridad
                 };
                 foreach (RepeaterItem item in rptMenu.Items)
                 {
+                    int cont = 0;
+                    HiddenField idMenu = (HiddenField)item.FindControl("hdfIdMenu");
+                    int IdMenu = Convert.ToInt32(idMenu.Value);
                     CheckBoxList cblSubmenu1 = (CheckBoxList)item.FindControl("cblSubmenu1");
                     foreach (ListItem cbxItem in cblSubmenu1.Items)
                     {
@@ -182,14 +200,22 @@ namespace ControlServidores.Web.Seguridad
                             Entidades.MenuXrol m = new Entidades.MenuXrol();
                             m.IdMenu.IdMenu = Convert.ToInt32(cbxItem.Value);
                             listMenu.Add(m);
+                            cont++;
                         }
+                    }
+                    if(cont > 0)
+                    {
+                        Entidades.MenuXrol m = new Entidades.MenuXrol();
+                        m.IdMenu.IdMenu = IdMenu;
+                        listMenu.Add(m);
                     }
                 }
 
                 resultado = Negocio.Seguridad.RolUsuario.Nuevo(nuevoRol,listMenu);
             }
-            else if (hdfEstado.Value == "2")
+            else if (hdfEstado.Value == "2" && permisos.U)
             {
+                int IdRol = Convert.ToInt32(lblIdRol.Text);
                 Entidades.RolUsuario nuevoRol = new Entidades.RolUsuario()
                 {
                     IdRol = Convert.ToInt32(lblIdRol.Text),

@@ -9,19 +9,19 @@
         <ContentTemplate>
             <div>
                 <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
-                <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
-                <asp:Panel ID="pnlFormulario" runat="server">
+                <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
+                <asp:Panel ID="pnlFormulario" runat="server" Visible="False">
                     <asp:Label ID="lblIdConceptoEstatus" runat="server" CssClass="hide"></asp:Label>
                     <label>Concepto </label>
                     <div>
-                        <asp:TextBox ID="txtConcepto" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtConcepto" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvConcepto" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtConcepto" ForeColor="Red" ValidationGroup="Conceptos"></asp:RequiredFieldValidator>
                     </div>
                     <div>
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click"></asp:Button>
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Conceptos"></asp:Button>
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
                     </div>
                 </asp:Panel>
-                <asp:Panel ID="pnlCatalogo" runat="server">
+                <asp:Panel ID="pnlCatalogo" runat="server" Visible="False">
                     <asp:GridView ID="gdvConceptos" runat="server" AutoGenerateColumns="False" Style="margin-right: 0px" OnSelectedIndexChanged="gdvConceptos_SelectedIndexChanged" OnRowDataBound="gdvConceptos_RowDataBound" OnRowDeleting="gdvConceptos_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">

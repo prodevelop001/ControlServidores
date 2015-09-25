@@ -21,7 +21,7 @@ namespace ControlServidores.Datos.Seguridad
                     if (a.IdMenu.IdMenu != 0 && a.IdMenu.IdMenu.ToString() != "")
                     {
                         crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("IdMenu", a.IdMenu.IdMenu)));
+                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idMenu.IdMenu", a.IdMenu.IdMenu)));
                     }                        
                     if (a.IdRol.IdRol != 0 && a.IdRol.IdRol.ToString() != "")
                     {                        
@@ -31,7 +31,7 @@ namespace ControlServidores.Datos.Seguridad
                     lista = (List<Entidades.MenuXrol>)crit.List<Entidades.MenuXrol>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

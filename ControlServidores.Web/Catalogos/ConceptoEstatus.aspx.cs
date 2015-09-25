@@ -6,17 +6,24 @@ namespace ControlServidores.Web.Catalogos
 {
     public partial class ConceptoEstatus : System.Web.UI.Page
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Este ID debe coincidir con el Menú registrado en la BD
-            int IdPagina = 1;
+            int IdPagina = 2;
             if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {
                 if (!IsPostBack)
                 {
-                    pnlCatalogo.Visible = true;
-                    pnlFormulario.Visible = false;
-                    llenarGdvConceptos();
+                    permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                    if (permisos.R == true)
+                    {
+                        pnlCatalogo.Visible = true;
+                        pnlFormulario.Visible = false;
+                        llenarGdvConceptos();
+                    }
+                    btnNuevo.Enabled = permisos.C;
                 }
             }
             else
@@ -27,6 +34,7 @@ namespace ControlServidores.Web.Catalogos
 
         private void llenarGdvConceptos()
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             gdvConceptos.DataSource = Negocio.Catalogos.ConceptoEstatus.Obtener(new Entidades.ConceptoEstatus());
             gdvConceptos.DataBind();
         }
@@ -53,10 +61,12 @@ namespace ControlServidores.Web.Catalogos
 
         protected void gdvConceptos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "2";
             lblStatus.Text = string.Empty;
             btnNuevo.Visible = false;
             btnGuardar.Text = "Actualizar";
+            btnGuardar.Enabled = permisos.U;
             pnlCatalogo.Visible = false;
             pnlFormulario.Visible = true;
             lblIdConceptoEstatus.Text = gdvConceptos.SelectedRow.Cells[1].Text;
@@ -65,16 +75,17 @@ namespace ControlServidores.Web.Catalogos
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             lblStatus.Text = string.Empty;
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            if (hdfEstado.Value == "1")
+            if (hdfEstado.Value == "1" && permisos.C == true)
             {
                 resultado = Negocio.Catalogos.ConceptoEstatus.Nuevo(new Entidades.ConceptoEstatus()
                 {
                     Concepto = txtConcepto.Text
                 });
             }
-            else if(hdfEstado.Value == "2")
+            else if(hdfEstado.Value == "2" && permisos.U == true)
             {
                 resultado = Negocio.Catalogos.ConceptoEstatus.Actualizar(new Entidades.ConceptoEstatus()
                 {
@@ -112,8 +123,11 @@ namespace ControlServidores.Web.Catalogos
                         //LinkButton button = (LinkButton)control;
                         LinkButton button = control as LinkButton;
                         if (button != null && button.Text == "Eliminar")
-                            button.OnClientClick = "return checkMe()";
-                        //button.Attributes.Add("onclick", "return checkMe()");
+                        {
+                            button.Enabled = permisos.D;
+                            if(button.Enabled)
+                                button.OnClientClick = "return checkMe()";
+                        }
                     }
                 }
             }
