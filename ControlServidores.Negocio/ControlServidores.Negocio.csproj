@@ -61,6 +61,7 @@
     <Compile Include="Inventarios\SOxServidor.cs" />
     <Compile Include="Inventarios\Storage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\Menu.cs" />
     <Compile Include="Seguridad\MenuXrol.cs" />
     <Compile Include="Seguridad\Personas.cs" />
     <Compile Include="Seguridad\RolUsuario.cs" />

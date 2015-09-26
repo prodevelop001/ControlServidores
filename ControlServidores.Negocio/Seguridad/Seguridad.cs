@@ -71,5 +71,27 @@ namespace ControlServidores.Negocio.Seguridad
 
             return false;
         }
+
+        /// <summary>
+        /// Verifica el rol.
+        /// </summary>
+        /// <returns></returns>
+        public static Entidades.RolUsuario verificarPermisos()
+        {
+            HttpContext context = HttpContext.Current;
+            Entidades.Usuarios us = (Entidades.Usuarios)context.Session["usuario"];
+            List<Entidades.RolUsuario> listRol = new List<Entidades.RolUsuario>();
+            listRol = Negocio.Seguridad.RolUsuario.Obtener(new Entidades.RolUsuario()
+            {
+                IdRol = us.IdRol.IdRol
+            });
+            if (listRol.Count > 0)
+            {
+                return listRol[0];
+            }
+
+            return new Entidades.RolUsuario();
+        }
+
     }
 }

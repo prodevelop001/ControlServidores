@@ -99,6 +99,7 @@ namespace ControlServidores.Negocio.Seguridad
             validarDatos = from l in perL
                            where l.IdPersona != a.IdPersona
                            select l;
+            perL = validarDatos.ToList();
             if (perL.Count > 0)
             {
                 resultado.resultado = false;
@@ -111,7 +112,7 @@ namespace ControlServidores.Negocio.Seguridad
                 {
                     error = new Entidades.Logica.Error();
                     error.idError = 1;
-                    error.descripcionCorta = "Persona agregada correctamente.";
+                    error.descripcionCorta = "Persona actualizada correctamente.";
                     resultado.errores.Add(error);
                 }
                 else

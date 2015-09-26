@@ -292,3 +292,73 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
+
+
+
+/**************************************/
+#btnSubmit{
+	width: 180px;
+	min-height: 41px;
+	padding: 8px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	display: block;
+	border: solid 1px #FF5600;
+	background-color: #FF5600;
+	
+
+	background: -webkit-linear-gradient(center top , #FFA500, #F00);
+	background: -moz-linear-gradient(center top , #FFA500, #F00);
+	background: -o-linear-gradient(center top , #FFA500, #F00);
+	background: -ms-linear-gradient(center top , #FFA500, #F00);
+	background: linear-gradient(center top , #FFA500, #F00);
+	
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	
+	
+	overflow: hidden;
+	box-sizing: border-box;
+}
+	#btnSubmit:hover{
+		cursor: pointer;
+		
+		background: -webkit-linear-gradient(center top , #F00, #FFA500);
+		background: -moz-linear-gradient(center top , #F00, #FFA500);
+		background: -o-linear-gradient(center top , #F00, #FFA500);
+		background: -ms-linear-gradient(center top , #F00, #FFA500);
+		background: linear-gradient(center top , #F00, #FFA500);
+		
+	}
+
+	#btnSubmit #submitText{
+		width: 80%;
+		text-align: right;
+		font-size: 16px;
+		padding-right: 16px;
+		
+		
+		box-sizing: border-box;
+	}
+
+    #btnSubmit #submitText{
+		display: block;
+		float: left;
+	}
+
+
+    /*****************************/
+    .hide{
+        display:none;
+    }

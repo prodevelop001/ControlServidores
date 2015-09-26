@@ -1,0 +1,52 @@
+﻿/*********** Reset ***********/
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	font-size: 100%;
+} 
+
+*:focus{
+	outline: none;
+}
+
+header, hgroup, aside, section, nav, footer, article, img{
+	display: block;
+}
+/**************** Importando otros archivos ***********************/
+
+
+/**************Body*************/
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	/*
+	background: url(../img/bg.jpg) left 5px repeat-x white;
+	*/
+	background: #FFF;
+}
+/*************** HEADING ************************/
+h1{font-size: 33px;}
+
+h2{font-size: 28px;}
+
+h3{font-size: 23px;}
+
+h4{font-size: 18px;}
+
+h1, h2, h3, h4, h5, h6{
+	color: #555;
+}
+/****************** CLASES ************************/
+
+.text_center{
+	text-align: center;
+}
+
+.limpiar{
+	clear: both;
+}

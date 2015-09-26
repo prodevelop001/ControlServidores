@@ -1,0 +1,158 @@
+﻿/****************** CLASES ************************/
+.login_center{
+	width: 354px;
+	margin: 0 auto;
+}
+
+/****************** ID's ************************/
+#login_cab{
+	margin-top: 44px;
+	margin-bottom: 24px;
+}
+
+
+#login_form{
+	background-color: #626262;
+	margin-bottom: 55px;
+	padding: 40px;
+	
+	background: -webkit-linear-gradient(#515151, #6F6F6F);
+	background: -moz-linear-gradient(#515151, #6F6F6F);
+	background: -o-linear-gradient(#515151, #6F6F6F);
+	background: -ms-linear-gradient(#515151, #6F6F6F);
+	background: linear-gradient(#515151, #6F6F6F);
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	
+	overflow: hidden;
+	
+	box-sizing: border-box;
+}
+
+	#login_form p{
+		font-size: 22px;
+		color: white;
+		margin-bottom: 17px;
+	}
+#usrName, #usrPass{
+	height: 44px;
+	font-size: 16px;
+}
+
+#usrIcon, #passIcon{
+	width: 20%;
+	min-height: 44px;
+	display: block;
+	float: left;
+	font-size: 44px;
+	color: white;
+}
+
+#btnSubmit{
+	width: 80%;
+	min-height: 41px;
+	padding: 8px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	display: block;
+	border: solid 1px #FF5600;
+	background-color: #FF5600;
+	
+
+	background: -webkit-linear-gradient(center top , #FFA500, #F00);
+	background: -moz-linear-gradient(center top , #FFA500, #F00);
+	background: -o-linear-gradient(center top , #FFA500, #F00);
+	background: -ms-linear-gradient(center top , #FFA500, #F00);
+	background: linear-gradient(center top , #FFA500, #F00);
+	
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	
+	
+	overflow: hidden;
+	box-sizing: border-box;
+}
+	#btnSubmit:hover{
+		cursor: pointer;
+		
+		background: -webkit-linear-gradient(center top , #F00, #FFA500);
+		background: -moz-linear-gradient(center top , #F00, #FFA500);
+		background: -o-linear-gradient(center top , #F00, #FFA500);
+		background: -ms-linear-gradient(center top , #F00, #FFA500);
+		background: linear-gradient(center top , #F00, #FFA500);
+		
+	}
+
+    #lnkBtnSubmit{
+        text-decoration: none;
+        color: white;
+    }
+
+	#btnSubmit #submitText{
+		width: 80%;
+		text-align: right;
+		font-size: 16px;
+		padding-right: 16px;
+		
+		
+		box-sizing: border-box;
+	}
+	
+	#btnSubmit #submitIcon{
+		width: 20%;
+		font-size: 20px;
+		
+		box-sizing: border-box;
+	}
+
+	#btnSubmit #submitText, #btnSubmit #submitIcon{
+		display: block;
+		float: left;
+	}
+/****************************************************/
+
+input[type="text"], input[type="password"]{
+	width: 80%;
+	display: block;
+	margin-bottom: 10px;
+	padding: 0px 8px;
+	float: left;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+	
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	
+	box-sizing: border-box;
+}
+
+	input[type="text"]:focus, input[type="password"]:focus{
+		border: solid 1px #FF5600;
+	}
+
+
+
+
+
