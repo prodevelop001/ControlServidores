@@ -14,7 +14,8 @@
             <asp:GridView ID="gdvPrueba" runat="server"></asp:GridView>
             <asp:Button ID="btnPrueba" runat="server" Text="Prueba" OnClick="btnPrueba_Click" />
         </div>
-        
+        <div></div>
+        <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
     </form>
 </body>
 </html>
