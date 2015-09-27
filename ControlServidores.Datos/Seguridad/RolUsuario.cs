@@ -70,7 +70,7 @@ namespace ControlServidores.Datos.Seguridad
                     session.Close();
                 }
             }
-            catch(Exception err)
+            catch
             {
                 return false;
             }

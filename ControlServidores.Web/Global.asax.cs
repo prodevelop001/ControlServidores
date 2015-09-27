@@ -17,7 +17,7 @@ namespace ControlServidores.Web
                 IdUsuario = 1,
                 IdRol = new Entidades.RolUsuario()
                 {
-                    IdRol = 6
+                    IdRol = 1
                 }
             };
         }

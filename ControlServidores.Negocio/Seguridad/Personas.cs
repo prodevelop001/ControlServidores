@@ -144,11 +144,34 @@ namespace ControlServidores.Negocio.Seguridad
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
 
+            resultado.resultado = true;
+
+            List<Entidades.Usuarios> usList = new List<Entidades.Usuarios>();
+            usList = Datos.Seguridad.Usuarios.Obtener(new Entidades.Usuarios()
+            {
+                IdPersona = new Entidades.Personas() { IdPersona = a.IdPersona }
+            });
+            if (usList.Count > 0)
+            {
+                resultado.resultado = false;
+                error = new Entidades.Logica.Error();
+                error.idError = 3;
+                error.descripcionCorta = "Existe un usuario ligado con esta persona. No se puede eliminar.";
+                resultado.errores.Add(error);
+            }
+
             List<Entidades.PersonaXservidor> perSerL = new List<Entidades.PersonaXservidor>();
             perSerL = Datos.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { IdPersona = a.IdPersona });
-            
+            if (perSerL.Count > 0)
+            {
+                resultado.resultado = false;
+                error = new Entidades.Logica.Error();
+                error.idError = 4;
+                error.descripcionCorta = "No puede ser eliminada, hay registros ligados con esta persona.";
+                resultado.errores.Add(error);
+            }            
 
-            if(perSerL.Count == 0)
+            if (resultado.resultado == true)
             {
                 resultado.resultado = Datos.Seguridad.Personas.Eliminar(a);
                 if (resultado.resultado == true)
@@ -166,14 +189,7 @@ namespace ControlServidores.Negocio.Seguridad
                     resultado.errores.Add(error);
                 }
             }
-            else
-            {
-                error = new Entidades.Logica.Error();
-                error.idError = 3;
-                error.descripcionCorta = "No puede ser eliminada, hay registros ligados con esta persona.";
-                resultado.errores.Add(error);
-            }
-
+            
             return resultado;
         }
     }

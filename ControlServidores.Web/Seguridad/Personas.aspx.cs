@@ -64,11 +64,13 @@ namespace ControlServidores.Web.Seguridad
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "1";
             lblResultado.Text = string.Empty;
             pnlPersonas.Visible = false;
             pnlFormulario.Visible = true;
             btnGuardar.Text = "Guardar";
+            btnGuardar.Enabled = permisos.C;
             llenarDdlEstatus();
             limpiar();
         }
@@ -174,6 +176,10 @@ namespace ControlServidores.Web.Seguridad
             {
                 persona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
                 resultado = Negocio.Seguridad.Personas.Actualizar(persona);
+            }
+            else
+            {
+                lblResultado.Text = "No tienes privilegios para realizar esta acción.";
             }
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

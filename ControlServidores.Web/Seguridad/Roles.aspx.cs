@@ -59,8 +59,7 @@ namespace ControlServidores.Web.Seguridad
             cblSubmenu1.DataValueField = "IdMenu";
             cblSubmenu1.DataSource = Negocio.Seguridad.Menu.Obtener(new Entidades.Menu()
             {
-                Nodo = IdMenu
-                ,
+                Nodo = IdMenu,
                 Sesion = 1
             });
             cblSubmenu1.DataBind();
@@ -68,8 +67,10 @@ namespace ControlServidores.Web.Seguridad
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "1";
-            btnNuevo.Text = "Guardar";
+            btnGuardar.Text = "Guardar";
+            btnGuardar.Enabled = permisos.C;
             txtNombre.Text = string.Empty;
             lblResultado.Text = string.Empty;
             pnlRoles.Visible = false;
@@ -84,7 +85,6 @@ namespace ControlServidores.Web.Seguridad
             pnlRoles.Visible = true;
             pnlFormRol.Visible = false;
             btnNuevo.Visible = true;
-            btnNuevo.Text = "Nuevo";
         }
 
         protected void gdvRoles_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,6 +242,10 @@ namespace ControlServidores.Web.Seguridad
                 }
 
                 resultado = Negocio.Seguridad.RolUsuario.Actualizar(nuevoRol, listMenu);
+            }
+            else
+            {
+                lblResultado.Text = "No tienes privilegios para realizar esta acción.";
             }
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

@@ -74,6 +74,7 @@
     <Content Include="Scripts\Scripts.js" />
     <Content Include="Seguridad\Personas.aspx" />
     <Content Include="Seguridad\Roles.aspx" />
+    <Content Include="Seguridad\Usuarios.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Styles\general.css" />
     <Content Include="Styles\iconos.css" />
@@ -141,6 +142,13 @@
     </Compile>
     <Compile Include="Seguridad\Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
