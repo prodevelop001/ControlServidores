@@ -20,9 +20,11 @@
     <div id="login_form" class="login_center">
 		<p class="text_center">Bienvenido</p>
 		<span id="usrIcon" class="icon-user text_center"></span>
-		<input type="text" name="usrName" id="usrName" placeholder="Usuario" maxlength="23">
+		<%--<input type="text" name="usrName" id="usrName" placeholder="Usuario" maxlength="23"/>--%>
+        <asp:TextBox type="text" name="txtUsrName" id="txtUsrName" placeholder="Usuario" maxlength="23" runat="server"></asp:TextBox>
 		<span id="passIcon" class="icon-key text_center"></span>
-		<input type="password" name="usrPass" id="usrPass" placeholder="Contraseña" maxlength="23">
+		<%--<input type="password" name="usrPass" id="usrPass" placeholder="Contraseña" maxlength="23"/>--%>
+        <asp:TextBox type="password" name="txtUsrPass" id="txtUsrPass" placeholder="Contraseña" maxlength="23" runat="server"></asp:TextBox>
 		<div class="limpiar"></div>
 		<div id="btnSubmit">
             <asp:LinkButton ID="lnkBtnSubmit" runat="server">
