@@ -70,6 +70,7 @@
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\fondo-login.png" />
     <Content Include="packages.config" />
     <Content Include="Scripts\Scripts.js" />
     <Content Include="Seguridad\Personas.aspx" />
@@ -175,9 +176,7 @@
       <Name>ControlServidores.Negocio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
