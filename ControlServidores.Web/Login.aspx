@@ -25,9 +25,10 @@
 		    <span id="passIcon" class="icon-key text_center"></span>
 		    <%--<input type="password" name="usrPass" id="usrPass" placeholder="Contraseña" maxlength="23"/>--%>
             <asp:TextBox type="password" name="txtUsrPass" id="txtUsrPass" placeholder="Contraseña" maxlength="23" runat="server"></asp:TextBox>
-		    <div class="limpiar"></div>
+            <asp:Label ID="lblLogin" runat="server" Text="Etiqueta"></asp:Label>
+            <div class="limpiar"></div>
 		    <div id="btnSubmit">
-                <asp:LinkButton ID="lnkBtnSubmit" runat="server">
+                <asp:LinkButton ID="lnkBtnSubmit" runat="server" OnClick="lnkBtnSubmit_Click">
 			        <div id="submitText">Iniciar Sesión</div>
 			        <span id="submitIcon" class="icon-enter"></span>
                 </asp:LinkButton>

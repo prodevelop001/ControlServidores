@@ -11,7 +11,21 @@ namespace ControlServidores.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblLogin.Text = "";
+        }
 
+        protected void lnkBtnSubmit_Click(object sender, EventArgs e)
+        {
+            /*
+            Aqui va el código
+            */
+            List<Entidades.Usuarios> usrLogin = new List<Entidades.Usuarios>();
+            usrLogin = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios()
+            {
+                Usuario = txtUsrName.Text,
+                Pwd = txtUsrPass.Text
+            });
+          
         }
     }
 }
