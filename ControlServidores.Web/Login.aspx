@@ -6,9 +6,9 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="./Styles/general.css">
-	<link rel="stylesheet" href="./Styles/iconos.css">
-	<link rel="stylesheet" href="./Styles/login.css">
+    <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
+	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
+	<link rel="stylesheet" href="./Styles/login.css" type="text/css" />
 </head>
 <body id="fondo_login">
 <div class="cuerpo" >

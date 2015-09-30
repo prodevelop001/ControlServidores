@@ -12,6 +12,8 @@ namespace ControlServidores.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             lblLogin.Text = "";
+            lblLogin.Attributes["style"] = "display: none;";
+            //lblLogin.Style;
         }
 
         protected void lnkBtnSubmit_Click(object sender, EventArgs e)
@@ -19,13 +21,21 @@ namespace ControlServidores.Web
             /*
             Aqui va el código
             */
-            List<Entidades.Usuarios> usrLogin = new List<Entidades.Usuarios>();
-            usrLogin = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios()
+            Entidades.Usuarios usrLogin = new Entidades.Usuarios();
+            //List<Entidades.Usuarios> userL = new List<Entidades.Usuarios>();
+            usrLogin.Usuario = txtUsrName.Text;
+            usrLogin.Pwd = txtUsrPass.Text;
+            //userL = Datos.Seguridad.Usuarios.Obtener(new Entidades.Usuarios() { Usuario = usrLogin.Usuario });
+            if (usrLogin.Usuario != "")
             {
-                Usuario = txtUsrName.Text,
-                Pwd = txtUsrPass.Text
-            });
-          
+                lblLogin.Attributes["style"] = "display: block;";
+                lblLogin.Text = usrLogin.Usuario.ToString();
+            }
+            else
+            {
+                lblLogin.Attributes["style"] = "display: block;";
+                lblLogin.Text = "Usuario y/o contraseña incorrectas";
+            }
         }
     }
 }

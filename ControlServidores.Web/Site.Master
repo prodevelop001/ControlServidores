@@ -5,6 +5,9 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
+	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
+    <%--<link rel="stylesheet" href="./Styles/menu.css" type="text/css" />--%>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>

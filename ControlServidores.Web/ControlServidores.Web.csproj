@@ -80,6 +80,7 @@
     <Content Include="Styles\general.css" />
     <Content Include="Styles\iconos.css" />
     <Content Include="Styles\login.css" />
+    <Content Include="Styles\menu.css" />
     <Content Include="web.aspx" />
     <Content Include="fonts\ctrl_srvs.eot" />
     <Content Include="fonts\ctrl_srvs.ttf" />
