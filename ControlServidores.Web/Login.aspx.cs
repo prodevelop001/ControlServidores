@@ -13,5 +13,10 @@ namespace ControlServidores.Web
         {
 
         }
+
+        protected void lnkBtnSubmit_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

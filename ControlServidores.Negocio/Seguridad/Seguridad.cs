@@ -12,7 +12,7 @@ namespace ControlServidores.Negocio.Seguridad
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public bool iniciarSesion(Entidades.Usuarios usuario)
+        public static bool iniciarSesion(Entidades.Usuarios usuario)
         {
             Entidades.Usuarios usuarioDatos = new Entidades.Usuarios();
 
