@@ -47,5 +47,10 @@ namespace ControlServidores.Web
                 lblLogin.Text = "Campos vacios";
             }
         }
+
+        protected void lnkBtnSubmit_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

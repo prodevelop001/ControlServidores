@@ -12,14 +12,7 @@ namespace ControlServidores.Web
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["usuario"] = new Entidades.Usuarios()
-            {
-                IdUsuario = 1,
-                IdRol = new Entidades.RolUsuario()
-                {
-                    IdRol = 1
-                }
-            };
+            Session["usuario"] = new Entidades.Usuarios();
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
