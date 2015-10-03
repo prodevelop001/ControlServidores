@@ -49,6 +49,10 @@ namespace ControlServidores.Negocio.Seguridad
 
             if (resultado.resultado == true)
             {
+                if(a.IdPersona.IdPersona == -1)
+                {
+                    a.IdPersona = null;
+                }
                 resultado.resultado = Datos.Seguridad.Usuarios.nuevo(a);
                 if (resultado.resultado == true)
                 {
@@ -111,6 +115,10 @@ namespace ControlServidores.Negocio.Seguridad
 
             if (resultado.resultado == true)
             {
+                if (a.IdPersona.IdPersona == -1)
+                {
+                    a.IdPersona = null;
+                }
                 resultado.resultado = Datos.Seguridad.Usuarios.actualizar(a);
                 if (resultado.resultado == true)
                 {

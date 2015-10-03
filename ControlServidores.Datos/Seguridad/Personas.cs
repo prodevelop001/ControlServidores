@@ -32,7 +32,7 @@ namespace ControlServidores.Datos.Seguridad
                     lista = (List<Entidades.Personas>)crit.List<Entidades.Personas>();
                 }
             }
-            catch(Exception err)
+            catch
             {
                 return lista;
             }

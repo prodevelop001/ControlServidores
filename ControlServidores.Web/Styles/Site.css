@@ -14,6 +14,7 @@ body
 a:link, a:visited
 {
     color: #034af3;
+
 }
 
 a:hover
@@ -25,6 +26,7 @@ a:hover
 a:active
 {
     color: #034af3;
+
 }
 
 p
@@ -91,7 +93,14 @@ first child of the left and right table columns */
     width: 960px;
     background-color: #fff;
     margin: 20px auto 0px auto;
-    border: 1px solid #496077;
+    /*border: 1px solid #496077;*/
+    /*Editado*/
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+    /*----*/
 }
 
 .header
@@ -99,8 +108,25 @@ first child of the left and right table columns */
     position: relative;
     margin: 0px;
     padding: 0px;
-    background: #4b6c9e;
+    /*background: #4b6c9e;*/
+    /*Editado*/
+    background-color: #ff6a00;
+    background: -webkit-linear-gradient(center top , #F00, #ff6a00);
+	background: -moz-linear-gradient(center top , #F00, #ff6a00);
+	background: -o-linear-gradient(center top , #F00, #ff6a00);
+	background: -ms-linear-gradient(center top , #F00, #ff6a00);
+	background: linear-gradient(center top , #F00, #ff6a00);
+
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /*-------*/
     width: 100%;
+    top: 0px;
+    left: 0px;
 }
 
 .header h1
@@ -145,7 +171,7 @@ first child of the left and right table columns */
 div.hideSkiplink
 {
     /*background-color:#3a4f63;*/
-    width:auto;
+    width:959px;
 }
 
 div.menu
@@ -163,9 +189,27 @@ div.menu ul
 
 div.menu ul li a, div.menu ul li a:visited
 {
-    background-color: #465c71;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
+    /*background-color: #465c71;*/
+    background-color: #ff9829;
+    /*border: 1px #4e667d solid;*/
+    /*color: #dde4ec;*/
+    color: #1d1d1d;
+    /*Editado*/
+    margin-right: 7px;
+
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+
+    -webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+
+    /*-----*/
     display: block;
     line-height: 1.35em;
     padding: 4px 20px;
@@ -175,15 +219,21 @@ div.menu ul li a, div.menu ul li a:visited
 
 div.menu ul li a:hover
 {
-    background-color: #bfcbd6;
-    color: #465c71;
+    /*background-color: #bfcbd6;*/
+    background-color: #f8d59e;
+    /*color: #465c71;*/
+    color: #1d1d1d;
     text-decoration: none;
 }
 
 div.menu ul li a:active
 {
+    /*
     background-color: #465c71;
     color: #cfdbe6;
+    */
+    background-color: #ffba3d;
+    color: #1d1d1d;
     text-decoration: none;
 }
 

@@ -31,7 +31,7 @@ namespace ControlServidores.Datos.Seguridad
                     lista = (List<Entidades.MenuXrol>)crit.List<Entidades.MenuXrol>();
                 }
             }
-            catch(Exception err)
+            catch
             {
                 return lista;
             }

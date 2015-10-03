@@ -41,9 +41,11 @@ namespace ControlServidores.Web.Catalogos
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "1";
             lblStatus.Text = string.Empty;
             btnGuardar.Text = "Guardar";
+            btnGuardar.Enabled = permisos.C;
             pnlCatalogo.Visible = false;
             pnlFormulario.Visible = true;
             lblIdConceptoEstatus.Text = string.Empty;
@@ -92,6 +94,10 @@ namespace ControlServidores.Web.Catalogos
                     IdConceptoEstatus= Convert.ToInt32(lblIdConceptoEstatus.Text),
                     Concepto = txtConcepto.Text
                 });
+            }
+            else
+            {
+                lblStatus.Text ="No tienes privilegios para realizar esta acción.";
             }           
 
             resultado.errores.ForEach(delegate(Entidades.Logica.Error error)

@@ -11,7 +11,31 @@ namespace ControlServidores.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblLogin.Text = "";
+            lblLogin.Attributes["style"] = "display: none;";
+            //lblLogin.Style;
+        }
 
+        protected void lnkBtnSubmit_Click(object sender, EventArgs e)
+        {
+            /*
+            Aqui va el código
+            */
+            Entidades.Usuarios usrLogin = new Entidades.Usuarios();
+            //List<Entidades.Usuarios> userL = new List<Entidades.Usuarios>();
+            usrLogin.Usuario = txtUsrName.Text;
+            usrLogin.Pwd = txtUsrPass.Text;
+            //userL = Datos.Seguridad.Usuarios.Obtener(new Entidades.Usuarios() { Usuario = usrLogin.Usuario });
+            if (usrLogin.Usuario != "")
+            {
+                lblLogin.Attributes["style"] = "display: block;";
+                lblLogin.Text = usrLogin.Usuario.ToString();
+            }
+            else
+            {
+                lblLogin.Attributes["style"] = "display: block;";
+                lblLogin.Text = "Usuario y/o contraseña incorrectas";
+            }
         }
 
         protected void lnkBtnSubmit_Click(object sender, EventArgs e)
