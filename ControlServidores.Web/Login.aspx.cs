@@ -6,11 +6,11 @@ namespace ControlServidores.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblLogin.Text = "";
-            lblLogin.Attributes["style"] = "display: none;";
-            //lblLogin.Style;
+            if (!IsPostBack)
+            {
+                lblLogin.Text = "";
+            }
         }
-
         protected void lnkBtnSubmit_Click(object sender, EventArgs e)
         {
             /*
@@ -21,15 +21,25 @@ namespace ControlServidores.Web
             usrLogin.Usuario = txtUsrName.Text;
             usrLogin.Pwd = txtUsrPass.Text;
             //userL = Datos.Seguridad.Usuarios.Obtener(new Entidades.Usuarios() { Usuario = usrLogin.Usuario });
-            if (usrLogin.Usuario != "")
+            if (usrLogin.Usuario != "" && !string.IsNullOrEmpty(txtUsrPass.Text))
             {
                 lblLogin.Attributes["style"] = "display: block;";
                 lblLogin.Text = usrLogin.Usuario.ToString();
+                if (Negocio.Seguridad.Seguridad.iniciarSesion(usrLogin) == true)
+                {
+                    //redirecionar
+                    Response.Redirect("~/Catalogos/ConceptoEstatus.aspx");
+                }
+                else
+                {
+                    lblLogin.Attributes["style"] = "display: block;";
+                    lblLogin.Text = "Usuario y/o contraseña incorrectas";
+                }
             }
             else
             {
                 lblLogin.Attributes["style"] = "display: block;";
-                lblLogin.Text = "Usuario y/o contraseña incorrectas";
+                lblLogin.Text = "Campos vacios";
             }
         }
 
