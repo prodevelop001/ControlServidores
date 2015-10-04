@@ -6,22 +6,21 @@
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
-	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
+    <link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
     <%--<link rel="stylesheet" href="./Styles/menu.css" type="text/css" />--%>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    Control de Servidores
-                </h1>
-            </div>
-            <div class="loginDisplay">
-                <%--<asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <h1>Control de Servidores
+                    </h1>
+                </div>
+                <div class="loginDisplay">
+                    <%--<asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                          [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
                     </AnonymousTemplate>
@@ -34,27 +33,20 @@
                         ]
                     </LoggedInTemplate>
                 </asp:LoginView>--%>
+                </div>
+                <div class="clear hideSkiplink">
+                    <asp:Menu ID="MyMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    </asp:Menu>
+                </div>
             </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="MyMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="#" Text="Catalogos">
-                            <asp:MenuItem NavigateUrl="#" Text="Cat1"/>
-                        </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                    </Items>
-                </asp:Menu>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div class="clear">
             </div>
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        <div class="footer">
         </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="footer">
-    </div>
     </form>
 </body>
 </html>

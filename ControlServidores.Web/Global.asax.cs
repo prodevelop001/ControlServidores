@@ -12,7 +12,7 @@ namespace ControlServidores.Web
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["usuario"] = new Entidades.Usuarios();
+            Session["usuario"] = null;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

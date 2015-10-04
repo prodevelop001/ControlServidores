@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web
 {
@@ -38,9 +33,5 @@ namespace ControlServidores.Web
             }
         }
 
-        protected void lnkBtnSubmit_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
