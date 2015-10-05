@@ -9,9 +9,11 @@ namespace ControlServidores.Web
 {
     public partial class prueba : System.Web.UI.MasterPage
     {
+        HttpContext context = HttpContext.Current;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
+            lblUsrName.Text = usr.Usuario.ToString();
         }
 
         protected void cerrarSesion_Click(object sender, EventArgs e)

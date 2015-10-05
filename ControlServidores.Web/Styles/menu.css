@@ -1,9 +1,4 @@
-﻿.ancho970{
-    width: 970px;
-    margin: 13px auto 0px;
-}
-
-.encabezado{
+﻿.encabezado{
     padding: 7px 13px 0px;
     min-height: 81px;
     width: 100%;
@@ -134,12 +129,4 @@ a.level2{
         #miPerfil:hover, #cerrarSesion:hover {
             color: #414141;
         }
-
-.principal{
-    background-color: #f0f0f0;
-    padding: 12px 20px 8px;
-    min-height: 420px;
-
-    box-sizing: border-box;
-}
 
