@@ -27,7 +27,7 @@ body{
 	/*
 	background: url(../img/bg.jpg) left 5px repeat-x white;
 	*/
-	background: #696969;
+    background: #e9edec url(../Images/server-fondo.png);
 }
 /*************** HEADING ************************/
 h1{font-size: 33px;}

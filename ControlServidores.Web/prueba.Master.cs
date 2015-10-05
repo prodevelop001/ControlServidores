@@ -13,5 +13,11 @@ namespace ControlServidores.Web
         {
 
         }
+
+        protected void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            Negocio.Seguridad.Seguridad.cerrarSesion();
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

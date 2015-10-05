@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace ControlServidores.Web
 {
@@ -18,6 +19,7 @@ namespace ControlServidores.Web
                 if (!IsPostBack)
                 {
                     lblLogin.Text = "";
+                    lblLogin.Attributes["style"] = "display: none;";
                 }
             }
             
@@ -39,7 +41,7 @@ namespace ControlServidores.Web
                 if (Negocio.Seguridad.Seguridad.iniciarSesion(usrLogin) == true)
                 {
                     //redirecionar
-                    Response.Redirect("~/Catalogos/ConceptoEstatus.aspx");
+                    Response.Redirect("~/pruebaMaster.aspx");
                 }
                 else
                 {

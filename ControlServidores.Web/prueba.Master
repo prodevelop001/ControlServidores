@@ -53,7 +53,7 @@
                 <asp:LinkButton ID="miPerfil" runat="server">
                     <span class="icon-user-check"> Mauro</span>
                 </asp:LinkButton>
-                <asp:LinkButton ID="cerrarSesion" runat="server">
+                <asp:LinkButton ID="cerrarSesion" runat="server" OnClick="cerrarSesion_Click">
                     <span class="icon-exit"> Cerrar Sesión</span>
                 </asp:LinkButton>
             </div>

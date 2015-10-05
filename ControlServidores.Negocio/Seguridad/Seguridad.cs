@@ -36,7 +36,7 @@ namespace ControlServidores.Negocio.Seguridad
         /// <summary>
         /// Desturye las variables de sesion y cookies.
         /// </summary>
-        public void cerrarSesion()
+        public static void cerrarSesion()
         {
             HttpContext context = HttpContext.Current;
             context.Session.Clear();
