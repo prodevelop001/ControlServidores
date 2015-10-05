@@ -9,12 +9,23 @@ namespace ControlServidores.Web
 {
     public partial class Login : System.Web.UI.Page
     {
+        HttpContext context = HttpContext.Current;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
+            if(usr != null && usr.Usuario != "")
             {
-                lblLogin.Text = "";
+                Response.Redirect("~/pruebaMaster.aspx");
             }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    lblLogin.Text = "";
+                }
+            }
+            
         }
         protected void lnkBtnSubmit_Click(object sender, EventArgs e)
         {
@@ -48,9 +59,5 @@ namespace ControlServidores.Web
             }
         }
 
-        protected void lnkBtnSubmit_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

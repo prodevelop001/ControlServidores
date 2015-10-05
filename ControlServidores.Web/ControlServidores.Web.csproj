@@ -73,6 +73,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\fondo-login.png" />
     <Content Include="packages.config" />
+    <Content Include="pruebaMaster.aspx" />
     <Content Include="Scripts\Scripts.js" />
     <Content Include="Seguridad\Personas.aspx" />
     <Content Include="Seguridad\Roles.aspx" />
@@ -86,6 +87,7 @@
     <Content Include="fonts\ctrl_srvs.eot" />
     <Content Include="fonts\ctrl_srvs.ttf" />
     <Content Include="fonts\ctrl_srvs.woff" />
+    <Content Include="prueba.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,6 +126,20 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="prueba.Master.cs">
+      <DependentUpon>prueba.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="prueba.Master.designer.cs">
+      <DependentUpon>prueba.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pruebaMaster.aspx.cs">
+      <DependentUpon>pruebaMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pruebaMaster.aspx.designer.cs">
+      <DependentUpon>pruebaMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\Personas.aspx.cs">
       <DependentUpon>Personas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
