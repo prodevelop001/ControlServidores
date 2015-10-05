@@ -21,10 +21,12 @@ namespace ControlServidores.Datos.Seguridad
                     if (a.IdMenu.IdMenu != 0 && a.IdMenu.IdMenu.ToString() != "")
                     {
                         crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idMenu.IdMenu", a.IdMenu.IdMenu)));
                     }                        
                     if (a.IdRol.IdRol != 0 && a.IdRol.IdRol.ToString() != "")
-                    {                        
+                    {
+                        crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idRol.IdRol", a.IdRol.IdRol)));
                     }

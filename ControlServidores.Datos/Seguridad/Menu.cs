@@ -1,5 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Criterion;
+using System;
 using System.Collections.Generic;
 
 namespace ControlServidores.Datos.Seguridad
