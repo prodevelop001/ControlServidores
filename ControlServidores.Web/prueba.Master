@@ -23,7 +23,8 @@
             
             <div class="miMenu">
                 <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false"  Orientation="Horizontal">
-                    <Items>
+                    
+                    <%--<Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Contacto"/>
                         <asp:MenuItem NavigateUrl="#" Text="Servidores"/>
                         <asp:MenuItem NavigateUrl="#" Text="Catálogos">
@@ -45,7 +46,8 @@
                             <asp:MenuItem NavigateUrl="#" Text="Usuarios"/>
                             <asp:MenuItem NavigateUrl="#" Text="Roles"/>
                         </asp:MenuItem>
-                    </Items>
+                    </Items>--%>
+                    
                 </asp:Menu>
 
             </div>

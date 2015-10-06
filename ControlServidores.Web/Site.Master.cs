@@ -76,5 +76,6 @@ namespace ControlServidores.Web
                 this.MyMenu.Items.Add(miMenuItem);
             });
         }
+
     }
 }

@@ -11,6 +11,7 @@ namespace ControlServidores.Web.Catalogos
         protected void Page_Load(object sender, EventArgs e)
         {
             //Este ID debe coincidir con el Menú registrado en la BD
+            
             int IdPagina = 2;
             if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {
@@ -30,11 +31,14 @@ namespace ControlServidores.Web.Catalogos
             {
                 Response.Redirect("~/errorAcceso.aspx");
             }
+            
         }
 
         private void llenarGdvConceptos()
         {
+            
             permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            
             gdvConceptos.DataSource = Negocio.Catalogos.ConceptoEstatus.Obtener(new Entidades.ConceptoEstatus());
             gdvConceptos.DataBind();
         }
