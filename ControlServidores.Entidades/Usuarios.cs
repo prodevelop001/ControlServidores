@@ -27,11 +27,6 @@ namespace ControlServidores.Entidades
         public virtual string Pwd { get; set; }
 
         /// <summary>
-        /// Fecha de ultimo acceso al sistema.
-        /// </summary>
-        public virtual DateTime? FechaUltimoAcceso { get; set; }
-
-        /// <summary>
         /// Id de Rol de usuario.
         /// </summary>
         //public virtual int IdRol { get; set; }
