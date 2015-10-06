@@ -38,7 +38,7 @@
                         <asp:Repeater ID="rptMenu" runat="server" OnItemDataBound="rptMenu_ItemDataBound">
                            <ItemTemplate>
                                 <asp:HiddenField ID="hdfIdMenu" runat="server" Value='<%# Eval("IdMenu")%>'></asp:HiddenField>
-                                <b>*</b><label><%# Eval("Nombre")%></label><br /><asp:CheckBoxList ID="cblSubMenu1" runat="server"></asp:CheckBoxList>
+                                <b>*</b><asp:CheckBox ID="cbxMenu" runat="server" /><label><%# Eval("Nombre")%></label><br /><asp:CheckBoxList ID="cblSubMenu1" runat="server"></asp:CheckBoxList>
                            </ItemTemplate>
                         </asp:Repeater>
                     </div>

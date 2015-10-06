@@ -54,6 +54,8 @@ namespace ControlServidores.Web.Seguridad
             HiddenField idMenu = (HiddenField)e.Item.FindControl("hdfIdMenu");
             int IdMenu = Convert.ToInt32(idMenu.Value);
 
+            CheckBox cbxMenu = (CheckBox)e.Item.FindControl("cbxMenu");
+            cbxMenu.Visible = false;
             CheckBoxList cblSubmenu1 = (CheckBoxList)e.Item.FindControl("cblSubmenu1");
             cblSubmenu1.DataTextField = "Nombre";
             cblSubmenu1.DataValueField = "IdMenu";
@@ -63,6 +65,10 @@ namespace ControlServidores.Web.Seguridad
                 Sesion = 1
             });
             cblSubmenu1.DataBind();
+            if(cblSubmenu1.Items.Count == 0)
+            {
+                cbxMenu.Visible = true;
+            }
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -112,10 +118,19 @@ namespace ControlServidores.Web.Seguridad
 
             foreach (RepeaterItem item in rptMenu.Items)
             {
+                HiddenField idMenu = (HiddenField)item.FindControl("hdfIdMenu");
+                CheckBox cbxMenu = (CheckBox)item.FindControl("cbxMenu");
                 CheckBoxList cblSubmenu1 = (CheckBoxList)item.FindControl("cblSubmenu1");
-
+                
                 menuRol.ForEach(delegate (Entidades.MenuXrol m)
                 {
+                    if (cbxMenu.Visible)
+                    {
+                        if(idMenu.Value == m.IdMenu.IdMenu.ToString())
+                        {
+                            cbxMenu.Checked = true;
+                        }
+                    }
                     foreach (ListItem cbxItem in cblSubmenu1.Items)
                     {
                         if (cbxItem.Value == m.IdMenu.IdMenu.ToString())
@@ -192,6 +207,7 @@ namespace ControlServidores.Web.Seguridad
                     int cont = 0;
                     HiddenField idMenu = (HiddenField)item.FindControl("hdfIdMenu");
                     int IdMenu = Convert.ToInt32(idMenu.Value);
+                    CheckBox cbxMenu = (CheckBox)item.FindControl("cbxMenu");
                     CheckBoxList cblSubmenu1 = (CheckBoxList)item.FindControl("cblSubmenu1");
                     foreach (ListItem cbxItem in cblSubmenu1.Items)
                     {
@@ -208,6 +224,15 @@ namespace ControlServidores.Web.Seguridad
                         Entidades.MenuXrol m = new Entidades.MenuXrol();
                         m.IdMenu.IdMenu = IdMenu;
                         listMenu.Add(m);
+                    }
+                    if(cbxMenu.Visible)
+                    {
+                        if(cbxMenu.Checked)
+                        {
+                            Entidades.MenuXrol m = new Entidades.MenuXrol();
+                            m.IdMenu.IdMenu = Convert.ToInt32(IdMenu);
+                            listMenu.Add(m);
+                        }
                     }
                 }
 
@@ -228,6 +253,10 @@ namespace ControlServidores.Web.Seguridad
 
                 foreach (RepeaterItem item in rptMenu.Items)
                 {
+                    int cont = 0;
+                    HiddenField idMenu = (HiddenField)item.FindControl("hdfIdMenu");
+                    int IdMenu = Convert.ToInt32(idMenu.Value);
+                    CheckBox cbxMenu = (CheckBox)item.FindControl("cbxMenu");
                     CheckBoxList cblSubmenu1 = (CheckBoxList)item.FindControl("cblSubmenu1");
                     foreach (ListItem cbxItem in cblSubmenu1.Items)
                     {
@@ -235,6 +264,24 @@ namespace ControlServidores.Web.Seguridad
                         {
                             Entidades.MenuXrol m = new Entidades.MenuXrol();
                             m.IdMenu.IdMenu = Convert.ToInt32(cbxItem.Value);
+                            m.IdRol.IdRol = IdRol;
+                            listMenu.Add(m);
+                            cont++;
+                        }
+                    }
+                    if (cont > 0)
+                    {
+                        Entidades.MenuXrol m = new Entidades.MenuXrol();
+                        m.IdMenu.IdMenu = IdMenu;
+                        m.IdRol.IdRol = IdRol;
+                        listMenu.Add(m);
+                    }
+                    if (cbxMenu.Visible)
+                    {
+                        if (cbxMenu.Checked)
+                        {
+                            Entidades.MenuXrol m = new Entidades.MenuXrol();
+                            m.IdMenu.IdMenu = Convert.ToInt32(IdMenu);
                             m.IdRol.IdRol = IdRol;
                             listMenu.Add(m);
                         }
