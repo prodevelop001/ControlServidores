@@ -53,22 +53,24 @@ namespace ControlServidores.Negocio.Seguridad
         {
             HttpContext context = HttpContext.Current;
             Entidades.Usuarios us = (Entidades.Usuarios)context.Session["usuario"];
-            Entidades.MenuXrol menu = new Entidades.MenuXrol()
+            if (us != null)
             {
-                IdRol = new Entidades.RolUsuario()
-                { IdRol = us.IdRol.IdRol }
-               ,
-                IdMenu = new Entidades.Menu()
-                { IdMenu = IdPagina }
-            };
+                Entidades.MenuXrol menu = new Entidades.MenuXrol()
+                {
+                    IdRol = new Entidades.RolUsuario()
+                    { IdRol = us.IdRol.IdRol }
+                   ,
+                    IdMenu = new Entidades.Menu()
+                    { IdMenu = IdPagina }
+                };
 
-            List<Entidades.MenuXrol> menuL = new List<Entidades.MenuXrol>();
-            menuL = Datos.Seguridad.MenuXrol.Obtener(menu);
-            if (menuL.Count > 0)
-            {
-                return true;
+                List<Entidades.MenuXrol> menuL = new List<Entidades.MenuXrol>();
+                menuL = Datos.Seguridad.MenuXrol.Obtener(menu);
+                if (menuL.Count > 0)
+                {
+                    return true;
+                }
             }
-
             return false;
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 
 namespace ControlServidores.Negocio.Seguridad
@@ -49,7 +50,7 @@ namespace ControlServidores.Negocio.Seguridad
 
             if (resultado.resultado == true)
             {
-                if(a.IdPersona.IdPersona == -1)
+                if (a.IdPersona.IdPersona == -1)
                 {
                     a.IdPersona = null;
                 }
@@ -148,16 +149,32 @@ namespace ControlServidores.Negocio.Seguridad
         {
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
+            resultado.resultado = true;
+            string usuarioPrincipal = ConfigurationManager.AppSettings["UsuarioPrincipal"] ?? string.Empty;
 
-            resultado.resultado = Datos.Seguridad.Usuarios.eliminar(a);
-            if (resultado.resultado == true)
+            List<Entidades.Usuarios> userL = new List<Entidades.Usuarios>();
+            userL = Datos.Seguridad.Usuarios.Obtener(a);
+
+            if (userL.FirstOrDefault().Usuario == usuarioPrincipal)
             {
+                resultado.resultado = false;
                 error = new Entidades.Logica.Error();
-                error.idError = 1;
-                error.descripcionCorta = "Usuario eliminado satisfactoriamente.";
+                error.idError = 2;
+                error.descripcionCorta = "Este usuario no puede ser eliminado.";
                 resultado.errores.Add(error);
             }
 
+            if (resultado.resultado == true)
+            {
+                resultado.resultado = Datos.Seguridad.Usuarios.eliminar(a);
+                if (resultado.resultado == true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Usuario eliminado satisfactoriamente.";
+                    resultado.errores.Add(error);
+                }
+            }
             return resultado;
         }
 
