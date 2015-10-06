@@ -26,7 +26,6 @@ namespace ControlServidores.Datos.Seguridad
                     if (us.IdPersona.IdPersona != 0 && us.IdPersona.IdPersona.ToString() != "")
                     {
                         crit.CreateAlias("us.IdPersona", "IdPersona", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        //crit.Add(Restrictions.Eq("IdPersona.IdPersona", us.IdPersona));
                         crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdPersona.IdPersona", us.IdPersona.IdPersona)));
                     }
                     if (!string.IsNullOrEmpty(us.Usuario))
@@ -36,7 +35,6 @@ namespace ControlServidores.Datos.Seguridad
                     if (us.IdRol.IdRol != 0 && us.IdRol.IdRol.ToString() != "")
                     {
                         crit.CreateAlias("us.IdRol", "IdRol", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        //crit.Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol));
                         crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol)));
                     }
 
