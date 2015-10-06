@@ -63,3 +63,33 @@ h1, h2, h3, h4, h5, h6{
 
     box-sizing: border-box;
 }
+
+.miTabla{
+    width: 80%;
+    margin: 15px auto 7px;
+    border: solid 1px black;
+
+    box-sizing: border-box;
+}
+    .miTabla th{
+        background-color: aquamarine;
+        padding: 7px 7px;
+        font-weight: 800;
+
+        box-sizing: border-box;
+    }
+    .miTabla td{
+        padding: 7px 7px;
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+        
+    .miTabla tr:nth-child(odd)
+    {
+        background-color: #0088fb;
+    }
+    .miTabla tr:nth-child(even)
+    {
+        background-color: #a0bbcb;
+    }

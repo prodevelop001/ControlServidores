@@ -9,9 +9,18 @@ namespace ControlServidores.Web
 {
     public partial class pruebaMaster : System.Web.UI.Page
     {
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
+        protected void GridView1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+
+    
 }

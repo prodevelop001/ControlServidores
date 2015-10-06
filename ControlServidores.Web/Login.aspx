@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
 	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
 	<link rel="stylesheet" href="./Styles/login.css" type="text/css" />
+    <link rel="icon" type="image/png" href="./Images/favicon.png"/>
 </head>
 <body id="fondo_login">
 <div class="cuerpo" >

@@ -9,6 +9,7 @@ namespace ControlServidores.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
             if(usr != null && usr.Usuario != "")
             {

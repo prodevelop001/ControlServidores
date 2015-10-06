@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
 	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
     <link rel="stylesheet" href="./Styles/menu.css" type="text/css" />
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -67,4 +68,5 @@
         <div class="clear"></div>
     </form>
 </body>
+<script type="text/javascript" src="./Scripts/general.js"></script>
 </html>

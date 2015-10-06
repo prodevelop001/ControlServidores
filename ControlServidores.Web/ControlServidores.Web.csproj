@@ -72,9 +72,12 @@
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="Images\favicon.png" />
     <Content Include="Images\fondo-login.png" />
+    <Content Include="Images\server-fondo.png" />
     <Content Include="packages.config" />
     <Content Include="pruebaMaster.aspx" />
+    <Content Include="Scripts\general.js" />
     <Content Include="Scripts\Scripts.js" />
     <Content Include="Seguridad\Personas.aspx" />
     <Content Include="Seguridad\Roles.aspx" />

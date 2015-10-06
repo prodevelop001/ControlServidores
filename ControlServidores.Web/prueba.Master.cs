@@ -12,8 +12,11 @@ namespace ControlServidores.Web
         HttpContext context = HttpContext.Current;
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
             lblUsrName.Text = usr.Usuario.ToString();
+            */
+            lblUsrName.Text = "Mauro A.";
         }
 
         protected void cerrarSesion_Click(object sender, EventArgs e)
