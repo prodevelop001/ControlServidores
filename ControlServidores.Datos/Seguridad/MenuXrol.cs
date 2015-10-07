@@ -18,17 +18,15 @@ namespace ControlServidores.Datos.Seguridad
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.MenuXrol), "mr");
                     if (a.Id != 0 && a.Id.ToString() != "")
                         crit.Add(Expression.Eq("Id", a.Id));
+                    crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
                     if (a.IdMenu.IdMenu != 0 && a.IdMenu.IdMenu.ToString() != "")
                     {
-                        crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idMenu.IdMenu", a.IdMenu.IdMenu)));
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idMenu.IdMenu", a.IdMenu.IdMenu)));
                     }                        
                     if (a.IdRol.IdRol != 0 && a.IdRol.IdRol.ToString() != "")
                     {
-                        crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Expression.Eq("idRol.IdRol", a.IdRol.IdRol)));
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idRol.IdRol", a.IdRol.IdRol)));
                     }
                     lista = (List<Entidades.MenuXrol>)crit.List<Entidades.MenuXrol>();
                 }

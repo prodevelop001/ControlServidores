@@ -11,7 +11,6 @@ namespace ControlServidores.Web.Catalogos
         protected void Page_Load(object sender, EventArgs e)
         {
             //Este ID debe coincidir con el Menú registrado en la BD
-            
             int IdPagina = 2;
             if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {

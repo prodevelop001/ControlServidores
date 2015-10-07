@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Catalogos\ConceptoEstatus.aspx" />
+    <Content Include="Contactos.aspx" />
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="Catalogos\ConceptoEstatus.aspx.designer.cs">
       <DependentUpon>ConceptoEstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contactos.aspx.cs">
+      <DependentUpon>Contactos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contactos.aspx.designer.cs">
+      <DependentUpon>Contactos.aspx</DependentUpon>
     </Compile>
     <Compile Include="errorAcceso.aspx.cs">
       <DependentUpon>errorAcceso.aspx</DependentUpon>
