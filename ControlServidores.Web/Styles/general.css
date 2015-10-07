@@ -106,3 +106,90 @@ h1, h2, h3, h4, h5, h6{
     {
         background-color: #a0bbcb;
     }
+
+/*******Concepto Estatus******/
+
+/*Boton Nuevo*/
+#cuerpoPpal_btnNuevo{
+    background: blueviolet;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+
+    box-sizing: border-box;
+}
+    #cuerpoPpal_btnNuevo:hover{
+        cursor: pointer;
+    }
+
+/*Tabla*/
+#cuerpoPpal_gdvConceptos{
+    width: 80%;
+    margin: 15px auto 7px;
+    margin-right: auto !important;
+    border: solid 1px black;
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+    #cuerpoPpal_gdvConceptos tbody tr th{
+        background-color: aquamarine;
+        padding: 7px 7px;
+        font-weight: 800;
+
+        box-sizing: border-box;
+    }
+    #cuerpoPpal_gdvConceptos tr td{
+        padding: 7px 7px;
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+        #cuerpoPpal_gdvConceptos tr td:nth-child(4) a {
+            color: greenyellow;
+        }
+            #cuerpoPpal_gdvConceptos tr td:nth-child(4) a:hover {
+                color: blueviolet;
+            }
+        #cuerpoPpal_gdvConceptos tr td:nth-child(5) a {
+            color: red;
+        }
+            #cuerpoPpal_gdvConceptos tr td:nth-child(5) a:hover {
+                color: tomato;
+            }
+                
+    #cuerpoPpal_gdvConceptos tr:nth-child(odd)
+    {
+        background-color: #0088fb;
+    }
+    #cuerpoPpal_gdvConceptos tr:nth-child(even)
+    {
+        background-color: #a0bbcb;
+    }
+
+/*Formulario nuevo*/
+
+#formConEstatus{
+    width: 80%;
+    margin: 15px auto;
+    font-size: 14px;
+    
+
+    box-sizing: border-box;
+}
+
+#cuerpoPpal_lblIdConceptoEstatus{
+
+    background: rgba(27, 174, 239, 0.62);
+    border: 1px solid #0088fb;
+    display: block;
+    text-align: center;
+    padding: 7px 0px;
+
+    box-sizing: border-box;
+}
+
+
+
+
