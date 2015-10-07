@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/prueba.Master" AutoEventWireup="true" CodeBehind="pruebaMaster.aspx.cs" Inherits="ControlServidores.Web.pruebaMaster" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div class="principal">
         <h2>Prueba</h2>
         <table class="miTabla">
