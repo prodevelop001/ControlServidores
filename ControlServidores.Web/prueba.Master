@@ -13,7 +13,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body onmouseover="agregar_iconos();">
     <form id="form1" runat="server">
     <div class="ancho970 cuerpo">
         <div class="encabezado">
