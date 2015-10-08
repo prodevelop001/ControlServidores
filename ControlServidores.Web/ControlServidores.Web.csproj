@@ -76,6 +76,7 @@
     <Content Include="Images\favicon.png" />
     <Content Include="Images\fondo-login.png" />
     <Content Include="Images\server-fondo.png" />
+    <Content Include="Inventarios\Servidores.aspx" />
     <Content Include="packages.config" />
     <Content Include="pruebaMaster.aspx" />
     <Content Include="Scripts\general.js" />
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\Servidores.aspx.cs">
+      <DependentUpon>Servidores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\Servidores.aspx.designer.cs">
+      <DependentUpon>Servidores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
