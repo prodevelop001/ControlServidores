@@ -52,6 +52,7 @@ namespace ControlServidores.Web.Catalogos
             pnlCatalogo.Visible = false;
             pnlFormulario.Visible = true;
             lblIdConceptoEstatus.Text = string.Empty;
+            lblIdConceptoEstatus.Attributes["style"] = "display: none;";
             txtConcepto.Text = string.Empty;
         }
 
@@ -75,6 +76,7 @@ namespace ControlServidores.Web.Catalogos
             pnlCatalogo.Visible = false;
             pnlFormulario.Visible = true;
             lblIdConceptoEstatus.Text = gdvConceptos.SelectedRow.Cells[1].Text;
+            lblIdConceptoEstatus.Attributes["style"] = "display: block;";
             txtConcepto.Text = gdvConceptos.SelectedRow.Cells[2].Text;
         }
 
