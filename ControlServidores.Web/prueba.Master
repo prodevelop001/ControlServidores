@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Prueba de Master</title>
+    <title></title>
     <%--<link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />--%>
     <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
 	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />

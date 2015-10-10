@@ -90,7 +90,7 @@ namespace ControlServidores.Negocio.Catalogos
 
             if (resultado.resultado == true)
             {
-                resultado.resultado = Datos.Catalogos.Empresa.Nuevo(a);
+                resultado.resultado = Datos.Catalogos.Empresa.Actualizar(a);
                 if (resultado.resultado == true)
                 {
                     error = new Entidades.Logica.Error();

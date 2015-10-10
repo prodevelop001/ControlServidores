@@ -1,59 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ControlServidores.Web.Catalogos
+namespace ControlServidores.Web
 {
-    public partial class ConceptoEstatus : System.Web.UI.Page
+    public partial class Empresas : System.Web.UI.Page
     {
-        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //Este ID debe coincidir con el Menú registrado en la BD
-            int IdPagina = 10;
+            int IdPagina = 11;
             if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {
                 if (!IsPostBack)
                 {
-                    permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
-                    if (permisos.R == true)
-                    {
-                        pnlCatalogo.Visible = true;
+                    //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                    //if (permisos.R == true)
+                    //{
+                        pnlEmpresa.Visible = true;
                         pnlFormulario.Visible = false;
-                        llenarGdvConceptos();
-                    }
-                    btnNuevo.Enabled = permisos.C;
+                        llenarGdvEmpresas();
+                    //}
+                    //btnNuevo.Enabled = permisos.C;
                 }
             }
             else
             {
                 Response.Redirect("~/errorAcceso.aspx");
             }
-            
         }
 
-        private void llenarGdvConceptos()
+        private void llenarGdvEmpresas()
         {
-            
-            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
-            
-            gdvConceptos.DataSource = Negocio.Catalogos.ConceptoEstatus.Obtener(new Entidades.ConceptoEstatus());
-            gdvConceptos.DataBind();
+
+            //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+
+            gdvEmpresas.DataSource = Negocio.Catalogos.Empresa.Obtener(new Entidades.Empresa());
+            gdvEmpresas.DataBind();
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "1";
             lblStatus.Text = string.Empty;
             btnGuardar.Text = "Guardar";
-            btnGuardar.Enabled = permisos.C;
-            pnlCatalogo.Visible = false;
+            //btnGuardar.Enabled = permisos.C;
+            pnlEmpresa.Visible = false;
             pnlFormulario.Visible = true;
-            lblIdConceptoEstatus.Text = string.Empty;
-            lblIdConceptoEstatus.Attributes["style"] = "display: none;";
-            txtConcepto.Text = string.Empty;
+            lblIdNombreEmpresa.Value = string.Empty;
+            //lblIdNombreEmpresa.Attributes["style"] = "display: none;";
+            txtEmpresa.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -61,51 +63,59 @@ namespace ControlServidores.Web.Catalogos
             hdfEstado.Value = "0";
             btnNuevo.Visible = true;
             btnNuevo.Text = "Nuevo";
-            pnlCatalogo.Visible = true;
+            pnlEmpresa.Visible = true;
             pnlFormulario.Visible = false;
         }
 
-        protected void gdvConceptos_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gdvEmpresas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             hdfEstado.Value = "2";
             lblStatus.Text = string.Empty;
             btnNuevo.Visible = false;
             btnGuardar.Text = "Actualizar";
-            btnGuardar.Enabled = permisos.U;
-            pnlCatalogo.Visible = false;
+            //btnGuardar.Enabled = permisos.U;
+            pnlEmpresa.Visible = false;
             pnlFormulario.Visible = true;
-            lblIdConceptoEstatus.Text = gdvConceptos.SelectedRow.Cells[1].Text;
-            //lblIdConceptoEstatus.Attributes["style"] = "display: block;";
-            txtConcepto.Text = gdvConceptos.SelectedRow.Cells[2].Text;
+            lblIdNombreEmpresa.Value = gdvEmpresas.SelectedRow.Cells[1].Text;
+            //lblIdNombreEmpresa.Visible=true;
+            txtEmpresa.Text = gdvEmpresas.SelectedRow.Cells[2].Text;
+            txtTelefono.Text = gdvEmpresas.SelectedRow.Cells[3].Text;
+            txtDireccion.Text = gdvEmpresas.SelectedRow.Cells[4].Text;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             lblStatus.Text = string.Empty;
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            if (hdfEstado.Value == "1" && permisos.C == true)
+            //if (hdfEstado.Value == "1" && permisos.C == true)
+            if (hdfEstado.Value == "1")
             {
-                resultado = Negocio.Catalogos.ConceptoEstatus.Nuevo(new Entidades.ConceptoEstatus()
+                resultado = Negocio.Catalogos.Empresa.Nuevo(new Entidades.Empresa()
                 {
-                    Concepto = txtConcepto.Text
+                    Nombre = txtEmpresa.Text,
+                    Telefono = txtTelefono.Text,
+                    Direccion = txtDireccion.Text
                 });
             }
-            else if(hdfEstado.Value == "2" && permisos.U == true)
+            //else if (hdfEstado.Value == "2" && permisos.U == true)
+            else if (hdfEstado.Value == "2")
             {
-                resultado = Negocio.Catalogos.ConceptoEstatus.Actualizar(new Entidades.ConceptoEstatus()
+                resultado = Negocio.Catalogos.Empresa.Actualizar(new Entidades.Empresa()
                 {
-                    IdConceptoEstatus= Convert.ToInt32(lblIdConceptoEstatus.Text),
-                    Concepto = txtConcepto.Text
+                    IdEmpresa = Convert.ToInt32(lblIdNombreEmpresa.Value),
+                    Nombre = txtEmpresa.Text,
+                    Telefono = txtTelefono.Text,
+                    Direccion = txtDireccion.Text
                 });
             }
             else
             {
-                lblStatus.Text ="No tienes privilegios para realizar esta acción.";
-            }           
+                lblStatus.Text = "No tienes privilegios para realizar esta acción.";
+            }
 
-            resultado.errores.ForEach(delegate(Entidades.Logica.Error error)
+            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
             {
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
@@ -117,13 +127,13 @@ namespace ControlServidores.Web.Catalogos
                 hdfEstado.Value = "0";
                 btnNuevo.Visible = true;
                 btnNuevo.Text = "Nuevo";
-                pnlCatalogo.Visible = true;
+                pnlEmpresa.Visible = true;
                 pnlFormulario.Visible = false;
-                llenarGdvConceptos();
+                llenarGdvEmpresas();
             }
         }
 
-        protected void gdvConceptos_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gdvEmpresas_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -135,8 +145,8 @@ namespace ControlServidores.Web.Catalogos
                         LinkButton button = control as LinkButton;
                         if (button != null && button.Text == "Eliminar")
                         {
-                            button.Enabled = permisos.D;
-                            if(button.Enabled)
+                            //button.Enabled = permisos.D;
+                            if (button.Enabled)
                                 button.OnClientClick = "return checkMe()";
                         }
                     }
@@ -147,11 +157,11 @@ namespace ControlServidores.Web.Catalogos
         protected void gdvConceptos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             lblStatus.Text = string.Empty;
-            int IdConceptoEstatus = Convert.ToInt32(gdvConceptos.Rows[e.RowIndex].Cells[1].Text);
+            int IdEmpresa = Convert.ToInt32(gdvEmpresas.Rows[e.RowIndex].Cells[1].Text);
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            resultado = Negocio.Catalogos.ConceptoEstatus.Eliminar(new Entidades.ConceptoEstatus()
+            resultado = Negocio.Catalogos.Empresa.Eliminar(new Entidades.Empresa()
             {
-                IdConceptoEstatus = IdConceptoEstatus
+                IdEmpresa = IdEmpresa
             });
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
@@ -163,8 +173,11 @@ namespace ControlServidores.Web.Catalogos
             if (resultado.resultado == true)
             {
                 lblStatus.ForeColor = System.Drawing.Color.Green;
-                llenarGdvConceptos();
+                llenarGdvEmpresas();
             }
         }
+
+
+
     }
 }

@@ -7,7 +7,8 @@
 </asp:Content>
 <%--<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="cuerpoPpal" runat="server">
-<div  class="principal">
+    <div  class="principal">
+    <div id="numCols" class="hide">5</div>
     <div class="ttlPrincipal">
         <h1>Concepto Estatus</h1>
     </div>
@@ -17,25 +18,23 @@
             <div >
                 <div class="addNuevo">
                     <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
-                    <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
+                    <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
                 </div>
                 
-                <asp:Panel ID="pnlFormulario" runat="server" Visible="False">
-                    <div id="formConEstatus">
+                <asp:Panel ID="pnlFormulario" CssClass="miFormulario" runat="server" Visible="False">
+                    <div class="formCampos">
                         <asp:Label ID="lblIdConceptoEstatus" runat="server" CssClass="hide"></asp:Label>
-                        <div id="conceptoIn">
-                            <label>Concepto </label>
-                            <asp:TextBox ID="txtConcepto" runat="server"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="rfvConcepto" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtConcepto" ForeColor="Red" ValidationGroup="Conceptos"></asp:RequiredFieldValidator>
-                        </div>
-                        <div>
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Conceptos"></asp:Button>
-                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
-                        </div>
+                        <label>Concepto </label>
+                        <asp:TextBox ID="txtConcepto" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvConcepto" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtConcepto" ForeColor="Red" ValidationGroup="Conceptos"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="formBotones">
+                        <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Conceptos"></asp:Button>
+                        <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlCatalogo" runat="server" Visible="False">
-                    <asp:GridView ID="gdvConceptos" runat="server" AutoGenerateColumns="False" Style="margin-right: 0px" OnSelectedIndexChanged="gdvConceptos_SelectedIndexChanged" OnRowDataBound="gdvConceptos_RowDataBound" OnRowDeleting="gdvConceptos_RowDeleting">
+                    <asp:GridView ID="gdvConceptos" runat="server" CssClass="miTabla5" AutoGenerateColumns="False" Style="margin-right: 0px" OnSelectedIndexChanged="gdvConceptos_SelectedIndexChanged" OnRowDataBound="gdvConceptos_RowDataBound" OnRowDeleting="gdvConceptos_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>

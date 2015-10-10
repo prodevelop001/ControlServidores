@@ -64,6 +64,12 @@ h1, h2, h3, h4, h5, h6{
     box-sizing: border-box;
 }
 
+/*****************************/
+.hide{
+    display: none;
+}
+
+/*
 .miTabla{
     width: 80%;
     margin: 15px auto 7px;
@@ -106,7 +112,7 @@ h1, h2, h3, h4, h5, h6{
     {
         background-color: #a0bbcb;
     }
-
+*/
 .ttlPrincipal{
     width: 100%;
     display: block;
@@ -123,6 +129,7 @@ h1, h2, h3, h4, h5, h6{
     overflow: hidden;
     box-sizing: border-box;
 }
+/*
     .addNuevo input{
         float: right;
         margin-right: 9px;
@@ -153,13 +160,59 @@ h1, h2, h3, h4, h5, h6{
             .addNuevo input[type="submit"]:hover {
                 background: #4e95e1;
             }
-/*******Concepto Estatus******/
+*/
 
+/*******Concepto Estatus******/
+/*
     #cuerpoPpal_btnNuevo:hover{
         cursor: pointer;
     }
-
+*/
 /***************/
+
+/*********BOTONES*******/
+.btnNuevo input[type="submit"]{
+    float: right;
+    margin-right: 9px;
+
+}
+    .btnNuevo input[type="submit"]{
+        background: #0852a3;
+        padding: 5px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+
+        -webkit-border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -o-border-radius: 5px;
+	    -ms-border-radius: 5px;
+	    border-radius: 5px;
+	
+	    -webkit-transition: all 0.3s ease-in-out;
+	    -moz-transition: all 0.3s ease-in-out;
+	    -o-transition: all 0.3s ease-in-out;
+	    -ms-transition: all 0.3s ease-in-out;
+	    transition: all 0.3s ease-in-out;
+
+
+        box-sizing: border-box;
+    }
+        .btnNuevo input[type="submit"]:hover {
+            background: #4e95e1;
+            
+        }
+
+.btnGuardar{
+    background: green;
+}
+
+.btnCancelar{
+    background: red;
+}
+
+
+/******FIN BOTONES*****/
 #conceptoIn{
     width: 80%;
     margin: 7px auto;
@@ -168,7 +221,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /*Tabla*/
-#cuerpoPpal_gdvConceptos{
+.miTabla5, .miTabla7{
     width: 80%;
     margin: 15px auto 7px;
     margin-right: auto !important;
@@ -186,7 +239,7 @@ h1, h2, h3, h4, h5, h6{
     box-sizing: border-box;
 }
 
-    #cuerpoPpal_gdvConceptos tbody tr th{
+    .miTabla5 tbody tr th, .miTabla7 tbody tr th{
         background-color: #00B1C0;
         color: white;
         padding: 7px 7px;
@@ -194,38 +247,128 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-    #cuerpoPpal_gdvConceptos tr td{
+    .miTabla5 tr td, .miTabla7 tr td{
         padding: 7px 7px;
         text-align: center;
 
         box-sizing: border-box;
     }
-        #cuerpoPpal_gdvConceptos tr td:nth-child(4) a {
+    /***********************Botones*************************************/
+
+        .miTabla5 tr td:nth-child(4) a {
             color: #F43CAB;
             font-weight: 800;
         }
-            #cuerpoPpal_gdvConceptos tr td:nth-child(4) a:hover {
+        .miTabla7 tr td:nth-child(6) a {
+            color: #F43CAB;
+            font-weight: 800;
+        }
+            .miTabla5 tr td:nth-child(4) a:hover {
                 color: blueviolet;
             }
-        #cuerpoPpal_gdvConceptos tr td:nth-child(5) a {
+            .miTabla7 tr td:nth-child(6) a:hover {
+                color: blueviolet;
+            }
+        .miTabla5 tr td:nth-child(5) a {
             color: red;
             font-weight: 800;
         }
-            #cuerpoPpal_gdvConceptos tr td:nth-child(5) a:hover {
+        .miTabla7 tr td:nth-child(7) a {
+            color: red;
+            font-weight: 800;
+        }
+            .miTabla5 tr td:nth-child(5) a:hover {
+                color: tomato;
+            }
+            .miTabla7 tr td:nth-child(7) a:hover {
                 color: tomato;
             }
                 
-    #cuerpoPpal_gdvConceptos tr:nth-child(odd)
-    {
+    .miTabla5 tr:nth-child(odd), .miTabla7 tr:nth-child(odd){
         background-color: #FFF;
     }
-    #cuerpoPpal_gdvConceptos tr:nth-child(even)
-    {
+    .miTabla5 tr:nth-child(even), .miTabla7 tr:nth-child(even){
         background-color: #DDD;
     }
+/************FORMULARIO***********/
+.formCampos{
+    width: 80%;
+    margin: 15px auto;
+    font-size: 14px;
+    background: #57f276;
 
+    overflow: hidden;
+    box-sizing: border-box;
+}
+    .formCampos label{
+        text-align: right;
+    }
+    .formCampos input{
+        border: solid 1px #555454;
+    }
+
+    .formCampos input, .miFormulario label {
+        width: 35%;
+        display: block;
+        float: left;
+        margin: 5px;
+        padding: 7px;
+
+        box-sizing: border-box;
+    }
+            .formCampos input[type="text"] {
+            -webkit-border-radius: 5px;
+	        -moz-border-radius: 5px;
+	        -o-border-radius: 5px;
+	        -ms-border-radius: 5px;
+	        border-radius: 5px;
+
+            -webkit-transition: all 0.4s ease-in-out;
+	        -moz-transition: all 0.4s ease-in-out;
+	        -o-transition: all 0.4s ease-in-out;
+	        -ms-transition: all 0.4s ease-in-out;
+	        transition: all 0.4s ease-in-out;
+
+        }
+            .formCampos input[type="text"]:focus {
+                border: solid 1px #C30F76;
+            }
+.formBotones{
+    width: 80%;
+    margin: 15px auto;
+    font-size: 14px;
+    background: #ed3f3f;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+        .formBotones input[type="submit"] {
+            border: solid 1px #555454;
+            float: right;
+            width: 26%;
+            display: block;
+            margin: 5px;
+            padding: 7px;
+            -webkit-border-radius: 5px;
+	        -moz-border-radius: 5px;
+	        -o-border-radius: 5px;
+	        -ms-border-radius: 5px;
+	        border-radius: 5px;
+
+            -webkit-transition: all 0.4s ease-in-out;
+	        -moz-transition: all 0.4s ease-in-out;
+	        -o-transition: all 0.4s ease-in-out;
+	        -ms-transition: all 0.4s ease-in-out;
+	        transition: all 0.4s ease-in-out;
+
+            box-sizing: border-box;
+        }
+            .formBotones input[type="submit"]:hover {
+                border: solid 1px #15dd0c;
+                cursor: pointer;
+            }
 /*Formulario nuevo*/
-
+/*
 #formConEstatus{
     width: 80%;
     margin: 15px auto;
@@ -259,6 +402,7 @@ h1, h2, h3, h4, h5, h6{
             #formConEstatus input[type="text"]:focus {
                 border: solid 1px #C30F76;
             }
+*/
 #cuerpoPpal_lblIdConceptoEstatus{
 
     background: rgba(27, 174, 239, 0.62);
