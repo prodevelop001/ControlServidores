@@ -86,7 +86,7 @@ namespace ControlServidores.Negocio.Inventarios
             resultado.resultado = true;
 
             List<Entidades.Servidor> servL = new List<Entidades.Servidor>();
-            servL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdEspecificacion = a.IdEspecificacion });
+            servL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { Especificacion=new Entidades.EspServidor() { IdEspecificacion = a.IdEspecificacion } });
             if(servL.Count > 0)
             {
                 resultado.resultado = false;

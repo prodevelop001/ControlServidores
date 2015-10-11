@@ -5,11 +5,14 @@
       <generator class="identity"></generator>
     </id>
 	<property name="AliasServidor" column="AliasServidor" type="String"></property>
-    <property name="IdModelo" column="IdModelo" type="int"></property>
-    <property name="IdEspecificacion" column="IdEspecificacion" type="int"></property>
-    <property name="IdTipoServidor" column="IdTipoServidor" type="int"></property>
+    <!--<property name="IdModelo" column="IdModelo" type="int"></property>-->
+    <!--<property name="IdEspecificacion" column="IdEspecificacion" type="int"></property>-->
+    <!--<property name="IdTipoServidor" column="IdTipoServidor" type="int"></property>-->
 	  <property name="IdVirtualizador" column="IdVirtualizador" type="int"></property>
 	  <property name="DescripcionUso" column="DescripcionUso" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
+    <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo"/>
+    <many-to-one name="Especificacion" class="ControlServidores.Entidades.EspServidor" column="IdEspecificacion"/>
+    <many-to-one name="TipoServidor" class="ControlServidores.Entidades.TipoServidor" column="IdTipoServidor"/>
   </class>
 </hibernate-mapping>

@@ -123,7 +123,7 @@ namespace ControlServidores.Negocio.Catalogos
             resultado.resultado = true;
 
             List<Entidades.Servidor> servL = new List<Entidades.Servidor>();
-            servL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdTipoServidor = a.IdTipoServidor });
+            servL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { TipoServidor = new Entidades.TipoServidor() { IdTipoServidor = a.IdTipoServidor } });
             if(servL.Count > 0)
             {
                 resultado.resultado = true;

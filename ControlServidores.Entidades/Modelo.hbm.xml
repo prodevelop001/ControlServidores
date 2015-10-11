@@ -6,5 +6,9 @@
     </id>
     <property name="IdMarca" column="IdMarca" type="int"></property>
     <property name="NombreModelo" column="NombreModelo" type="String"></property>
+    <set name="Servidor" inverse="true" cascade="save-update">
+      <key column= "IdModelo" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Servidor"/>
+    </set>
   </class>
 </hibernate-mapping>

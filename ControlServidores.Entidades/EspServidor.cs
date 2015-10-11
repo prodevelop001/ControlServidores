@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ControlServidores.Entidades
 {
 	public class EspServidor
@@ -13,5 +15,7 @@ namespace ControlServidores.Entidades
 		public virtual int IdTipoArreglo {get; set;}
 		
 		public virtual string NumSerie {get; set;}
-	}
+
+        public virtual ISet<Servidor> Servidor { get; set; }
+    }
 }

@@ -42,7 +42,7 @@ namespace ControlServidores.Datos.Seguridad
                 }
             }
             //Ver Error
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

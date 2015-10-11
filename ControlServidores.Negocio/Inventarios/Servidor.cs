@@ -240,7 +240,7 @@ namespace ControlServidores.Negocio.Inventarios
                     resultado.errores.Add(error);
 
                     List<Entidades.EspServidor> especificacionL = new List<Entidades.EspServidor>();
-                    especificacionL = Datos.Inventarios.EspServidor.Obtener(new Entidades.EspServidor() { IdEspecificacion = a.IdEspecificacion });
+                    especificacionL = Datos.Inventarios.EspServidor.Obtener(new Entidades.EspServidor() {  IdEspecificacion = a.Especificacion.IdEspecificacion });
                     if (especificacionL.Count > 0)
                     {
                         resultado.resultado = Datos.Inventarios.EspServidor.Eliminar(especificacionL);

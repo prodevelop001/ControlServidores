@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ControlServidores.Entidades
 {
 	public class Modelo
@@ -7,5 +9,7 @@ namespace ControlServidores.Entidades
 		public virtual int IdMarca {get;set;}
 		
 		public virtual string NombreModelo {get;set;}
-	}
+
+        public virtual ISet<Servidor> Servidor { get; set; }
+    }
 }

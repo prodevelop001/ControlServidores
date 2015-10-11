@@ -122,8 +122,8 @@ namespace ControlServidores.Negocio.Catalogos
             resultado.resultado = true;
 
             List<Entidades.Servidor> servidorL = new List<Entidades.Servidor>();
-            servidorL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdModelo = a.IdModelo });
-            
+            servidorL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() {  Modelo = new Entidades.Modelo() { IdModelo = a.IdModelo } });
+
             if (servidorL.Count > 0)
             {
                 resultado.resultado = false;

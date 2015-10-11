@@ -17,7 +17,7 @@ namespace ControlServidores.Datos.Seguridad
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.MenuXrol), "mr");
                     if (a.Id != 0 && a.Id.ToString() != "")
-                        crit.Add(Expression.Eq("Id", a.Id));
+                        crit.Add(Restrictions.Eq("Id", a.Id));
                     crit.CreateAlias("mr.IdMenu", "idMenu", NHibernate.SqlCommand.JoinType.InnerJoin);
                     crit.CreateAlias("mr.IdRol", "idRol", NHibernate.SqlCommand.JoinType.InnerJoin);
                     if (a.IdMenu.IdMenu != 0 && a.IdMenu.IdMenu.ToString() != "")

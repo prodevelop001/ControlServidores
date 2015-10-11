@@ -11,5 +11,6 @@
         /// Nombre de la marca.
         /// </summary>
         public virtual string NombreMarca { get; set; }
+
     }
 }

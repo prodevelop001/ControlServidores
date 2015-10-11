@@ -17,7 +17,7 @@ namespace ControlServidores.Datos.Catalogos
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Modelo));
                     if (a.IdModelo != 0 && a.IdModelo.ToString() != "")
                         crit.Add(Restrictions.Eq("IdModelo", a.IdModelo));
-				    if (a.IdMarca != 0 && a.IdMarca.ToString() != "")
+				    if (a.IdMarca != -1 && a.IdMarca.ToString() != "")
 						crit.Add(Restrictions.Eq("IdMarca", a.IdMarca));
 					if (!string.IsNullOrEmpty(a.NombreModelo))
                         crit.Add(Restrictions.Like("NombreModelo", a.NombreModelo));

@@ -5,7 +5,7 @@
       <generator class="identity"></generator>
     </id>
     <property name="Nombre" column="Nombre" type="String"></property>
-    <property name="NumCores" column="IdTipoMemoria" type="int"></property>
+    <property name="NumCores" column="NumCores" type="int"></property>
     <property name="Velocidad" column="Velocidad" type="String"></property>
 	<property name="Cache" column="Cache" type="String"></property>
 	<property name="TamanoPalabra" column="TamanoPalabra" type="String"></property>

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
-using ControlServidores.Entidades;
 
 namespace ControlServidores.Datos.Bitacoras
 {
