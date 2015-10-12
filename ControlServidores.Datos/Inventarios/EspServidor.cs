@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -22,7 +23,7 @@ namespace ControlServidores.Datos.Inventarios
                    if (a.NumProcesadores != 0 && a.NumProcesadores.ToString() != "")
                         crit.Add(Restrictions.Eq("NumProcesadores", a.NumProcesadores));
 					if (!string.IsNullOrEmpty(a.CapacidadRAM))
-                        crit.Add(Restrictions.Like("CapacidadRam", a.CapacidadRAM));
+                        crit.Add(Restrictions.Like("CapacidadRAM", a.CapacidadRAM));
 					if (a.IdTipoArreglo != 0 && a.IdTipoArreglo.ToString() != "") 
                         crit.Add(Restrictions.Eq("IdTipoArreglo", a.IdTipoArreglo));
 					if (!string.IsNullOrEmpty(a.NumSerie))

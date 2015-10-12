@@ -58,6 +58,15 @@ namespace ControlServidores.Web.Inventarios {
         protected global::System.Web.UI.WebControls.TextBox txtAliasServidor;
         
         /// <summary>
+        /// Control rfvAliasServidor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAliasServidor;
+        
+        /// <summary>
         /// Control ddlMarca.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace ControlServidores.Web.Inventarios {
         protected global::System.Web.UI.WebControls.TextBox txtDescripcionUso;
         
         /// <summary>
+        /// Control rfvDescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
+        
+        /// <summary>
         /// Control ddlEstatus.
         /// </summary>
         /// <remarks>
@@ -139,6 +157,15 @@ namespace ControlServidores.Web.Inventarios {
         protected global::System.Web.UI.WebControls.TextBox txtNumProcesadores;
         
         /// <summary>
+        /// Control rfvNumProcesadores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNumProcesadores;
+        
+        /// <summary>
         /// Control txtCapacidadRam.
         /// </summary>
         /// <remarks>
@@ -155,6 +182,15 @@ namespace ControlServidores.Web.Inventarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCapacidadRam;
+        
+        /// <summary>
+        /// Control rfvCapacidadRam.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCapacidadRam;
         
         /// <summary>
         /// Control ddlArregloDiscos.
@@ -175,6 +211,15 @@ namespace ControlServidores.Web.Inventarios {
         protected global::System.Web.UI.WebControls.TextBox txtNumSerie;
         
         /// <summary>
+        /// Control ddlPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPersona;
+        
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
@@ -191,6 +236,15 @@ namespace ControlServidores.Web.Inventarios {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// Control lblResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
         
         /// <summary>
         /// Control pnlServidores.

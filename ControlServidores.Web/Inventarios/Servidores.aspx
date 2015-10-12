@@ -15,6 +15,7 @@
                         <label>Alias de servidor</label>
                         <div>
                             <asp:TextBox ID="txtAliasServidor" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvAliasServidor" runat="server" ErrorMessage="*Alias requerido" ControlToValidate="txtAliasServidor" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
                         </div>
                         <label>Marca</label>
                         <div>
@@ -35,6 +36,7 @@
                         <label>Servidor para uso de</label>
                         <div>
                             <asp:TextBox ID="txtDescripcionUso" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ErrorMessage="*Descripción requerida" ControlToValidate="txtDescripcionUso" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
                         </div>
                         <label>Estatus</label>
                         <div>
@@ -49,17 +51,19 @@
                         </div>
                         <label>Número de procesadores</label>
                         <div>
-                            <asp:TextBox ID="txtNumProcesadores" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtNumProcesadores" runat="server" TextMode="Number"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvNumProcesadores" runat="server" ErrorMessage="*Campo requerido" ControlToValidate="txtNumProcesadores" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
                         </div>
                         <label>Capacidad de RAM</label>
                         <div>
-                            <asp:TextBox ID="txtCapacidadRam" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCapacidadRam" runat="server" TextMode="Number"></asp:TextBox>
                             <asp:DropDownList ID="ddlCapacidadRam" runat="server">
                                 <asp:ListItem Value="0" Text="-- Selccionar --" Selected="True"></asp:ListItem>
                                 <asp:ListItem Value="MB" Text="MB"></asp:ListItem>
                                 <asp:ListItem Value="GB" Text="GB"></asp:ListItem>
                                 <asp:ListItem Value="TB" Text="TB"></asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rfvCapacidadRam" runat="server" ErrorMessage="*Capacidad de RAM requerida" ControlToValidate="txtCapacidadRam" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
                         </div>
                         <label>Arreglo de discos</label>
                         <div>
@@ -69,12 +73,21 @@
                         <div>
                             <asp:TextBox ID="txtNumSerie" runat="server"></asp:TextBox>
                         </div>
+                        <br />
+                        <br />
+                        <label>Persona encargada</label>
+                        <div>
+                            <asp:DropDownList ID="ddlPersona" runat="server"></asp:DropDownList>
+                        </div>
                     </div>
                     <div style="width:100%; margin:0; float:left;">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Servidor" />
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                     </div>
                 </asp:Panel>
+                <div>
+                    <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                </div>
                 <asp:Panel ID="pnlServidores" runat="server">
                     <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
                         <ItemTemplate>

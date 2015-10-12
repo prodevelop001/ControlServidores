@@ -103,6 +103,20 @@ namespace ControlServidores.Web.Inventarios
             ddlArregloDiscos.DataBind();
         }
 
+        private void llenarDdlPersonas()
+        {
+            ddlPersona.Items.Clear();
+            ddlPersona.AppendDataBoundItems = true;
+            ddlPersona.Items.Add(new ListItem("-- Seleccione --", "0"));
+            ddlPersona.DataTextField = "Nombre";
+            ddlPersona.DataValueField = "IdPersona";
+            ddlPersona.DataSource = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
+            {
+                IdEstatus = 1
+            });
+            ddlPersona.DataBind();
+        }
+
         protected void ddlProcesador_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Entidades.Procesador> lista = new List<Entidades.Procesador>();
@@ -147,6 +161,7 @@ namespace ControlServidores.Web.Inventarios
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            lblResultado.Text = string.Empty;
             pnlNuevoServidor.Visible = true;
             pnlServidores.Visible = false;
             txtAliasServidor.Text = string.Empty;
@@ -158,6 +173,7 @@ namespace ControlServidores.Web.Inventarios
             llenarDdlProcesador();
             llenarDdlArregloDiscos();
             llenarDdlEstatus();
+            llenarDdlPersonas();
             if (ddlProcesador.SelectedValue == "0")
                 lblCaracteristicasProc.Text = "";
         }
@@ -168,5 +184,77 @@ namespace ControlServidores.Web.Inventarios
             pnlServidores.Visible = true;
         }
 
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            lblResultado.Text = string.Empty;
+
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            Entidades.Logica.Ejecucion resultado2 = new Entidades.Logica.Ejecucion();
+            Entidades.EspServidor especificacion = new Entidades.EspServidor();
+            especificacion.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
+            especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
+            especificacion.CapacidadRAM = txtCapacidadRam.Text + " " + ddlCapacidadRam.SelectedValue;
+            especificacion.IdTipoArreglo = Convert.ToInt32(ddlArregloDiscos.SelectedValue);
+            if(!string.IsNullOrWhiteSpace(txtNumSerie.Text))
+            {
+                especificacion.NumSerie = txtNumSerie.Text.Trim();
+            }
+
+            resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
+            resultado.errores.ForEach(delegate(Entidades.Logica.Error err) 
+            {
+                resultado2.errores.Add(err);
+            });
+            if(resultado.resultado == true)
+            {
+                int IdEspecificacion = 0;
+                List<Entidades.EspServidor> consultaEsp = new List<Entidades.EspServidor>();
+                consultaEsp = Negocio.Inventarios.EspServidor.Obtener(especificacion);
+                if(consultaEsp.Count > 0)
+                {
+                    IdEspecificacion = consultaEsp.First().IdEspecificacion;
+                    Entidades.Servidor servidorNuevo = new Entidades.Servidor();
+                    servidorNuevo.AliasServidor = txtAliasServidor.Text.Trim();
+                    servidorNuevo.Modelo.IdModelo = Convert.ToInt32(ddlModelo.SelectedValue) ;
+                    servidorNuevo.Especificacion.IdEspecificacion = IdEspecificacion ;
+                    servidorNuevo.TipoServidor.IdTipoServidor = Convert.ToInt32(ddlTipoServidor.SelectedValue);
+                    servidorNuevo.IdVirtualizador = Convert.ToInt32(ddlVirtualizador.SelectedValue);
+                    servidorNuevo.DescripcionUso = txtDescripcionUso.Text.Trim();
+                    servidorNuevo.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+
+                    resultado = Negocio.Inventarios.Servidor.Nuevo(servidorNuevo);
+                    resultado.errores.ForEach(delegate (Entidades.Logica.Error err)
+                    {
+                        resultado2.errores.Add(err);
+                    });
+                    if(resultado.resultado == true)
+                    {
+                        List<Entidades.Servidor> consultaServidor = new List<Entidades.Servidor>();
+                        consultaServidor = Negocio.Inventarios.Servidor.Obtener(servidorNuevo);
+                        if(consultaServidor.Count > 0)
+                        {
+                            Entidades.BitacoraMantenimiento nuevoEvento = new Entidades.BitacoraMantenimiento();
+                            nuevoEvento.FechaCaptura =
+                            nuevoEvento.FechaMantenimiento = DateTime.Now;
+                            nuevoEvento.DescripcionMantenimiento = "Servidor registrado en el sistema";
+                            nuevoEvento.Observaciones = "Servidor registrado con una persona a cargo.";
+
+                            //agregar registro en bitacora para posteriormente  ligar servidor, persona y bitacora en la tabla persona por servidor
+                        }
+                    }
+                }
+            }
+
+            resultado2.errores.ForEach(delegate (Entidades.Logica.Error error)
+            {
+                lblResultado.Text += error.descripcionCorta + "<br/>";
+            });
+
+            lblResultado.ForeColor = System.Drawing.Color.Red;
+            if (resultado.resultado == true)
+            {
+                lblResultado.ForeColor = System.Drawing.Color.Green;
+            }
+        }
     }
 }
