@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ControlServidores.Negocio.Inventarios
 {
@@ -24,20 +25,36 @@ namespace ControlServidores.Negocio.Inventarios
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
 
-            resultado.resultado = Datos.Inventarios.ConfRed.Nuevo(a);
-            if (resultado.resultado == true)
+            resultado.resultado = true;
+
+            List<Entidades.ConfRed> consultaRed = new List<Entidades.ConfRed>();
+            consultaRed = Datos.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { DirIP = a.DirIP, MascaraSubRed = a.MascaraSubRed });
+            if (consultaRed.Count > 0)
             {
+                resultado.resultado = false;
                 error = new Entidades.Logica.Error();
-                error.idError = 1;
-                error.descripcionCorta = "Configuración de red registrada correctamente.";
+                error.idError = 3;
+                error.descripcionCorta = "Dirección de IP duplicada.";
                 resultado.errores.Add(error);
             }
-            else
+
+            if (resultado.resultado == true)
             {
-                error = new Entidades.Logica.Error();
-                error.idError = 2;
-                error.descripcionCorta = "Proceso no completado.";
-                resultado.errores.Add(error);
+                resultado.resultado = Datos.Inventarios.ConfRed.Nuevo(a);
+                if (resultado.resultado == true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Configuración de red registrada correctamente.";
+                    resultado.errores.Add(error);
+                }
+                else
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 2;
+                    error.descripcionCorta = "Proceso no completado.";
+                    resultado.errores.Add(error);
+                }
             }
 
             return resultado;
@@ -54,20 +71,41 @@ namespace ControlServidores.Negocio.Inventarios
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
 
-            resultado.resultado = Datos.Inventarios.ConfRed.Actualizar(a);
-            if (resultado.resultado == true)
+            resultado.resultado = true;
+
+            List<Entidades.ConfRed> consultaRed = new List<Entidades.ConfRed>();
+            consultaRed = Datos.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { DirIP = a.DirIP, MascaraSubRed = a.MascaraSubRed });
+            var red = from l in consultaRed
+                      where l.IdConfRed != a.IdConfRed
+                      select l;
+            consultaRed = red.ToList();
+
+            if (consultaRed.Count > 0)
             {
+                resultado.resultado = false;
                 error = new Entidades.Logica.Error();
-                error.idError = 1;
-                error.descripcionCorta = "Configuración de red actualizada correctamente.";
+                error.idError = 3;
+                error.descripcionCorta = "Dirección de IP duplicada.";
                 resultado.errores.Add(error);
             }
-            else
+
+            if (resultado.resultado == true)
             {
-                error = new Entidades.Logica.Error();
-                error.idError = 2;
-                error.descripcionCorta = "Proceso no completado.";
-                resultado.errores.Add(error);
+                resultado.resultado = Datos.Inventarios.ConfRed.Actualizar(a);
+                if (resultado.resultado == true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Configuración de red actualizada correctamente.";
+                    resultado.errores.Add(error);
+                }
+                else
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 2;
+                    error.descripcionCorta = "Proceso no completado.";
+                    resultado.errores.Add(error);
+                }
             }
 
             return resultado;

@@ -2,21 +2,21 @@ using System.Collections.Generic;
 
 namespace ControlServidores.Entidades
 {
-	public class Servidor
-	{
-		public virtual int IdServidor {get;set;}
-		
-		public virtual string AliasServidor {get;set;}
-		
-		//public virtual int IdModelo {get;set;}
-		
-		//public virtual int  IdEspecificacion {get;set;}
-		
-		//public virtual int IdTipoServidor {get;set;}
-		
-		public virtual int IdVirtualizador {get;set;}
-		
-		public virtual string DescripcionUso {get;set;}
+    public class Servidor
+    {
+        public virtual int IdServidor { get; set; }
+
+        public virtual string AliasServidor { get; set; }
+
+        //public virtual int IdModelo {get;set;}
+
+        //public virtual int  IdEspecificacion {get;set;}
+
+        //public virtual int IdTipoServidor {get;set;}
+
+        public virtual int IdVirtualizador { get; set; }
+
+        public virtual string DescripcionUso { get; set; }
 
         public virtual int IdEstatus { get; set; }
 
@@ -32,5 +32,7 @@ namespace ControlServidores.Entidades
             Especificacion = new EspServidor();
             TipoServidor = new TipoServidor();
         }
+
+        public virtual ISet<ConfRed> Red { get; set; }
     }
 }

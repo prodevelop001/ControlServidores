@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitacoras\BitacoraMantenimiento.cs" />
     <Compile Include="Catalogos\ConceptoEstatus.cs" />
     <Compile Include="Catalogos\Empresa.cs" />
     <Compile Include="Catalogos\Estatus.cs" />
@@ -79,9 +80,7 @@
       <Name>ControlServidores.Entidades</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bitacora\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

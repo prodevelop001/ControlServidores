@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -14,7 +15,8 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.MenuXrol));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.ConfRed),"r");                  
+
                     if (a.IdConfRed != 0 && a.IdConfRed.ToString() != "")
                         crit.Add(Restrictions.Eq("IdConfRed", a.IdConfRed));
                    if (a.IdServidor != 0 && a.IdServidor.ToString()  != "")
@@ -23,8 +25,11 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Restrictions.Like("InterfazRed", a.InterfazRed));
 					if (!string.IsNullOrEmpty(a.DirMac))
                         crit.Add(Restrictions.Eq("DirMac", a.DirMac));
-					if (!string.IsNullOrEmpty(a.DirIP))
+                    if (!string.IsNullOrEmpty(a.DirIP))
+                    {
+                        crit.CreateAlias("r.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.Add(Restrictions.Like("DirIP", a.DirIP));
+                    }                        
 					if (!string.IsNullOrEmpty(a.MascaraSubRed))
                         crit.Add(Restrictions.Like("MascaraSubRed", a.MascaraSubRed));
 					if (!string.IsNullOrEmpty(a.Gateway))
@@ -39,7 +44,7 @@ namespace ControlServidores.Datos.Inventarios
                     lista = (List<Entidades.ConfRed>)crit.List<Entidades.ConfRed>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

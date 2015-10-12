@@ -14,5 +14,9 @@
     <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo"/>
     <many-to-one name="Especificacion" class="ControlServidores.Entidades.EspServidor" column="IdEspecificacion"/>
     <many-to-one name="TipoServidor" class="ControlServidores.Entidades.TipoServidor" column="IdTipoServidor"/>
+    <set name="Red" inverse="true" cascade="save-update">
+      <key column= "IdServidor" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.ConfRed"/>
+    </set>
   </class>
 </hibernate-mapping>

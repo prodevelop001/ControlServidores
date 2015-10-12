@@ -21,5 +21,12 @@ namespace ControlServidores.Entidades
         public virtual string VLAN { get; set; }
 
         public virtual int IdEstatus {get;set;}
+
+        public virtual Servidor Servidor { get; set; }
+
+        public ConfRed()
+        {
+            Servidor = new Servidor();
+        }
 	}
 }

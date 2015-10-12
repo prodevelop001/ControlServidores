@@ -25,7 +25,7 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
                    if (!string.IsNullOrEmpty(a.AliasServidor))
                         crit.Add(Restrictions.Like("AliasServidor", a.AliasServidor));
-					if (a.Modelo.IdModelo != 0 && a.Modelo.IdModelo.ToString() != "")
+                    if (a.Modelo.IdModelo != 0 && a.Modelo.IdModelo.ToString() != "")
                         crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idModelo.IdModelo", a.Modelo.IdModelo)));
                     if (a.Especificacion.IdEspecificacion != 0 && a.Especificacion.IdEspecificacion.ToString() != "")
                         crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idEspecificacion.IdEspecificacion", a.Especificacion.IdEspecificacion)));
@@ -41,7 +41,7 @@ namespace ControlServidores.Datos.Inventarios
                     lista = (List<Entidades.Servidor>)crit.List<Entidades.Servidor>();
                 }
             }
-            catch(Exception err)
+            catch
             {
                 return lista;
             }
