@@ -14,8 +14,8 @@
 <body id="fondo_login">
 <div class="cuerpo" >
 	    <div id="login_cab" class="login_center text_center">
-		    <h1>Control de Servidores</h1>
-		    <h4>Sistema de Inventario de Servidores</h4>
+		    <h1>Sistema de</h1>
+		    <h3>Inventario de Servidores</h3>
 	    </div>
         <form id="form1" runat="server">
         <div id="login_form" class="login_center">

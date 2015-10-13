@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/prueba.Master" AutoEventWireup="true" CodeBehind="Empresas.aspx.cs" Inherits="ControlServidores.Web.Empresas" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/prueba.Master" AutoEventWireup="true" CodeBehind="Empresas.aspx.cs" Inherits="ControlServidores.Web.Empresas" %>--%>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="Empresas.aspx.cs" Inherits="ControlServidores.Web.Empresas" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div  class="principal">

@@ -1,8 +1,8 @@
-﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConceptoEstatus.aspx.cs" Inherits="ControlServidores.Web.Catalogos.ConceptoEstatus" %>--%>
-<%@ Page Title="" Language="C#" MasterPageFile="~/prueba.Master" AutoEventWireup="true" CodeBehind="ConceptoEstatus.aspx.cs" Inherits="ControlServidores.Web.Catalogos.ConceptoEstatus" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="ConceptoEstatus.aspx.cs" Inherits="ControlServidores.Web.Catalogos.ConceptoEstatus" %>
+<%--<%@ Page Title="" Language="C#" MasterPageFile="~/prueba.Master" AutoEventWireup="true" CodeBehind="ConceptoEstatus.aspx.cs" Inherits="ControlServidores.Web.Catalogos.ConceptoEstatus" %>--%>
 
 <%--<asp:Content ID="Content3" ContentPlaceHolderID="HeadContent" runat="server">--%>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
         <script src="../Scripts/Scripts.js"></script>
 </asp:Content>
 <%--<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">--%>

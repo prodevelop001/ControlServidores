@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="ControlServidores.Web.Seguridad.Roles" %>
+﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="ControlServidores.Web.Seguridad.Roles" %>--%>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="ControlServidores.Web.Seguridad.Roles" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
     <script src="../Scripts/Scripts.js"></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
     <asp:updatepanel id="UpdatePanel1" runat="server">
         <ContentTemplate>
