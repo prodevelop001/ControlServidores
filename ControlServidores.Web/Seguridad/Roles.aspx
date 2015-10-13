@@ -5,6 +5,7 @@
     <script src="../Scripts/Scripts.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
+<div  class="principal">
     <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
     <asp:updatepanel id="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -75,4 +76,5 @@
             </div>
         </ContentTemplate>
     </asp:updatepanel>
+</div>
 </asp:Content>

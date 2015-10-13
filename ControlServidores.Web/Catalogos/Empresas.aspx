@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div  class="principal">
         <div id="numCols" class="hide">7</div>
+        <div class="ttlPrincipal">
+            <h1>Empresas</h1>
+        </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -16,13 +19,20 @@
                 <asp:Panel ID="pnlFormulario" CssClass="miFormulario" runat="server">
                     <div class="formCampos">
                         <asp:HiddenField ID="lblIdNombreEmpresa" runat="server" />
-                        <label>Empresa</label>
-                        <asp:TextBox ID="txtEmpresa" runat="server"></asp:TextBox>
-                        <label>Teléfono</label>
-                        <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
-                        <label>Dirección</label>
-                        <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvEmpresa" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtEmpresa" ForeColor="Red" ValidationGroup="Empresas"></asp:RequiredFieldValidator>
+                        <div class="grpInput">
+                            <label>Empresa</label>
+                            <asp:TextBox ID="txtEmpresa" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvEmpresa" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtEmpresa" ForeColor="Red" ValidationGroup="Empresas"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="grpInput">
+                            <label>Teléfono</label>
+                            <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rfvEmpresaTel" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtTelefono" ForeColor="Red" ValidationGroup="Empresas"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="grpInput">
+                            <label>Dirección</label>
+                            <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+                        </div>
                     </div>
                     <div class="formBotones">
                         <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Empresas"></asp:Button>

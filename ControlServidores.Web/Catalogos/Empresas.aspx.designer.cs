@@ -76,6 +76,15 @@ namespace ControlServidores.Web {
         protected global::System.Web.UI.WebControls.TextBox txtEmpresa;
         
         /// <summary>
+        /// rfvEmpresa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmpresa;
+        
+        /// <summary>
         /// txtTelefono control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace ControlServidores.Web {
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
+        /// rfvEmpresaTel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmpresaTel;
+        
+        /// <summary>
         /// txtDireccion control.
         /// </summary>
         /// <remarks>
@@ -92,15 +110,6 @@ namespace ControlServidores.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
-        /// <summary>
-        /// rfvEmpresa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmpresa;
         
         /// <summary>
         /// btnGuardar control.

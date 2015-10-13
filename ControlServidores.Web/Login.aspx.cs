@@ -42,7 +42,7 @@ namespace ControlServidores.Web
                 if (Negocio.Seguridad.Seguridad.iniciarSesion(usrLogin) == true)
                 {
                     //redirecionar
-                    Response.Redirect("~/pruebaMaster.aspx");
+                    Response.Redirect("~/Catalogos/ConceptoEstatus.aspx");
                 }
                 else
                 {
