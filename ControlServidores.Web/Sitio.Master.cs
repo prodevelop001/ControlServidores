@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class Sitio : System.Web.UI.MasterPage
     {
         HttpContext context = HttpContext.Current;
 
@@ -15,6 +16,9 @@ namespace ControlServidores.Web
             ////TODO guardar el menú en sesión
             if (!IsPostBack)
             {
+                Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
+                lblUsrName.Text = usr.Usuario.ToString();
+
                 //Nombre de la aplicación
                 //lblNombreApp.Text = ConfigurationManager.AppSettings["nombreApp"];
                 Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
@@ -48,6 +52,12 @@ namespace ControlServidores.Web
             }
         }
 
+        protected void cerrarSesion_Click(object sender, EventArgs e)
+        {
+            Negocio.Seguridad.Seguridad.cerrarSesion();
+            Response.Redirect("~/Login.aspx");
+        }
+
         private void llenarMenu(List<Entidades.MenuXrol> menus, int requiereSesion)
         {
             Entidades.Usuarios us = (Entidades.Usuarios)context.Session["usuario"];
@@ -74,14 +84,13 @@ namespace ControlServidores.Web
                     submenus.ForEach(delegate (Entidades.MenuXrol submenu)
                     {
                         MenuItem miMenuItemChild = new MenuItem(submenu.IdMenu.Nombre, string.Empty, string.Empty, submenu.IdMenu.Url);
-                    //this.MyMenu.Items.Add(miMenuItemChild);
-                    miMenuItem.ChildItems.Add(miMenuItemChild);
+                        //this.MyMenu.Items.Add(miMenuItemChild);
+                        miMenuItem.ChildItems.Add(miMenuItemChild);
                     });
-                    this.MyMenu.Items.Add(miMenuItem);
+                    this.Menu1.Items.Add(miMenuItem);
                 });
 
             }
         }
-
     }
 }

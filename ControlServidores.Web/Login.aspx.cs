@@ -13,7 +13,7 @@ namespace ControlServidores.Web
             Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
             if(usr != null && usr.Usuario != "")
             {
-                Response.Redirect("~/pruebaMaster.aspx");
+                Response.Redirect("~/Catalogos/ConceptoEstatus.aspx");
             }
             else
             {
@@ -42,7 +42,7 @@ namespace ControlServidores.Web
                 if (Negocio.Seguridad.Seguridad.iniciarSesion(usrLogin) == true)
                 {
                     //redirecionar
-                    Response.Redirect("~/pruebaMaster.aspx");
+                    Response.Redirect("~/Catalogos/ConceptoEstatus.aspx");
                 }
                 else
                 {

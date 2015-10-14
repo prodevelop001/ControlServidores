@@ -171,12 +171,12 @@ h1, h2, h3, h4, h5, h6{
 /***************/
 
 /*********BOTONES*******/
-.btnNuevo input[type="submit"]{
+.btnNuevo {
     float: right;
     margin-right: 9px;
 
 }
-    .btnNuevo input[type="submit"]{
+    .btnNuevo {
         background: #0852a3;
         padding: 5px;
         color: #fff;
@@ -198,19 +198,42 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-        .btnNuevo input[type="submit"]:hover {
+        .btnNuevo:hover {
             background: #4e95e1;
-            
+            cursor: pointer;
         }
 
 .btnGuardar{
-    background: green;
-}
+    background: #22D122;
+    font-weight: 700;
+    color: white;
 
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+
+}
+    .btnGuardar:hover {
+        background: rgba(34, 209, 34, 0.55);
+        cursor: pointer;
+    }
 .btnCancelar{
-    background: red;
-}
+    background: #F22A2A;
+    font-weight: 700;
+    color: white;
 
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+    .btnCancelar:hover {
+        background: rgba(242, 42, 42, 0.55);
+        cursor: pointer;
+    }
 
 /******FIN BOTONES*****/
 #conceptoIn{
@@ -221,7 +244,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /*Tabla*/
-.miTabla5, .miTabla7{
+.miTabla5, .miTabla7, .miTabla9{
     width: 80%;
     margin: 15px auto 7px;
     margin-right: auto !important;
@@ -238,8 +261,8 @@ h1, h2, h3, h4, h5, h6{
 
     box-sizing: border-box;
 }
-
-    .miTabla5 tbody tr th, .miTabla7 tbody tr th{
+    /***Encabezados de la Tabla***/
+    .miTabla5 tbody tr th, .miTabla7 tbody tr th, .miTabla9 tbody tr th{
         background-color: #00B1C0;
         color: white;
         padding: 7px 7px;
@@ -247,14 +270,15 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-    .miTabla5 tr td, .miTabla7 tr td{
+    /****Filas de la tabla***/
+    .miTabla5 tr td, .miTabla7 tr td, .miTabla9 tr td{
         padding: 7px 7px;
         text-align: center;
 
         box-sizing: border-box;
     }
     /***********************Botones*************************************/
-
+        /***Seleccionar de la tabla**/
         .miTabla5 tr td:nth-child(4) a {
             color: #F43CAB;
             font-weight: 800;
@@ -263,12 +287,21 @@ h1, h2, h3, h4, h5, h6{
             color: #F43CAB;
             font-weight: 800;
         }
+        .miTabla9 tr td:nth-child(8) a {
+            color: #F43CAB;
+            font-weight: 800;
+        }
+            /****Hover de Seleccionar***/
             .miTabla5 tr td:nth-child(4) a:hover {
                 color: blueviolet;
             }
             .miTabla7 tr td:nth-child(6) a:hover {
                 color: blueviolet;
             }
+            .miTabla9 tr td:nth-child(8) a:hover {
+                color: blueviolet;
+            }
+        /****Eliminar de la Tabla****/
         .miTabla5 tr td:nth-child(5) a {
             color: red;
             font-weight: 800;
@@ -277,28 +310,42 @@ h1, h2, h3, h4, h5, h6{
             color: red;
             font-weight: 800;
         }
+        .miTabla9 tr td:nth-child(9) a {
+            color: red;
+            font-weight: 800;
+        }
+            /****Hover de Eliminar***/
             .miTabla5 tr td:nth-child(5) a:hover {
                 color: tomato;
             }
             .miTabla7 tr td:nth-child(7) a:hover {
                 color: tomato;
             }
-                
-    .miTabla5 tr:nth-child(odd), .miTabla7 tr:nth-child(odd){
+            .miTabla9 tr td:nth-child(9) a:hover {
+                color: tomato;
+            }
+     /****Renglones Impares de la Tabla*****/           
+    .miTabla5 tr:nth-child(odd), .miTabla7 tr:nth-child(odd), .miTabla9 tr:nth-child(odd){
         background-color: #FFF;
     }
-    .miTabla5 tr:nth-child(even), .miTabla7 tr:nth-child(even){
+    /****Renglones Pares de la Tabla*****/           
+    .miTabla5 tr:nth-child(even), .miTabla7 tr:nth-child(even), .miTabla9 tr:nth-child(even){
         background-color: #DDD;
     }
-/************FORMULARIO***********/
+/************FORMULARIOS***********/
 .formCampos{
     width: 80%;
     margin: 15px auto;
     font-size: 14px;
-    background: #57f276;
+    /*background: #57f276;*/
 
     overflow: hidden;
     box-sizing: border-box;
+}
+.grpInput{
+    width: 100%;
+    display: block;
+    overflow: hidden;
 }
     .formCampos label{
         text-align: right;
@@ -307,7 +354,7 @@ h1, h2, h3, h4, h5, h6{
         border: solid 1px #555454;
     }
 
-    .formCampos input, .miFormulario label {
+    .formCampos input, .formCampos label, .formCampos select {
         width: 35%;
         display: block;
         float: left;
@@ -316,7 +363,7 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-            .formCampos input[type="text"] {
+            .formCampos input[type="text"], .formCampos input[type="password"] {
             -webkit-border-radius: 5px;
 	        -moz-border-radius: 5px;
 	        -o-border-radius: 5px;
@@ -330,14 +377,14 @@ h1, h2, h3, h4, h5, h6{
 	        transition: all 0.4s ease-in-out;
 
         }
-            .formCampos input[type="text"]:focus {
+            .formCampos input[type="text"]:focus, .formCampos input[type="password"]:focus {
                 border: solid 1px #C30F76;
             }
 .formBotones{
     width: 80%;
     margin: 15px auto;
     font-size: 14px;
-    background: #ed3f3f;
+    /*background: #ed3f3f;*/
 
     overflow: hidden;
     box-sizing: border-box;
@@ -363,10 +410,7 @@ h1, h2, h3, h4, h5, h6{
 
             box-sizing: border-box;
         }
-            .formBotones input[type="submit"]:hover {
-                border: solid 1px #15dd0c;
-                cursor: pointer;
-            }
+            
 /*Formulario nuevo*/
 /*
 #formConEstatus{

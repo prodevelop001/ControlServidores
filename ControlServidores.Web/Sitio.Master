@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Sitio.master.cs" Inherits="ControlServidores.Web.Sitio" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <%--<link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />--%>
+    <link rel="stylesheet" href="./Styles/general.css" type="text/css" />
+	<link rel="stylesheet" href="./Styles/iconos.css" type="text/css" />
+    <link rel="stylesheet" href="./Styles/menu.css" type="text/css" />
+    
+    <asp:ContentPlaceHolder ID="cabecera" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onmouseover="agregar_iconos();">
+    <form id="form1" runat="server">
+    <div class="ancho970 cuerpo">
+        <div class="encabezado">
+            <div class="titulos">
+                <h1>Control De Servidores</h1>
+            </div>
+            
+            <div class="miMenu">
+                <asp:Menu ID="Menu1" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false"  Orientation="Horizontal">
+                </asp:Menu>
+
+            </div>
+            <div class="clear"></div>
+            <div class="usrSesion">
+                <asp:LinkButton ID="miPerfil" runat="server">
+                    <span class="icon-user-check">
+                        <asp:Label ID="lblUsrName" runat="server" Text=""></asp:Label>
+                    </span>
+                </asp:LinkButton>
+                <asp:LinkButton ID="cerrarSesion" runat="server" OnClick="cerrarSesion_Click">
+                    <span class="icon-exit"> Cerrar Sesión</span>
+                </asp:LinkButton>
+            </div>
+        </div>
+        
+        <asp:ContentPlaceHolder ID="cuerpoPpal" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <div class="clear"></div>
+    </form>
+</body>
+<script type="text/javascript" src="http://localhost:1810/Scripts/general.js"></script>
+</html>
+
