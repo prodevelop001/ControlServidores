@@ -134,7 +134,7 @@ namespace ControlServidores.Negocio.Catalogos
 
             if(resultado.resultado == true)
             {
-                resultado.resultado = Datos.Catalogos.SO.Nuevo(a);
+                resultado.resultado = Datos.Catalogos.SO.Eliminar(a);
                 if(resultado.resultado == true)
                 {
                     error = new Entidades.Logica.Error();
