@@ -42,9 +42,11 @@
 
 .miMenu{
     width: 70%;
-    min-height: 33px;
+    margin-top: 13px;
+    min-height: 45px;
     float: left;
     
+    box-sizing: border-box;
 }
 
 #Menu1{
