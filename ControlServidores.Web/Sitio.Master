@@ -18,7 +18,9 @@
     <div class="ancho970 cuerpo">
         <div class="encabezado">
             <div class="titulos">
-                <h1>Control De Servidores</h1>
+                <h1>
+                    <asp:Label ID="lblNombreApp" runat="server" Text=""></asp:Label>
+                </h1>
             </div>
             
             <div class="miMenu">

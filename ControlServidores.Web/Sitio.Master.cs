@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web
@@ -15,28 +15,23 @@ namespace ControlServidores.Web
         {
             ////TODO guardar el menú en sesión
 
-            Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
-            lblUsrName.Text = usr.Usuario.ToString();
-
             //Nombre de la aplicación
-            //lblNombreApp.Text = ConfigurationManager.AppSettings["nombreApp"];
+            lblNombreApp.Text = ConfigurationManager.AppSettings["nombreApp"];
             Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
             int requiereSesion;
             int IdRol;
 
             if ((usuario == null) || (usuario.Usuario == string.Empty))
             {
-                //lblBienvenido.Text = "";
-                //lblNombre.Text = "";
-                //lnkCerrarSesion.Visible = false;
+                miPerfil.Visible = false;
+                cerrarSesion.Visible = false;
+                lblUsrName.Visible = false;
                 requiereSesion = 0;
                 IdRol = 0;
             }
             else
             {
-                //lblBienvenido.Text = "Bienvenido(a): ";
-                //lblNombre.Text = usuario.nombres + " " + usuario.apellidoPaterno + " " + usuario.apellidoMaterno;
-                //lnkCerrarSesion.Visible = true;
+                lblUsrName.Text = usuario.Usuario;
                 requiereSesion = 1;
                 IdRol = usuario.IdRol.IdRol;
             }
@@ -47,8 +42,7 @@ namespace ControlServidores.Web
             });
 
             //TODO Definir origen de la lista
-            this.llenarMenu(menus, requiereSesion);
-
+            llenarMenu(menus, requiereSesion);
         }
 
         protected void cerrarSesion_Click(object sender, EventArgs e)

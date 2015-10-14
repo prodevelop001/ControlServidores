@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web
 {
@@ -12,6 +7,15 @@ namespace ControlServidores.Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
+            if ((usuario == null) || (usuario.Usuario == string.Empty))
+            {
+                if (!IsPostBack)
+                {
+                    lblInfo.Text = "Para acceder al sistema es necesario registrase con su usuario y contraseña";
+                    hlkRedirLogin.Visible = true;
+                }
+            }
         }
     }
 }
