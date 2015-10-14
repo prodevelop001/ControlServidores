@@ -89,7 +89,7 @@ namespace ControlServidores.Negocio.Catalogos
 
             if (resultado.resultado == true)
             {
-                resultado.resultado = Datos.Catalogos.TipoArregloDisco.Nuevo(a);
+                resultado.resultado = Datos.Catalogos.TipoArregloDisco.Actualizar(a);
                 if (resultado.resultado == true)
                 {
                     error = new Entidades.Logica.Error();
