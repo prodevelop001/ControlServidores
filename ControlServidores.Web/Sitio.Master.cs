@@ -14,42 +14,41 @@ namespace ControlServidores.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             ////TODO guardar el menú en sesión
-            if (!IsPostBack)
+
+            Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
+            lblUsrName.Text = usr.Usuario.ToString();
+
+            //Nombre de la aplicación
+            //lblNombreApp.Text = ConfigurationManager.AppSettings["nombreApp"];
+            Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
+            int requiereSesion;
+            int IdRol;
+
+            if ((usuario == null) || (usuario.Usuario == string.Empty))
             {
-                Entidades.Usuarios usr = (Entidades.Usuarios)context.Session["usuario"];
-                lblUsrName.Text = usr.Usuario.ToString();
-
-                //Nombre de la aplicación
-                //lblNombreApp.Text = ConfigurationManager.AppSettings["nombreApp"];
-                Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
-                int requiereSesion;
-                int IdRol;
-
-                if ((usuario == null) || (usuario.Usuario == string.Empty))
-                {
-                    //lblBienvenido.Text = "";
-                    //lblNombre.Text = "";
-                    //lnkCerrarSesion.Visible = false;
-                    requiereSesion = 0;
-                    IdRol = 0;
-                }
-                else
-                {
-                    //lblBienvenido.Text = "Bienvenido(a): ";
-                    //lblNombre.Text = usuario.nombres + " " + usuario.apellidoPaterno + " " + usuario.apellidoMaterno;
-                    //lnkCerrarSesion.Visible = true;
-                    requiereSesion = 1;
-                    IdRol = usuario.IdRol.IdRol;
-                }
-                List<Entidades.MenuXrol> menus = new List<Entidades.MenuXrol>();
-                menus = Negocio.Seguridad.MenuXrol.Obtener(new Entidades.MenuXrol()
-                {
-                    IdRol = new Entidades.RolUsuario() { IdRol = IdRol }
-                });
-
-                //TODO Definir origen de la lista
-                this.llenarMenu(menus, requiereSesion);
+                //lblBienvenido.Text = "";
+                //lblNombre.Text = "";
+                //lnkCerrarSesion.Visible = false;
+                requiereSesion = 0;
+                IdRol = 0;
             }
+            else
+            {
+                //lblBienvenido.Text = "Bienvenido(a): ";
+                //lblNombre.Text = usuario.nombres + " " + usuario.apellidoPaterno + " " + usuario.apellidoMaterno;
+                //lnkCerrarSesion.Visible = true;
+                requiereSesion = 1;
+                IdRol = usuario.IdRol.IdRol;
+            }
+            List<Entidades.MenuXrol> menus = new List<Entidades.MenuXrol>();
+            menus = Negocio.Seguridad.MenuXrol.Obtener(new Entidades.MenuXrol()
+            {
+                IdRol = new Entidades.RolUsuario() { IdRol = IdRol }
+            });
+
+            //TODO Definir origen de la lista
+            this.llenarMenu(menus, requiereSesion);
+
         }
 
         protected void cerrarSesion_Click(object sender, EventArgs e)
