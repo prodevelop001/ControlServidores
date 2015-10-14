@@ -73,12 +73,12 @@
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Home.aspx" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\fondo-login.png" />
     <Content Include="Images\server-fondo.png" />
     <Content Include="Inventarios\DetalleServidor.aspx" />
     <Content Include="Inventarios\Servidores.aspx" />
+    <Content Include="Inventarios\Soporte.aspx" />
     <Content Include="packages.config" />
     <Content Include="pruebaMaster.aspx" />
     <Content Include="Scripts\general.js" />
@@ -139,13 +139,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Inventarios\DetalleServidor.aspx.cs">
       <DependentUpon>DetalleServidor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +152,13 @@
     </Compile>
     <Compile Include="Inventarios\Servidores.aspx.designer.cs">
       <DependentUpon>Servidores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios\Soporte.aspx.cs">
+      <DependentUpon>Soporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventarios\Soporte.aspx.designer.cs">
+      <DependentUpon>Soporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
