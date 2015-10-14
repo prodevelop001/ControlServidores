@@ -15,7 +15,11 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.EspServidor));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.EspServidor),"es");
+
+                    crit.CreateAlias("es.TipoArregloDisco", "idTipoArreglo", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("es.Procesador", "idProcesador", NHibernate.SqlCommand.JoinType.InnerJoin);
+
                     if (a.IdEspecificacion != 0 && a.IdEspecificacion.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEspecificacion", a.IdEspecificacion));
 					if (a.IdProcesador != 0 && a.IdProcesador.ToString() != "")

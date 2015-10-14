@@ -13,5 +13,9 @@
       <key column= "IdUsuario" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Usuarios" />
     </set>
+    <set name="PersonaXservidor" inverse="true" cascade="save-update">
+      <key column= "IdPersonaServidor" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.PersonaXservidor" />
+    </set>
   </class>
 </hibernate-mapping>

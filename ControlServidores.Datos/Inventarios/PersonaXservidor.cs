@@ -15,7 +15,12 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.PersonaXservidor));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.PersonaXservidor),"pes");
+
+                    crit.CreateAlias("pes.Personas", "idPersona", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("pes.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("pes.Bitacora", "idBitacora", NHibernate.SqlCommand.JoinType.InnerJoin);
+
                     if (a.IdPersonaServidor != 0 && a.IdPersonaServidor.ToString() != "")
                         crit.Add(Restrictions.Eq("IdPersonaServidor", a.IdPersonaServidor));
 					if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
@@ -28,7 +33,7 @@ namespace ControlServidores.Datos.Inventarios
                     lista = (List<Entidades.PersonaXservidor>)crit.List<Entidades.PersonaXservidor>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

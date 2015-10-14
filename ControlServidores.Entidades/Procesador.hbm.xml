@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?> 
+<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <class name="ControlServidores.Entidades.Procesador, ControlServidores.Entidades" table="Procesador">
     <id name="IdProcesador" column="IdProcesador" type="int">
@@ -7,7 +7,11 @@
     <property name="Nombre" column="Nombre" type="String"></property>
     <property name="NumCores" column="NumCores" type="int"></property>
     <property name="Velocidad" column="Velocidad" type="String"></property>
-	<property name="Cache" column="Cache" type="String"></property>
-	<property name="TamanoPalabra" column="TamanoPalabra" type="String"></property>
+    <property name="Cache" column="Cache" type="String"></property>
+    <property name="TamanoPalabra" column="TamanoPalabra" type="String"></property>
+    <set name="Especificacion" inverse="true" cascade="save-update" lazy="false">
+      <key column= "IdEspecificacion" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.EspServidor" />
+    </set>
   </class>
 </hibernate-mapping>

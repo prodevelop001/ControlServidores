@@ -14,7 +14,7 @@ namespace ControlServidores.Datos.Catalogos
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Modelo));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Modelo),"M");
                     if (a.IdModelo != 0 && a.IdModelo.ToString() != "")
                         crit.Add(Restrictions.Eq("IdModelo", a.IdModelo));
 				    if (a.IdMarca != -1 && a.IdMarca.ToString() != "")

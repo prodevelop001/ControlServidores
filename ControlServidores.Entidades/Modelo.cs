@@ -11,5 +11,7 @@ namespace ControlServidores.Entidades
 		public virtual string NombreModelo {get;set;}
 
         public virtual ISet<Servidor> Servidor { get; set; }
+
+        public virtual ISet<Soporte> Soporte { get; set; }
     }
 }

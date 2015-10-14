@@ -11,5 +11,15 @@ namespace ControlServidores.Entidades
 		public virtual string CapacidadAsignada {get;set;}
 
         public virtual int IdEstatus { get; set; }
-	}
+
+        public virtual TipoStorage TipoStorage { get; set; }
+
+        public virtual Estatus Estatus { get; set; }
+
+        public Storage()
+        {
+            TipoStorage = new TipoStorage();
+            Estatus = new Estatus();
+        }
+    }
 }

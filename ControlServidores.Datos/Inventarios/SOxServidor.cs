@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -14,7 +15,12 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.SOxServidor));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.SOxServidor),"sos");
+
+                    crit.CreateAlias("sos.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("sos.SO", "idSO", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("sos.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+
                     if (a.IdSOxServidor != 0 && a.IdSOxServidor.ToString() != "")
                         crit.Add(Restrictions.Eq("IdSOxServidor", a.IdSOxServidor));
                     if (a.IdServidor != 0 && a.IdServidor.ToString() != "")

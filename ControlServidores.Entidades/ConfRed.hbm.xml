@@ -13,6 +13,7 @@
     <property name="DNS" column="DNS" type="String"></property>
     <property name="VLAN" column="VLAN" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
-    <many-to-one name="Servidor" class="ControlServidores.Entidades.Servidor" column="IdServidor"/>
+    <many-to-one name="Servidor" class="ControlServidores.Entidades.Servidor" column="IdServidor" lazy="false"/>
+    <many-to-one name="Estatus" class="ControlServidores.Entidades.Estatus" column="IdEstatus" lazy="false"/>
   </class>
 </hibernate-mapping>

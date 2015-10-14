@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ControlServidores.Entidades
 {
 	public class Procesador
@@ -13,5 +15,7 @@ namespace ControlServidores.Entidades
 		public virtual string Cache {get;set;}
 		
 		public virtual string TamanoPalabra {get;set;}
-	}
+
+        public virtual ISet<EspServidor> Especificacion { get; set; }
+    }
 }

@@ -6,5 +6,13 @@
     </id>
     <property name="IdConceptoEstatus" column="IdConceptoEstatus" type="int"></property>
     <property name="_Estatus" column="Estatus" type="String"></property>
+    <set name="ConfRed" inverse="true" cascade="save-update" lazy="false">
+      <key column= "IdConfRed" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.ConfRed"/>
+    </set>
+    <set name="SOxServidor" inverse="true" cascade="save-update" lazy="false">
+      <key column= "IdSOxServidor" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.SOxServidor"/>
+    </set>
   </class>
 </hibernate-mapping>

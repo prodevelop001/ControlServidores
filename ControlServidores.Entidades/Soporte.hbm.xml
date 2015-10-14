@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?> 
+<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <class name="ControlServidores.Entidades.Soporte, ControlServidores.Entidades" table="Soporte">
     <id name="IdSoporte" column="IdSoporte" type="int">
       <generator class="identity"></generator>
     </id>
     <property name="IdEmpresa" column="IdEmpresa" type="int"></property>
-    <property name="IdMarca" column="IdMarca" type="int"></property>
+    <property name="IdModelo" column="IdModelo" type="int"></property>
     <property name="FechaInicio" column="FechaInicio" type="Date"></property>
-	<property name="FechaFin" column="FechaFin" type="Date"></property>
+    <property name="FechaFin" column="FechaFin" type="Date"></property>
+    <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo" lazy="false"/>
+    <many-to-one name="Empresa" class="ControlServidores.Entidades.Empresa" column="IdEmpresa" lazy="false"/>
   </class>
 </hibernate-mapping>

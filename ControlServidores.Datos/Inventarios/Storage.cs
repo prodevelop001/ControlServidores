@@ -14,7 +14,11 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Storage));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Storage),"st");
+
+                    crit.CreateAlias("st.TipoStorage", "idTipoStorage", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    crit.CreateAlias("st.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+
                     if (a.IdStorage != 0 && a.IdStorage.ToString() != "")
                         crit.Add(Restrictions.Eq("IdStorage", a.IdStorage));
 					if (a.IdServidor != 0 && a.IdServidor.ToString() != "")

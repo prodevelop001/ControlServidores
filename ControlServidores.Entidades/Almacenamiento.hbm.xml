@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <class name="ControlServidores.Entidades.Almacenamiento, ControlServidores.Entidades" table="Almacenamiento">
-    <id name="IdAlmacenamiento" column="IdAlmacenamieto" type="int">
+    <id name="IdAlmacenamiento" column="IdAlmacenamiento" type="int">
       <generator class="identity"></generator>
     </id>
     <property name="IdServidor" column="IdServidor" type="int"></property>
+    <property name="Unidad" column="Unidad" type="String"></property>
     <property name="IdTipoMemoria" column="IdTipoMemoria" type="int"></property>
     <property name="Capacidad" column="Capacidad" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
+    <many-to-one name="TipoMemoria" class="ControlServidores.Entidades.TipoMemoria" column="IdTipoMemoria" lazy="false"/>
   </class>
 </hibernate-mapping>

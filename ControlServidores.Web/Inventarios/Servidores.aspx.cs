@@ -7,13 +7,30 @@ namespace ControlServidores.Web.Inventarios
 {
     public partial class Servidores : System.Web.UI.Page
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
         private List<Entidades.Servidor> _Servidores = new List<Entidades.Servidor>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            //Este ID debe coincidir con el Menú registrado en la BD
+            int IdPagina = 3;
+            if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {
-                llenarRprServidores();
+                if (!IsPostBack)
+                {
+                    permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                    pnlServidores.Visible = false;
+                    if (permisos.R == true)
+                    {
+                        pnlServidores.Visible = true;
+                        llenarRprServidores();
+                    }
+                    btnNuevo.Enabled = permisos.C;
+                }
+            }
+            else
+            {
+                Response.Redirect("~/errorAcceso.aspx");
             }
         }
 
@@ -170,21 +187,25 @@ namespace ControlServidores.Web.Inventarios
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            lblResultado.Text = string.Empty;
-            pnlNuevoServidor.Visible = true;
-            pnlServidores.Visible = false;
-            txtAliasServidor.Text = string.Empty;
-            txtDescripcionUso.Text = string.Empty;
-            llenarDdlMarcas();
-            llenarDdlModelo();
-            llenarDdlTipoServidor();
-            virtualizadoresDisponibles();
-            llenarDdlProcesador();
-            llenarDdlArregloDiscos();
-            llenarDdlEstatus();
-            llenarDdlPersonas();
-            if (ddlProcesador.SelectedValue == "0")
-                lblCaracteristicasProc.Text = "";
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            if (permisos.C == true)
+            {
+                lblResultado.Text = string.Empty;
+                pnlNuevoServidor.Visible = true;
+                pnlServidores.Visible = false;
+                txtAliasServidor.Text = string.Empty;
+                txtDescripcionUso.Text = string.Empty;
+                llenarDdlMarcas();
+                llenarDdlModelo();
+                llenarDdlTipoServidor();
+                virtualizadoresDisponibles();
+                llenarDdlProcesador();
+                llenarDdlArregloDiscos();
+                llenarDdlEstatus();
+                llenarDdlPersonas();
+                if (ddlProcesador.SelectedValue == "0")
+                    lblCaracteristicasProc.Text = "";
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -321,11 +342,11 @@ namespace ControlServidores.Web.Inventarios
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             List<Entidades.Servidor> servidoresEncontrados = new List<Entidades.Servidor>();
-            if(!string.IsNullOrWhiteSpace(txtPorAlias.Text.Trim()))
+            if (!string.IsNullOrWhiteSpace(txtPorAlias.Text.Trim()))
             {
                 List<Entidades.Servidor> consultaServidor = new List<Entidades.Servidor>();
                 consultaServidor = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { AliasServidor = "%" + txtPorAlias.Text.Trim() + "%", IdVirtualizador = -1 });
-                consultaServidor.ForEach(delegate(Entidades.Servidor s) 
+                consultaServidor.ForEach(delegate (Entidades.Servidor s)
                 {
                     servidoresEncontrados.Add(s);
                 });
@@ -333,7 +354,7 @@ namespace ControlServidores.Web.Inventarios
             if (!string.IsNullOrWhiteSpace(txtPorIp.Text.Trim()))
             {
                 List<Entidades.ConfRed> consultaIps = new List<Entidades.ConfRed>();
-                consultaIps = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() {  DirIP = "%" + txtPorIp.Text.Trim() + "%" });
+                consultaIps = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { DirIP = "%" + txtPorIp.Text.Trim() + "%" });
                 consultaIps.ForEach(delegate (Entidades.ConfRed s)
                 {
                     servidoresEncontrados.Add(s.Servidor);

@@ -15,7 +15,9 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.ConfRed),"r");                  
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.ConfRed),"r");
+
+                    crit.CreateAlias("r.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
 
                     if (a.IdConfRed != 0 && a.IdConfRed.ToString() != "")
                         crit.Add(Restrictions.Eq("IdConfRed", a.IdConfRed));
@@ -44,7 +46,7 @@ namespace ControlServidores.Datos.Inventarios
                     lista = (List<Entidades.ConfRed>)crit.List<Entidades.ConfRed>();
                 }
             }
-            catch(Exception err)
+            catch
             {
                 return lista;
             }

@@ -7,5 +7,8 @@
     <property name="IdServidor" column="IdServidor" type="int"></property>
     <property name="IdSO" column="IdSO" type="int"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
+    <many-to-one name="Servidor" class="ControlServidores.Entidades.Servidor" column="IdServidor" lazy="false"/>
+    <many-to-one name="SO" class="ControlServidores.Entidades.SO" column="IdSO" lazy="false"/>
+    <many-to-one name="Estatus" class="ControlServidores.Entidades.Estatus" column="IdEstatus" lazy="false"/>
   </class>
 </hibernate-mapping>

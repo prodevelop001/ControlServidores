@@ -5,5 +5,9 @@
       <generator class="identity"></generator>
     </id>
     <property name="Tipo" column="Tipo" type="String"></property>
+    <set name="Storage" inverse="true" cascade="save-update" lazy="false">
+      <key column= "IdStorage" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Storage" />
+    </set>
   </class>
 </hibernate-mapping>

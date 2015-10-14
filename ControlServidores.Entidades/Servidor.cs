@@ -8,11 +8,11 @@ namespace ControlServidores.Entidades
 
         public virtual string AliasServidor { get; set; }
 
-        //public virtual int IdModelo {get;set;}
+        public virtual int IdModelo { get; set; }
 
-        //public virtual int  IdEspecificacion {get;set;}
+        public virtual int IdEspecificacion { get; set; }
 
-        //public virtual int IdTipoServidor {get;set;}
+        public virtual int IdTipoServidor { get; set; }
 
         public virtual int IdVirtualizador { get; set; }
 
@@ -26,13 +26,17 @@ namespace ControlServidores.Entidades
 
         public virtual TipoServidor TipoServidor { get; set; }
 
+        public virtual ISet<ConfRed> Red { get; set; }
+
+        public virtual ISet<SOxServidor> SOxServidor { get; set; }
+
+        public virtual ISet<PersonaXservidor> PersonaXservidor { get; set; }
+
         public Servidor()
         {
             Modelo = new Modelo();
             Especificacion = new EspServidor();
             TipoServidor = new TipoServidor();
-        }
-
-        public virtual ISet<ConfRed> Red { get; set; }
+        }       
     }
 }

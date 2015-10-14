@@ -5,5 +5,9 @@
       <generator class="identity"></generator>
     </id>
     <property name="Tipo" column="Tipo" type="String"></property>
+    <set name="Almacenamiento" inverse="true" cascade="save-update" lazy="false">
+      <key column= "IdAlmacenamiento" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Almacenamiento" />
+    </set>
   </class>
 </hibernate-mapping>

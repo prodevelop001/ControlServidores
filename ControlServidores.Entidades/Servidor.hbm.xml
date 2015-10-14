@@ -5,18 +5,26 @@
       <generator class="identity"></generator>
     </id>
 	<property name="AliasServidor" column="AliasServidor" type="String"></property>
-    <!--<property name="IdModelo" column="IdModelo" type="int"></property>-->
-    <!--<property name="IdEspecificacion" column="IdEspecificacion" type="int"></property>-->
-    <!--<property name="IdTipoServidor" column="IdTipoServidor" type="int"></property>-->
+    <property name="IdModelo" column="IdModelo" type="int"></property>
+    <property name="IdEspecificacion" column="IdEspecificacion" type="int"></property>
+    <property name="IdTipoServidor" column="IdTipoServidor" type="int"></property>
 	  <property name="IdVirtualizador" column="IdVirtualizador" type="int"></property>
 	  <property name="DescripcionUso" column="DescripcionUso" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
-    <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo"/>
-    <many-to-one name="Especificacion" class="ControlServidores.Entidades.EspServidor" column="IdEspecificacion"/>
-    <many-to-one name="TipoServidor" class="ControlServidores.Entidades.TipoServidor" column="IdTipoServidor"/>
-    <set name="Red" inverse="true" cascade="save-update">
+    <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo" lazy="false"/>
+    <many-to-one name="Especificacion" class="ControlServidores.Entidades.EspServidor" column="IdEspecificacion" lazy="false"/>
+    <many-to-one name="TipoServidor" class="ControlServidores.Entidades.TipoServidor" column="IdTipoServidor" lazy="false"/>
+    <set name="Red" inverse="true" cascade="save-update" lazy="false">
       <key column= "IdServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.ConfRed"/>
+    </set>
+    <set name="SOxServidor" inverse="true" cascade="save-update" lazy="false">
+      <key column= "IdSOxServidor" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.SOxServidor"/>
+    </set>
+    <set name="PersonaXservidor" inverse="true" cascade="save-update">
+      <key column= "IdPersonaServidor" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.PersonaXservidor" />
     </set>
   </class>
 </hibernate-mapping>

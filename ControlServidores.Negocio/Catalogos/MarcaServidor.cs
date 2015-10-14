@@ -120,7 +120,7 @@ namespace ControlServidores.Negocio.Catalogos
             }
 
             List<Entidades.Soporte> soporteL = new List<Entidades.Soporte>();
-            soporteL = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdMarca = a.IdMarca });
+            soporteL = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdModelo = a.IdMarca });
             if(soporteL.Count > 0)
             {
                 resultado.resultado = false;

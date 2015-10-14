@@ -24,9 +24,12 @@ namespace ControlServidores.Entidades
 
         public virtual Servidor Servidor { get; set; }
 
+        public virtual Estatus Estatus { get; set; }
+
         public ConfRed()
         {
             Servidor = new Servidor();
+            Estatus = new Estatus();
         }
 	}
 }

@@ -17,5 +17,7 @@ namespace ControlServidores.Entidades
         public virtual int IdEstatus { get; set; }
 
         public virtual ISet<Usuarios> Usuarios { get; set; }
+
+        public virtual ISet<PersonaXservidor> PersonaXservidor { get; set;  }
 	}
 }

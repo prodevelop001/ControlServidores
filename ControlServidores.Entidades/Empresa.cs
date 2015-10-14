@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ControlServidores.Entidades
 {
 	public class Empresa
@@ -9,5 +11,7 @@ namespace ControlServidores.Entidades
 		public virtual string Telefono {get;set;}
 		
 		public virtual string Direccion {get;set;}
+
+        public virtual ISet<Soporte> Soporte { get; set; }
 	}
 }

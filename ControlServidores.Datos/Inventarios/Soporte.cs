@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -19,13 +20,13 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Restrictions.Eq("IdSoporte", a.IdSoporte));
 					if (a.IdEmpresa != 0 && a.IdEmpresa.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEmpresa", a.IdEmpresa));
-					if (a.IdMarca != 0 && a.IdMarca.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdMarca", a.IdMarca));
+					if (a.IdModelo != 0 && a.IdModelo.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdModelo", a.IdModelo));
                    				
                     lista = (List<Entidades.Soporte>)crit.List<Entidades.Soporte>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

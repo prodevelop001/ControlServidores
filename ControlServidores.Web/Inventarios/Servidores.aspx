@@ -95,7 +95,7 @@
                 <div style="width: 100%; margin: 0; float: left;">
                     <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                 </div>
-                <asp:Panel ID="pnlServidores" runat="server">
+                <asp:Panel ID="pnlServidores" Visible="false" runat="server">
                     <div>
                         <fieldset>
                             <legend>Busqueda avanzada</legend>
@@ -113,7 +113,7 @@
                                 <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
                                 <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
                                 <div>
-                                    <label>Server name:&nbsp;</label><a href="#"><%# Eval("AliasServidor") %></a>
+                                    <label>Server name:&nbsp;</label><a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a>
                                 </div>
                                 <div>
                                     <label>Descripción uso : &nbsp;</label><asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
@@ -130,7 +130,7 @@
                                             <asp:BoundField DataField="DescripcionUso" HeaderText="Description App" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
-                                                    <a href="#">Ver detalle</a>
+                                                    <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'>Ver detalle</a>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                         </Columns>

@@ -17,5 +17,15 @@ namespace ControlServidores.Entidades
 		public virtual string NumSerie {get; set;}
 
         public virtual ISet<Servidor> Servidor { get; set; }
+
+        public virtual TipoArregloDisco TipoArregloDisco { get; set; }
+
+        public virtual Procesador Procesador { get; set; }
+
+        public EspServidor()
+        {
+            TipoArregloDisco = new TipoArregloDisco();
+            Procesador = new Procesador();
+        }
     }
 }

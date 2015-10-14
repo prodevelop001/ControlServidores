@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -14,7 +15,10 @@ namespace ControlServidores.Datos.Inventarios
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Almacenamiento));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Almacenamiento),"A");
+
+                    crit.CreateAlias("A.TipoMemoria", "idTipoMemoria", NHibernate.SqlCommand.JoinType.InnerJoin);
+
                     if (a.IdAlmacenamiento != 0 && a.IdAlmacenamiento.ToString() != "")
                         crit.Add(Restrictions.Eq("IdAlmacenamiento", a.IdAlmacenamiento));
                    if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
@@ -29,7 +33,7 @@ namespace ControlServidores.Datos.Inventarios
                     lista = (List<Entidades.Almacenamiento>)crit.List<Entidades.Almacenamiento>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }
