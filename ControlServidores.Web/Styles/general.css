@@ -177,8 +177,8 @@ h1, h2, h3, h4, h5, h6{
 
 }
     .btnNuevo {
-        background: #0852a3;
-        padding: 5px;
+        background: #4D08A3;
+        padding: 7px 15px;
         color: #fff;
         font-size: 12px;
         font-weight: 600;
@@ -199,7 +199,7 @@ h1, h2, h3, h4, h5, h6{
         box-sizing: border-box;
     }
         .btnNuevo:hover {
-            background: #4e95e1;
+            background: #8528F9;
             cursor: pointer;
         }
 
@@ -263,7 +263,7 @@ h1, h2, h3, h4, h5, h6{
 }
     /***Encabezados de la Tabla***/
     .miTabla5 tbody tr th, .miTabla7 tbody tr th, .miTabla9 tbody tr th{
-        background-color: #00B1C0;
+        background-color: #4D08A3;
         color: white;
         padding: 7px 7px;
         font-weight: 800;
@@ -347,6 +347,7 @@ h1, h2, h3, h4, h5, h6{
     display: block;
     overflow: hidden;
 }
+
     .formCampos label{
         text-align: right;
     }
@@ -380,6 +381,123 @@ h1, h2, h3, h4, h5, h6{
             .formCampos input[type="text"]:focus, .formCampos input[type="password"]:focus {
                 border: solid 1px #C30F76;
             }
+
+.grpInputTitulo{
+    width: 80%;
+    margin: 23px auto;
+    text-align: center;
+    color: #4D08A3;
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: 1px solid;
+}
+.grpGridCbx, .grpGridAcc{
+    width: 80%;
+    margin: 10px auto;
+    padding: 13px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.grpAccCbx{
+    width: 45%;
+    display: block;
+    float: left;
+    margin-top: 7px;
+    color: #E5007E;
+    font-weight: 700;
+    border: 1px #555 dashed;
+    padding: 7px;
+    margin-right: 9px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.grpInputCbx{
+    width: 50%;
+    display: block;
+    float: left;
+    margin-top: 7px;
+    color: #E5007E;
+    font-weight: 700;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+    .grpInputCbx > label{
+        width: 40% !important;
+        float: left;
+        text-align: left !important;
+        padding-top: 0px !important;
+
+        box-sizing: border-box;
+    }
+    .grpAccCbx > label{
+        width: 40% !important;
+        float: left;
+        text-align: left !important;
+        padding-top: 0px !important;
+
+        box-sizing: border-box;
+    }
+    .grpInputCbx > input[type="checkbox"]{
+        
+        width: 10% !important;
+        float: left;
+        text-align: left !important;
+
+        box-sizing: border-box;
+    }
+    .grpAccCbx > input[type="checkbox"]{
+        
+        width: 10% !important;
+        float: left;
+        text-align: left !important;
+
+        box-sizing: border-box;
+    }
+    .grpInputCbx > span{
+        width: 10% !important;
+        float: left;
+        text-align: left !important;
+        padding-top: 0px !important;
+
+        box-sizing: border-box;
+    }
+    .grpAccCbx > span{
+        width: 10% !important;
+        float: left;
+        text-align: left !important;
+        padding-top: 0px !important;
+
+        box-sizing: border-box;
+    }
+        .grpGridAcc > .grpAccCbx:nth-child(3){
+            margin-right: 20%;
+        }
+        .grpGridAcc > .grpAccCbx:nth-child(4), .grpGridAcc > .grpAccCbx:nth-child(5), .grpGridAcc > .grpAccCbx:nth-child(6) {
+            width: 45%;
+            
+            /*border: 1px solid black;*/
+
+            box-sizing: border-box;
+        }
+
+.tablaBox{
+    width: 100%;
+    color: #F560E3;
+}
+    .tablaBox td input {
+        width: 10%;
+    }
+    .tablaBox td label{
+        font-weight: 500;
+        width: 80%;
+        text-align: left !important;
+    }
+
 .formBotones{
     width: 80%;
     margin: 15px auto;
