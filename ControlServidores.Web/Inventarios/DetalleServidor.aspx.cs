@@ -17,9 +17,8 @@ namespace ControlServidores.Web.Inventarios
             {
                 ObtenerParametros();
                 datosPrincipales();
-                InterfacesRed();
                 VMs();
-                Almacenamiento();
+                InterfacesRedC.IdServidor = _IdServidor;
                 SistemasO();
                 Storage();
                 Bitacora();
@@ -77,11 +76,12 @@ namespace ControlServidores.Web.Inventarios
             }
         }
 
-        private void InterfacesRed()
+        private void Almacenamiento()
         {
-            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdServidor = _IdServidor });
-            gdvInterfacesRed.DataBind();
+            gdvAlmacenamiento.DataSource = Negocio.Inventarios.Almacenamiento.Obtener(new Entidades.Almacenamiento() { IdServidor = _IdServidor });
+            gdvAlmacenamiento.DataBind();
         }
+
 
         private void VMs()
         {
@@ -91,12 +91,6 @@ namespace ControlServidores.Web.Inventarios
             {
                 pnlVms.Visible = true;
             }
-        }
-
-        private void Almacenamiento()
-        {
-            gdvAlmacenamiento.DataSource = Negocio.Inventarios.Almacenamiento.Obtener(new Entidades.Almacenamiento() { IdServidor = _IdServidor });
-            gdvAlmacenamiento.DataBind();
         }
 
         private void SistemasO()
@@ -115,11 +109,6 @@ namespace ControlServidores.Web.Inventarios
         {
             gdvBitacora.DataSource = Negocio.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { IdServidor = _IdServidor });
             gdvBitacora.DataBind();
-        }
-
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

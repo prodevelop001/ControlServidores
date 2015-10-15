@@ -13,6 +13,15 @@ namespace ControlServidores.Web.Controles {
     public partial class InterfacesRedC {
         
         /// <summary>
+        /// btnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+        
+        /// <summary>
         /// pnlFormIntRed control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace ControlServidores.Web.Controles {
         protected global::System.Web.UI.WebControls.TextBox txtInterfazRed;
         
         /// <summary>
+        /// rfvNombreInterfaz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreInterfaz;
+        
+        /// <summary>
         /// txtDirMAC control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace ControlServidores.Web.Controles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDirMAC;
+        
+        /// <summary>
+        /// revDirMac control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDirMac;
         
         /// <summary>
         /// txtDirIP control.
@@ -67,6 +94,24 @@ namespace ControlServidores.Web.Controles {
         protected global::System.Web.UI.WebControls.TextBox txtDirIP;
         
         /// <summary>
+        /// rfvDirIp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDirIp;
+        
+        /// <summary>
+        /// revDirIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDirIP;
+        
+        /// <summary>
         /// txtMascaraSubRed control.
         /// </summary>
         /// <remarks>
@@ -74,6 +119,24 @@ namespace ControlServidores.Web.Controles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMascaraSubRed;
+        
+        /// <summary>
+        /// rfvSubNet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSubNet;
+        
+        /// <summary>
+        /// revSubNet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revSubNet;
         
         /// <summary>
         /// txtGateway control.
@@ -85,13 +148,31 @@ namespace ControlServidores.Web.Controles {
         protected global::System.Web.UI.WebControls.TextBox txtGateway;
         
         /// <summary>
-        /// DNS control.
+        /// revGateway control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DNS;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revGateway;
+        
+        /// <summary>
+        /// txtDNS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDNS;
+        
+        /// <summary>
+        /// revDNS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDNS;
         
         /// <summary>
         /// txtVlan control.
@@ -128,5 +209,23 @@ namespace ControlServidores.Web.Controles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// gdvInterfacesRed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gdvInterfacesRed;
+        
+        /// <summary>
+        /// lblResultado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

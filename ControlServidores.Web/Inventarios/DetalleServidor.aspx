@@ -89,9 +89,8 @@
                 </div>
                 <div class="marco" style="width: 350px; margin: 6px;">
                     <div class="headCaja">
-                        Almacenamiento &nbsp; <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
+                        Almacenamiento
                     </div>
-                    <uc1:InterfacesRedC runat="server" id="InterfacesRedC" />
                     <asp:GridView ID="gdvAlmacenamiento" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Medios Registrados.">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
@@ -108,28 +107,7 @@
                     </asp:GridView>
                 </div>
                 <div class="marco" style="width: 350px; margin: 6px;">
-                    <div class="headCaja">
-                        Interfaces de Red
-                    </div>
-                    <asp:GridView ID="gdvInterfacesRed" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas.">
-                        <Columns>
-                            <asp:TemplateField HeaderText="#">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="IdConfRed" HeaderText="IdConfRed">
-                                <HeaderStyle CssClass="hide" />
-                                <ItemStyle CssClass="hide" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="InterfazRed" HeaderText="Interfaz" />
-                            <asp:BoundField DataField="DirIp" HeaderText="Dirección IP" />
-                            <asp:BoundField DataField="MascaraSubRed" HeaderText="SubNet" />
-                            <asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
-                        </Columns>
-                    </asp:GridView>
+                    <uc1:InterfacesRedC runat="server" ID="InterfacesRedC" />
                 </div>
                 <div class="marco" style="width: 350px; margin: 6px;">
                     <div class="headCaja">
@@ -180,7 +158,7 @@
                         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" />
                     </div>
                     <asp:GridView ID="gdvBitacora" runat="server" AutoGenerateColumns="false">
-                         <Columns>
+                        <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
                                     <%# Container.DataItemIndex + 1 %>
@@ -191,10 +169,10 @@
                                 <ItemStyle CssClass="hide" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Personas.Nombre" HeaderText="Nombre" />
-                            <asp:BoundField DataField="Bitacora.FechaCaptura" HeaderText="Fecha de Captura"/>
-                             <asp:BoundField DataField="Bitacora.FechaMantenimiento" HeaderText="Fecha de procedimiento"/>
-                             <asp:BoundField DataField="Bitacora.DescripcionMantenimiento" HeaderText="Descripcion"/>
-                             <asp:BoundField DataField="Bitacora.Observaciones" HeaderText="Fecha de Captura"/>
+                            <asp:BoundField DataField="Bitacora.FechaCaptura" HeaderText="Fecha de Captura" />
+                            <asp:BoundField DataField="Bitacora.FechaMantenimiento" HeaderText="Fecha de procedimiento" />
+                            <asp:BoundField DataField="Bitacora.DescripcionMantenimiento" HeaderText="Descripcion" />
+                            <asp:BoundField DataField="Bitacora.Observaciones" HeaderText="Fecha de Captura" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                             <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
                         </Columns>
