@@ -71,6 +71,7 @@
     <Content Include="Catalogos\Marcas.aspx" />
     <Content Include="Catalogos\SistemasOperativos.aspx" />
     <Content Include="Catalogos\TiposArreglos.aspx" />
+    <Content Include="Catalogos\TiposServidor.aspx" />
     <Content Include="Contactos.aspx" />
     <Content Include="Catalogos\Empresas.aspx" />
     <Content Include="Controles\InterfacesRedC.ascx" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="Catalogos\TiposArreglos.aspx.designer.cs">
       <DependentUpon>TiposArreglos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\TiposServidor.aspx.cs">
+      <DependentUpon>TiposServidor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\TiposServidor.aspx.designer.cs">
+      <DependentUpon>TiposServidor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contactos.aspx.cs">
       <DependentUpon>Contactos.aspx</DependentUpon>
