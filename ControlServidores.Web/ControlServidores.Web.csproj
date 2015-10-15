@@ -73,6 +73,7 @@
     <Content Include="Catalogos\TiposArreglos.aspx" />
     <Content Include="Contactos.aspx" />
     <Content Include="Catalogos\Empresas.aspx" />
+    <Content Include="Controles\InterfacesRedC.ascx" />
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="Catalogos\Empresas.aspx.designer.cs">
       <DependentUpon>Empresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\InterfacesRedC.ascx.cs">
+      <DependentUpon>InterfacesRedC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\InterfacesRedC.ascx.designer.cs">
+      <DependentUpon>InterfacesRedC.ascx</DependentUpon>
     </Compile>
     <Compile Include="errorAcceso.aspx.cs">
       <DependentUpon>errorAcceso.aspx</DependentUpon>

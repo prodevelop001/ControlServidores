@@ -13,7 +13,7 @@
                 <div>
                     <div class="addNuevo">
                         <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
-                        <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+                        <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo"/>
                     </div>
                 </div>
             </ContentTemplate>

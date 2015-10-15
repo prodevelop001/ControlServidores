@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="DetalleServidor.aspx.cs" Inherits="ControlServidores.Web.Inventarios.DetalleServidor" %>
 
+<%@ Register Src="~/Controles/InterfacesRedC.ascx" TagPrefix="uc1" TagName="InterfacesRedC" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
     <style>
         .marco {
@@ -86,8 +89,9 @@
                 </div>
                 <div class="marco" style="width: 350px; margin: 6px;">
                     <div class="headCaja">
-                        Almacenamiento
+                        Almacenamiento &nbsp; <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
                     </div>
+                    <uc1:InterfacesRedC runat="server" id="InterfacesRedC" />
                     <asp:GridView ID="gdvAlmacenamiento" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Medios Registrados.">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
