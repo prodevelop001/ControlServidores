@@ -18,8 +18,10 @@
                 <div class="formCampos">
                     <asp:HiddenField ID="lblIdModelo" runat="server" />
                     <div class="grpInput">
+                        <div class="grpInput">
                         <label>Marca</label>
-                        <asp:TextBox ID="txtMarca" runat="server" ReadOnly="true"></asp:TextBox>
+                        <asp:DropDownList ID="ddlMarcaForm" runat="server" AutoPostBack="True"></asp:DropDownList>
+                    </div>
                     </div>
                     <div class="grpInput">
                         <label>Nombre de Modelo</label>

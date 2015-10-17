@@ -67,13 +67,13 @@ namespace ControlServidores.Web.Catalogos {
         protected global::System.Web.UI.WebControls.HiddenField lblIdModelo;
         
         /// <summary>
-        /// txtMarca control.
+        /// ddlMarcaForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMarca;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMarcaForm;
         
         /// <summary>
         /// txtNombreModelo control.

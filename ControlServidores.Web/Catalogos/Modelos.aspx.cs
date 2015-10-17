@@ -59,6 +59,17 @@ namespace ControlServidores.Web.Catalogos
             ddlMarca.DataBind();
         }//Fin de Llenar Marca
 
+        private void llenarDdlMarcasForm()
+        {
+            ddlMarcaForm.Items.Clear();
+            ddlMarcaForm.AppendDataBoundItems = true;
+            ddlMarcaForm.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlMarcaForm.DataTextField = "NombreMarca";
+            ddlMarcaForm.DataValueField = "IdMarca";
+            ddlMarcaForm.DataSource = Negocio.Catalogos.MarcaServidor.obtenerMarcaServidor(new Entidades.MarcaServidor());
+            ddlMarcaForm.DataBind();
+        }//Fin de Llenar Marca en Form
+
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
@@ -72,6 +83,7 @@ namespace ControlServidores.Web.Catalogos
             //lblIdSistemaOperativo.Attributes["style"] = "display: none;";
             //txtMarca.Text = string.Empty;
             txtNombreModelo.Text = string.Empty;
+            llenarDdlMarcasForm();
         }//Fin de Boton Nuevo
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -95,8 +107,10 @@ namespace ControlServidores.Web.Catalogos
             pnlNombreModelo.Visible = false;
             pnlFormulario.Visible = true;
             lblIdModelo.Value = gdvNombreModelo.SelectedRow.Cells[1].Text;
-
-            txtMarca.Text = gdvNombreModelo.SelectedRow.Cells[2].Text;
+            llenarDdlMarcasForm();
+            //ddlMarcaForm.SelectedItem.Text = ddlMarca.SelectedItem.ToString();
+            ddlMarcaForm.Items.FindByText(ddlMarca.SelectedItem.ToString()).Selected = true;
+            //txtMarca.Text = gdvNombreModelo.SelectedRow.Cells[2].Text;
             txtNombreModelo.Text = gdvNombreModelo.SelectedRow.Cells[3].Text;
         }//Fin de Seleccionar en Gridview
 
@@ -109,7 +123,7 @@ namespace ControlServidores.Web.Catalogos
             {
                 resultado = Negocio.Catalogos.Modelo.Nuevo(new Entidades.Modelo()
                 {
-                    IdMarca = Convert.ToInt32(txtMarca.Text),
+                    IdMarca = Convert.ToInt32(ddlMarcaForm.SelectedValue),
                     NombreModelo = txtNombreModelo.Text
                 });
             }
@@ -118,7 +132,7 @@ namespace ControlServidores.Web.Catalogos
                 resultado = Negocio.Catalogos.Modelo.Actualizar(new Entidades.Modelo()
                 {
                     IdModelo = Convert.ToInt32(lblIdModelo.Value),
-                    IdMarca = Convert.ToInt32(txtMarca.Text),
+                    IdMarca = Convert.ToInt32(ddlMarcaForm.SelectedValue),
                     NombreModelo = txtNombreModelo.Text
                 });
             }
