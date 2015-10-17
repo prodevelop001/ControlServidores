@@ -11,7 +11,7 @@
             <div class="principal">
                 <div id="numCols" class="hide">9</div>
                 <div class="ttlPrincipal">
-                    <h1>Roles de Canela</h1>
+                    <h1>Roles</h1>
                 </div>
                 <div class="addNuevo">
                     <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
