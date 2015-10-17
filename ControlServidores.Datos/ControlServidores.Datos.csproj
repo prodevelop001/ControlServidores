@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\..\..\Desarrollo_Soft\NHibernate-4.0.3.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
+      <HintPath>..\..\..\DesarrolloSw\NHibernate-4.0.3.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <HintPath>..\..\..\Desarrollo_Soft\NHibernate-4.0.3.GA-bin\Required_Bins\NHibernate.dll</HintPath>
+      <HintPath>..\..\..\DesarrolloSw\NHibernate-4.0.3.GA-bin\Required_Bins\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

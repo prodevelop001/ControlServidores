@@ -107,7 +107,7 @@ namespace ControlServidores.Web.Inventarios
 
         private void Bitacora()
         {
-            gdvBitacora.DataSource = Negocio.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { IdServidor = _IdServidor });
+            gdvBitacora.DataSource = Negocio.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor } });
             gdvBitacora.DataBind();
         }
     }

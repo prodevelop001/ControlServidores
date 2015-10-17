@@ -4,7 +4,7 @@
     <id name="IdConfRed" column="IdConfRed" type="int">
       <generator class="identity"></generator>
     </id>
-    <property name="IdServidor" column="IdServidor" type="int"></property>
+    <!--<property name="IdServidor" column="IdServidor" type="int"></property>-->
     <property name="InterfazRed" column="InterfazRed" type="string"></property>
     <property name="DirMac" column="DirMac" type="String"></property>
     <property name="DirIP" column="DirIP" type="String"></property>
@@ -12,7 +12,7 @@
     <property name="Gateway" column="Gateway" type="String"></property>
     <property name="DNS" column="DNS" type="String"></property>
     <property name="VLAN" column="VLAN" type="String"></property>
-    <property name="IdEstatus" column="IdEstatus" type="int"></property>
+    <!--<property name="IdEstatus" column="IdEstatus" type="int"></property>-->
     <many-to-one name="Servidor" class="ControlServidores.Entidades.Servidor" column="IdServidor" lazy="false"/>
     <many-to-one name="Estatus" class="ControlServidores.Entidades.Estatus" column="IdEstatus" lazy="false"/>
   </class>
