@@ -70,6 +70,7 @@
     <Content Include="Catalogos\ConceptoEstatus.aspx" />
     <Content Include="Catalogos\Marcas.aspx" />
     <Content Include="Catalogos\Modelos.aspx" />
+    <Content Include="Catalogos\Procesadores.aspx" />
     <Content Include="Catalogos\SistemasOperativos.aspx" />
     <Content Include="Catalogos\TiposArreglos.aspx" />
     <Content Include="Catalogos\TiposServidor.aspx" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="Catalogos\Modelos.aspx.designer.cs">
       <DependentUpon>Modelos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Procesadores.aspx.cs">
+      <DependentUpon>Procesadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Procesadores.aspx.designer.cs">
+      <DependentUpon>Procesadores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\SistemasOperativos.aspx.cs">
       <DependentUpon>SistemasOperativos.aspx</DependentUpon>
