@@ -6,45 +6,49 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
 <div  class="principal">
+    <div id="numCols" class="hide">10</div>
+    <div class="ttlPrincipal">
+        <h1>Personas</h1>
+    </div>
     <asp:scriptmanager id="ScriptManager1" runat="server"></asp:scriptmanager>
     <asp:updatepanel id="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div>
-                <div>
-                    <asp:HiddenField ID="hdfEstado" runat="server" />
-                    <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+                <div class="addNuevo">
+                    <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
+                    <asp:Button ID="btnNuevo" runat="server" CssClass="btnNuevo" Text="Nuevo" OnClick="btnNuevo_Click"></asp:Button>
                 </div>
                 <asp:Panel ID="pnlFormulario" runat="server">
-                    <div>
+                    <div class="formCampos">
                         <asp:Label ID="lblIdPersona" CssClass="hide" runat="server" Text=""></asp:Label>
-                        <label>Nombre</label>
-                        <div>
+                        <div class="grpInput">
+                            <label>Nombre</label>
                             <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
-                        <label>Puesto</label>
-                        <div>
+                        <div class="grpInput">
+                            <label>Puesto</label>
                             <asp:TextBox ID="txtPuesto" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvPuesto" runat="server" ErrorMessage="*Puesto requerido." ControlToValidate="txtPuesto" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
-                        <label>Extensión</label>
-                        <div>
+                        <div class="grpInput">
+                            <label>Extensión</label>
                             <asp:TextBox ID="txtExtension" runat="server" TextMode="Number"></asp:TextBox><asp:RequiredFieldValidator ID="rfvExtension" runat="server" ErrorMessage="*Extensión requerida." ControlToValidate="txtExtension" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
-                        <label>Correo</label>
-                        <div>
+                        <div class="grpInput">
+                            <label>Correo</label>
                             <asp:TextBox ID="txtCorreo" runat="server" TextMode="Email"></asp:TextBox><asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ErrorMessage="*Correo requerido." ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
-                        <label>Estatus</label>
-                        <div>
+                        <div class="grpInput">
+                            <label>Estatus</label>
                             <asp:DropDownList ID="ddlEstatus" runat="server"></asp:DropDownList>
                         </div>
                     </div>
-                    <div>
+                    <div class="formBotones">
                         <asp:Button ID="btnGuardar" runat="server" Text="Guardar" ValidationGroup="Personas" OnClick="btnGuardar_Click" />
                         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlPersonas" runat="server">
-                    <asp:GridView ID="gdvPersonas" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gdvPersonas_SelectedIndexChanged" OnRowDataBound="gdvPersonas_RowDataBound" OnRowDeleting="gdvPersonas_RowDeleting">
+                    <asp:GridView ID="gdvPersonas" CssClass="miTabla10" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gdvPersonas_SelectedIndexChanged" OnRowDataBound="gdvPersonas_RowDataBound" OnRowDeleting="gdvPersonas_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
