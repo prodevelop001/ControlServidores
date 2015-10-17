@@ -9,7 +9,7 @@
     <property name="DescripcionMantenimiento" column="DescripcionMantenimiento" type="String"></property>
     <property name="Observaciones" column="Observaciones" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
-    <set name="PersonaXservidor" inverse="true" cascade="save-update">
+    <set name="PersonaXservidor" inverse="true" cascade="save-update" lazy="true">
       <key column= "IdPersonaServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.PersonaXservidor" />
     </set>

@@ -24,11 +24,12 @@ namespace ControlServidores.Datos.Inventarios
                     if (a.IdPersonaServidor != 0 && a.IdPersonaServidor.ToString() != "")
                         crit.Add(Restrictions.Eq("IdPersonaServidor", a.IdPersonaServidor));
 					if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdPersona", a.IdPersona));
+                        crit.Add(Restrictions.Eq("IdPersona", a.Personas.IdPersona));
 					if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
-					if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdBitacora", a.IdBitacora));
+                        //crit.Add(Restrictions.Eq("IdServidor", a.Servidor.IdServidor));
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor)));
+                    if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdBitacora", a.Bitacora.IdBitacora));
                    
                     lista = (List<Entidades.PersonaXservidor>)crit.List<Entidades.PersonaXservidor>();
                 }
