@@ -222,7 +222,7 @@ namespace ControlServidores.Web.Inventarios
             if (ddlModelo.SelectedValue != "0" && ddlTipoServidor.SelectedValue != "0" && ddlEstatus.SelectedValue != "0" && ddlProcesador.SelectedValue != "0" && ddlCapacidadRam.SelectedValue != "0" && ddlArregloDiscos.SelectedValue != "0" && ddlPersona.SelectedValue != "0")
             {
                 resultado.resultado = true;
-                if (ddlTipoServidor.SelectedValue != "0")
+                if (ddlTipoServidor.SelectedValue == "2")
                 {
                     if (ddlVirtualizador.SelectedValue == "0")
                     {
@@ -234,10 +234,10 @@ namespace ControlServidores.Web.Inventarios
             {
                 Entidades.Logica.Ejecucion resultado2 = new Entidades.Logica.Ejecucion();
                 Entidades.EspServidor especificacion = new Entidades.EspServidor();
-                especificacion.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
+                especificacion.Procesador.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
                 especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
                 especificacion.CapacidadRAM = txtCapacidadRam.Text + " " + ddlCapacidadRam.SelectedValue;
-                especificacion.IdTipoArreglo = Convert.ToInt32(ddlArregloDiscos.SelectedValue);
+                especificacion.TipoArregloDisco.IdTipoArreglo = Convert.ToInt32(ddlArregloDiscos.SelectedValue);
                 if (!string.IsNullOrWhiteSpace(txtNumSerie.Text))
                 {
                     especificacion.NumSerie = txtNumSerie.Text.Trim();
@@ -300,9 +300,9 @@ namespace ControlServidores.Web.Inventarios
                                         if (IdEspecificacion != 0 && IdServidor != 0 && IdBitacora != 0)
                                         {
                                             Entidades.PersonaXservidor asociacion = new Entidades.PersonaXservidor();
-                                            asociacion.IdBitacora = IdBitacora;
-                                            asociacion.IdServidor = IdServidor;
-                                            asociacion.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
+                                            asociacion.Bitacora.IdBitacora = IdBitacora;
+                                            asociacion.Servidor.IdServidor = IdServidor;
+                                            asociacion.Personas.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
 
                                             resultado = Negocio.Inventarios.PersonaXservidor.Nuevo(asociacion);
                                             resultado.errores.ForEach(delegate (Entidades.Logica.Error err)

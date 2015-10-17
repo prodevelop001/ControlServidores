@@ -4,10 +4,10 @@
     <id name="IdEspecificacion" column="IdEspecificacion" type="int">
       <generator class="identity"></generator>
     </id>
-    <property name="IdProcesador" column="IdProcesador" type="int"></property>
+    <!--<property name="IdProcesador" column="IdProcesador" type="int"></property>-->
     <property name="NumProcesadores" column="NumProcesadores" type="int"></property>
     <property name="CapacidadRAM" column="CapacidadRAM" type="String"></property>
-    <property name="IdTipoArreglo" column="IdTipoArreglo" type="int"></property>
+    <!--<property name="IdTipoArreglo" column="IdTipoArreglo" type="int"></property>-->
     <property name="NumSerie" column="NumSerie" type="String"></property>
     <set name="Servidor" inverse="true" cascade="save-update" lazy="false">
       <key column= "IdEspecificacion" not-null="true"/>

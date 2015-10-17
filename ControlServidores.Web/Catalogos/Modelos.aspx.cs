@@ -23,8 +23,8 @@ namespace ControlServidores.Web.Catalogos
                     {
                         pnlNombreModelo.Visible = true;
                         pnlFormulario.Visible = false;
-                        llenarGdvModelos();
                         llenarDdlMarcas();
+                        llenarGdvModelos();
                     }
                     btnNuevo.Enabled = permisos.C;
                 }
@@ -40,7 +40,11 @@ namespace ControlServidores.Web.Catalogos
 
             permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
 
-            gdvNombreModelo.DataSource = Negocio.Catalogos.Modelo.Obtener(new Entidades.Modelo());
+            gdvNombreModelo.DataSource = Negocio.Catalogos.Modelo.Obtener(new Entidades.Modelo()
+            {
+                IdMarca = Convert.ToInt32(ddlMarca.SelectedValue ?? "0")
+            }
+            );
             gdvNombreModelo.DataBind();
         }//Fin de Llenar Gridview SOs
 

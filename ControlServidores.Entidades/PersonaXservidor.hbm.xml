@@ -4,9 +4,9 @@
     <id name="IdPersonaServidor" column="IdPersonaServidor" type="int">
       <generator class="identity"></generator>
     </id>
-    <property name="IdPersona" column="IdPersona" type="int"></property>
+    <!--<property name="IdPersona" column="IdPersona" type="int"></property>
     <property name="IdServidor" column="IdServidor" type="int"></property>
-    <property name="IdBitacora" column="IdBitacora" type="int"></property>
+    <property name="IdBitacora" column="IdBitacora" type="int"></property>-->
     <many-to-one name="Personas" class="ControlServidores.Entidades.Personas" column="IdPersona" lazy="false"/>
     <many-to-one name="Servidor" class="ControlServidores.Entidades.Servidor" column="IdServidor" lazy="false"/>
     <many-to-one name="Bitacora" class="ControlServidores.Entidades.BitacoraMantenimiento" column="IdBitacora" lazy="false"/>

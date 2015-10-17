@@ -55,7 +55,7 @@ namespace ControlServidores.Datos.Inventarios
                     session.Close();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return false;
             }
