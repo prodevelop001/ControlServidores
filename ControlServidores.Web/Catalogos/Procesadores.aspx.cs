@@ -96,7 +96,8 @@ namespace ControlServidores.Web.Catalogos
             txtVelocidad.Text = gdvProcesadores.SelectedRow.Cells[4].Text;
             txtCache.Text = gdvProcesadores.SelectedRow.Cells[5].Text;
             llenarDdlTamanoPalabra();
-            ddlTamanoPalabra.Items.FindByText(gdvProcesadores.SelectedRow.Cells[6].Text).Selected = true;
+            ddlTamanoPalabra.SelectedValue = gdvProcesadores.SelectedRow.Cells[6].Text == "&nbsp;" ? "0" : gdvProcesadores.SelectedRow.Cells[6].Text;
+
         }//Fin de Seleccionar en Gridview
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -110,7 +111,9 @@ namespace ControlServidores.Web.Catalogos
                 {
                     Nombre = txtNombre.Text,
                     NumCores = Convert.ToInt32(txtNumCores.Text),
-                    Velocidad = txtVelocidad.Text
+                    Velocidad = txtVelocidad.Text,
+                    Cache = txtCache.Text,
+                    TamanoPalabra = !string.IsNullOrWhiteSpace(ddlTamanoPalabra.SelectedValue)? ddlTamanoPalabra.SelectedValue:null
                 });
             }
             else if (hdfEstado.Value == "2" && permisos.U == true)
@@ -120,7 +123,9 @@ namespace ControlServidores.Web.Catalogos
                     IdProcesador = Convert.ToInt32(lblIdProcesador.Value),
                     Nombre = txtNombre.Text,
                     NumCores = Convert.ToInt32(txtNumCores.Text),
-                    Velocidad = txtVelocidad.Text
+                    Velocidad = txtVelocidad.Text,
+                    Cache = txtCache.Text,
+                    TamanoPalabra = !string.IsNullOrWhiteSpace(ddlTamanoPalabra.SelectedValue) ? ddlTamanoPalabra.SelectedValue : null
                 });
             }
             else

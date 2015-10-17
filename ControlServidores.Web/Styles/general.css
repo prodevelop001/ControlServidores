@@ -244,7 +244,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /*Tabla*/
-.miTabla5, .miTabla6 , .miTabla7, .miTabla9{
+.miTabla5, .miTabla6 , .miTabla7, .miTabla9, .miTabla10{
     width: 80%;
     margin: 15px auto 7px;
     margin-right: auto !important;
@@ -262,7 +262,7 @@ h1, h2, h3, h4, h5, h6{
     box-sizing: border-box;
 }
     /***Encabezados de la Tabla***/
-    .miTabla5 tbody tr th, .miTabla6 tbody tr th,.miTabla7 tbody tr th, .miTabla9 tbody tr th{
+    .miTabla5 tbody tr th, .miTabla6 tbody tr th,.miTabla7 tbody tr th, .miTabla9 tbody tr th, .miTabla10 tbody tr th{
         background-color: #4D08A3;
         color: white;
         padding: 7px 7px;
@@ -271,7 +271,7 @@ h1, h2, h3, h4, h5, h6{
         box-sizing: border-box;
     }
     /****Filas de la tabla***/
-    .miTabla5 tr td, .miTabla6 tr td,.miTabla7 tr td, .miTabla9 tr td{
+    .miTabla5 tr td, .miTabla6 tr td,.miTabla7 tr td, .miTabla9 tr td, .miTabla10 tr td{
         padding: 7px 7px;
         text-align: center;
 
@@ -287,7 +287,7 @@ h1, h2, h3, h4, h5, h6{
             color: #F43CAB;
             font-weight: 800;
         }
-        .miTabla9 tr td:nth-child(8) a {
+        .miTabla9 tr td:nth-child(8) a, .miTabla10 tr td:nth-child(9) a {
             color: #F43CAB;
             font-weight: 800;
         }
@@ -298,7 +298,7 @@ h1, h2, h3, h4, h5, h6{
             .miTabla7 tr td:nth-child(6) a:hover {
                 color: blueviolet;
             }
-            .miTabla9 tr td:nth-child(8) a:hover {
+            .miTabla9 tr td:nth-child(8) a:hover, .miTabla10 tr td:nth-child(9) a:hover {
                 color: blueviolet;
             }
         /****Eliminar de la Tabla****/
@@ -310,7 +310,7 @@ h1, h2, h3, h4, h5, h6{
             color: red;
             font-weight: 800;
         }
-        .miTabla9 tr td:nth-child(9) a {
+        .miTabla9 tr td:nth-child(9) a, .miTabla10 tr td:nth-child(10) a {
             color: red;
             font-weight: 800;
         }
@@ -321,15 +321,15 @@ h1, h2, h3, h4, h5, h6{
             .miTabla7 tr td:nth-child(7) a:hover {
                 color: tomato;
             }
-            .miTabla9 tr td:nth-child(9) a:hover {
+            .miTabla9 tr td:nth-child(9) a:hover, .miTabla10 tr td:nth-child(10) a:hover {
                 color: tomato;
             }
      /****Renglones Impares de la Tabla*****/           
-    .miTabla5 tr:nth-child(odd), .miTabla6 tr:nth-child(odd),.miTabla7 tr:nth-child(odd), .miTabla9 tr:nth-child(odd){
+    .miTabla5 tr:nth-child(odd), .miTabla6 tr:nth-child(odd),.miTabla7 tr:nth-child(odd), .miTabla9 tr:nth-child(odd), .miTabla10 tr:nth-child(odd){
         background-color: #FFF;
     }
     /****Renglones Pares de la Tabla*****/           
-    .miTabla5 tr:nth-child(even), .miTabla6 tr:nth-child(even),.miTabla7 tr:nth-child(even), .miTabla9 tr:nth-child(even){
+    .miTabla5 tr:nth-child(even), .miTabla6 tr:nth-child(even),.miTabla7 tr:nth-child(even), .miTabla9 tr:nth-child(even), .miTabla10 tr:nth-child(even){
         background-color: #DDD;
     }
 /************FORMULARIOS***********/

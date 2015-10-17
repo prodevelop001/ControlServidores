@@ -93,6 +93,7 @@ namespace ControlServidores.Web.Catalogos
             btnNuevo.Text = "Nuevo";
             pnlNombreModelo.Visible = true;
             pnlFormulario.Visible = false;
+            ddlMarcaForm.Enabled = true;
         }//Fin de Boton Cancelar
 
 
@@ -110,6 +111,7 @@ namespace ControlServidores.Web.Catalogos
             llenarDdlMarcasForm();
             //ddlMarcaForm.SelectedItem.Text = ddlMarca.SelectedItem.ToString();
             ddlMarcaForm.Items.FindByText(ddlMarca.SelectedItem.ToString()).Selected = true;
+            ddlMarcaForm.Enabled = false;
             //txtMarca.Text = gdvNombreModelo.SelectedRow.Cells[2].Text;
             txtNombreModelo.Text = gdvNombreModelo.SelectedRow.Cells[3].Text;
         }//Fin de Seleccionar en Gridview
