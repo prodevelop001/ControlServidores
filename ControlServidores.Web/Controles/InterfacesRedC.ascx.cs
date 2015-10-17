@@ -25,7 +25,7 @@ namespace ControlServidores.Web.Controles
 
         private void InterfacesRed()
         {
-            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdServidor = _IdServidor });
+            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { Servidor=new Entidades.Servidor() { IdServidor = _IdServidor } });
             gdvInterfacesRed.DataBind();
         }
 

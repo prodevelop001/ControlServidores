@@ -40,8 +40,8 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Restrictions.Like("DNS", a.DNS));
 					if (!string.IsNullOrEmpty(a.VLAN))
                         crit.Add(Restrictions.Like("VLAN", a.VLAN));
-                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
+                    if (a.Estatus.IdEstatus != 0 && a.Estatus.IdEstatus.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdEstatus", a.Estatus.IdEstatus));
 
                     lista = (List<Entidades.ConfRed>)crit.List<Entidades.ConfRed>();
                 }

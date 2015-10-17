@@ -31,7 +31,7 @@ namespace ControlServidores.Datos.Bitacoras
                     lista = (List<Entidades.BitacoraMantenimiento>)crit.List<Entidades.BitacoraMantenimiento>();
                 }
             }
-            catch
+            catch(System.Exception err)
             {
                 return lista;
             }

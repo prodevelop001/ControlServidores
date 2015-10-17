@@ -25,7 +25,7 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Restrictions.Eq("IdPersonaServidor", a.IdPersonaServidor));
 					if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
                         crit.Add(Restrictions.Eq("IdPersona", a.Personas.IdPersona));
-					if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
+					if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString() != "")
                         //crit.Add(Restrictions.Eq("IdServidor", a.Servidor.IdServidor));
                         crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor)));
                     if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")

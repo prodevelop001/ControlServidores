@@ -33,7 +33,7 @@ namespace ControlServidores.Negocio.Inventarios
             {
                 resultado.resultado = false;
                 error = new Entidades.Logica.Error();
-                error.idError = 3;
+                error.idError = 4;
                 error.descripcionCorta = "Dirección de IP duplicada.";
                 resultado.errores.Add(error);
             }
