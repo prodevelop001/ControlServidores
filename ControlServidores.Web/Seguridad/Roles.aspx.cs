@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -102,7 +103,7 @@ namespace ControlServidores.Web.Seguridad
             btnGuardar.Enabled = permisos.U;            
             lblIdRol.Text = gdvRoles.SelectedRow.Cells[1].Text;
             int IdRol = Convert.ToInt32(gdvRoles.SelectedRow.Cells[1].Text);
-            txtNombre.Text = gdvRoles.SelectedRow.Cells[2].Text;
+            txtNombre.Text = HttpUtility.HtmlDecode(gdvRoles.SelectedRow.Cells[2].Text);
             lblResultado.Text = string.Empty;
             pnlRoles.Visible = false;
             pnlFormRol.Visible = true;

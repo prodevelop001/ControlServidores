@@ -41,8 +41,8 @@
                             <ItemStyle CssClass="hide" />
                         </asp:BoundField>
                         <asp:BoundField DataField="NombreSO" HeaderText="Nombre de S.O." />
-                        <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                        <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                        <asp:CommandField SelectText=" Seleccionar" ShowSelectButton="True" />
+                        <asp:CommandField DeleteText=" Eliminar" ShowDeleteButton="True" />
                     </Columns>
                 </asp:GridView>
             </asp:Panel>

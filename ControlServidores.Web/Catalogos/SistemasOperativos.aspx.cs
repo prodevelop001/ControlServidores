@@ -79,7 +79,7 @@ namespace ControlServidores.Web.Catalogos
             pnlFormulario.Visible = true;
             lblIdSistemaOperativo.Value = gdvSOs.SelectedRow.Cells[1].Text;
             
-            txtSO.Text = gdvSOs.SelectedRow.Cells[2].Text;
+            txtSO.Text = HttpUtility.HtmlDecode(gdvSOs.SelectedRow.Cells[2].Text);
         }//Fin de Seleccionar en Gridview
 
         protected void btnGuardar_Click(object sender, EventArgs e)

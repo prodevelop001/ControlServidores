@@ -80,8 +80,8 @@ namespace ControlServidores.Web.Catalogos
             pnlFormulario.Visible = true;
             lblIdTipoServidor.Value = gdvTiposServidores.SelectedRow.Cells[1].Text;
 
-            txtTipoServidor.Text = gdvTiposServidores.SelectedRow.Cells[2].Text;
-            txtTipoServidorDesc.Text = gdvTiposServidores.SelectedRow.Cells[3].Text;
+            txtTipoServidor.Text = HttpUtility.HtmlDecode(gdvTiposServidores.SelectedRow.Cells[2].Text);
+            txtTipoServidorDesc.Text = HttpUtility.HtmlDecode(gdvTiposServidores.SelectedRow.Cells[3].Text);
         }//Fin de Seleccionar en Gridview
 
         protected void btnGuardar_Click(object sender, EventArgs e)

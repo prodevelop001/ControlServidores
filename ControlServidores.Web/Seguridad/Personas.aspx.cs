@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -97,10 +98,10 @@ namespace ControlServidores.Web.Seguridad
             llenarDdlEstatus();
 
             lblIdPersona.Text = gdvPersonas.SelectedRow.Cells[1].Text;
-            txtNombre.Text = gdvPersonas.SelectedRow.Cells[2].Text;
-            txtPuesto.Text = gdvPersonas.SelectedRow.Cells[3].Text;
-            txtExtension.Text = gdvPersonas.SelectedRow.Cells[4].Text;
-            txtCorreo.Text = gdvPersonas.SelectedRow.Cells[5].Text;
+            txtNombre.Text = HttpUtility.HtmlDecode(gdvPersonas.SelectedRow.Cells[2].Text);
+            txtPuesto.Text = HttpUtility.HtmlDecode(gdvPersonas.SelectedRow.Cells[3].Text);
+            txtExtension.Text = HttpUtility.HtmlDecode(gdvPersonas.SelectedRow.Cells[4].Text);
+            txtCorreo.Text = HttpUtility.HtmlDecode(gdvPersonas.SelectedRow.Cells[5].Text);
             ddlEstatus.SelectedValue = gdvPersonas.SelectedRow.Cells[6].Text;
         }
 

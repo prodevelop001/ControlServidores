@@ -107,13 +107,13 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.U;
             pnlNombreModelo.Visible = false;
             pnlFormulario.Visible = true;
-            lblIdModelo.Value = gdvNombreModelo.SelectedRow.Cells[1].Text;
+            lblIdModelo.Value = HttpUtility.HtmlDecode(gdvNombreModelo.SelectedRow.Cells[1].Text);
             llenarDdlMarcasForm();
             //ddlMarcaForm.SelectedItem.Text = ddlMarca.SelectedItem.ToString();
             ddlMarcaForm.Items.FindByText(ddlMarca.SelectedItem.ToString()).Selected = true;
             ddlMarcaForm.Enabled = false;
             //txtMarca.Text = gdvNombreModelo.SelectedRow.Cells[2].Text;
-            txtNombreModelo.Text = gdvNombreModelo.SelectedRow.Cells[3].Text;
+            txtNombreModelo.Text = HttpUtility.HtmlDecode(gdvNombreModelo.SelectedRow.Cells[3].Text);
         }//Fin de Seleccionar en Gridview
 
         protected void btnGuardar_Click(object sender, EventArgs e)

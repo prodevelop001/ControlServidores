@@ -77,9 +77,9 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.U;
             pnlMarca.Visible = false;
             pnlFormulario.Visible = true;
-            lblIdMarca.Value = gdvMarcas.SelectedRow.Cells[1].Text;
+            lblIdMarca.Value = HttpUtility.HtmlDecode(gdvMarcas.SelectedRow.Cells[1].Text);
 
-            txtMarca.Text = gdvMarcas.SelectedRow.Cells[2].Text;
+            txtMarca.Text = HttpUtility.HtmlDecode(gdvMarcas.SelectedRow.Cells[2].Text);
         }//Fin de Seleccionar en Gridview
 
         protected void btnGuardar_Click(object sender, EventArgs e)

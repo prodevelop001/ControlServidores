@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -77,9 +78,9 @@ namespace ControlServidores.Web
             pnlFormulario.Visible = true;
             lblIdNombreEmpresa.Value = gdvEmpresas.SelectedRow.Cells[1].Text;
             //lblIdNombreEmpresa.Visible=true;
-            txtEmpresa.Text = gdvEmpresas.SelectedRow.Cells[2].Text;
-            txtTelefono.Text = gdvEmpresas.SelectedRow.Cells[3].Text;
-            txtDireccion.Text = gdvEmpresas.SelectedRow.Cells[4].Text;
+            txtEmpresa.Text = HttpUtility.HtmlDecode(gdvEmpresas.SelectedRow.Cells[2].Text);
+            txtTelefono.Text = HttpUtility.HtmlDecode(gdvEmpresas.SelectedRow.Cells[3].Text);
+            txtDireccion.Text = HttpUtility.HtmlDecode(gdvEmpresas.SelectedRow.Cells[4].Text);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

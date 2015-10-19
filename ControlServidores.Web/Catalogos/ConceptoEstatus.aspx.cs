@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -77,7 +78,7 @@ namespace ControlServidores.Web.Catalogos
             pnlFormulario.Visible = true;
             lblIdConceptoEstatus.Text = gdvConceptos.SelectedRow.Cells[1].Text;
             //lblIdConceptoEstatus.Attributes["style"] = "display: block;";
-            txtConcepto.Text = gdvConceptos.SelectedRow.Cells[2].Text;
+            txtConcepto.Text = HttpUtility.HtmlDecode(gdvConceptos.SelectedRow.Cells[2].Text);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

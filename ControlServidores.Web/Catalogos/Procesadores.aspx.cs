@@ -91,10 +91,10 @@ namespace ControlServidores.Web.Catalogos
             pnlFormulario.Visible = true;
             lblIdProcesador.Value = gdvProcesadores.SelectedRow.Cells[1].Text;
 
-            txtNombre.Text = gdvProcesadores.SelectedRow.Cells[2].Text;
-            txtNumCores.Text = gdvProcesadores.SelectedRow.Cells[3].Text;
-            txtVelocidad.Text = gdvProcesadores.SelectedRow.Cells[4].Text;
-            txtCache.Text = gdvProcesadores.SelectedRow.Cells[5].Text;
+            txtNombre.Text = HttpUtility.HtmlDecode(gdvProcesadores.SelectedRow.Cells[2].Text);
+            txtNumCores.Text = HttpUtility.HtmlDecode(gdvProcesadores.SelectedRow.Cells[3].Text);
+            txtVelocidad.Text = HttpUtility.HtmlDecode(gdvProcesadores.SelectedRow.Cells[4].Text);
+            txtCache.Text = HttpUtility.HtmlDecode(gdvProcesadores.SelectedRow.Cells[5].Text);
             llenarDdlTamanoPalabra();
             ddlTamanoPalabra.SelectedValue = gdvProcesadores.SelectedRow.Cells[6].Text == "&nbsp;" ? "0" : gdvProcesadores.SelectedRow.Cells[6].Text;
 
