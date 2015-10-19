@@ -17,18 +17,25 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.SOxServidor),"sos");
 
-                    crit.CreateAlias("sos.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
-                    crit.CreateAlias("sos.SO", "idSO", NHibernate.SqlCommand.JoinType.InnerJoin);
-                    crit.CreateAlias("sos.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
-
+                    if(a.Servidor != null)
+                    {
+                        crit.CreateAlias("sos.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.SO.IdSO)));
+                    }
+                    if(a.SO != null)
+                    {
+                        crit.CreateAlias("sos.SO", "idSO", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idSO.IdSO", a.SO.IdSO)));
+                    }
+                    if(a.Estatus != null)
+                    {
+                        crit.CreateAlias("sos.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idEstatus.IdEstatus", a.Estatus.IdEstatus)));
+                    }
+                    
                     if (a.IdSOxServidor != 0 && a.IdSOxServidor.ToString() != "")
                         crit.Add(Restrictions.Eq("IdSOxServidor", a.IdSOxServidor));
-                    if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
-					if (a.IdSO != 0 && a.IdSO.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdSO", a.IdSO));
-                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
 
                     lista = (List<Entidades.SOxServidor>)crit.List<Entidades.SOxServidor>();
                 }

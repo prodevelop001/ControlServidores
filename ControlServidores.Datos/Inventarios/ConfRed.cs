@@ -18,18 +18,19 @@ namespace ControlServidores.Datos.Inventarios
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.ConfRed),"r");
 
                     crit.CreateAlias("r.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    if(a.Servidor != null)
+                        crit.CreateAlias("r.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
 
                     if (a.IdConfRed != 0 && a.IdConfRed.ToString() != "")
                         crit.Add(Restrictions.Eq("IdConfRed", a.IdConfRed));
-                   if (a.IdServidor != 0 && a.IdServidor.ToString()  != "")
-                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
+                   if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString()  != "")
+                        crit.Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor));
 					if (!string.IsNullOrEmpty(a.InterfazRed))
                         crit.Add(Restrictions.Like("InterfazRed", a.InterfazRed));
 					if (!string.IsNullOrEmpty(a.DirMac))
                         crit.Add(Restrictions.Eq("DirMac", a.DirMac));
                     if (!string.IsNullOrEmpty(a.DirIP))
                     {
-                        crit.CreateAlias("r.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
                         crit.Add(Restrictions.Like("DirIP", a.DirIP));
                     }                        
 					if (!string.IsNullOrEmpty(a.MascaraSubRed))
@@ -87,7 +88,7 @@ namespace ControlServidores.Datos.Inventarios
                     session.Close();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return false;
             }

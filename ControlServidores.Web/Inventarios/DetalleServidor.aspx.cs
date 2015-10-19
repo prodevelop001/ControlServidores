@@ -107,7 +107,19 @@ namespace ControlServidores.Web.Inventarios
 
         private void Bitacora()
         {
-            gdvBitacora.DataSource = Negocio.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor } });
+            List<Entidades.PersonaXservidor> lista = new List<Entidades.PersonaXservidor>();
+            lista = Negocio.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor } });
+            List<Entidades.PersonaXservidor> aux = new List<Entidades.PersonaXservidor>();
+            aux = Negocio.Inventarios.PersonaXservidor.Obtener(new Entidades.PersonaXservidor() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor }, Personas= null });
+            if(aux.Count> 0)
+            {
+                lista.Add(aux.First());
+            }
+            var todos = from l in lista
+                        orderby l.IdPersonaServidor ascending
+                        select l;
+
+            gdvBitacora.DataSource = todos;
             gdvBitacora.DataBind();
         }
     }

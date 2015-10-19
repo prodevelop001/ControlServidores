@@ -28,7 +28,7 @@ namespace ControlServidores.Negocio.Inventarios
             resultado.resultado = true;
 
             List<Entidades.Servidor> servidorL = new List<Entidades.Servidor>();
-            servidorL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { AliasServidor = a.AliasServidor });
+            servidorL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { AliasServidor = a.AliasServidor, Modelo= a.Modelo, Especificacion = a.Especificacion, TipoServidor = a.TipoServidor });
             if (servidorL.Count > 0)
             {
                 resultado.resultado = false;

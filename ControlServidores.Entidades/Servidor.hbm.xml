@@ -14,11 +14,11 @@
     <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo" lazy="false"/>
     <many-to-one name="Especificacion" class="ControlServidores.Entidades.EspServidor" column="IdEspecificacion" lazy="false"/>
     <many-to-one name="TipoServidor" class="ControlServidores.Entidades.TipoServidor" column="IdTipoServidor" lazy="false"/>
-    <set name="Red" inverse="true" cascade="save-update" lazy="false">
+    <set name="Red" inverse="true" cascade="all-delete-orphan">
       <key column= "IdServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.ConfRed"/>
     </set>
-    <set name="SOxServidor" inverse="true" cascade="save-update" lazy="false">
+    <set name="SOxServidor" inverse="true" cascade="save-update">
       <key column= "IdSOxServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.SOxServidor"/>
     </set>

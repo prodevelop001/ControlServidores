@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web.Controles
@@ -6,6 +7,7 @@ namespace ControlServidores.Web.Controles
     public partial class InterfacesRedC : System.Web.UI.UserControl
     {
         private int _IdServidor;
+
 
         public int IdServidor
         {
@@ -25,7 +27,7 @@ namespace ControlServidores.Web.Controles
 
         private void InterfacesRed()
         {
-            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { Servidor=new Entidades.Servidor() { IdServidor = _IdServidor } });
+            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor, Modelo = null, Especificacion = null, TipoServidor = null } });
             gdvInterfacesRed.DataBind();
         }
 
@@ -76,7 +78,7 @@ namespace ControlServidores.Web.Controles
         {
             lblResultado.Text = "";
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-    
+
             if (ddlEstatus.SelectedValue != "0")
             {
                 Entidades.ConfRed nuevaInterfaz = new Entidades.ConfRed();
@@ -84,6 +86,7 @@ namespace ControlServidores.Web.Controles
                 nuevaInterfaz.InterfazRed = txtInterfazRed.Text.Trim();
                 nuevaInterfaz.DirMac = txtDirMAC.Text.Trim();
                 nuevaInterfaz.DirIP = txtDirIP.Text.Trim();
+                nuevaInterfaz.MascaraSubRed = txtMascaraSubRed.Text.Trim();
                 if (!string.IsNullOrWhiteSpace(txtGateway.Text.Trim()))
                     nuevaInterfaz.Gateway = txtGateway.Text.Trim();
                 if (!string.IsNullOrWhiteSpace(txtDNS.Text.Trim()))
@@ -91,13 +94,13 @@ namespace ControlServidores.Web.Controles
                 if (!string.IsNullOrWhiteSpace(txtVlan.Text.Trim()))
                     nuevaInterfaz.VLAN = txtVlan.Text.Trim();
                 nuevaInterfaz.Estatus.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
-                
+
                 //Guardar
-                if(hdfEstado.Value == "1")
+                if (hdfEstado.Value == "1")
                 {
                     resultado = Negocio.Inventarios.ConfRed.Nuevo(nuevaInterfaz);
                 }
-                else if(hdfEstado.Value == "2") //actualizar
+                else if (hdfEstado.Value == "2") //actualizar
                 {
                     nuevaInterfaz.IdConfRed = Convert.ToInt32(hdfIdConfRed.Value);
                     resultado = Negocio.Inventarios.ConfRed.Actualizar(nuevaInterfaz);
@@ -121,6 +124,31 @@ namespace ControlServidores.Web.Controles
             {
                 lblResultado.Text = "Debe seleccionar un estatus.";
             }
+        }
+
+        protected void gdvInterfacesRed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pnlFormIntRed.Visible = true;
+            gdvInterfacesRed.Visible = false;
+            llenarDdlEstatus();
+
+            hdfEstado.Value = "2";
+            hdfIdConfRed.Value = gdvInterfacesRed.SelectedRow.Cells[1].Text.Trim();
+            List<Entidades.ConfRed> redlist = new List<Entidades.ConfRed>();
+            redlist = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdConfRed = Convert.ToInt32(hdfIdConfRed.Value) });
+
+            redlist.ForEach(delegate (Entidades.ConfRed r)
+            {
+                txtInterfazRed.Text = r.InterfazRed;
+                txtDirMAC.Text = r.DirMac;
+                txtDirIP.Text = r.DirIP;
+                txtMascaraSubRed.Text = r.MascaraSubRed;
+                txtGateway.Text = r.Gateway;
+                txtDNS.Text = r.DNS;
+                txtVlan.Text = r.VLAN;
+                ddlEstatus.SelectedValue = r.Estatus.IdEstatus.ToString();
+            });
+
         }
     }
 }

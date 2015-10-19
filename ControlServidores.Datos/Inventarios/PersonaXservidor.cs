@@ -5,46 +5,54 @@ using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
-	public class PersonaXservidor 
-	{
-		public static List<Entidades.PersonaXservidor> Obtener(Entidades.PersonaXservidor a)
-		{
-			List<Entidades.PersonaXservidor> lista = new List<Entidades.PersonaXservidor>();
+    public class PersonaXservidor
+    {
+        public static List<Entidades.PersonaXservidor> Obtener(Entidades.PersonaXservidor a)
+        {
+            List<Entidades.PersonaXservidor> lista = new List<Entidades.PersonaXservidor>();
             try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.PersonaXservidor),"pes");
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.PersonaXservidor), "pes");
 
-                    crit.CreateAlias("pes.Personas", "idPersona", NHibernate.SqlCommand.JoinType.InnerJoin);
-                    crit.CreateAlias("pes.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
-                    crit.CreateAlias("pes.Bitacora", "idBitacora", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    if (a.Personas != null)
+                    {
+                        crit.CreateAlias("pes.Personas", "idPersona", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idPersona.IdPersona", a.Personas.IdPersona)));
+                    }
+                    if (a.Servidor != null)
+                    {
+                        crit.CreateAlias("pes.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor)));
+                    }
+                    if (a.Bitacora != null)
+                    {
+                        crit.CreateAlias("pes.Bitacora", "idBitacora", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idBitacora.IdBitacora", a.Bitacora.IdBitacora)));
+                    }
 
                     if (a.IdPersonaServidor != 0 && a.IdPersonaServidor.ToString() != "")
                         crit.Add(Restrictions.Eq("IdPersonaServidor", a.IdPersonaServidor));
-					if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdPersona", a.Personas.IdPersona));
-					if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString() != "")
-                        //crit.Add(Restrictions.Eq("IdServidor", a.Servidor.IdServidor));
-                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor)));
-                    if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdBitacora", a.Bitacora.IdBitacora));
-                   
+
                     lista = (List<Entidades.PersonaXservidor>)crit.List<Entidades.PersonaXservidor>();
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 return lista;
             }
 
             return lista;
-		}
-		
-		public static bool Nuevo(Entidades.PersonaXservidor a)
-		{
-			try
+        }
+
+        public static bool Nuevo(Entidades.PersonaXservidor a)
+        {
+            try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
@@ -59,11 +67,11 @@ namespace ControlServidores.Datos.Inventarios
             }
 
             return true;
-		}
-		
-		public static bool Actualizar(Entidades.PersonaXservidor a)
-		{
-			try
+        }
+
+        public static bool Actualizar(Entidades.PersonaXservidor a)
+        {
+            try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
@@ -78,14 +86,14 @@ namespace ControlServidores.Datos.Inventarios
             }
 
             return true;
-		}
-		
-		public static bool Eliminar(Entidades.PersonaXservidor a)
-		{
-			try
+        }
+
+        public static bool Eliminar(Entidades.PersonaXservidor a)
+        {
+            try
             {
                 using (ISession session = NHibernateHelper.OpenSession())
-                {                   
+                {
                     session.Delete(a);
                     session.Flush();
                     session.Close();
@@ -97,7 +105,7 @@ namespace ControlServidores.Datos.Inventarios
             }
 
             return true;
-		}
+        }
 
         public static bool Eliminar(List<Entidades.PersonaXservidor> a)
         {

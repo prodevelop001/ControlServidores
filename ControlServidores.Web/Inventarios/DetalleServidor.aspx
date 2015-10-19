@@ -172,7 +172,7 @@
                             <asp:BoundField DataField="Bitacora.FechaCaptura" HeaderText="Fecha de Captura" />
                             <asp:BoundField DataField="Bitacora.FechaMantenimiento" HeaderText="Fecha de procedimiento" />
                             <asp:BoundField DataField="Bitacora.DescripcionMantenimiento" HeaderText="Descripcion" />
-                            <asp:BoundField DataField="Bitacora.Observaciones" HeaderText="Fecha de Captura" />
+                            <asp:BoundField DataField="Bitacora.Observaciones" HeaderText="Observaciones" />
                             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                             <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
                         </Columns>

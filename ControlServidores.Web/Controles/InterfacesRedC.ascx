@@ -52,7 +52,7 @@
             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
-    <asp:GridView ID="gdvInterfacesRed" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas.">
+    <asp:GridView ID="gdvInterfacesRed" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas." OnSelectedIndexChanged="gdvInterfacesRed_SelectedIndexChanged">
         <Columns>
             <asp:TemplateField HeaderText="#">
                 <ItemTemplate>
@@ -66,6 +66,10 @@
             <asp:BoundField DataField="InterfazRed" HeaderText="Interfaz" />
             <asp:BoundField DataField="DirIp" HeaderText="Dirección IP" />
             <asp:BoundField DataField="MascaraSubRed" HeaderText="SubNet" />
+            <asp:BoundField DataField="Estatus.IdEstatus" HeaderText="IdEstatus" >
+            <HeaderStyle CssClass="hide" />
+            <ItemStyle CssClass="hide" />
+            </asp:BoundField>
             <asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />
             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
             <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
