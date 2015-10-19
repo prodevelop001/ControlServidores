@@ -93,16 +93,23 @@
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                     </div>
                     <asp:Panel ID="pnlServidores" Visible="false" runat="server">
-                        <div>
-                            <fieldset>
-                                <legend>Busqueda avanzada</legend>
-                                <label>Por alias:&nbsp;</label><asp:TextBox ID="txtPorAlias" runat="server"></asp:TextBox>
-                                <label>Por IP:&nbsp;</label><asp:TextBox ID="txtPorIp" runat="server"></asp:TextBox>
-                                <label>Por aplicación:&nbsp;</label><asp:TextBox ID="txtPorAplicacion" runat="server"></asp:TextBox>
-                                &nbsp;
-                            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="Servidor2" />
-                                <asp:RegularExpressionValidator ID="revPorIp" runat="server" ErrorMessage="*Ip invalida." ControlToValidate="txtPorIp" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor2"></asp:RegularExpressionValidator>
-                            </fieldset>
+                        <div class="formBusqueda">
+                            <div class="busquedaGrp">
+                                <label>Por alias:&nbsp;</label>
+                                <asp:TextBox ID="txtPorAlias" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="busquedaGrp">
+                                <label>Por IP:&nbsp;</label>
+                                <asp:TextBox ID="txtPorIp" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="busquedaGrp">
+                                <label>Por aplicación:&nbsp;</label>
+                                <asp:TextBox ID="txtPorAplicacion" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="busquedaBoton">
+                                <asp:RegularExpressionValidator ID="revPorIp" runat="server" ErrorMessage="Ip invalida." ControlToValidate="txtPorIp" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor2"></asp:RegularExpressionValidator>
+                                <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="Servidor2" />
+                            </div>
                         </div>
                         <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
                             <ItemTemplate>
