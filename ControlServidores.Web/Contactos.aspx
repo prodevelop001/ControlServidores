@@ -14,19 +14,19 @@
             <div class="formBusqueda">
                 <div class="busquedaGrp">
                     <label>Nombre: </label>
-                    <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPorNombre" runat="server"></asp:TextBox>
                 </div>
                 <div class="busquedaGrp">
                     <label>Extensión: </label>
-                    <asp:TextBox ID="txtExt" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPorExt" TextMode="Number" runat="server"></asp:TextBox>
                 </div>
                 <div class="busquedaGrp">
                     <label>Puesto: </label>
-                    <asp:TextBox ID="txtPuesto" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPorPuesto" runat="server"></asp:TextBox>
                 </div>
                 <div class="busquedaBoton">
                     <span>&nbsp;</span>
-                    <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" />
+                    <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
                 </div>
             </div>
                 <asp:GridView ID="gdvPersonas" CssClass="miTabla4" runat="server" AutoGenerateColumns="False">

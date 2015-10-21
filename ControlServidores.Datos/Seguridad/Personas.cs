@@ -21,9 +21,9 @@ namespace ControlServidores.Datos.Seguridad
                    if (!string.IsNullOrEmpty(a.Nombre))
                         crit.Add(Restrictions.Like("Nombre", a.Nombre));
 					if (!string.IsNullOrEmpty(a.Puesto))
-                        crit.Add(Restrictions.Eq("Puesto", a.Puesto));
+                        crit.Add(Restrictions.Like("Puesto", a.Puesto));
 					if (!string.IsNullOrEmpty(a.Extension))
-                        crit.Add(Restrictions.Eq("Extension", a.Extension));
+                        crit.Add(Restrictions.Like("Extension", a.Extension));
 					if (!string.IsNullOrEmpty(a.Correo))
                         crit.Add(Restrictions.Like("Correo", a.Correo));
                     if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")

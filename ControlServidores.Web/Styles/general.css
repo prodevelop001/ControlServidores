@@ -408,7 +408,11 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-            .formCampos input[type="text"], .formCampos input[type="password"] {
+            .formCampos input[type="text"], 
+            .formCampos input[type="password"], 
+            .formCampos input[type="number"], 
+            .formCampos input[type="email"],
+            .formCampos select {
             -webkit-border-radius: 5px;
 	        -moz-border-radius: 5px;
 	        -o-border-radius: 5px;
@@ -422,7 +426,16 @@ h1, h2, h3, h4, h5, h6{
 	        transition: all 0.4s ease-in-out;
 
         }
-            .formCampos input[type="text"]:focus, .formCampos input[type="password"]:focus {
+            .formCampos input[type="number"]::-webkit-inner-spin-button, 
+            .formCampos input[type="number"]::-webkit-outer-spin-button{
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            .formCampos input[type="text"]:focus, 
+            .formCampos input[type="password"]:focus, 
+            .formCampos input[type="number"]:focus, 
+            .formCampos input[type="email"]:focus,
+             .formCampos select:focus{
                 border: solid 1px #C30F76;
             }
 
@@ -588,7 +601,7 @@ h1, h2, h3, h4, h5, h6{
         width: 30%;
         float: left;
     }             
-        .busquedaGrp label, .busquedaGrp input[type="text"]{
+        .busquedaGrp label, .busquedaGrp input[type="text"], .busquedaGrp input[type="number"]{
             width: 85%;
             display: block;
             font-size: 14px;
@@ -611,7 +624,7 @@ h1, h2, h3, h4, h5, h6{
         .busquedaGrp label{
             font-weight: 600;
         }
-            .busquedaGrp input[type="text"]:focus {
+            .busquedaGrp input[type="text"]:focus, .busquedaGrp input[type="number"]:focus {
                 border: solid 1px #C30F76;
             }
 .busquedaBoton{

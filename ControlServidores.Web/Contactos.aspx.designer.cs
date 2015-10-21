@@ -31,31 +31,31 @@ namespace ControlServidores.Web {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// txtNombre control.
+        /// txtPorNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtPorNombre;
         
         /// <summary>
-        /// txtExt control.
+        /// txtPorExt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExt;
+        protected global::System.Web.UI.WebControls.TextBox txtPorExt;
         
         /// <summary>
-        /// txtPuesto control.
+        /// txtPorPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPuesto;
+        protected global::System.Web.UI.WebControls.TextBox txtPorPuesto;
         
         /// <summary>
         /// btnBuscar control.
