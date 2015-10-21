@@ -76,16 +76,3 @@ function checkMe() {
         return false;
     }
 }
-
-
-/*************************/
-function EventoEnter(event) {
-    var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-    //13 corresponde al intro
-    if (keyCode == 13) {
-        alert("ha presionado intro");
-    }
-    else {
-        alert("XXX");
-    }
-}

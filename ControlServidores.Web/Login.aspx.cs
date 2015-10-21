@@ -23,7 +23,7 @@ namespace ControlServidores.Web
                     lblLogin.Attributes["style"] = "display: none;";
                 }
             }
-            
+            lnkBtnSubmit.Focus();
         }
         protected void lnkBtnSubmit_Click(object sender, EventArgs e)
         {
