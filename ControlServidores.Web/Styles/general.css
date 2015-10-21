@@ -701,7 +701,7 @@ h1, h2, h3, h4, h5, h6{
     .elemServidor .titulos{
         display: block;
         width: 90%;
-        margin: 9px auto;
+        margin: 9px 5%;
         float: left;
         text-align: center;
         
@@ -731,3 +731,95 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
+
+/********NUEVOS SERVIDORES*******/
+.nuevoServidor{
+    width: 100%;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.grpNuevoServidor, .grpNuevoServidorRed{
+    width: 30%;
+    float: left;
+    margin: 15px 1%;
+
+    overflow: hidden;
+}
+    .grpNuevoServidor label, .grpNuevoServidorRed label, .grpNuevoServidor span{
+        width: 50%;
+        float: left;
+        min-height: 34px;
+        font-size: 14px;
+    }
+    .grpNuevoServidor label, .grpNuevoServidorRed label{
+        padding-left: 5px;
+        font-weight: 600;
+
+        box-sizing: border-box;
+    }
+    .grpNuevoServidorRed span{
+        width: 50%;
+        float: left;
+        font-size: 14px;
+    }
+    .grpNuevoServidor input[type="text"], .grpNuevoServidorRed input[type="text"], .grpNuevoServidor select{
+        width: 100%;
+        float: left;
+        padding: 7px 9px;
+        display: block;
+        font-size: 14px;
+
+        -webkit-border-radius: 5px;
+	    -moz-border-radius: 5px;
+	    -o-border-radius: 5px;
+	    -ms-border-radius: 5px;
+	    border-radius: 5px;
+
+        -webkit-transition: all 0.4s ease-in-out;
+	    -moz-transition: all 0.4s ease-in-out;
+	    -o-transition: all 0.4s ease-in-out;
+	    -ms-transition: all 0.4s ease-in-out;
+	    transition: all 0.4s ease-in-out;
+
+        box-sizing: border-box;
+    }
+        .grpNuevoServidor input[type="text"]:focus, .grpNuevoServidorRed input[type="text"]:focus {
+            border: solid 1px #C30F76;
+
+        }
+
+
+.servidoresBotones{
+    width: 100%;
+    font-size: 14px;
+    /*background: #ed3f3f;*/
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+        .servidoresBotones input[type="submit"] {
+            border: solid 1px #555454;
+            float: left;
+            width: 16%;
+            display: block;
+            margin: 5px 19px 5px 5px;
+            padding: 7px;
+            -webkit-border-radius: 5px;
+	        -moz-border-radius: 5px;
+	        -o-border-radius: 5px;
+	        -ms-border-radius: 5px;
+	        border-radius: 5px;
+
+            -webkit-transition: all 0.4s ease-in-out;
+	        -moz-transition: all 0.4s ease-in-out;
+	        -o-transition: all 0.4s ease-in-out;
+	        -ms-transition: all 0.4s ease-in-out;
+	        transition: all 0.4s ease-in-out;
+
+            box-sizing: border-box;
+        }
+            .servidoresBotones input[type="submit"]:hover {
+                cursor: pointer;
+            }

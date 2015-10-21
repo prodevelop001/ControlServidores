@@ -14,60 +14,65 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <div>
-                    <div style="width: 40%; margin: 0;">
-                        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+                    <div class="addNuevo">
+                        <asp:Button ID="btnNuevo" runat="server" CssClass="btnNuevo" Text="Nuevo" OnClick="btnNuevo_Click" />
                     </div>
-                    <asp:Panel ID="pnlNuevoServidor" Visible="false" runat="server">
-                        <div style="width: 40%; margin: 0; float: left;">
-                            <label>Alias de servidor</label>
-                            <div>
-                                <asp:TextBox ID="txtAliasServidor" runat="server"></asp:TextBox>
+                    <asp:Panel ID="pnlNuevoServidor" CssClass="nuevoServidor" Visible="false" runat="server">
+                            
+                            <div class="grpNuevoServidor">
+                                <label>Alias de servidor</label>
                                 <asp:RequiredFieldValidator ID="rfvAliasServidor" runat="server" ErrorMessage="*Alias requerido" ControlToValidate="txtAliasServidor" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtAliasServidor" runat="server" placeholder="Hostname"></asp:TextBox>
                             </div>
-                            <label>Aplicación</label>
-                            <div>
-                                <asp:TextBox ID="txtDescripcionUso" runat="server"></asp:TextBox>
+                            
+                            <div class="grpNuevoServidor">
+                                <label>Aplicación</label>
                                 <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ErrorMessage="*Descripción requerida" ControlToValidate="txtDescripcionUso" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtDescripcionUso" runat="server" placeholder="¿Qué aplicación hospeda?"></asp:TextBox>
                             </div>
-                            <label>Sistema Operativo</label>
-                            <div>
+                            
+                            <div class="grpNuevoServidor">
+                                <label>Sistema Operativo</label>
                                 <asp:DropDownList ID="ddlSO" runat="server"></asp:DropDownList>
                             </div>
-                            <label>Nombre de la interfaz</label>
-                            <div>
-                                <asp:TextBox ID="txtInterfazRed" runat="server"></asp:TextBox>
+                            
+                            <div  class="grpNuevoServidor">
+                                <label>Nombre de la interfaz</label>
                                 <asp:RequiredFieldValidator ID="rfvNombreInterfaz" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtInterfazRed" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtInterfazRed" runat="server" placeholder="Ej: eth0"></asp:TextBox>
                             </div>
-                            <label>Dirección IP</label>
-                            <div>
-                                <asp:TextBox ID="txtDirIP" runat="server"></asp:TextBox>
+                            
+                            <div class="grpNuevoServidorRed">
+                                <label>Dirección IP</label> 
                                 <asp:RequiredFieldValidator ID="rfvDirIp" runat="server" ErrorMessage="*IP requerida" ControlToValidate="txtDirIP" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator><br />
                                 <asp:RegularExpressionValidator ID="revDirIP" runat="server" ErrorMessage="*IP no valida." ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor" ControlToValidate="txtDirIP" ForeColor="Red"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txtDirIP" runat="server" placeholder="Ej: 10.1.16.129"></asp:TextBox>
                             </div>
-                            <label>Masca Sub Red</label>
-                            <div>
-                                <asp:TextBox ID="txtMascaraSubRed" runat="server"></asp:TextBox>
+                            
+                            <div class="grpNuevoServidorRed">
+                                <label>Masca Sub Red</label>
                                 <asp:RequiredFieldValidator ID="rfvSubNet" runat="server" ErrorMessage="*Sub Red requerida." ControlToValidate="txtMascaraSubRed" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator><br />
                                 <asp:RegularExpressionValidator ID="revSubNet" runat="server" ErrorMessage="*IP no valida." ControlToValidate="txtMascaraSubRed" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor" ForeColor="Red"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txtMascaraSubRed" runat="server" placeholder="Ej: 255.255.255.224"></asp:TextBox>
                             </div>
-                            <label>Gateway</label>
-                            <div>
-                                <asp:TextBox ID="txtGateway" runat="server"></asp:TextBox>
+                            
+                            <div class="grpNuevoServidor">
+                                <label>Gateway</label>
                                 <asp:RegularExpressionValidator ID="revGateway" runat="server" ErrorMessage="*IP no valida." ControlToValidate="txtGateway" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txtGateway" runat="server" placeholder="Ej: 10.1.16.158"></asp:TextBox>
                             </div>
-                            <label>DNS</label>
-                            <div>
-                                <asp:TextBox ID="txtDNS" runat="server"></asp:TextBox>
+                            
+                            <div class="grpNuevoServidor">
+                                <label>DNS</label>
                                 <asp:RegularExpressionValidator ID="revDNS" runat="server" ErrorMessage="*IP no valida." ControlToValidate="txtDNS" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txtDNS" runat="server" placeholder="Ej: 10.1.70.40"></asp:TextBox>
                             </div>                 
-                            <br />
-                            <br />
-                            <label>Estatus de Servidor</label>
-                            <div>
+                            
+                            <div class="grpNuevoServidor">
+                                <label>Estatus de Servidor</label>
                                 <asp:DropDownList ID="ddlEstatusServidor" runat="server"></asp:DropDownList>
                             </div>
-                        </div>
-                        <div style="width: 100%; margin: 0; float: left;">
+                        <div class="servidoresBotones">
                             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Servidor" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
