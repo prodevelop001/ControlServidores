@@ -92,7 +92,7 @@ namespace ControlServidores.Negocio.Catalogos
 
             if (resultado.resultado == true)
             {
-                resultado.resultado = Datos.Catalogos.Estatus.Nuevo(a);
+                resultado.resultado = Datos.Catalogos.Estatus.Actualizar(a);
                 if (resultado.resultado == true)
                 {
                     error = new Entidades.Logica.Error();

@@ -56,7 +56,7 @@
                             <HeaderStyle CssClass="hide" />
                             <ItemStyle CssClass="hide" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Estatus" HeaderText="Nombre del Estatus" />
+                        <asp:BoundField DataField="_Estatus" HeaderText="Nombre del Estatus" />
                         <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
                         <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
                     </Columns>

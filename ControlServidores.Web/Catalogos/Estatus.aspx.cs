@@ -39,10 +39,11 @@ namespace ControlServidores.Web.Catalogos
         {
 
             permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
-
-            gdvNombreEstatus.DataSource = Negocio.Catalogos.ConceptoEstatus.Obtener(new Entidades.ConceptoEstatus()
+            //
+            gdvNombreEstatus.DataSource = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
             {
                 IdConceptoEstatus = Convert.ToInt32(ddlConceptoEstatus.SelectedValue ?? "0")
+
             }
             );
             gdvNombreEstatus.DataBind();
@@ -59,7 +60,7 @@ namespace ControlServidores.Web.Catalogos
             ddlConceptoEstatus.DataBind();
         }//Fin de Llenar Concepto Estatus
 
-        private void llenarGdvEstatusForm()
+        private void llenarDdlEstatusForm()
         {
             ddlConceptoEstatusForm.Items.Clear();
             ddlConceptoEstatusForm.AppendDataBoundItems = true;
@@ -83,7 +84,7 @@ namespace ControlServidores.Web.Catalogos
             //lblIdSistemaOperativo.Attributes["style"] = "display: none;";
             //txtMarca.Text = string.Empty;
             txtNombreEstatus.Text = string.Empty;
-            llenarGdvEstatusForm();
+            llenarDdlEstatusForm();
         }//Fin de Boton Nuevo
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace ControlServidores.Web.Catalogos
             pnlNombreEstatus.Visible = false;
             pnlFormulario.Visible = true;
             lblIdEstatus.Value = HttpUtility.HtmlDecode(gdvNombreEstatus.SelectedRow.Cells[1].Text);
-            llenarGdvEstatusForm();
+            llenarDdlEstatusForm();
             //ddlMarcaForm.SelectedItem.Text = ddlMarca.SelectedItem.ToString();
             ddlConceptoEstatusForm.Items.FindByText(ddlConceptoEstatus.SelectedItem.ToString()).Selected = true;
             ddlConceptoEstatusForm.Enabled = false;
