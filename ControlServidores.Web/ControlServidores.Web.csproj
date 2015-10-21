@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Catalogos\ConceptoEstatus.aspx" />
+    <Content Include="Catalogos\Estatus.aspx" />
     <Content Include="Catalogos\Marcas.aspx" />
     <Content Include="Catalogos\Modelos.aspx" />
     <Content Include="Catalogos\Procesadores.aspx" />
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="Catalogos\ConceptoEstatus.aspx.designer.cs">
       <DependentUpon>ConceptoEstatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\Estatus.aspx.cs">
+      <DependentUpon>Estatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\Estatus.aspx.designer.cs">
+      <DependentUpon>Estatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\Marcas.aspx.cs">
       <DependentUpon>Marcas.aspx</DependentUpon>

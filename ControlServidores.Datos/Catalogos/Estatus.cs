@@ -17,7 +17,7 @@ namespace ControlServidores.Datos.Catalogos
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Estatus));
                     if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
                     crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
-                    if (a.IdConceptoEstatus != 0 && a.IdConceptoEstatus.ToString() != "")
+                    if (a.IdConceptoEstatus != -1 && a.IdConceptoEstatus.ToString() != "")
                         crit.Add(Restrictions.Eq("IdConceptoEstatus", a.IdConceptoEstatus));
 					if (!string.IsNullOrEmpty(a._Estatus))
                         crit.Add(Restrictions.Like("Estatus", a._Estatus));					

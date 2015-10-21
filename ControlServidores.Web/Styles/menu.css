@@ -116,6 +116,10 @@ a.level2{
 
     box-sizing: border-box;
 }
+    .usrSesion #lblUsrName{
+        text-transform: uppercase;
+    }
+
 
     #miPerfil, #cerrarSesion{
         float: left;

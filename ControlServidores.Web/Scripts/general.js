@@ -69,7 +69,7 @@ function agregar_iconos() {
 
 /***** Verifica con el usuario si desea borrar el registro **********/
 function checkMe() {
-    if (confirm("¿Esta seguro de eliminar el registro?")) {
+    if (confirm("¿Está seguro de eliminar el registro?")) {
         return true;
     }
     else {
