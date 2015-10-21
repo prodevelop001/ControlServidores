@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="Servidores.aspx.cs" Inherits="ControlServidores.Web.Inventarios.Servidores" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
-    <style>
+<%--    <style>
         .marco {
             border: 1px solid gray;
             border-radius: 5px;
         }
-    </style>
+    </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div class="principal">
@@ -111,37 +111,43 @@
                                 <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="Servidor2" />
                             </div>
                         </div>
-                        <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
-                            <ItemTemplate>
-                                <div class="marco">
-                                    <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
-                                    <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
-                                    <div>
-                                        <label>Server name:&nbsp;</label><a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
-                                    <div>
-                                        <label>Descripción uso : &nbsp;</label><asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
+                        <div class="listServidores">
+                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
+                                <ItemTemplate>
+                                    <div class="elemServidor">
+                                        <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
+                                        <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
+                                        <div class="titulos">
+                                            <%--<label>Server name:&nbsp;</label>--%>
+                                            <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
+                                        <div class="descripcion">
+                                            <label>Descripción uso : &nbsp;</label>
+                                            <asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
+                                            <label>Dirección IP : &nbsp;</label>
+                                            
+                                        </div>
+                                        <div>
+                                            <asp:GridView ID="gdvServidoresHijos" AutoGenerateColumns="false" runat="server">
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="#">
+                                                        <ItemTemplate>
+                                                            <%# Container.DataItemIndex + 1 %>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:BoundField DataField="AliasServidor" HeaderText="Server Name" />
+                                                    <asp:BoundField DataField="DescripcionUso" HeaderText="Description App" />
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'>Ver detalle</a>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                </Columns>
+                                            </asp:GridView>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <asp:GridView ID="gdvServidoresHijos" AutoGenerateColumns="false" runat="server">
-                                            <Columns>
-                                                <asp:TemplateField HeaderText="#">
-                                                    <ItemTemplate>
-                                                        <%# Container.DataItemIndex + 1 %>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:BoundField DataField="AliasServidor" HeaderText="Server Name" />
-                                                <asp:BoundField DataField="DescripcionUso" HeaderText="Description App" />
-                                                <asp:TemplateField>
-                                                    <ItemTemplate>
-                                                        <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'>Ver detalle</a>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                            </Columns>
-                                        </asp:GridView>
-                                    </div>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
                     </asp:Panel>
                 </div>
             </ContentTemplate>

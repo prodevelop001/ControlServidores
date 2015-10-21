@@ -22,10 +22,10 @@
 		    <p class="text_center">Bienvenido</p>
 		    <span id="usrIcon" class="icon-user text_center"></span>
 		    <%--<input type="text" name="usrName" id="usrName" placeholder="Usuario" maxlength="23"/>--%>
-            <asp:TextBox type="text" name="txtUsrName" id="txtUsrName" placeholder="Usuario" maxlength="23" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" name="txtUsrName" id="txtUsrName" placeholder="Usuario" maxlength="23" runat="server" onkeypress="javascript:return EventoEnter(event);"></asp:TextBox>
 		    <span id="passIcon" class="icon-key text_center"></span>
 		    <%--<input type="password" name="usrPass" id="usrPass" placeholder="Contraseña" maxlength="23"/>--%>
-            <asp:TextBox type="password" name="txtUsrPass" id="txtUsrPass" placeholder="Contraseña" maxlength="23" runat="server"></asp:TextBox>
+            <asp:TextBox type="password" name="txtUsrPass" id="txtUsrPass" placeholder="Contraseña" maxlength="23" runat="server" onkeypress="javascript:return EventoEnter(event);"></asp:TextBox>
             <asp:Label ID="lblLogin" runat="server" Text="Etiqueta"></asp:Label>
             <div class="limpiar"></div>
 		    <div id="btnSubmit">
