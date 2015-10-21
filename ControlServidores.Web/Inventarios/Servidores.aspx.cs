@@ -46,16 +46,16 @@ namespace ControlServidores.Web.Inventarios
 
         private void llenarDdlEstatusRed()
         {
-            ddlEstatusRed.Items.Clear();
-            ddlEstatusRed.AppendDataBoundItems = true;
-            ddlEstatusRed.Items.Add(new ListItem("-- Seleccionar --", "0"));
-            ddlEstatusRed.DataTextField = "_Estatus";
-            ddlEstatusRed.DataValueField = "IdEstatus";
-            ddlEstatusRed.DataSource = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
-            {
-                IdConceptoEstatus = 2
-            });
-            ddlEstatusRed.DataBind();
+            //ddlEstatusRed.Items.Clear();
+            //ddlEstatusRed.AppendDataBoundItems = true;
+            //ddlEstatusRed.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            //ddlEstatusRed.DataTextField = "_Estatus";
+            //ddlEstatusRed.DataValueField = "IdEstatus";
+            //ddlEstatusRed.DataSource = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
+            //{
+            //    IdConceptoEstatus = 2
+            //});
+            //ddlEstatusRed.DataBind();
         }
 
         private void llenarDdlSo()
@@ -71,16 +71,16 @@ namespace ControlServidores.Web.Inventarios
 
         private void llenarDdlEstatusSo()
         {
-            ddlEstatusSo.Items.Clear();
-            ddlEstatusSo.AppendDataBoundItems = true;
-            ddlEstatusSo.Items.Add(new ListItem("-- Seleccionar --", "0"));
-            ddlEstatusSo.DataTextField = "_Estatus";
-            ddlEstatusSo.DataValueField = "IdEstatus";
-            ddlEstatusSo.DataSource = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
-            {
-                IdConceptoEstatus = 4
-            });
-            ddlEstatusSo.DataBind();
+            //ddlEstatusSo.Items.Clear();
+            //ddlEstatusSo.AppendDataBoundItems = true;
+            //ddlEstatusSo.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            //ddlEstatusSo.DataTextField = "_Estatus";
+            //ddlEstatusSo.DataValueField = "IdEstatus";
+            //ddlEstatusSo.DataSource = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
+            //{
+            //    IdConceptoEstatus = 4
+            //});
+            //ddlEstatusSo.DataBind();
         }
 
         private void llenarDdlEstatusSer()
@@ -122,7 +122,7 @@ namespace ControlServidores.Web.Inventarios
                 txtAliasServidor.Text = string.Empty;
                 txtDescripcionUso.Text = string.Empty;
                 txtInterfazRed.Text = string.Empty;
-                txtDirMAC.Text = string.Empty;
+                //txtDirMAC.Text = string.Empty;
                 txtDirIP.Text = string.Empty;
                 txtGateway.Text = string.Empty;
                 txtMascaraSubRed.Text = string.Empty;
@@ -145,7 +145,7 @@ namespace ControlServidores.Web.Inventarios
             lblResultado.Text = string.Empty;
             lblResultado.ForeColor = System.Drawing.Color.Red;
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            if(ddlEstatusServidor.SelectedValue != "0" && ddlEstatusRed.SelectedValue != "0" && ddlSO.SelectedValue != "0" && ddlEstatusSo.SelectedValue != "0")
+            if(ddlEstatusServidor.SelectedValue != "0" && ddlSO.SelectedValue != "0")
             {
                 Entidades.Servidor servidor = new Entidades.Servidor();
                 servidor.AliasServidor = txtAliasServidor.Text.Trim();
@@ -170,7 +170,7 @@ namespace ControlServidores.Web.Inventarios
                         Entidades.SOxServidor so = new Entidades.SOxServidor();
                         so.Servidor.IdServidor = idSer;
                         so.SO.IdSO = Convert.ToInt32(ddlSO.SelectedValue);
-                        so.Estatus.IdEstatus = Convert.ToInt32(ddlEstatusSo.SelectedValue);
+                        so.Estatus = null;
                         resultado = Negocio.Inventarios.SOxServidor.Nuevo(so);
                         resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
                         {
@@ -180,16 +180,16 @@ namespace ControlServidores.Web.Inventarios
                         Entidades.ConfRed red = new Entidades.ConfRed();
                         red.Servidor.IdServidor = idSer;
                         red.InterfazRed = txtInterfazRed.Text.Trim();
-                        red.DirMac = txtDirMAC.Text.Trim();
+                        //red.DirMac = txtDirMAC.Text.Trim();
                         red.DirIP = txtDirIP.Text.Trim();
                         red.MascaraSubRed = txtMascaraSubRed.Text.Trim();
                         if(!string.IsNullOrWhiteSpace(txtGateway.Text.Trim()))
                             red.Gateway = txtGateway.Text.Trim();
                         if (!string.IsNullOrWhiteSpace(txtDNS.Text.Trim()))
                             red.DNS = txtDNS.Text.Trim();
-                        if (!string.IsNullOrWhiteSpace(txtVlan.Text.Trim()))
-                            red.VLAN = txtVlan.Text.Trim();
-                        red.Estatus.IdEstatus = Convert.ToInt32(ddlEstatusRed.SelectedValue);
+                        //if (!string.IsNullOrWhiteSpace(txtVlan.Text.Trim()))
+                        //    red.VLAN = txtVlan.Text.Trim();
+                        //red.Estatus.IdEstatus = Convert.ToInt32(ddlEstatusRed.SelectedValue);
                         resultado = Negocio.Inventarios.ConfRed.Nuevo(red);
                         resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
                         {

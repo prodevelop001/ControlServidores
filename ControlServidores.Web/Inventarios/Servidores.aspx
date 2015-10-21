@@ -33,19 +33,10 @@
                             <div>
                                 <asp:DropDownList ID="ddlSO" runat="server"></asp:DropDownList>
                             </div>
-                            <label>Estatus Sistema Operativo</label>
-                            <div>
-                                <asp:DropDownList ID="ddlEstatusSo" runat="server"></asp:DropDownList>
-                            </div>
                             <label>Nombre de la interfaz</label>
                             <div>
                                 <asp:TextBox ID="txtInterfazRed" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="rfvNombreInterfaz" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtInterfazRed" ForeColor="Red" ValidationGroup="Servidor"></asp:RequiredFieldValidator>
-                            </div>
-                            <label>Dirección MAC</label>
-                            <div>
-                                <asp:TextBox ID="txtDirMAC" runat="server"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="revDirMac" runat="server" ErrorMessage="*MAC no valida." ControlToValidate="txtDirMAC" ForeColor="Red" ValidationExpression="^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$" ValidationGroup="Servidor"></asp:RegularExpressionValidator>
                             </div>
                             <label>Dirección IP</label>
                             <div>
@@ -68,15 +59,7 @@
                             <div>
                                 <asp:TextBox ID="txtDNS" runat="server"></asp:TextBox>
                                 <asp:RegularExpressionValidator ID="revDNS" runat="server" ErrorMessage="*IP no valida." ControlToValidate="txtDNS" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor"></asp:RegularExpressionValidator>
-                            </div>
-                            <label>VLAN</label>
-                            <div>
-                                <asp:TextBox ID="txtVlan" runat="server"></asp:TextBox>
-                            </div>
-                            <label>Estatus de interfaz de red</label>
-                            <div>
-                                <asp:DropDownList ID="ddlEstatusRed" runat="server"></asp:DropDownList>
-                            </div>
+                            </div>                 
                             <br />
                             <br />
                             <label>Estatus de Servidor</label>
