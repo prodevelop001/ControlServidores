@@ -23,6 +23,7 @@ namespace ControlServidores.Web.Catalogos
                     {
                         pnlNombreEstatus.Visible = true;
                         pnlFormulario.Visible = false;
+                        pnlResultado.Visible = false;
                         llenarDdlConceptoEstatus();
                         llenarGdvEstatus();
                     }
@@ -80,6 +81,7 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.C;
             pnlNombreEstatus.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdEstatus.Value = string.Empty;
             //lblIdSistemaOperativo.Attributes["style"] = "display: none;";
             //txtMarca.Text = string.Empty;
@@ -94,6 +96,7 @@ namespace ControlServidores.Web.Catalogos
             btnNuevo.Text = "Nuevo";
             pnlNombreEstatus.Visible = true;
             pnlFormulario.Visible = false;
+            pnlResultado.Visible = false;
             ddlConceptoEstatusForm.Enabled = true;
         }//Fin de Boton Cancelar
 
@@ -108,6 +111,7 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.U;
             pnlNombreEstatus.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdEstatus.Value = HttpUtility.HtmlDecode(gdvNombreEstatus.SelectedRow.Cells[1].Text);
             llenarDdlEstatusForm();
             //ddlMarcaForm.SelectedItem.Text = ddlMarca.SelectedItem.ToString();
@@ -149,10 +153,14 @@ namespace ControlServidores.Web.Catalogos
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 hdfEstado.Value = "0";
                 btnNuevo.Visible = true;
                 btnNuevo.Text = "Nuevo";
@@ -160,6 +168,7 @@ namespace ControlServidores.Web.Catalogos
                 pnlFormulario.Visible = false;
                 llenarGdvEstatus();
             }
+            pnlResultado.Visible = true;
         }//Fin de boton Guardar
 
         protected void gdvNombreEstatus_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -198,12 +207,17 @@ namespace ControlServidores.Web.Catalogos
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 llenarGdvEstatus();
             }
+            pnlResultado.Visible = true;
         }//Fin eliminar Fila
 
         protected void ddlConceptoEstatus_SelectedIndexChanged(object sender, EventArgs e)

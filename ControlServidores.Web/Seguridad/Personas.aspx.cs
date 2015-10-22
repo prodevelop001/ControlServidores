@@ -23,6 +23,7 @@ namespace ControlServidores.Web.Seguridad
                     if (permisos.R == true)
                     {
                         pnlFormulario.Visible = false;
+                        pnlResultado.Visible = false;
                         llenarGdvPersonas();
                     }
                     btnNuevo.Enabled = permisos.C;
@@ -70,6 +71,7 @@ namespace ControlServidores.Web.Seguridad
             lblResultado.Text = string.Empty;
             pnlPersonas.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             btnGuardar.Text = "Guardar";
             btnGuardar.Enabled = permisos.C;
             llenarDdlEstatus();
@@ -83,6 +85,7 @@ namespace ControlServidores.Web.Seguridad
             pnlFormulario.Visible = false;
             btnNuevo.Visible = true;
             lblResultado.Text = string.Empty;
+            pnlResultado.Visible = false;
         }
 
         protected void gdvPersonas_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,6 +95,7 @@ namespace ControlServidores.Web.Seguridad
             lblResultado.Text = string.Empty;
             pnlPersonas.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             btnGuardar.Text = "Actualizar";
             btnGuardar.Enabled = permisos.U;
             btnNuevo.Visible = false;
@@ -151,12 +155,19 @@ namespace ControlServidores.Web.Seguridad
                 lblResultado.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblResultado.ForeColor = System.Drawing.Color.Red;
+            //lblResultado.ForeColor = System.Drawing.Color.Red;
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblResultado.ForeColor = System.Drawing.Color.Green;
+                //lblResultado.ForeColor = System.Drawing.Color.Green;
+                lblResultado.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] =  "background: rgba(147, 252, 55, 0.22);";
+                //pnlResultado.ForeColor = System.Drawing.Color.Green;
+                
                 llenarGdvPersonas();
             }
+            pnlResultado.Visible = true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -188,16 +199,21 @@ namespace ControlServidores.Web.Seguridad
                 lblResultado.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblResultado.ForeColor = System.Drawing.Color.Red;
+            //lblResultado.ForeColor = System.Drawing.Color.Red;
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblResultado.ForeColor = System.Drawing.Color.Green;
+                //lblResultado.ForeColor = System.Drawing.Color.Green;
+                lblResultado.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 hdfEstado.Value = "0";
                 pnlPersonas.Visible = true;
                 pnlFormulario.Visible = false;
                 btnNuevo.Visible = true;
                 llenarGdvPersonas();
             }
+            pnlResultado.Visible = true;
         }
     }
 }

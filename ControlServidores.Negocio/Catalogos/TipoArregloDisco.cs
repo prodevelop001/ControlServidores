@@ -75,7 +75,7 @@ namespace ControlServidores.Negocio.Catalogos
             List<Entidades.TipoArregloDisco> tiposL = new List<Entidades.TipoArregloDisco>();
             tiposL = Datos.Catalogos.TipoArregloDisco.Obtener(new Entidades.TipoArregloDisco() { Tipo = a.Tipo });
             var validarDatos = from l in tiposL
-                               where l.IdTipoArreglo == a.IdTipoArreglo
+                               where l.IdTipoArreglo != a.IdTipoArreglo
                                select l;
             tiposL = validarDatos.ToList();
             if (tiposL.Count > 0)

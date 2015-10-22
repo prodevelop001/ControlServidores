@@ -23,6 +23,7 @@ namespace ControlServidores.Web.Catalogos
                     {
                         pnlTipoArreglo.Visible = true;
                         pnlFormulario.Visible = false;
+                        pnlResultado.Visible = false;
                         llenarGdvTiposArreglos();
                     }
                     btnNuevo.Enabled = permisos.C;
@@ -52,6 +53,7 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.C;
             pnlTipoArreglo.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdTipoArreglo.Value = string.Empty;
             //lblIdSistemaOperativo.Attributes["style"] = "display: none;";
             txtTipoArreglo.Text = string.Empty;
@@ -65,6 +67,7 @@ namespace ControlServidores.Web.Catalogos
             btnNuevo.Text = "Nuevo";
             pnlTipoArreglo.Visible = true;
             pnlFormulario.Visible = false;
+            pnlResultado.Visible = false;
         }//Fin de Boton Cancelar
 
 
@@ -78,6 +81,7 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.U;
             pnlTipoArreglo.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdTipoArreglo.Value = gdvTiposArreglos.SelectedRow.Cells[1].Text;
 
             txtTipoArreglo.Text = HttpUtility.HtmlDecode(gdvTiposArreglos.SelectedRow.Cells[2].Text);
@@ -116,10 +120,14 @@ namespace ControlServidores.Web.Catalogos
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 hdfEstado.Value = "0";
                 btnNuevo.Visible = true;
                 btnNuevo.Text = "Nuevo";
@@ -127,6 +135,7 @@ namespace ControlServidores.Web.Catalogos
                 pnlFormulario.Visible = false;
                 llenarGdvTiposArreglos();
             }
+            pnlResultado.Visible = true;
         }//Fin de boton Guardar
 
         protected void gdvTiposArreglos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -165,12 +174,17 @@ namespace ControlServidores.Web.Catalogos
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 llenarGdvTiposArreglos();
             }
+            pnlResultado.Visible = true;
         }//Fin eliminar Fila
 
     }//Fin de la Clase

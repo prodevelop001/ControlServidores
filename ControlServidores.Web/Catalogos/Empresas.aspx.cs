@@ -21,6 +21,7 @@ namespace ControlServidores.Web
                     {
                         pnlEmpresa.Visible = true;
                         pnlFormulario.Visible = false;
+                        pnlResultado.Visible = false;
                         llenarGdvEmpresas();
                     }
                     btnNuevo.Enabled = permisos.C;
@@ -50,6 +51,7 @@ namespace ControlServidores.Web
             btnGuardar.Enabled = permisos.C;
             pnlEmpresa.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdNombreEmpresa.Value = string.Empty;
             //lblIdNombreEmpresa.Attributes["style"] = "display: none;";
             txtEmpresa.Text = string.Empty;
@@ -64,6 +66,7 @@ namespace ControlServidores.Web
             btnNuevo.Text = "Nuevo";
             pnlEmpresa.Visible = true;
             pnlFormulario.Visible = false;
+            pnlResultado.Visible = false;
         }
 
         protected void gdvEmpresas_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +79,7 @@ namespace ControlServidores.Web
             btnGuardar.Enabled = permisos.U;
             pnlEmpresa.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdNombreEmpresa.Value = gdvEmpresas.SelectedRow.Cells[1].Text;
             //lblIdNombreEmpresa.Visible=true;
             txtEmpresa.Text = HttpUtility.HtmlDecode(gdvEmpresas.SelectedRow.Cells[2].Text);
@@ -119,10 +123,14 @@ namespace ControlServidores.Web
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 hdfEstado.Value = "0";
                 btnNuevo.Visible = true;
                 btnNuevo.Text = "Nuevo";
@@ -130,6 +138,7 @@ namespace ControlServidores.Web
                 pnlFormulario.Visible = false;
                 llenarGdvEmpresas();
             }
+            pnlResultado.Visible = true;
         }
 
         protected void gdvEmpresas_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -168,12 +177,17 @@ namespace ControlServidores.Web
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 llenarGdvEmpresas();
             }
+            pnlResultado.Visible = true;
         }
 
 

@@ -10,6 +10,9 @@
                 <div class="ttlPrincipal">
                     <h1>Procesadores</h1>
                 </div>
+                <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
+                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                </asp:Panel>
                 <div class="addNuevo">
                     <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
                     <asp:Button ID="btnNuevo" runat="server" CssClass="btnNuevo" Text="Nuevo" OnClick="btnNuevo_Click"></asp:Button>
@@ -43,8 +46,8 @@
                         </div>
                     </div>
                         <div class="formBotones">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Roles"></asp:Button>
-                            <asp:Button ID ="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
+                            <asp:Button ID="btnGuardar" runat="server" CssClass="btnGuardar" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Roles"></asp:Button>
+                            <asp:Button ID ="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
                         </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlProcesadores" runat="server">
@@ -69,10 +72,6 @@
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
-                <br />
-                <div>
-                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                </div>
             </div>
         </ContentTemplate>
     </asp:updatepanel>

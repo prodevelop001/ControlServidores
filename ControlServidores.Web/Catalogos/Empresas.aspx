@@ -11,6 +11,9 @@
         </asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+                <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
+                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                </asp:Panel>
                 <div class="addNuevo">
                     <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
                     <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
@@ -58,9 +61,6 @@
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
-                <div>
-                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                </div>
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>

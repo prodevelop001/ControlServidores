@@ -9,10 +9,14 @@
     <asp:updatepanel id="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="principal">
+
                 <div id="numCols" class="hide">9</div>
                 <div class="ttlPrincipal">
                     <h1>Roles</h1>
                 </div>
+                <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
+                    <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                </asp:Panel>
                 <div class="addNuevo">
                     <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
                     <asp:Button ID="btnNuevo" runat="server" CssClass="btnNuevo" Text="Nuevo" OnClick="btnNuevo_Click"></asp:Button>
@@ -60,8 +64,8 @@
                         </div>
                     </div>
                         <div class="formBotones">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Roles"></asp:Button>
-                            <asp:Button ID ="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
+                            <asp:Button ID="btnGuardar" runat="server" CssClass="btnGuardar" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Roles"></asp:Button>
+                            <asp:Button ID ="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click"></asp:Button>
                         </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlRoles" runat="server">
@@ -86,8 +90,6 @@
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
-                <br />
-                <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
             </div>
         </ContentTemplate>
     </asp:updatepanel>

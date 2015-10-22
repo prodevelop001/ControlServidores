@@ -10,6 +10,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div class="principal">
+        <div class="ttlPrincipal">
+            <h1>Servidores</h1>
+        </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -73,8 +76,8 @@
                                 <asp:DropDownList ID="ddlEstatusServidor" runat="server"></asp:DropDownList>
                             </div>
                         <div class="servidoresBotones">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Servidor" />
-                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                            <asp:Button ID="btnGuardar" runat="server" CssClass="btnGuardar" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Servidor" />
+                            <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
                     </asp:Panel>
                     <div style="width: 100%; margin: 0; float: left;">

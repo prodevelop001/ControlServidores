@@ -22,6 +22,7 @@ namespace ControlServidores.Web.Catalogos
                     {
                         pnlCatalogo.Visible = true;
                         pnlFormulario.Visible = false;
+                        pnlResultado.Visible = false;
                         llenarGdvConceptos();
                     }
                     btnNuevo.Enabled = permisos.C;
@@ -52,6 +53,7 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.C;
             pnlCatalogo.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdConceptoEstatus.Text = string.Empty;
             lblIdConceptoEstatus.Attributes["style"] = "display: none;";
             txtConcepto.Text = string.Empty;
@@ -64,6 +66,7 @@ namespace ControlServidores.Web.Catalogos
             btnNuevo.Text = "Nuevo";
             pnlCatalogo.Visible = true;
             pnlFormulario.Visible = false;
+            pnlResultado.Visible = false;
         }
 
         protected void gdvConceptos_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,6 +79,7 @@ namespace ControlServidores.Web.Catalogos
             btnGuardar.Enabled = permisos.U;
             pnlCatalogo.Visible = false;
             pnlFormulario.Visible = true;
+            pnlResultado.Visible = false;
             lblIdConceptoEstatus.Text = gdvConceptos.SelectedRow.Cells[1].Text;
             //lblIdConceptoEstatus.Attributes["style"] = "display: block;";
             txtConcepto.Text = HttpUtility.HtmlDecode(gdvConceptos.SelectedRow.Cells[2].Text);
@@ -111,10 +115,14 @@ namespace ControlServidores.Web.Catalogos
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 hdfEstado.Value = "0";
                 btnNuevo.Visible = true;
                 btnNuevo.Text = "Nuevo";
@@ -122,6 +130,7 @@ namespace ControlServidores.Web.Catalogos
                 pnlFormulario.Visible = false;
                 llenarGdvConceptos();
             }
+            pnlResultado.Visible = true;
         }
 
         protected void gdvConceptos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -160,12 +169,17 @@ namespace ControlServidores.Web.Catalogos
                 lblStatus.Text += error.descripcionCorta + "<br/>";
             });
 
-            lblStatus.ForeColor = System.Drawing.Color.Red;
+            //lblStatus.ForeColor = System.Drawing.Color.Red;
+            lblStatus.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblStatus.ForeColor = System.Drawing.Color.Green;
+                //lblStatus.ForeColor = System.Drawing.Color.Green;
+                lblStatus.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 llenarGdvConceptos();
             }
+            pnlResultado.Visible = true;
         }
     }
 }

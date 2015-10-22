@@ -31,6 +31,24 @@ namespace ControlServidores.Web.Seguridad {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// pnlResultado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlResultado;
+        
+        /// <summary>
+        /// lblResultado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
+        
+        /// <summary>
         /// hdfEstado control.
         /// </summary>
         /// <remarks>
@@ -173,14 +191,5 @@ namespace ControlServidores.Web.Seguridad {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvUsuarios;
-        
-        /// <summary>
-        /// lblResultado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

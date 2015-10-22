@@ -4,7 +4,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
-    <style>
+<%--    <style>
         .marco {
             float: left;
             border: 1px solid gray;
@@ -21,59 +21,59 @@
             border-top-right-radius:5px;*/
             text-align: right;
         }
-    </style>
+    </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="principal" style="width: 100%;">
-                <div style="width: 30%; float: left; margin: 0; padding: 0">
-                    <div class="marco" style="width: 100%;">
-                        <div class="headCaja">
-                            Detalles Generales
-                        </div>
-                        <label>Server name:</label>
-                        <div>
-                            <asp:Label ID="lblAliasServidor" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Descripción:</label>
-                        <div>
-                            <asp:Label ID="lblDescripcionUso" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Tipo de servidor:</label>
-                        <div>
-                            <asp:Label ID="lblTipoServidor" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Modelo:</label>
-                        <div>
-                            <asp:HiddenField ID="hdfIdModelo" runat="server" />
-                            <asp:Label ID="lblModelo" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Procesador:</label>
-                        <div>
-                            <asp:Label ID="lblProcesador" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Número de procesadores:</label>
-                        <div>
-                            <asp:Label ID="lblNumProcesadores" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Capacidad de RAM:</label>
-                        <div>
-                            <asp:Label ID="lblCapacidadRam" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Arreglo de discos:</label>
-                        <div>
-                            <asp:Label ID="lblArregloDiscos" runat="server" Text=""></asp:Label>
-                        </div>
-                        <label>Soporte:</label>
-                        <div>
-                            <asp:Label ID="lblSoporte" runat="server" Text="Sin Soporte"></asp:Label>
-                        </div>
+            <div class="principal">
+                <div id="numCols" class="hide">9</div>
+                <div class="detallesGenerales">
+                    <div class="tituloDetalles">
+                        <h4>Detalles Generales</h4>
                     </div>
-                    <asp:Panel ID="pnlVms" Visible="false" CssClass="marco" runat="server">
-                        <div class="headCaja">
-                            VMs que aloja.
+                    <label>Server name:</label>
+                    <div>
+                        <asp:Label ID="lblAliasServidor" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Descripción:</label>
+                    <div>
+                        <asp:Label ID="lblDescripcionUso" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Tipo de servidor:</label>
+                    <div>
+                        <asp:Label ID="lblTipoServidor" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Modelo:</label>
+                    <div>
+                        <asp:HiddenField ID="hdfIdModelo" runat="server" />
+                        <asp:Label ID="lblModelo" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Procesador:</label>
+                    <div>
+                        <asp:Label ID="lblProcesador" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Número de procesadores:</label>
+                    <div>
+                        <asp:Label ID="lblNumProcesadores" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Capacidad de RAM:</label>
+                    <div>
+                        <asp:Label ID="lblCapacidadRam" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Arreglo de discos:</label>
+                    <div>
+                        <asp:Label ID="lblArregloDiscos" runat="server" Text=""></asp:Label>
+                    </div>
+                    <label>Soporte:</label>
+                    <div>
+                        <asp:Label ID="lblSoporte" runat="server" Text="Sin Soporte"></asp:Label>
+                    </div>
+                </div><%--Fin detalles General--%>
+                    <asp:Panel ID="pnlVms" Visible="false" CssClass="hostVirtual" runat="server">
+                        <div class="tituloDetalles">
+                            <h4>VMs que aloja</h4>
                         </div>
                         <asp:GridView ID="gdvVMs" runat="server" AutoGenerateColumns="False">
                             <Columns>
@@ -86,10 +86,10 @@
                             </Columns>
                         </asp:GridView>
                     </asp:Panel>
-                </div>
-                <div class="marco" style="width: 350px; margin: 6px;">
-                    <div class="headCaja">
-                        Almacenamiento
+
+                <div class="almacenammiento">
+                    <div class="tituloDetalles">
+                        <h4>Almacenamiento</h4>
                     </div>
                     <asp:GridView ID="gdvAlmacenamiento" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Medios Registrados.">
                         <Columns>
@@ -106,14 +106,17 @@
                         </Columns>
                     </asp:GridView>
                 </div>
-                <div class="marco" style="width: 350px; margin: 6px;">
+                <div class="interfRed">
+                    <div class="tituloDetalles">
+                        <h4>Interfaces de Red</h4>
+                    </div>
                     <uc1:InterfacesRedC runat="server" ID="InterfacesRedC" />
                 </div>
-                <div class="marco" style="width: 350px; margin: 6px;">
-                    <div class="headCaja">
-                        Sistema(s)
+                <div class="sistemas">
+                    <div class="tituloDetalles">
+                        <h4>Sistema(s)</h4>
                     </div>
-                    <asp:GridView ID="gdvSos" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin SOs registrados.">
+                    <asp:GridView ID="gdvSos" runat="server" CssClass="miTabla6" AutoGenerateColumns="False" EmptyDataText="Sin SOs registrados.">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
@@ -131,9 +134,9 @@
                         </Columns>
                     </asp:GridView>
                 </div>
-                <div class="marco" style="width: 350px; margin: 6px;">
-                    <div class="headCaja">
-                        Storage
+                <div class="storage">
+                    <div class="tituloDetalles">
+                        <h4>Storage</h4>
                     </div>
                     <asp:GridView ID="gdvStorage" runat="server" AutoGenerateColumns="false">
                         <Columns>
@@ -153,11 +156,14 @@
                         </Columns>
                     </asp:GridView>
                 </div>
-                <div class="marco">
-                    <div>
+                <div class="bitacora">
+                    <div class="tituloDetalles">
+                        <h4>Detalles Generales</h4>
+                    </div>
+                    <div class="agregarNuevo">
                         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" />
                     </div>
-                    <asp:GridView ID="gdvBitacora" runat="server" AutoGenerateColumns="false">
+                    <asp:GridView ID="gdvBitacora" runat="server" CssClass="miTabla9" AutoGenerateColumns="false">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>

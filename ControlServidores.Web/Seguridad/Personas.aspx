@@ -14,6 +14,9 @@
     <asp:updatepanel id="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div>
+                <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
+                    <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                </asp:Panel>
                 <div class="addNuevo">
                     <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
                     <asp:Button ID="btnNuevo" runat="server" CssClass="btnNuevo" Text="Nuevo" OnClick="btnNuevo_Click"></asp:Button>
@@ -44,8 +47,8 @@
                         </div>
                     </div>
                     <div class="formBotones">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" ValidationGroup="Personas" OnClick="btnGuardar_Click" />
-                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                        <asp:Button ID="btnGuardar" runat="server" CssClass="btnGuardar" Text="Guardar" ValidationGroup="Personas" OnClick="btnGuardar_Click" />
+                        <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" />
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlPersonas" runat="server">
@@ -78,9 +81,7 @@
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
-                <div>
-                    <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
-                </div>
+                
             </div>
         </ContentTemplate>
     </asp:updatepanel>
