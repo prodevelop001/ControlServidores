@@ -31,7 +31,7 @@
                 </div>
                 <div class="clear"></div>
                 <div class="usrSesion">
-                    <asp:LinkButton ID="miPerfil" runat="server">
+                    <asp:LinkButton ID="miPerfil" runat="server" OnClick="miPerfil_Click">
                         <span class="icon-user-check">
                             <asp:Label ID="lblUsrName" runat="server" Text=""></asp:Label>
                         </span>

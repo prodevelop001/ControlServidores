@@ -85,5 +85,10 @@ namespace ControlServidores.Web
 
             }
         }
+
+        protected void miPerfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Perfil.aspx");
+        }
     }
 }

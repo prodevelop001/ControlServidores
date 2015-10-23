@@ -14,18 +14,16 @@ namespace ControlServidores.Web
             Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
             lblUsrName.Text = usuario.Usuario;
 
-            //int idPersona = Convert.ToInt32(usuario.IdUsuario);
-            int idPersona = Convert.ToInt32(usuario.IdPersona);
+            Entidades.Personas people = (Entidades.Personas)usuario.IdPersona;
+            if (people != null)
+            {
+                lblNombre.Text = people.Nombre;
+            }
+            else
+            {
+                lblNombre.Text = "Sin Persona ligada";
+            }
 
-            //List<Entidades.Personas> persona = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
-            //{
-            //    IdPersona = 1
-            //}
-            //);
-
-            //Entidades.Personas p = persona.First();
-            //lblNombre.Text = p.Nombre;
-            lblNombre.Text = idPersona.ToString();
         }
     }
 }
