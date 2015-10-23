@@ -122,6 +122,8 @@ namespace ControlServidores.Negocio.Catalogos
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
 
+            resultado.resultado = true;
+
             List<Entidades.Storage> storageL = new List<Entidades.Storage>();
             storageL = Datos.Inventarios.Storage.Obtener(new Entidades.Storage() { IdEstatus = a.IdEstatus });
             if(storageL.Count > 0)
@@ -145,7 +147,7 @@ namespace ControlServidores.Negocio.Catalogos
             }
 
             List<Entidades.SOxServidor> sosL = new List<Entidades.SOxServidor>();
-            sosL = Datos.Inventarios.SOxServidor.Obtener(new Entidades.SOxServidor() { IdEstatus = a.IdEstatus });
+            sosL = Datos.Inventarios.SOxServidor.Obtener(new Entidades.SOxServidor() { IdEstatus = a.IdEstatus, Estatus = null , Servidor= null, SO= null });
             if (sosL.Count > 0)
             {
                 resultado.resultado = false;
@@ -156,7 +158,7 @@ namespace ControlServidores.Negocio.Catalogos
             }
 
             List<Entidades.Servidor> servsL = new List<Entidades.Servidor>();
-            servsL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdEstatus = a.IdEstatus });
+            servsL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdEstatus = a.IdEstatus, Especificacion= null, Modelo= null, Red = null, TipoServidor = null });
             if (servsL.Count > 0)
             {
                 resultado.resultado = false;
@@ -167,7 +169,7 @@ namespace ControlServidores.Negocio.Catalogos
             }
 
             List<Entidades.ConfRed> confRedL = new List<Entidades.ConfRed>();
-            confRedL = Datos.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdEstatus = a.IdEstatus });
+            confRedL = Datos.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { Estatus= new Entidades.Estatus() { IdEstatus = a.IdEstatus }, Servidor = null });
             if (confRedL.Count > 0)
             {
                 resultado.resultado = false;
