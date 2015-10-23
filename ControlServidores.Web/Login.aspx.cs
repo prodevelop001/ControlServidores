@@ -34,6 +34,8 @@ namespace ControlServidores.Web
             //List<Entidades.Usuarios> userL = new List<Entidades.Usuarios>();
             usrLogin.Usuario = txtUsrName.Text;
             usrLogin.Pwd = txtUsrPass.Text;
+            usrLogin.IdPersona = null;
+            usrLogin.IdRol = null;
             //userL = Datos.Seguridad.Usuarios.Obtener(new Entidades.Usuarios() { Usuario = usrLogin.Usuario });
             if (usrLogin.Usuario != "" && !string.IsNullOrEmpty(txtUsrPass.Text))
             {

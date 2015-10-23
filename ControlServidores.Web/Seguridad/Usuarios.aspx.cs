@@ -37,7 +37,7 @@ namespace ControlServidores.Web.Seguridad
         private void llenarGdvUsuarios()
         {
             permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
-            gdvUsuarios.DataSource = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios());
+            gdvUsuarios.DataSource = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios() { IdPersona = null,  IdRol = null });
             gdvUsuarios.DataBind();
         }
 
@@ -122,7 +122,7 @@ namespace ControlServidores.Web.Seguridad
             List<Entidades.Usuarios> usList = new List<Entidades.Usuarios>();
             usList = Negocio.Seguridad.Usuarios.Obtener(new Entidades.Usuarios()
             {
-                IdUsuario = Convert.ToInt32(lblIdUsuario.Text)
+                IdUsuario = Convert.ToInt32(lblIdUsuario.Text), IdPersona = null, IdRol = null
             });
             Entidades.Usuarios us = usList.First();
             txtNombreUsuario.Text = us.Usuario;
@@ -184,7 +184,7 @@ namespace ControlServidores.Web.Seguridad
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             resultado = Negocio.Seguridad.Usuarios.Eliminar(new Entidades.Usuarios()
             {
-                IdUsuario = IdUsuario
+                IdUsuario = IdUsuario, IdPersona = null, IdRol = null
             });
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

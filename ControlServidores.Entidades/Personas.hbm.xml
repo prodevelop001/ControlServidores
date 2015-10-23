@@ -9,11 +9,11 @@
     <property name="Extension" column="Extension" type="String"></property>
 	  <property name="Correo" column="Correo" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
-    <set name="Usuarios" inverse="true" cascade="save-update">
+    <set name="Usuarios" inverse="true" cascade="all-delete-orphan">
       <key column= "IdUsuario" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Usuarios" />
     </set>
-    <set name="PersonaXservidor" inverse="true" cascade="save-update">
+    <set name="PersonaXservidor" inverse="true" cascade="all-delete-orphan">
       <key column= "IdPersonaServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.PersonaXservidor" />
     </set>

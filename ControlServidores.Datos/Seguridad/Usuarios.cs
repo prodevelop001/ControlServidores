@@ -23,20 +23,27 @@ namespace ControlServidores.Datos.Seguridad
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Usuarios), "us");
                     if (us.IdUsuario != 0 && us.IdUsuario.ToString() != "")
                         crit.Add(Restrictions.Eq("IdUsuario", us.IdUsuario));
-                    if (us.IdPersona.IdPersona != 0 && us.IdPersona.IdPersona.ToString() != "")
+
+                    if(us.IdPersona!= null)
                     {
                         crit.CreateAlias("us.IdPersona", "IdPersona", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdPersona.IdPersona", us.IdPersona.IdPersona)));
-                    }
+                        if (us.IdPersona.IdPersona != 0 && us.IdPersona.IdPersona.ToString() != "")
+                        {                            
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdPersona.IdPersona", us.IdPersona.IdPersona)));
+                        }
+                    }                    
                     if (!string.IsNullOrEmpty(us.Usuario))
                         crit.Add(Restrictions.Like("Usuario", us.Usuario));
                     if (!string.IsNullOrEmpty(us.Pwd))
                         crit.Add(Restrictions.Eq("Pwd", us.Pwd));
-                    if (us.IdRol.IdRol != 0 && us.IdRol.IdRol.ToString() != "")
+                    if(us.IdRol != null)
                     {
                         crit.CreateAlias("us.IdRol", "IdRol", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol)));
-                    }
+                        if (us.IdRol.IdRol != 0 && us.IdRol.IdRol.ToString() != "")
+                        {                            
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("IdRol.IdRol", us.IdRol.IdRol)));
+                        }
+                    }                   
 
                     lista = (List<Entidades.Usuarios>)crit.List<Entidades.Usuarios>();
                 }
@@ -114,7 +121,7 @@ namespace ControlServidores.Datos.Seguridad
                     session.Close();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return false;
             }

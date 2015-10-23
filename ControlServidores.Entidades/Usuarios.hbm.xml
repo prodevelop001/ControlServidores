@@ -8,7 +8,7 @@
     <property name="Usuario" column="Usuario" type="String"></property>
     <property name="Pwd" column="Pwd" type="String"></property>
     <!--<property name="IdRol" column="IdRol" type="int"></property>-->
-    <many-to-one name="IdPersona" class="ControlServidores.Entidades.Personas" column="IdPersona"/>
-    <many-to-one name="IdRol" class="ControlServidores.Entidades.RolUsuario" column="IdRol"/>
+    <many-to-one name="IdPersona" class="ControlServidores.Entidades.Personas" column="IdPersona" lazy="false"/>
+    <many-to-one name="IdRol" class="ControlServidores.Entidades.RolUsuario" column="IdRol" lazy="false"/>
   </class>
 </hibernate-mapping>
