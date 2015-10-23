@@ -28,7 +28,7 @@ namespace ControlServidores.Negocio.Catalogos
             resultado.resultado = true;
 
             List<Entidades.Modelo> modeloL = new List<Entidades.Modelo>();
-            modeloL = Datos.Catalogos.Modelo.Obtener(new Entidades.Modelo() { NombreModelo = a.NombreModelo });
+            modeloL = Datos.Catalogos.Modelo.Obtener(new Entidades.Modelo() { IdMarca = -1, NombreModelo = a.NombreModelo });
             if(modeloL.Count > 0)
             {
                 resultado.resultado = false;
