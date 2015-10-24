@@ -80,6 +80,7 @@
     <Content Include="Catalogos\Empresas.aspx" />
     <Content Include="Controles\InterfacesRedC.ascx" />
     <Content Include="Controles\SistemasOperativosC.ascx" />
+    <Content Include="Controles\StorageC.ascx" />
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="Controles\SistemasOperativosC.ascx.designer.cs">
       <DependentUpon>SistemasOperativosC.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\StorageC.ascx.cs">
+      <DependentUpon>StorageC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\StorageC.ascx.designer.cs">
+      <DependentUpon>StorageC.ascx</DependentUpon>
     </Compile>
     <Compile Include="errorAcceso.aspx.cs">
       <DependentUpon>errorAcceso.aspx</DependentUpon>
