@@ -19,7 +19,7 @@ namespace ControlServidores.Datos.Inventarios
 
                     if(a.Estatus != null)
                     { 
-                        crit.CreateAlias("r.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.CreateAlias("r.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
                         if (a.Estatus.IdEstatus != 0 && a.Estatus.IdEstatus.ToString() != "")
                             crit.Add(Restrictions.Eq("IdEstatus", a.Estatus.IdEstatus));
                     }

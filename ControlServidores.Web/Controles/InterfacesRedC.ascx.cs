@@ -25,9 +25,14 @@ namespace ControlServidores.Web.Controles
             }
         }
 
+        private void ObtenerParametros()
+        {
+            _IdServidor = Convert.ToInt32(hdfIdConfRed.Value);
+        }
+
         private void InterfacesRed()
         {
-            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor, Modelo = null, Especificacion = null, TipoServidor = null }, Estatus = null });
+            gdvInterfacesRed.DataSource = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { Servidor = new Entidades.Servidor() { IdServidor = _IdServidor, Modelo = null, Especificacion = null, TipoServidor = null }, Estatus = null});
             gdvInterfacesRed.DataBind();
         }
 
@@ -118,6 +123,8 @@ namespace ControlServidores.Web.Controles
                     hdfEstado.Value = "0";
                     pnlFormIntRed.Visible = false;
                     gdvInterfacesRed.Visible = true;
+                    ObtenerParametros();
+                    InterfacesRed();
                 }
             }
             else
@@ -135,7 +142,7 @@ namespace ControlServidores.Web.Controles
             hdfEstado.Value = "2";
             hdfIdConfRed.Value = gdvInterfacesRed.SelectedRow.Cells[1].Text.Trim();
             List<Entidades.ConfRed> redlist = new List<Entidades.ConfRed>();
-            redlist = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdConfRed = Convert.ToInt32(hdfIdConfRed.Value)});
+            redlist = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdConfRed = Convert.ToInt32(hdfIdConfRed.Value), Servidor= null});
 
             redlist.ForEach(delegate (Entidades.ConfRed r)
             {
@@ -146,7 +153,7 @@ namespace ControlServidores.Web.Controles
                 txtGateway.Text = r.Gateway;
                 txtDNS.Text = r.DNS;
                 txtVlan.Text = r.VLAN;
-                ddlEstatus.SelectedValue = r.Estatus.IdEstatus.ToString();
+                ddlEstatus.SelectedValue = r.Estatus!= null ? r.Estatus.IdEstatus.ToString(): "0";
             });
 
         }
