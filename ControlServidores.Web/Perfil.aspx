@@ -9,12 +9,16 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="">
-                <h4>Usuario: </h4>
-                <asp:Label ID="lblUsrName" runat="server" Text=""></asp:Label>
-                <h4>Nombre: </h4>
-                <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
-            </div>
+            <asp:Panel ID="Panel1" runat="server">
+                <div class="perfilInfo">
+                    <h4>Usuario: </h4>
+                    <asp:Label ID="lblUsrName" runat="server" Text=""></asp:Label>
+                    <h4>Nombre: </h4>
+                    <asp:Label ID="lblNombre" runat="server" Text=""></asp:Label>
+                    <h4>Rol: </h4>
+                    <asp:Label ID="lblRol" runat="server" Text=""></asp:Label>
+                </div>
+            </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>

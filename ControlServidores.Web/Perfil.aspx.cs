@@ -24,6 +24,15 @@ namespace ControlServidores.Web
                 lblNombre.Text = "Sin Persona ligada";
             }
 
+            Entidades.RolUsuario rol = (Entidades.RolUsuario)usuario.IdRol;
+            if (rol != null)
+            {
+                lblRol.Text = rol.NombreRol;
+            }
+            else
+            {
+                lblNombre.Text = "Sin Rol asignado";
+            }
         }
     }
 }
