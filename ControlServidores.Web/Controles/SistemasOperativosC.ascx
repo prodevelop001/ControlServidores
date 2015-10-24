@@ -1,16 +1,18 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SistemasOperativosC.ascx.cs" Inherits="ControlServidores.Web.Controles.SistemasOperativosC" %>
 <div>
     <div class="agregarNuevo">
-        <asp:Button ID="btnAdd" runat="server" Text="Add" />
+        <asp:HiddenField ID="hdfEstado" runat="server" />
+        <asp:HiddenField ID="hdfIdSoServidor" runat="server" />
+        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
     </div>
-    <asp:Panel ID="pnlForm" runat="server">
+    <asp:Panel ID="pnlForm" runat="server" Visible ="false">
         <div class="formCampos">
             <label>Sistema Operativo</label>
             <asp:DropDownList ID="ddlSO" runat="server"></asp:DropDownList>
         </div>
         <div class="formBotones">
             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlSO" runat="server">
