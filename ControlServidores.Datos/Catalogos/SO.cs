@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Catalogos
 {
@@ -23,7 +24,7 @@ namespace ControlServidores.Datos.Catalogos
                     lista = (List<Entidades.SO>)crit.List<Entidades.SO>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

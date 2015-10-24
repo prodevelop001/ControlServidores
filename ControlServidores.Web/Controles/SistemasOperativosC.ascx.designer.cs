@@ -22,6 +22,15 @@ namespace ControlServidores.Web.Controles {
         protected global::System.Web.UI.WebControls.HiddenField hdfEstado;
         
         /// <summary>
+        /// Control hdfIdServidor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdServidor;
+        
+        /// <summary>
         /// Control hdfIdSoServidor.
         /// </summary>
         /// <remarks>
@@ -92,5 +101,14 @@ namespace ControlServidores.Web.Controles {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvSO;
+        
+        /// <summary>
+        /// Control lblResultado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }

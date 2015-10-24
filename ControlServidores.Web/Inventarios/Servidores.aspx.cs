@@ -247,6 +247,7 @@ namespace ControlServidores.Web.Inventarios
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            bool todos = true;
             List<Entidades.Servidor> servidoresEncontrados = new List<Entidades.Servidor>();
             if (!string.IsNullOrWhiteSpace(txtPorAlias.Text.Trim()))
             {
@@ -256,6 +257,7 @@ namespace ControlServidores.Web.Inventarios
                 {
                     servidoresEncontrados.Add(s);
                 });
+                todos = false;
             }
             if (!string.IsNullOrWhiteSpace(txtPorIp.Text.Trim()))
             {
@@ -265,6 +267,7 @@ namespace ControlServidores.Web.Inventarios
                 {
                     servidoresEncontrados.Add(s.Servidor);
                 });
+                todos = false;
             }
             if (!string.IsNullOrWhiteSpace(txtPorAplicacion.Text.Trim()))
             {
@@ -274,10 +277,18 @@ namespace ControlServidores.Web.Inventarios
                 {
                     servidoresEncontrados.Add(s);
                 });
+                todos = false;
             }
 
-            rptServidores.DataSource = servidoresEncontrados;
-            rptServidores.DataBind();
+            if(todos== true)
+            {
+                llenarRprServidores();
+            }
+            else
+            {
+                rptServidores.DataSource = servidoresEncontrados;
+                rptServidores.DataBind();
+            }
         }
     }
 }
