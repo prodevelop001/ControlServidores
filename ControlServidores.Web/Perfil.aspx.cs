@@ -18,10 +18,16 @@ namespace ControlServidores.Web
             if (people != null)
             {
                 lblNombre.Text = people.Nombre;
+                lblPuesto.Text = people.Puesto;
+                lblExtension.Text = people.Extension;
+                lblCorreo.Text = people.Correo;
             }
             else
             {
                 lblNombre.Text = "Sin Persona ligada";
+                lblPuesto.Text = "Sin Puesto asignado";
+                lblExtension.Text = "Sin Extensión asignado";
+                lblCorreo.Text = "Sin Correo asignado";
             }
 
             Entidades.RolUsuario rol = (Entidades.RolUsuario)usuario.IdRol;
@@ -32,7 +38,11 @@ namespace ControlServidores.Web
             else
             {
                 lblNombre.Text = "Sin Rol asignado";
+                
             }
-        }
-    }
+        }//Fin Void
+
+
+
+    }//Fin de la Clase
 }
