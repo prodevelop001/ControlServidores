@@ -9,7 +9,7 @@
 	background: -moz-linear-gradient(center top , #F43CAB , #E5007E);
 	background: -o-linear-gradient(center top , #F43CAB , #E5007E);
 	background: -ms-linear-gradient(center top , #F43CAB , #E5007E);
-	background: linear-gradient(center top , #F43CAB , #E5007E);
+	background: linear-gradient(to top , #F43CAB , #E5007E);
     
 
     -webkit-border-top-left-radius: 5px;
@@ -67,7 +67,7 @@ a.level1, a.level2{
 	background: -moz-linear-gradient(center top , #DCD9D9 , #F0F0F0);
 	background: -o-linear-gradient(center top , #DCD9D9 , #F0F0F0);
 	background: -ms-linear-gradient(center top , #DCD9D9 , #F0F0F0);
-	background: linear-gradient(center top , #DCD9D9 , #F0F0F0);
+	background: linear-gradient(to top , #DCD9D9 , #F0F0F0);
 
     /*border: 1px #4e667d solid;*/
     /*color: #dde4ec;*/

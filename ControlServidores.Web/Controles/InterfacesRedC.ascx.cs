@@ -135,7 +135,7 @@ namespace ControlServidores.Web.Controles
             hdfEstado.Value = "2";
             hdfIdConfRed.Value = gdvInterfacesRed.SelectedRow.Cells[1].Text.Trim();
             List<Entidades.ConfRed> redlist = new List<Entidades.ConfRed>();
-            redlist = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdConfRed = Convert.ToInt32(hdfIdConfRed.Value) });
+            redlist = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { IdConfRed = Convert.ToInt32(hdfIdConfRed.Value)});
 
             redlist.ForEach(delegate (Entidades.ConfRed r)
             {
