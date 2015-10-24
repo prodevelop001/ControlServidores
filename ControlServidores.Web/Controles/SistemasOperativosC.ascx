@@ -14,7 +14,7 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlSO" runat="server">
-        <asp:GridView ID="gdvSO" runat="server" CssClass="miTabla7" AutoGenerateColumns="False" EmptyDataText="Sin SOs registrados.">
+        <asp:GridView ID="gdvSO" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" EmptyDataText="Sin SOs registrados.">
             <Columns>
                 <asp:TemplateField HeaderText="#">
                     <ItemTemplate>
@@ -26,6 +26,16 @@
                     <ItemStyle CssClass="hide" />
                 </asp:BoundField>
                 <asp:BoundField DataField="SO.NombreSO" HeaderText="Sistema" />
+                <asp:TemplateField HeaderText="#" HeaderStyle-CssClass="hide" ItemStyle-CssClass="hide">
+                    <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="#" HeaderStyle-CssClass="hide" ItemStyle-CssClass="hide">
+                    <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="#" HeaderStyle-CssClass="hide" ItemStyle-CssClass="hide">
                     <ItemTemplate>
                         <%# Container.DataItemIndex + 1 %>

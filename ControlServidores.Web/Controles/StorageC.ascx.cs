@@ -1,4 +1,5 @@
-﻿using System;
+﻿using
+    System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,7 @@ namespace ControlServidores.Web.Controles
                 llenarGdvSTorage();
             }
         }//Fin de Void
-        
+
 
         private void llenarDdlTipoStorage()
         {
@@ -32,4 +33,6 @@ namespace ControlServidores.Web.Controles
             });
             gdvStorage.DataBind();
         }//Fin de llenar Gdv
-    }
+
+    }//Fin de la Clase
+}
