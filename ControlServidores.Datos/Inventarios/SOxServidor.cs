@@ -21,17 +21,19 @@ namespace ControlServidores.Datos.Inventarios
                     {
                         crit.CreateAlias("sos.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
                         if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString() != "")
-                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.SO.IdSO)));
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor)));
                     }
                     if(a.SO != null)
                     {
                         crit.CreateAlias("sos.SO", "idSO", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idSO.IdSO", a.SO.IdSO)));
+                        if (a.SO.IdSO != 0 && a.SO.IdSO.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idSO.IdSO", a.SO.IdSO)));
                     }
                     if(a.Estatus != null)
                     {
                         crit.CreateAlias("sos.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idEstatus.IdEstatus", a.Estatus.IdEstatus)));
+                        if (a.Estatus.IdEstatus != 0 && a.Estatus.IdEstatus.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idEstatus.IdEstatus", a.Estatus.IdEstatus)));
                     }
                     
                     if (a.IdSOxServidor != 0 && a.IdSOxServidor.ToString() != "")
@@ -40,7 +42,7 @@ namespace ControlServidores.Datos.Inventarios
                     lista = (List<Entidades.SOxServidor>)crit.List<Entidades.SOxServidor>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

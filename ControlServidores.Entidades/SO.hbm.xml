@@ -5,7 +5,7 @@
       <generator class="identity"></generator>
     </id>
     <property name="NombreSO" column="NombreSO" type="String"></property>
-    <set name="SOxServidor" inverse="true" cascade="save-update" lazy="false">
+    <set name="SOxServidor" inverse="true" cascade="all-delete-orphan" lazy="false">
       <key column= "IdSOxServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.SOxServidor"/>
     </set>

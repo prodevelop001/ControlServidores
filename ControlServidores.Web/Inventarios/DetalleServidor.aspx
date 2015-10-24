@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="DetalleServidor.aspx.cs" Inherits="ControlServidores.Web.Inventarios.DetalleServidor" %>
 
 <%@ Register Src="~/Controles/InterfacesRedC.ascx" TagPrefix="uc1" TagName="InterfacesRedC" %>
-
+<%@ Register Src="~/Controles/SistemasOperativosC.ascx" TagPrefix="uc1" TagName="SistemasOperativosC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
 <%--    <style>
@@ -116,23 +116,7 @@
                     <div class="tituloDetalles">
                         <h4>Sistema(s)</h4>
                     </div>
-                    <asp:GridView ID="gdvSos" runat="server" CssClass="miTabla6" AutoGenerateColumns="False" EmptyDataText="Sin SOs registrados.">
-                        <Columns>
-                            <asp:TemplateField HeaderText="#">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="IdSOxServidor" HeaderText="IdSOxServidor">
-                                <HeaderStyle CssClass="hide" />
-                                <ItemStyle CssClass="hide" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="SO.NombreSO" HeaderText="Sistema" />
-                            <asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
-                        </Columns>
-                    </asp:GridView>
+                    <uc1:SistemasOperativosC runat="server" id="SistemasOperativosC" />
                 </div>
                 <div class="storage">
                     <div class="tituloDetalles">

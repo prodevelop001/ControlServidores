@@ -19,7 +19,7 @@ namespace ControlServidores.Web.Inventarios
                 datosPrincipales();
                 VMs();
                 InterfacesRedC.IdServidor = _IdServidor;
-                SistemasO();
+                SistemasOperativosC.IdServidor = _IdServidor;
                 Storage();
                 Bitacora();
             }
@@ -91,12 +91,6 @@ namespace ControlServidores.Web.Inventarios
             {
                 pnlVms.Visible = true;
             }
-        }
-
-        private void SistemasO()
-        {
-            gdvSos.DataSource = Negocio.Inventarios.SOxServidor.Obtener(new Entidades.SOxServidor() { IdServidor = _IdServidor });
-            gdvSos.DataBind();
         }
 
         private void Storage()
