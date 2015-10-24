@@ -32,6 +32,11 @@ namespace ControlServidores.Web.Controles
             }
         }
 
+        private void ObtenerParametros()
+        {
+            _IdServidor = Convert.ToInt32();
+        }
+
         private void llenarGdvSO()
         {
             gdvSO.DataSource = Negocio.Inventarios.SOxServidor.Obtener(new Entidades.SOxServidor() { Servidor= new Entidades.Servidor() { IdServidor= _IdServidor },Estatus= null });

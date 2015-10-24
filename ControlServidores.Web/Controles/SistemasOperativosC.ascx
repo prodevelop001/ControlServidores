@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SistemasOperativosC.ascx.cs" Inherits="ControlServidores.Web.Controles.SistemasOperativosC" %>
 <div>
     <div class="agregarNuevo">
+        <asp:HiddenField ID="hdfEstado" runat="server" />
+        <asp:HiddenField ID="hdfIdSO" runat="server" />
         <asp:Button ID="btnAdd" runat="server" Text="Add" />
     </div>
     <asp:Panel ID="pnlForm" runat="server">
