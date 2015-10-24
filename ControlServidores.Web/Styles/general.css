@@ -968,5 +968,26 @@ h1, h2, h3, h4, h5, h6{
     padding: 13px 9px;
     border: 1px solid black;
 
+    overflow: hidden;
     box-sizing: border-box;
 }
+
+    .elementoInfo{
+        width: 30%;
+        float: left;
+
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+        .elementoInfo > label, .elementoInfo > span{
+            width: 50%;
+            float: left;
+            padding: 7px 9px;
+            font-size: 16px;
+
+            box-sizing: border-box;
+        }
+        .elementoInfo > label{
+            text-align: right;
+            font-weight: 600;
+        }
