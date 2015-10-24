@@ -964,4 +964,9 @@ h1, h2, h3, h4, h5, h6{
         }
         
 /*******+Perfil+*********/
+.perfilInfo{
+    padding: 13px 9px;
+    border: 1px solid black;
 
+    box-sizing: border-box;
+}
