@@ -78,6 +78,7 @@
     <Content Include="Catalogos\TipoStorage.aspx" />
     <Content Include="Contactos.aspx" />
     <Content Include="Catalogos\Empresas.aspx" />
+    <Content Include="Controles\AlmacenamientoC.ascx" />
     <Content Include="Controles\InterfacesRedC.ascx" />
     <Content Include="Controles\SistemasOperativosC.ascx" />
     <Content Include="Controles\StorageC.ascx" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="Catalogos\Empresas.aspx.designer.cs">
       <DependentUpon>Empresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\AlmacenamientoC.ascx.cs">
+      <DependentUpon>AlmacenamientoC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\AlmacenamientoC.ascx.designer.cs">
+      <DependentUpon>AlmacenamientoC.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controles\InterfacesRedC.ascx.cs">
       <DependentUpon>InterfacesRedC.ascx</DependentUpon>

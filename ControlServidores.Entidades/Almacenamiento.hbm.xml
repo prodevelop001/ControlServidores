@@ -6,7 +6,7 @@
     </id>
     <property name="IdServidor" column="IdServidor" type="int"></property>
     <property name="Unidad" column="Unidad" type="String"></property>
-    <property name="IdTipoMemoria" column="IdTipoMemoria" type="int"></property>
+    <!--<property name="IdTipoMemoria" column="IdTipoMemoria" type="int"></property>-->
     <property name="Capacidad" column="Capacidad" type="String"></property>
     <property name="IdEstatus" column="IdEstatus" type="int"></property>
     <many-to-one name="TipoMemoria" class="ControlServidores.Entidades.TipoMemoria" column="IdTipoMemoria" lazy="false"/>

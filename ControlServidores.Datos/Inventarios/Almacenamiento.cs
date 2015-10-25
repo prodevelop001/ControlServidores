@@ -17,14 +17,16 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Almacenamiento),"A");
 
-                    crit.CreateAlias("A.TipoMemoria", "idTipoMemoria", NHibernate.SqlCommand.JoinType.InnerJoin);
-
+                    if (a.TipoMemoria != null)
+                    {
+                        crit.CreateAlias("A.TipoMemoria", "idTipoMemoria", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.TipoMemoria.IdTipoMemoria != 0 && a.TipoMemoria.IdTipoMemoria.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idTipoMemoria.IdTipoMemoria", a.TipoMemoria.IdTipoMemoria)));
+                    }
                     if (a.IdAlmacenamiento != 0 && a.IdAlmacenamiento.ToString() != "")
                         crit.Add(Restrictions.Eq("IdAlmacenamiento", a.IdAlmacenamiento));
-                   if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
-					if (a.IdTipoMemoria != 0 && a.IdTipoMemoria.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdTipoMemoria", a.IdTipoMemoria));
+                    if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));				
 					if (!string.IsNullOrEmpty(a.Capacidad))
                         crit.Add(Restrictions.Like("Capacidad", a.Capacidad));
                     if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")

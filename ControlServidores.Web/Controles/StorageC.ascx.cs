@@ -136,5 +136,10 @@ namespace ControlServidores.Web.Controles
             ObtenerParametros();
             llenarGdvStorage();
         }
+
+        protected void gdvStorage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
