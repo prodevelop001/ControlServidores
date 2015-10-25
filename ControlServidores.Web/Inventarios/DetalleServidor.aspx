@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/Controles/InterfacesRedC.ascx" TagPrefix="uc1" TagName="InterfacesRedC" %>
 <%@ Register Src="~/Controles/SistemasOperativosC.ascx" TagPrefix="uc1" TagName="SistemasOperativosC" %>
+<%@ Register Src="~/Controles/StorageC.ascx" TagPrefix="uc1" TagName="StorageC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
 <%--    <style>
@@ -119,26 +120,7 @@
                     <uc1:SistemasOperativosC runat="server" id="SistemasOperativosC" />
                 </div>
                 <div class="storage">
-                    <div class="tituloDetalles">
-                        <h4>Storage</h4>
-                    </div>
-                    <asp:GridView ID="gdvStorage" runat="server" AutoGenerateColumns="false">
-                        <Columns>
-                            <asp:TemplateField HeaderText="#">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="IdStorage" HeaderText="IdStorage">
-                                <HeaderStyle CssClass="hide" />
-                                <ItemStyle CssClass="hide" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="TipoStorage.Tipo" HeaderText="Storage" />
-                            <asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
-                        </Columns>
-                    </asp:GridView>
+                    <uc1:StorageC runat="server" id="StorageC" />
                 </div>
                 <div class="bitacora">
                     <div class="tituloDetalles">

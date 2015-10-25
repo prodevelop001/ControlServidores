@@ -4,7 +4,7 @@
         <asp:HiddenField ID="hdfEstado" runat="server" />
         <asp:HiddenField ID="hdfIdServidor" runat="server" />
         <asp:HiddenField ID="hdfIdSoServidor" runat="server" />
-        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
+        <asp:Button ID="btnAdd" runat="server" Text="Agregar" OnClick="btnAdd_Click" />
     </div>
     <asp:Panel ID="pnlForm" runat="server" Visible ="false">
         <div class="formCampos">
@@ -29,7 +29,7 @@
                     <ItemStyle CssClass="hide" />
                 </asp:BoundField>
                 <asp:BoundField DataField="SO.NombreSO" HeaderText="Sistema" />
-                <asp:BoundField DataField="Servidor.IdServidor" HeaderText="IdServidor">
+                <asp:BoundField DataField="SO.IdSO" HeaderText="IdSO">
                 <HeaderStyle CssClass="hide" />
                 <ItemStyle CssClass="hide" />
                 </asp:BoundField>

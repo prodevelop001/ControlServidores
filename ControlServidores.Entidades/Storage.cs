@@ -4,7 +4,7 @@ namespace ControlServidores.Entidades
 	{
 		public virtual int IdStorage {get;set;}
 		
-		public virtual int IdServidor {get;set;}
+		public virtual Servidor Servidor {get;set;}
 		
 		public virtual int IdTipoStorage {get;set;}
 		
@@ -18,6 +18,7 @@ namespace ControlServidores.Entidades
 
         public Storage()
         {
+            Servidor = new Servidor();
             TipoStorage = new TipoStorage();
             Estatus = new Estatus();
         }

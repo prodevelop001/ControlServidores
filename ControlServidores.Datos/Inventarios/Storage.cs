@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NHibernate;
 using NHibernate.Criterion;
+using System;
 
 namespace ControlServidores.Datos.Inventarios
 {
@@ -16,20 +17,30 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.Storage),"st");
 
-                    crit.CreateAlias("st.TipoStorage", "idTipoStorage", NHibernate.SqlCommand.JoinType.InnerJoin);
-                    crit.CreateAlias("st.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    if(a.TipoStorage != null)
+                    {
+                        crit.CreateAlias("st.TipoStorage", "idTipoStorage", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.TipoStorage.IdTipoStorage != 0 && a.TipoStorage.IdTipoStorage.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idTipoStorage.IdTipoStorage", a.TipoStorage.IdTipoStorage)));
+                    }
+                    if(a.Estatus != null)
+                    {
+                        crit.CreateAlias("st.Estatus", "idEstatus", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.Estatus.IdEstatus != 0 && a.Estatus.IdEstatus.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idEstatus.IdEstatus", a.Estatus.IdEstatus)));
+                    }
+                    if(a.Servidor != null)
+                    {
+                        crit.CreateAlias("st.Servidor", "idServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        if (a.Servidor.IdServidor != 0 && a.Servidor.IdServidor.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idServidor.IdServidor", a.Servidor.IdServidor)));
+                    }
 
                     if (a.IdStorage != 0 && a.IdStorage.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdStorage", a.IdStorage));
-					if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
-					if (a.IdTipoStorage != 0 && a.IdTipoStorage.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdTipoStorage", a.IdTipoStorage));
+                        crit.Add(Restrictions.Eq("IdStorage", a.IdStorage));					
 					if (!string.IsNullOrEmpty(a.CapacidadAsignada))
                         crit.Add(Restrictions.Like("CapacidadAsignada", a.CapacidadAsignada));
-                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
-
+                    
                     lista = (List<Entidades.Storage>)crit.List<Entidades.Storage>();
                 }
             }

@@ -32,6 +32,8 @@ namespace ControlServidores.Entidades
 
         public virtual ISet<PersonaXservidor> PersonaXservidor { get; set; }
 
+        public virtual ISet<Storage> Storage { get; set; }
+
         public Servidor()
         {
             Modelo = new Modelo();

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="InterfacesRedC.ascx.cs" Inherits="ControlServidores.Web.Controles.InterfacesRedC" %>
 <div>
     <div class="agregarNuevo">
-        <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
+        <asp:Button ID="btnAdd" runat="server" Text="Agregar" OnClick="btnAdd_Click" />
     </div>
     <asp:Panel ID="pnlFormIntRed" CssClass="miFormulario" Visible="false" runat="server">
         <asp:HiddenField ID="hdfEstado" runat="server" />

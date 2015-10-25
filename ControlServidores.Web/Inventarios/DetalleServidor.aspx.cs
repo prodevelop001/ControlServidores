@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web.Inventarios
 {
@@ -20,7 +17,7 @@ namespace ControlServidores.Web.Inventarios
                 VMs();
                 InterfacesRedC.IdServidor = _IdServidor;
                 SistemasOperativosC.IdServidor = _IdServidor;
-                Storage();
+                StorageC.IdServidor = _IdServidor;
                 Bitacora();
             }
         }
@@ -91,12 +88,6 @@ namespace ControlServidores.Web.Inventarios
             {
                 pnlVms.Visible = true;
             }
-        }
-
-        private void Storage()
-        {
-            gdvStorage.DataSource = Negocio.Inventarios.Storage.Obtener(new Entidades.Storage() { IdServidor = _IdServidor });
-            gdvStorage.DataBind();
         }
 
         private void Bitacora()

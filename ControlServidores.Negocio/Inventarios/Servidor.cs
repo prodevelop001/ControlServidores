@@ -190,7 +190,7 @@ namespace ControlServidores.Negocio.Inventarios
                 }
 
                 List<Entidades.Storage> storageL = new List<Entidades.Storage>();
-                storageL = Datos.Inventarios.Storage.Obtener(new Entidades.Storage() { IdServidor = a.IdServidor });
+                storageL = Datos.Inventarios.Storage.Obtener(new Entidades.Storage() { Servidor = new Entidades.Servidor() { IdServidor = a.IdServidor } });
                 if (storageL.Count > 0)
                 {
                     resultado.resultado = Datos.Inventarios.Storage.Eliminar(storageL);

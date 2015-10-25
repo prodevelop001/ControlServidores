@@ -120,6 +120,7 @@ namespace ControlServidores.Web.Controles
             pnlForm.Visible = true;
             pnlSO.Visible = false;
             btnGuardar.Text = "Actualizar";
+            llenarDdlSO();
             ddlSO.SelectedValue = gdvSO.SelectedRow.Cells[3].Text.Trim();
         }
 

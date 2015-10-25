@@ -26,5 +26,9 @@
       <key column= "IdPersonaServidor" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.PersonaXservidor" />
     </set>
+    <set name="Storage" inverse="true" cascade="all-delete-orphan" lazy="false">
+      <key column= "IdStorage" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Storage" />
+    </set>
   </class>
 </hibernate-mapping>
