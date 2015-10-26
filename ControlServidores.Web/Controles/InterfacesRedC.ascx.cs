@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web.Controles
@@ -156,6 +157,49 @@ namespace ControlServidores.Web.Controles
                 ddlEstatus.SelectedValue = r.Estatus!= null ? r.Estatus.IdEstatus.ToString(): "0";
             });
 
+        }
+
+        protected void gdvInterfacesRed_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                foreach (DataControlFieldCell cell in e.Row.Cells)
+                {
+                    foreach (Control control in cell.Controls)
+                    {
+                        //LinkButton button = (LinkButton)control;
+                        LinkButton button = control as LinkButton;
+                        if (button != null && button.Text == "Eliminar")
+                        {
+                            //button.Enabled = permisos.D;
+                            if (button.Enabled)
+                                button.OnClientClick = "return checkMe()";
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void gdvInterfacesRed_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            Entidades.ConfRed red = new Entidades.ConfRed();
+            red.IdConfRed = Convert.ToInt32(gdvInterfacesRed.Rows[e.RowIndex].Cells[1].Text);
+            red.Servidor = null;
+            red.Estatus = null;
+
+            resultado = Negocio.Inventarios.ConfRed.Eliminar(red);
+            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+            {
+                lblResultado.Text += error.descripcionCorta + "<br/>";
+            });
+
+            if (resultado.resultado == true)
+            {
+                lblResultado.ForeColor = System.Drawing.Color.Green;
+                ObtenerParametros();
+                InterfacesRed();
+            }
         }
     }
 }

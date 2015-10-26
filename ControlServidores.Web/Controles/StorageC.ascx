@@ -35,7 +35,7 @@
                 <asp:DropDownList ID="ddlTipoStorage" runat="server" OnSelectedIndexChanged="ddlTipoStorage_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
             </div>
         </div>
-        <asp:GridView ID="gdvStorage" runat="server" CssClass="miTabla7" AutoGenerateColumns="False" EmptyDataText="Sin Storage Asignado" OnSelectedIndexChanged="gdvStorage_SelectedIndexChanged">
+        <asp:GridView ID="gdvStorage" runat="server" CssClass="miTabla7" AutoGenerateColumns="False" EmptyDataText="Sin Storage Asignado" OnSelectedIndexChanged="gdvStorage_SelectedIndexChanged" OnRowDataBound="gdvStorage_RowDataBound" OnRowDeleting="gdvStorage_RowDeleting">
             <Columns>
                 <asp:TemplateField HeaderText="#">
                     <ItemTemplate>
@@ -54,7 +54,7 @@
                 <asp:BoundField DataField="CapacidadAsignada" HeaderText="Capacidad Asignada" />
                 <%--<asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />--%>
                 <asp:CommandField SelectText=" Seleccionar" ShowSelectButton="True" />
-                <asp:CommandField DeleteText=" Eliminar" ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
     </asp:Panel>

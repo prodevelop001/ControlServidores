@@ -51,7 +51,7 @@
             <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
-    <asp:GridView ID="gdvInterfacesRed" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas." OnSelectedIndexChanged="gdvInterfacesRed_SelectedIndexChanged">
+    <asp:GridView ID="gdvInterfacesRed" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas." OnSelectedIndexChanged="gdvInterfacesRed_SelectedIndexChanged" OnRowDataBound="gdvInterfacesRed_RowDataBound" OnRowDeleting="gdvInterfacesRed_RowDeleting">
         <Columns>
             <asp:TemplateField HeaderText="#">
                 <ItemTemplate>

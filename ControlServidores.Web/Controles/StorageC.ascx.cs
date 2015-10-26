@@ -139,7 +139,57 @@ namespace ControlServidores.Web.Controles
 
         protected void gdvStorage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            hdfEstado.Value = "2";
+            pnlForm.Visible = true;
+            pnlStorage.Visible = false;
+            hdfStorage.Value = gdvStorage.SelectedRow.Cells[1].Text.Trim();
+            ddlTipoStorageForm.SelectedValue = gdvStorage.SelectedRow.Cells[3].Text.Trim();
+            txtCapacidad.Text = gdvStorage.SelectedRow.Cells[4].Text.Split(' ').ElementAt(0);
+            ddlCapacidad.SelectedValue = gdvStorage.SelectedRow.Cells[4].Text.Split(' ').ElementAt(1);
+        }
 
+        protected void gdvStorage_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                foreach (DataControlFieldCell cell in e.Row.Cells)
+                {
+                    foreach (Control control in cell.Controls)
+                    {
+                        //LinkButton button = (LinkButton)control;
+                        LinkButton button = control as LinkButton;
+                        if (button != null && button.Text == "Eliminar")
+                        {
+                            //button.Enabled = permisos.D;
+                            if (button.Enabled)
+                                button.OnClientClick = "return checkMe()";
+                        }
+                    }
+                }
+            }
+        }
+
+        protected void gdvStorage_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            Entidades.Storage storage = new Entidades.Storage();
+            storage.IdStorage = Convert.ToInt32(gdvStorage.Rows[e.RowIndex].Cells[1].Text);
+            storage.Servidor = null;
+            storage.TipoStorage = null;
+            storage.Estatus = null;
+
+            resultado = Negocio.Inventarios.Storage.Eliminar(storage);
+            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+            {
+                lblResultado.Text += error.descripcionCorta + "<br/>";
+            });
+
+            if (resultado.resultado == true)
+            {
+                lblResultado.ForeColor = System.Drawing.Color.Green;
+                ObtenerParametros();
+                llenarGdvStorage();
+            }
         }
     }
 }

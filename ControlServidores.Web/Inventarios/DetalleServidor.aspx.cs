@@ -15,6 +15,7 @@ namespace ControlServidores.Web.Inventarios
                 ObtenerParametros();
                 datosPrincipales();
                 VMs();
+                AlmacenamientoC.IdServidor = _IdServidor;
                 InterfacesRedC.IdServidor = _IdServidor;
                 SistemasOperativosC.IdServidor = _IdServidor;
                 StorageC.IdServidor = _IdServidor;
@@ -72,13 +73,6 @@ namespace ControlServidores.Web.Inventarios
                 lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
             }
         }
-
-        private void Almacenamiento()
-        {
-            gdvAlmacenamiento.DataSource = Negocio.Inventarios.Almacenamiento.Obtener(new Entidades.Almacenamiento() { IdServidor = _IdServidor });
-            gdvAlmacenamiento.DataBind();
-        }
-
 
         private void VMs()
         {

@@ -3,6 +3,8 @@
 <%@ Register Src="~/Controles/InterfacesRedC.ascx" TagPrefix="uc1" TagName="InterfacesRedC" %>
 <%@ Register Src="~/Controles/SistemasOperativosC.ascx" TagPrefix="uc1" TagName="SistemasOperativosC" %>
 <%@ Register Src="~/Controles/StorageC.ascx" TagPrefix="uc1" TagName="StorageC" %>
+<%@ Register Src="~/Controles/AlmacenamientoC.ascx" TagPrefix="uc1" TagName="AlmacenamientoC" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
 <%--    <style>
@@ -92,20 +94,7 @@
                     <div class="tituloDetalles">
                         <h4>Almacenamiento</h4>
                     </div>
-                    <asp:GridView ID="gdvAlmacenamiento" runat="server" AutoGenerateColumns="False" EmptyDataText="Sin Medios Registrados.">
-                        <Columns>
-                            <asp:TemplateField HeaderText="#">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="Unidad" HeaderText="Unidad" />
-                            <asp:BoundField DataField="TipoMemoria.Tipo" HeaderText="Tipo" />
-                            <asp:BoundField DataField="Capacidad" HeaderText="Capacidad" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
-                        </Columns>
-                    </asp:GridView>
+                    <uc1:AlmacenamientoC runat="server" id="AlmacenamientoC" />
                 </div>
                 <div class="interfRed">
                     <div class="tituloDetalles">
@@ -120,11 +109,14 @@
                     <uc1:SistemasOperativosC runat="server" id="SistemasOperativosC" />
                 </div>
                 <div class="storage">
+                    <div class="tituloDetalles">
+                        <h4>Storage</h4>
+                    </div>
                     <uc1:StorageC runat="server" id="StorageC" />
                 </div>
                 <div class="bitacora">
                     <div class="tituloDetalles">
-                        <h4>Detalles Generales</h4>
+                        <h4>Bitacora</h4>
                     </div>
                     <div class="agregarNuevo">
                         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" />

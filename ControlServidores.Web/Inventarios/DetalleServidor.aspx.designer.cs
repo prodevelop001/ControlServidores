@@ -139,13 +139,13 @@ namespace ControlServidores.Web.Inventarios {
         protected global::System.Web.UI.WebControls.GridView gdvVMs;
         
         /// <summary>
-        /// Control gdvAlmacenamiento.
+        /// Control AlmacenamientoC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvAlmacenamiento;
+        protected global::ControlServidores.Web.Controles.AlmacenamientoC AlmacenamientoC;
         
         /// <summary>
         /// Control InterfacesRedC.
