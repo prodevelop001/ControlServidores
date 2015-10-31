@@ -67,6 +67,15 @@ namespace ControlServidores.Web {
         protected global::System.Web.UI.WebControls.Label lblIdUsuario;
         
         /// <summary>
+        /// lblIdPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdPersona;
+        
+        /// <summary>
         /// txtNombreUsuario control.
         /// </summary>
         /// <remarks>

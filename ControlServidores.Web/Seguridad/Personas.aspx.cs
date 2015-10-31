@@ -180,11 +180,11 @@ namespace ControlServidores.Web.Seguridad
             persona.Extension = txtExtension.Text.Trim();
             persona.Correo = txtCorreo.Text.Trim();
             persona.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
-            if (hdfEstado.Value == "1" && permisos.C == true)
+            if (hdfEstado.Value == "1" && permisos.C == true && ddlEstatus.SelectedValue != "0")
             {
                 resultado = Negocio.Seguridad.Personas.Nuevo(persona);
             }
-            else if (hdfEstado.Value == "2" && permisos.U == true)
+            else if (hdfEstado.Value == "2" && permisos.U == true && ddlEstatus.SelectedValue != "0")
             {
                 persona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
                 resultado = Negocio.Seguridad.Personas.Actualizar(persona);
