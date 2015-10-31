@@ -15,6 +15,7 @@
             <asp:Panel ID="pnlFormulario" runat="server">
                 <div class="formCampos">
                     <asp:Label ID="lblIdUsuario" runat="server" CssClass="hide" Text="Label"></asp:Label>
+                    <asp:Label ID="lblIdPersona" CssClass="hide" runat="server" Text=""></asp:Label>
                     <div class="grpInput">
                         <label>Nombre de usuario</label>
                         <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>

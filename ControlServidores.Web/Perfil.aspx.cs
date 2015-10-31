@@ -11,16 +11,52 @@ namespace ControlServidores.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            obtenerDatos();
+            pnlFormulario.Visible = false;
+            pnlResultado.Visible = false;
+            pnlInfo.Visible = true;
+
+
+        }//Fin Void
+
+        protected void obtenerDatos()
+        {
             Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
             lblUsrName.Text = usuario.Usuario;
+            lblIdUsuario.Text = usuario.IdUsuario.ToString();
 
             Entidades.Personas people = (Entidades.Personas)usuario.IdPersona;
+
+            //if (people.IdPersona!=0)
+            //{
+            //    List<Entidades.Personas> p = new List<Entidades.Personas>();
+            //    p = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
+            //    {
+            //        IdPersona = people.IdPersona
+            //    });
+            //    if (p.Count > 0)
+            //    {
+            //        people = p.First();
+            //    }
+            //}
             if (people != null)
             {
+                List<Entidades.Personas> p = new List<Entidades.Personas>();
+                p = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
+                {
+                    IdPersona = people.IdPersona
+                });
+                if (p.Count > 0)
+                {
+                    people = p.First();
+                }
+
                 lblNombre.Text = people.Nombre;
                 lblPuesto.Text = people.Puesto;
                 lblExtension.Text = people.Extension;
                 lblCorreo.Text = people.Correo;
+                lblIdPersona.Text = people.IdPersona.ToString();
             }
             else
             {
@@ -38,15 +74,9 @@ namespace ControlServidores.Web
             else
             {
                 lblNombre.Text = null;
-                
+
             }
-
-            pnlFormulario.Visible = false;
-            pnlResultado.Visible = false;
-            pnlInfo.Visible = true;
-
-
-        }//Fin Void
+        }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -55,6 +85,15 @@ namespace ControlServidores.Web
             txtPuesto.Text = HttpUtility.HtmlDecode(lblPuesto.Text);
             txtExtension.Text = HttpUtility.HtmlDecode(lblExtension.Text);
             txtCorreo.Text = HttpUtility.HtmlDecode(lblCorreo.Text);
+
+            if (!string.IsNullOrWhiteSpace(lblIdPersona.Text.Trim()))
+            {
+                hdfEstado.Value = "2";
+            }
+            else
+            {
+                hdfEstado.Value = "1";
+            }
 
             pnlFormulario.Visible = true;
             pnlResultado.Visible = false;
@@ -69,61 +108,59 @@ namespace ControlServidores.Web
             //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             Entidades.Usuarios us = new Entidades.Usuarios();
             us.Usuario = txtNombreUsuario.Text.Trim();
-            //us.IdRol.IdRol = Convert.ToInt32(ddlRol.SelectedValue);
-            //if (ddlPersona.SelectedValue == "0")
-            //    us.IdPersona.IdPersona = -1;
-            //else
-            //    us.IdPersona.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
 
-            //if (txtPass1.Text.Trim() == txtPass2.Text.Trim())
-            //{
-            //    if (hdfEstado.Value == "1" && permisos.C == true && ddlRol.SelectedValue != "0")
-            //    {
-            //        us.Pwd = txtPass1.Text.Trim();
-            //        resultado = Negocio.Seguridad.Usuarios.Nuevo(us);
-            //    }
-            //    else if (hdfEstado.Value == "2" && permisos.U == true && ddlRol.SelectedValue != "0")
-            //    {
-            //        us.IdUsuario = Convert.ToInt32(lblIdUsuario.Text);
-            //        us.Pwd = txtPass1.Text.Trim();
-            //        resultado = Negocio.Seguridad.Usuarios.Actualizar(us);
-            //    }
-            //    else if (ddlRol.SelectedValue == "0")
-            //    {
-            //        lblResultado.Text = "Seleccionar un rol.";
-            //    }
-            //    else
-            //    {
-            //        lblResultado.Text = "No tienes privilegios para realizar esta acción.";
-            //    }
-            //}
-            //else
-            //{
-            //    txtPass1.Attributes.Add("value", txtPass1.Text);
-            //    txtPass2.Attributes.Add("value", txtPass2.Text);
-            //    lblResultado.Text = "Contraseñas deben coincidir.";
-            //}
-            //resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
-            //{
-            //    lblResultado.Text += error.descripcionCorta + "<br/>";
-            //});
+            Entidades.Personas persona = new Entidades.Personas();
+            persona.Nombre = txtNombre.Text.Trim();
+            persona.Puesto = txtPuesto.Text.Trim();
+            persona.Extension = txtExtension.Text.Trim();
+            persona.Correo = txtCorreo.Text.Trim();
+            //persona.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+            //if (hdfEstado.Value == "1" && permisos.C == true)
+            if (hdfEstado.Value == "1")
+            {
+                resultado = Negocio.Seguridad.Personas.Nuevo(persona);
+                us.IdUsuario = Convert.ToInt32(lblIdUsuario.Text);
+                obtenerDatos();
+                us.IdPersona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
+                resultado = Negocio.Seguridad.Usuarios.Actualizar(us);
+            }
+            //else if (hdfEstado.Value == "2" && permisos.U == true)
+            else if (hdfEstado.Value == "2")
+            {
+                persona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
+                resultado = Negocio.Seguridad.Personas.Actualizar(persona);
+            }
+            else
+            {
+                lblResultado.Text = "No tienes privilegios para realizar esta acción.";
+            }
 
-            ////lblResultado.ForeColor = System.Drawing.Color.Red;
-            //lblResultado.Attributes["style"] = "color: #F00;";
-            //pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
-            //if (resultado.resultado == true)
-            //{
-            //    //lblResultado.ForeColor = System.Drawing.Color.Green;
-            //    lblResultado.Attributes["style"] = "color: #008000;";
-            //    pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
-            //    hdfEstado.Value = "0";
-            //    lblIdUsuario.Text = string.Empty;
-            //    btnNuevo.Visible = true;
-            //    pnlUsuarios.Visible = true;
-            //    pnlFormulario.Visible = false;
-            //    llenarGdvUsuarios();
-            //}
-            //pnlResultado.Visible = true;
+            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+            {
+                lblResultado.Text += error.descripcionCorta + "<br/>";
+            });
+
+
+
+            //lblResultado.ForeColor = System.Drawing.Color.Red;
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
+            if (resultado.resultado == true)
+            {
+                //lblResultado.ForeColor = System.Drawing.Color.Green;
+                lblResultado.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
+                hdfEstado.Value = "0";
+
+                pnlFormulario.Visible = false;
+                pnlInfo.Visible = true;
+                btnActualizar.Visible = true;
+                obtenerDatos();
+            }
+            pnlResultado.Visible = true;
+
+
+
 
         }//Fin de Boton Guardar
 

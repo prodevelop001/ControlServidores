@@ -214,19 +214,21 @@ namespace ControlServidores.Web.Seguridad
             Entidades.Usuarios us = new Entidades.Usuarios();
             us.Usuario = txtNombreUsuario.Text.Trim();
             us.IdRol.IdRol = Convert.ToInt32(ddlRol.SelectedValue);
-            if (ddlPersona.SelectedValue == "0")
-                us.IdPersona.IdPersona = -1;
-            else
-                us.IdPersona.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
+            us.IdPersona.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
+
+            //if (ddlPersona.SelectedValue == "0")
+            //    us.IdPersona.IdPersona = -1;
+            //else
+            //    us.IdPersona.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
 
             if (txtPass1.Text.Trim() == txtPass2.Text.Trim())
             {
-                if (hdfEstado.Value == "1" && permisos.C == true && ddlRol.SelectedValue != "0")
+                if (hdfEstado.Value == "1" && permisos.C == true && ddlRol.SelectedValue != "0" && ddlPersona.SelectedValue != "0")
                 {
                     us.Pwd = txtPass1.Text.Trim();
                     resultado = Negocio.Seguridad.Usuarios.Nuevo(us);
                 }
-                else if (hdfEstado.Value == "2" && permisos.U == true && ddlRol.SelectedValue != "0")
+                else if (hdfEstado.Value == "2" && permisos.U == true && ddlRol.SelectedValue != "0" && ddlPersona.SelectedValue != "0")
                 {
                     us.IdUsuario = Convert.ToInt32(lblIdUsuario.Text);
                     us.Pwd = txtPass1.Text.Trim();
@@ -236,8 +238,13 @@ namespace ControlServidores.Web.Seguridad
                 {
                     lblResultado.Text = "Seleccionar un rol.";
                 }
+                else if (ddlPersona.SelectedValue == "0")
+                {
+                    lblResultado.Text = "Debe estar ligado a una persona.";
+                }
                 else
                 {
+ 
                     lblResultado.Text = "No tienes privilegios para realizar esta acción.";
                 }
             }
