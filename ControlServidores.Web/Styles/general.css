@@ -920,7 +920,7 @@ h1, h2, h3, h4, h5, h6{
 
     overflow: hidden;
 }
-    .agregarNuevo input[type=submit] {
+    .agregarNuevo input[type=submit], .btnCambiarPWD{
         float: right;
         padding: 3px 7px;
         color: #555;
@@ -948,7 +948,7 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-        .agregarNuevo input[type=submit]:hover {
+        .agregarNuevo input[type=submit]:hover, .btnCambiarPWD:hover {
             cursor: pointer;
             /*background: #555;*/
             color: #DDD;
@@ -966,21 +966,41 @@ h1, h2, h3, h4, h5, h6{
 /*******+Perfil+*********/
 .perfilInfo{
     padding: 13px 9px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    margin-top: 50px;
+    margin-bottom: 10px;
+
+    -moz-box-shadow: -1px  0px 15px #555;
+    -webkit-box-shadow: -1px  0px 15px #555;
+    box-shadow: -1px  0px 15px #555;
+
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
 
     overflow: hidden;
     box-sizing: border-box;
 }
 
     .elementoInfo{
-        width: 30%;
+        width: 50%;
         float: left;
+        margin-bottom: 13px;
 
         overflow: hidden;
         box-sizing: border-box;
     }
+        .elementoInfo > label{
+            width: 30%;
+        }
+        .elementoInfo > span{
+            width: 70%;
+        }
+
         .elementoInfo > label, .elementoInfo > span{
-            width: 50%;
+            
             float: left;
             padding: 7px 9px;
             font-size: 16px;
@@ -991,3 +1011,7 @@ h1, h2, h3, h4, h5, h6{
             text-align: right;
             font-weight: 600;
         }
+
+.btnCambiarPWD{
+    padding: 13px 7px; 
+}
