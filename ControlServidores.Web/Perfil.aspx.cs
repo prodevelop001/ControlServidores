@@ -25,6 +25,7 @@ namespace ControlServidores.Web
             Entidades.Usuarios usuario = (Entidades.Usuarios)Session["usuario"];
             lblUsrName.Text = usuario.Usuario;
             lblIdUsuario.Text = usuario.IdUsuario.ToString();
+            lblIdRol.Text = usuario.IdRol.IdRol.ToString();
 
             Entidades.Personas people = (Entidades.Personas)usuario.IdPersona;
 
@@ -80,20 +81,8 @@ namespace ControlServidores.Web
 
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
-            txtNombreUsuario.Text = HttpUtility.HtmlDecode(lblUsrName.Text);
-            txtNombre.Text = HttpUtility.HtmlDecode(lblNombre.Text);
-            txtPuesto.Text = HttpUtility.HtmlDecode(lblPuesto.Text);
-            txtExtension.Text = HttpUtility.HtmlDecode(lblExtension.Text);
-            txtCorreo.Text = HttpUtility.HtmlDecode(lblCorreo.Text);
-
-            if (!string.IsNullOrWhiteSpace(lblIdPersona.Text.Trim()))
-            {
-                hdfEstado.Value = "2";
-            }
-            else
-            {
-                hdfEstado.Value = "1";
-            }
+            txtPass1.Text = "";
+            txtPass2.Text = "";
 
             pnlFormulario.Visible = true;
             pnlResultado.Visible = false;
@@ -107,40 +96,29 @@ namespace ControlServidores.Web
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             //permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             Entidades.Usuarios us = new Entidades.Usuarios();
-            us.Usuario = txtNombreUsuario.Text.Trim();
+            resultado.resultado = false;
+            //us.IdUsuario = Convert.ToInt32(lblIdUsuario.Text);
 
-            Entidades.Personas persona = new Entidades.Personas();
-            persona.Nombre = txtNombre.Text.Trim();
-            persona.Puesto = txtPuesto.Text.Trim();
-            persona.Extension = txtExtension.Text.Trim();
-            persona.Correo = txtCorreo.Text.Trim();
-            //persona.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
-            //if (hdfEstado.Value == "1" && permisos.C == true)
-            if (hdfEstado.Value == "1")
+            if (txtPass1.Text.Trim() == txtPass2.Text.Trim())
             {
-                resultado = Negocio.Seguridad.Personas.Nuevo(persona);
                 us.IdUsuario = Convert.ToInt32(lblIdUsuario.Text);
-                obtenerDatos();
+                us.Usuario = lblUsrName.Text.Trim();
+                us.Pwd = txtPass1.Text.Trim();
+                us.IdRol.IdRol = Convert.ToInt32(lblIdRol.Text);
                 us.IdPersona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
                 resultado = Negocio.Seguridad.Usuarios.Actualizar(us);
             }
-            //else if (hdfEstado.Value == "2" && permisos.U == true)
-            else if (hdfEstado.Value == "2")
-            {
-                persona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
-                resultado = Negocio.Seguridad.Personas.Actualizar(persona);
-            }
             else
             {
-                lblResultado.Text = "No tienes privilegios para realizar esta acción.";
+                txtPass1.Attributes.Add("value", txtPass1.Text);
+                txtPass2.Attributes.Add("value", txtPass2.Text);
+                lblResultado.Text = "Las Contraseñas deben coincidir.";
             }
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
             {
                 lblResultado.Text += error.descripcionCorta + "<br/>";
             });
-
-
 
             //lblResultado.ForeColor = System.Drawing.Color.Red;
             lblResultado.Attributes["style"] = "color: #F00;";
