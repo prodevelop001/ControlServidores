@@ -4,6 +4,8 @@
 <%@ Register Src="~/Controles/SistemasOperativosC.ascx" TagPrefix="uc1" TagName="SistemasOperativosC" %>
 <%@ Register Src="~/Controles/StorageC.ascx" TagPrefix="uc1" TagName="StorageC" %>
 <%@ Register Src="~/Controles/AlmacenamientoC.ascx" TagPrefix="uc1" TagName="AlmacenamientoC" %>
+<%@ Register Src="~/Controles/BitacoraC.ascx" TagPrefix="uc1" TagName="BitacoraC" %>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
@@ -118,29 +120,7 @@
                     <div class="tituloDetalles">
                         <h4>Bitacora</h4>
                     </div>
-                    <div class="agregarNuevo">
-                        <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" />
-                    </div>
-                    <asp:GridView ID="gdvBitacora" runat="server" CssClass="miTabla9" AutoGenerateColumns="false">
-                        <Columns>
-                            <asp:TemplateField HeaderText="#">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:BoundField DataField="Bitacora.IdBitacora" HeaderText="IdBitacora">
-                                <HeaderStyle CssClass="hide" />
-                                <ItemStyle CssClass="hide" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="Personas.Nombre" HeaderText="Nombre" />
-                            <asp:BoundField DataField="Bitacora.FechaCaptura" HeaderText="Fecha de Captura" />
-                            <asp:BoundField DataField="Bitacora.FechaMantenimiento" HeaderText="Fecha de procedimiento" />
-                            <asp:BoundField DataField="Bitacora.DescripcionMantenimiento" HeaderText="Descripcion" />
-                            <asp:BoundField DataField="Bitacora.Observaciones" HeaderText="Observaciones" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
-                        </Columns>
-                    </asp:GridView>
+                    <uc1:BitacoraC runat="server" id="BitacoraC" />
                 </div>
             </div>
         </ContentTemplate>

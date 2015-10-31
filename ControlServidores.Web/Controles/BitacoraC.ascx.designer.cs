@@ -7,180 +7,135 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ControlServidores.Web.Inventarios {
+namespace ControlServidores.Web.Controles {
     
     
-    public partial class DetalleServidor {
+    public partial class BitacoraC {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// hdfIdServidor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdServidor;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// hdfIdBitacora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdBitacora;
         
         /// <summary>
-        /// lblAliasServidor control.
+        /// hdfEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAliasServidor;
+        protected global::System.Web.UI.WebControls.HiddenField hdfEstado;
         
         /// <summary>
-        /// lblDescripcionUso control.
+        /// btnAgregar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcionUso;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// lblTipoServidor control.
+        /// pnlForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoServidor;
+        protected global::System.Web.UI.WebControls.Panel pnlForm;
         
         /// <summary>
-        /// hdfIdModelo control.
+        /// txtFechaProc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfIdModelo;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaProc;
         
         /// <summary>
-        /// lblModelo control.
+        /// txtDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModelo;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
         
         /// <summary>
-        /// lblProcesador control.
+        /// rfvDescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProcesador;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
         
         /// <summary>
-        /// lblNumProcesadores control.
+        /// txtObservaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumProcesadores;
+        protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
         
         /// <summary>
-        /// lblCapacidadRam control.
+        /// btnRegistrar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCapacidadRam;
+        protected global::System.Web.UI.WebControls.Button btnRegistrar;
         
         /// <summary>
-        /// lblArregloDiscos control.
+        /// btnCancelar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArregloDiscos;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
-        /// lblSoporte control.
+        /// pnlBitacora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSoporte;
+        protected global::System.Web.UI.WebControls.Panel pnlBitacora;
         
         /// <summary>
-        /// pnlVms control.
+        /// gdvBitacora control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlVms;
+        protected global::System.Web.UI.WebControls.GridView gdvBitacora;
         
         /// <summary>
-        /// gdvVMs control.
+        /// lblResultado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvVMs;
-        
-        /// <summary>
-        /// AlmacenamientoC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ControlServidores.Web.Controles.AlmacenamientoC AlmacenamientoC;
-        
-        /// <summary>
-        /// InterfacesRedC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ControlServidores.Web.Controles.InterfacesRedC InterfacesRedC;
-        
-        /// <summary>
-        /// SistemasOperativosC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ControlServidores.Web.Controles.SistemasOperativosC SistemasOperativosC;
-        
-        /// <summary>
-        /// StorageC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ControlServidores.Web.Controles.StorageC StorageC;
-        
-        /// <summary>
-        /// BitacoraC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ControlServidores.Web.Controles.BitacoraC BitacoraC;
+        protected global::System.Web.UI.WebControls.Label lblResultado;
     }
 }
