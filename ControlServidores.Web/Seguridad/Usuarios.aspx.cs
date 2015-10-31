@@ -238,8 +238,13 @@ namespace ControlServidores.Web.Seguridad
                 {
                     lblResultado.Text = "Seleccionar un rol.";
                 }
+                else if (ddlPersona.SelectedValue == "0")
+                {
+                    lblResultado.Text = "Debe estar ligado a una persona.";
+                }
                 else
                 {
+ 
                     lblResultado.Text = "No tienes privilegios para realizar esta acción.";
                 }
             }

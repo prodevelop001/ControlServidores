@@ -189,9 +189,13 @@ namespace ControlServidores.Web.Seguridad
                 persona.IdPersona = Convert.ToInt32(lblIdPersona.Text);
                 resultado = Negocio.Seguridad.Personas.Actualizar(persona);
             }
+            else if (ddlEstatus.SelectedValue == "0")
+            {
+                lblResultado.Text = "Debe tener un Estatus.";
+            }
             else
             {
-                lblResultado.Text = "No tienes privilegios para realizar esta acción.";
+                    lblResultado.Text = "No tienes privilegios para realizar esta acción.";
             }
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
