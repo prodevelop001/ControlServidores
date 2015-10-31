@@ -5,11 +5,13 @@
 <%@ Register Src="~/Controles/StorageC.ascx" TagPrefix="uc1" TagName="StorageC" %>
 <%@ Register Src="~/Controles/AlmacenamientoC.ascx" TagPrefix="uc1" TagName="AlmacenamientoC" %>
 <%@ Register Src="~/Controles/BitacoraC.ascx" TagPrefix="uc1" TagName="BitacoraC" %>
+<%@ Register Src="~/Controles/CaracteristicasC.ascx" TagPrefix="uc1" TagName="CaracteristicasC" %>
+
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
-<%--    <style>
+    <%--    <style>
         .marco {
             float: left;
             border: 1px solid gray;
@@ -38,65 +40,30 @@
                     <div class="tituloDetalles">
                         <h4>Detalles Generales</h4>
                     </div>
-                    <label>Server name:</label>
-                    <div>
-                        <asp:Label ID="lblAliasServidor" runat="server" Text=""></asp:Label>
+                    <uc1:CaracteristicasC runat="server" id="CaracteristicasC" />
+                </div>
+                <%--Fin detalles General--%>
+                <asp:Panel ID="pnlVms" Visible="false" CssClass="hostVirtual" runat="server">
+                    <div class="tituloDetalles">
+                        <h4>VMs que aloja</h4>
                     </div>
-                    <label>Descripción:</label>
-                    <div>
-                        <asp:Label ID="lblDescripcionUso" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Tipo de servidor:</label>
-                    <div>
-                        <asp:Label ID="lblTipoServidor" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Modelo:</label>
-                    <div>
-                        <asp:HiddenField ID="hdfIdModelo" runat="server" />
-                        <asp:Label ID="lblModelo" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Procesador:</label>
-                    <div>
-                        <asp:Label ID="lblProcesador" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Número de procesadores:</label>
-                    <div>
-                        <asp:Label ID="lblNumProcesadores" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Capacidad de RAM:</label>
-                    <div>
-                        <asp:Label ID="lblCapacidadRam" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Arreglo de discos:</label>
-                    <div>
-                        <asp:Label ID="lblArregloDiscos" runat="server" Text=""></asp:Label>
-                    </div>
-                    <label>Soporte:</label>
-                    <div>
-                        <asp:Label ID="lblSoporte" runat="server" Text="Sin Soporte"></asp:Label>
-                    </div>
-                </div><%--Fin detalles General--%>
-                    <asp:Panel ID="pnlVms" Visible="false" CssClass="hostVirtual" runat="server">
-                        <div class="tituloDetalles">
-                            <h4>VMs que aloja</h4>
-                        </div>
-                        <asp:GridView ID="gdvVMs" runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <%# Container.DataItemIndex + 1 %>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="AliasServidor" HeaderText="VM" />
-                            </Columns>
-                        </asp:GridView>
-                    </asp:Panel>
+                    <asp:GridView ID="gdvVMs" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex + 1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="AliasServidor" HeaderText="VM" />
+                        </Columns>
+                    </asp:GridView>
+                </asp:Panel>
 
                 <div class="almacenammiento">
                     <div class="tituloDetalles">
                         <h4>Almacenamiento</h4>
                     </div>
-                    <uc1:AlmacenamientoC runat="server" id="AlmacenamientoC" />
+                    <uc1:AlmacenamientoC runat="server" ID="AlmacenamientoC" />
                 </div>
                 <div class="interfRed">
                     <div class="tituloDetalles">
@@ -108,19 +75,19 @@
                     <div class="tituloDetalles">
                         <h4>Sistema(s)</h4>
                     </div>
-                    <uc1:SistemasOperativosC runat="server" id="SistemasOperativosC" />
+                    <uc1:SistemasOperativosC runat="server" ID="SistemasOperativosC" />
                 </div>
                 <div class="storage">
                     <div class="tituloDetalles">
                         <h4>Storage</h4>
                     </div>
-                    <uc1:StorageC runat="server" id="StorageC" />
+                    <uc1:StorageC runat="server" ID="StorageC" />
                 </div>
                 <div class="bitacora">
                     <div class="tituloDetalles">
                         <h4>Bitacora</h4>
                     </div>
-                    <uc1:BitacoraC runat="server" id="BitacoraC" />
+                    <uc1:BitacoraC runat="server" ID="BitacoraC" />
                 </div>
             </div>
         </ContentTemplate>

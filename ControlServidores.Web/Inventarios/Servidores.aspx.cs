@@ -145,20 +145,39 @@ namespace ControlServidores.Web.Inventarios
             lblResultado.Text = string.Empty;
             lblResultado.ForeColor = System.Drawing.Color.Red;
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            if(ddlEstatusServidor.SelectedValue != "0" && ddlSO.SelectedValue != "0")
+            if (ddlEstatusServidor.SelectedValue != "0" && ddlSO.SelectedValue != "0")
             {
-                Entidades.Servidor servidor = new Entidades.Servidor();
-                servidor.AliasServidor = txtAliasServidor.Text.Trim();
-                servidor.DescripcionUso = txtDescripcionUso.Text.Trim();
-                servidor.Modelo = null;
-                servidor.Especificacion = null;
-                servidor.TipoServidor = null;
-                servidor.IdEstatus = Convert.ToInt32(ddlEstatusServidor.SelectedValue);
-                resultado = Negocio.Inventarios.Servidor.Nuevo(servidor);
-                resultado.errores.ForEach(delegate(Entidades.Logica.Error error)
+                resultado.resultado = true;
+                List<Entidades.ConfRed> consultaRed = new List<Entidades.ConfRed>();
+                consultaRed = Negocio.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { DirIP = txtDirIP.Text.Trim() });
+                if (consultaRed.Count > 0)
+                {
+                    Entidades.Logica.Error error = new Entidades.Logica.Error();
+                    resultado.resultado = false;
+                    error = new Entidades.Logica.Error();
+                    error.idError = 4;
+                    error.descripcionCorta = "Dirección de IP duplicada.";
+                    resultado.errores.Add(error);
+                }
+                resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
                 {
                     lblResultado.Text += error.descripcionCorta + "<br>";
                 });
+                Entidades.Servidor servidor = new Entidades.Servidor();
+                if (resultado.resultado == true)
+                {                    
+                    servidor.AliasServidor = txtAliasServidor.Text.Trim();
+                    servidor.DescripcionUso = txtDescripcionUso.Text.Trim();
+                    servidor.Modelo = null;
+                    servidor.Especificacion = null;
+                    servidor.TipoServidor = null;
+                    servidor.IdEstatus = Convert.ToInt32(ddlEstatusServidor.SelectedValue);
+                    resultado = Negocio.Inventarios.Servidor.Nuevo(servidor);
+                    resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                    {
+                        lblResultado.Text += error.descripcionCorta + "<br>";
+                    });
+                }
                 if(resultado.resultado == true)
                 {
                     List<Entidades.Servidor> consultaServidor = new List<Entidades.Servidor>();
@@ -211,13 +230,13 @@ namespace ControlServidores.Web.Inventarios
                         {
                             List<Entidades.BitacoraMantenimiento> conBitacor = new List<Entidades.BitacoraMantenimiento>();
                             conBitacor = Negocio.Bitacoras.BitacoraMantenimiento.Obtener(bitacora);
-                            if(conBitacor.Count > 0)
+                            if (conBitacor.Count > 0)
                             {
                                 int idBit = conBitacor.First().IdBitacora;
                                 Entidades.PersonaXservidor asoc = new Entidades.PersonaXservidor();
                                 asoc.Servidor.IdServidor = idSer;
                                 asoc.Bitacora.IdBitacora = idBit;
-                                asoc.Personas = null;
+                                asoc.Personas.IdPersona = ((Entidades.Usuarios)Session["usuario"]).IdPersona.IdPersona;
                                 resultado = Negocio.Inventarios.PersonaXservidor.Nuevo(asoc);
                                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
                                 {

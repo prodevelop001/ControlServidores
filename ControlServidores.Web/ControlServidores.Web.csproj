@@ -80,6 +80,7 @@
     <Content Include="Catalogos\Empresas.aspx" />
     <Content Include="Controles\AlmacenamientoC.ascx" />
     <Content Include="Controles\BitacoraC.ascx" />
+    <Content Include="Controles\CaracteristicasC.ascx" />
     <Content Include="Controles\InterfacesRedC.ascx" />
     <Content Include="Controles\SistemasOperativosC.ascx" />
     <Content Include="Controles\StorageC.ascx" />
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="Controles\BitacoraC.ascx.designer.cs">
       <DependentUpon>BitacoraC.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\CaracteristicasC.ascx.cs">
+      <DependentUpon>CaracteristicasC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\CaracteristicasC.ascx.designer.cs">
+      <DependentUpon>CaracteristicasC.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controles\InterfacesRedC.ascx.cs">
       <DependentUpon>InterfacesRedC.ascx</DependentUpon>

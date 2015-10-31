@@ -28,7 +28,7 @@ namespace ControlServidores.Negocio.Inventarios
             resultado.resultado = true;
 
             List<Entidades.ConfRed> consultaRed = new List<Entidades.ConfRed>();
-            consultaRed = Datos.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { DirIP = a.DirIP, MascaraSubRed = a.MascaraSubRed });
+            consultaRed = Datos.Inventarios.ConfRed.Obtener(new Entidades.ConfRed() { DirIP = a.DirIP });
             if (consultaRed.Count > 0)
             {
                 resultado.resultado = false;
