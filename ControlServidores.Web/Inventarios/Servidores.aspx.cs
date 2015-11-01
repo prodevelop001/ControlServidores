@@ -36,7 +36,7 @@ namespace ControlServidores.Web.Inventarios
 
         private void llenarRprServidores()
         {
-            _Servidores = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdVirtualizador = -1, Modelo = null, Especificacion = null, TipoServidor = null});
+            _Servidores = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdVirtualizador = -1, Modelo = null, Especificacion = null });
             var _servidores = from l in _Servidores
                               where l.IdVirtualizador == 0
                               select l;
@@ -100,11 +100,12 @@ namespace ControlServidores.Web.Inventarios
         protected void rptServidores_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             HiddenField IdServidor = (HiddenField)e.Item.FindControl("hdfIdServidor");
+            HiddenField IdTipoServidor = (HiddenField)e.Item.FindControl("hdfIdTipoServidor");
             int _IdServidor = Convert.ToInt32(IdServidor.Value);
             var _servidores = from l in _Servidores
                               where l.IdVirtualizador == _IdServidor
                               select l;
-
+            
             GridView gdvServidoresHijos = (GridView)e.Item.FindControl("gdvServidoresHijos");
             //gdvServidoresHijos.DataSource = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdVirtualizador = _IdServidor });
             gdvServidoresHijos.DataSource = _servidores;

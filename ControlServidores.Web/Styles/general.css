@@ -789,6 +789,41 @@ h1, h2, h3, h4, h5, h6{
         box-sizing: border-box;
     }
 
+.srvsHijos{
+    border: 1px solid blue;
+    width: 90%;
+    margin: 7px auto;
+
+
+    overflow: hidden;
+}
+    .srvsHijos tr td{
+        padding: 3px 3px;
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+    .srvsHijos tbody tr th{
+        background-color: #E31E73;
+        color: white;
+        padding: 3px 3px;
+        font-weight: 800;
+
+        box-sizing: border-box;
+    }
+        .srvsHijos tr td:nth-child(4) a {
+            color: #F43CAB;
+            font-weight: 800;
+        }
+            .srvsHijos tr td:nth-child(4) a:hover {
+                color: blueviolet;
+            }
+        .srvsHijos tr:nth-child(odd){
+            background-color: #FFF;
+        }
+        .srvsHijos tr:nth-child(even){
+            background-color: #DDD;
+        }
 /********NUEVOS SERVIDORES*******/
 .nuevoServidor{
     width: 100%;

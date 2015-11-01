@@ -108,6 +108,7 @@
                                     <div class="elemServidor">
                                         <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
                                         <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
+                                        <asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("idTipoServidor") %>' runat="server" />
                                         <div class="titulos">
                                             <%--<label>Server name:&nbsp;</label>--%>
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
@@ -117,8 +118,9 @@
                                             <label>Dirección IP : &nbsp;</label>
                                             
                                         </div>
-                                        <div>
-                                            <asp:GridView ID="gdvServidoresHijos" AutoGenerateColumns="false" runat="server">
+                                        <%--<div class="srvsHijos">--%>
+                                        <div class="limpiar"></div>
+                                            <asp:GridView ID="gdvServidoresHijos" CssClass="srvsHijos" AutoGenerateColumns="false" runat="server">
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="#">
                                                         <ItemTemplate>
@@ -134,7 +136,7 @@
                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
-                                        </div>
+                                        <%--</div>--%>
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>
