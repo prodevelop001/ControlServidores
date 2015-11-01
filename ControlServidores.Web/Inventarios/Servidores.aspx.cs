@@ -100,7 +100,7 @@ namespace ControlServidores.Web.Inventarios
         protected void rptServidores_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             HiddenField IdServidor = (HiddenField)e.Item.FindControl("hdfIdServidor");
-            HiddenField IdTipoServidor = (HiddenField)e.Item.FindControl("hdfIdTipoServidor");
+            //HiddenField IdTipoServidor = (HiddenField)e.Item.FindControl("hdfIdTipoServidor");
             int _IdServidor = Convert.ToInt32(IdServidor.Value);
             var _servidores = from l in _Servidores
                               where l.IdVirtualizador == _IdServidor

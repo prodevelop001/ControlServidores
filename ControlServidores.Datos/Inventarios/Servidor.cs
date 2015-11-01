@@ -31,7 +31,7 @@ namespace ControlServidores.Datos.Inventarios
                     }
                     if(a.TipoServidor != null)
                     {
-                        crit.CreateAlias("s.TipoServidor", "idTipoServidor", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.CreateAlias("s.TipoServidor", "idTipoServidor", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
                         if (a.TipoServidor.IdTipoServidor != 0 && a.TipoServidor.IdTipoServidor.ToString() != "")
                             crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idTipoServidor.IdTipoServidor", a.TipoServidor.IdTipoServidor)));
                     }

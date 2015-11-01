@@ -108,7 +108,7 @@
                                     <div class="elemServidor">
                                         <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
                                         <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
-                                        <asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("idTipoServidor") %>' runat="server" />
+                                        <asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("TipoServidor.IdTipoServidor") %>' runat="server" />
                                         <div class="titulos">
                                             <%--<label>Server name:&nbsp;</label>--%>
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
