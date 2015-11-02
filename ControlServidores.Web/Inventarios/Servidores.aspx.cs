@@ -302,13 +302,19 @@ namespace ControlServidores.Web.Inventarios
 
             if(todos== true)
             {
-                llenarRprServidores();
+                //llenarRprServidores();
+                Response.Redirect("~/Inventarios/Servidores.aspx");
             }
             else
             {
                 rptServidores.DataSource = servidoresEncontrados;
                 rptServidores.DataBind();
             }
+        }
+
+        protected void rptServidores_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

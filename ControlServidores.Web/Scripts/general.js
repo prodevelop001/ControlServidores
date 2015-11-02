@@ -25,10 +25,42 @@ function agregar_iconos() {
     var y2 = document.querySelectorAll(".miTabla"+num+" tbody tr td:nth-child(" + num + ") a");
 
     var i2;
-    for (i2 = 0 ; 2 < y2.length; i2++) {
+    for (i2 = 0 ; i2 < y2.length; i2++) {
         y2[i2].className = y2.className + " icon-cross";
     }
 }
+
+
+    //-----------------------------Modificar DIV padre------------------------------
+document.getElementById("ppalServidores").addEventListener("onmouseover", hacerAlgo());
+//document.getElementById("cuerpoPpal_btnBuscar").addEventListener("onclick", hacerAlgo());
+function hacerAlgo(){
+    var Tipo = document.getElementsByClassName("tipoServidor");
+    //alert("Estoy Aqui");
+    var z;
+    var tpSrv;
+    for (z = 0 ; z < Tipo.length ; z++)
+    {
+        
+        if (Tipo[z].innerHTML === "2") {
+            //alert("Detecte un Padre");
+            //Tipo[z].innerHTML = "Hola mundo";
+            //var Padre = document.getElementsByClassName('tipoServidor').parentNode;
+            var Padre = Tipo[z].parentNode;
+            Padre.style.width = '96%';
+        }
+    }    
+}
+//-----------------------------Modificar DIV padre------------------------------
+
+    var Tipo = document.getElementById('lblIdTipoServidor').innerHTML;
+    if (Tipo === "2") {
+        var Padre = document.getElementById('lblIdTipoServidor').parentNode;
+        Padre.style.width = '96%';
+    }
+
+
+
 
 //-----------------------------Concepto Estatus---------------------------------------
 

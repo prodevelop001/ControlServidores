@@ -9,7 +9,7 @@
     </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
-    <div class="principal">
+    <div id="ppalServidores" class="principal">
         <div class="ttlPrincipal">
             <h1>Servidores</h1>
         </div>
@@ -83,7 +83,7 @@
                     <div style="width: 100%; margin: 0; float: left;">
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                     </div>
-                    <asp:Panel ID="pnlServidores" Visible="false" runat="server">
+                    <asp:Panel ID="pnlServidores" DefaultButton="btnBuscar" Visible="false" runat="server">
                         <div class="formBusqueda">
                             <div class="busquedaGrp">
                                 <label>Por alias:&nbsp;</label>
@@ -91,24 +91,26 @@
                             </div>
                             <div class="busquedaGrp">
                                 <label>Por IP:&nbsp;</label>
-                                <asp:TextBox ID="txtPorIp" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPorIp" onkeypress="Enter(event);" runat="server"></asp:TextBox>
                             </div>
                             <div class="busquedaGrp">
                                 <label>Por aplicación:&nbsp;</label>
-                                <asp:TextBox ID="txtPorAplicacion" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPorAplicacion" onkeypress="Enter(event);" runat="server"></asp:TextBox>
                             </div>
                             <div class="busquedaBoton">
                                 <asp:RegularExpressionValidator ID="revPorIp" runat="server" ErrorMessage="Ip invalida." ControlToValidate="txtPorIp" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor2"></asp:RegularExpressionValidator>
-                                <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" ValidationGroup="Servidor2" />
+                                <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click"  ValidationGroup="Servidor2" />
                             </div>
                         </div>
                         <div class="listServidores">
-                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
+                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound" OnLoad="rptServidores_Load">
                                 <ItemTemplate>
                                     <div class="elemServidor">
                                         <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
                                         <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
-                                        <asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("TipoServidor.IdTipoServidor") %>' runat="server" />
+                                        <%--<asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("TipoServidor.IdTipoServidor") %>' runat="server" />--%>
+                                        <%--<asp:Label ID="lblIdTipoServidor" CssClass="tipoServidor" runat="server" Text='<%# Eval("TipoServidor.IdTipoServidor") %>'></asp:Label>--%>
+                                        <div onclick="hacerAlgo();" class="tipoServidor"><%# Eval("TipoServidor.IdTipoServidor") %></div>
                                         <div class="titulos">
                                             <%--<label>Server name:&nbsp;</label>--%>
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
@@ -120,7 +122,7 @@
                                         </div>
                                         <%--<div class="srvsHijos">--%>
                                         <div class="limpiar"></div>
-                                            <asp:GridView ID="gdvServidoresHijos" CssClass="srvsHijos" AutoGenerateColumns="false" runat="server">
+                                            <asp:GridView ID="gdvServidoresHijos" CssClass="srvsHijos" AutoGenerateColumns="false" runat="server" >
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="#">
                                                         <ItemTemplate>
@@ -145,5 +147,16 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+        <script type="text/javascript">
+            function Enter(event) {
+                var x = event.which || event.keyCode;
+                if (x === 13) {
+                    //alert("Has presionado ENTER");
+                    var obj = document.getElementById("<%=btnBuscar.ClientID%>");
+                    obj.click();
+                }
+
+            }
+        </script>
     </div>
 </asp:Content>

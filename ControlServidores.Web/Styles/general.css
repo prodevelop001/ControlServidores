@@ -790,7 +790,7 @@ h1, h2, h3, h4, h5, h6{
     }
 
 .srvsHijos{
-    border: 1px solid blue;
+    //border: 1px solid blue;
     width: 90%;
     margin: 7px auto;
 
@@ -1049,4 +1049,9 @@ h1, h2, h3, h4, h5, h6{
 
 .btnCambiarPWD{
     padding: 13px 7px; 
+}
+
+
+.tipoServidor{
+    display: none;
 }
