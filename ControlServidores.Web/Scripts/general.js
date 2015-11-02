@@ -44,6 +44,7 @@ function hacerAlgo(){
         
         if (Tipo[z].innerHTML === "2") {
             //alert("Detecte un Padre");
+            //prueba
             //Tipo[z].innerHTML = "Hola mundo";
             //var Padre = document.getElementsByClassName('tipoServidor').parentNode;
             var Padre = Tipo[z].parentNode;
