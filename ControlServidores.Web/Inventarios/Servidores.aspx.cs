@@ -210,6 +210,7 @@ namespace ControlServidores.Web.Inventarios
                         //if (!string.IsNullOrWhiteSpace(txtVlan.Text.Trim()))
                         //    red.VLAN = txtVlan.Text.Trim();
                         //red.Estatus.IdEstatus = Convert.ToInt32(ddlEstatusRed.SelectedValue);
+                        red.Estatus = null;
                         resultado = Negocio.Inventarios.ConfRed.Nuevo(red);
                         resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
                         {
