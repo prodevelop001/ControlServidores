@@ -110,7 +110,7 @@
                                         <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
                                         <%--<asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("TipoServidor.IdTipoServidor") %>' runat="server" />--%>
                                         <%--<asp:Label ID="lblIdTipoServidor" CssClass="tipoServidor" runat="server" Text='<%# Eval("TipoServidor.IdTipoServidor") %>'></asp:Label>--%>
-                                        <div onclick="hacerAlgo();" class="tipoServidor"><%# Eval("TipoServidor.IdTipoServidor") %></div>
+                                        <div class="tipoServidor"><%# Eval("TipoServidor.IdTipoServidor") %></div>
                                         <div class="titulos">
                                             <%--<label>Server name:&nbsp;</label>--%>
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
