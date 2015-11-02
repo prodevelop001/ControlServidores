@@ -4,26 +4,27 @@
         <asp:HiddenField ID="hdfIdServidor" runat="server" />
         <asp:HiddenField ID="hdfIdBitacora" runat="server" />
         <asp:HiddenField ID="hdfEstado" runat="server" />
-        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+        <div class="agregarNuevo">
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+        </div>
     </div>
-    <asp:Panel ID="pnlForm" Visible ="false" runat="server">
-        <label>Fecha de procedimiento</label>
-        <div>
+    <asp:Panel ID="pnlForm" CssClass="miFormulario" Visible ="false" runat="server">
+        <div class="formCampos">
+            <label>Fecha de procedimiento</label>
             <asp:TextBox ID="txtFechaProc" runat="server"></asp:TextBox>
         </div>
-        <label>Descripción</label>
-        <div>
+        <div class="formCampos">
+            <label>Descripción</label>
             <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" Rows="5" runat="server"></asp:TextBox>
-            <br />
             <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtDescripcion" ForeColor="Red" ValidationGroup="Bitacora"></asp:RequiredFieldValidator>
         </div>
-        <label>Observaciones</label>
-        <div>
+        <div class="formCampos">
+            <label>Observaciones</label>
             <asp:TextBox ID="txtObservaciones" TextMode="MultiLine" Rows="5" runat="server"></asp:TextBox>
         </div>
-        <div>
-            <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" ValidationGroup="Bitacora" />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+        <div class="formBotones">
+            <asp:Button ID="btnRegistrar" CssClass="btnGuardar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" ValidationGroup="Bitacora" />
+            <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlBitacora" runat="server">

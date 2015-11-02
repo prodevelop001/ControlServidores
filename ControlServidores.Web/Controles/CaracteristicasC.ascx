@@ -75,8 +75,8 @@
             </div>
         <%--</div>--%>
         <div>
-            <asp:Button ID="btnActualizar" runat="server" Text="Actualizar" ValidationGroup="Caracteristicas" OnClick="btnActualizar_Click" />
-            <asp:Button ID="Cancelar" runat="server" Text="Cancelar" OnClick="Cancelar_Click" />
+            <asp:Button ID="btnActualizar" CssClass="btnGuardar" runat="server" Text="Actualizar" ValidationGroup="Caracteristicas" OnClick="btnActualizar_Click" />
+            <asp:Button ID="Cancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="Cancelar_Click" />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlCaracteristicas" runat="server">        

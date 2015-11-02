@@ -413,7 +413,7 @@ h1, h2, h3, h4, h5, h6{
         background-color: #DDD;
     }
 /************FORMULARIOS***********/
-.formCampos{
+.formCampos, .formCamposDdl{
     width: 80%;
     margin: 15px auto;
     font-size: 14px;
@@ -428,10 +428,10 @@ h1, h2, h3, h4, h5, h6{
     overflow: hidden;
 }
 
-    .formCampos label{
+    .formCampos label, .formCamposDdl label{
         text-align: right;
     }
-    .formCampos input{
+    .formCampos input, .formCamposDdl input{
         border: solid 1px #555454;
     }
 
@@ -444,11 +444,41 @@ h1, h2, h3, h4, h5, h6{
 
         box-sizing: border-box;
     }
-            .formCampos input[type="text"], 
+    .formCampos textarea{
+        width: 50%;
+        display: block;
+        float: left;
+        padding: 7px;
+        resize: none;
+
+        box-sizing: border-box;
+    }
+    .formCamposDdl input, .formCamposDdl label{
+        width: 35%;
+        display: block;
+        float: left;
+        margin: 5px;
+        padding: 7px;
+
+        box-sizing: border-box;
+    }
+    .formCamposDdl select {
+        width: 20%;
+        display: block;
+        float: left;
+        margin: 5px;
+        padding: 7px;
+
+        box-sizing: border-box;
+    }
+            .formCampos input[type="text"],
             .formCampos input[type="password"], 
             .formCampos input[type="number"], 
+            .formCamposDdl input[type="number"], 
             .formCampos input[type="email"],
-            .formCampos select {
+            .formCampos select,
+            .formCamposDdl select,
+            .formCampos textarea{
             -webkit-border-radius: 5px;
 	        -moz-border-radius: 5px;
 	        -o-border-radius: 5px;
@@ -470,8 +500,11 @@ h1, h2, h3, h4, h5, h6{
             .formCampos input[type="text"]:focus, 
             .formCampos input[type="password"]:focus, 
             .formCampos input[type="number"]:focus, 
+            .formCamposDdl input[type="number"]:focus,
             .formCampos input[type="email"]:focus,
-             .formCampos select:focus{
+            .formCampos select:focus,
+            .formCamposDdl select:focus,
+            .formCampos textarea:focus{
                 border: solid 1px #C30F76;
             }
 

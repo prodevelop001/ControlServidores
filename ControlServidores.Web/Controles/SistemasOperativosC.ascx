@@ -12,8 +12,8 @@
             <asp:DropDownList ID="ddlSO" runat="server"></asp:DropDownList>
         </div>
         <div class="formBotones">
-            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+            <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+            <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlSO" runat="server">

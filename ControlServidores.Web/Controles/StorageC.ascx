@@ -11,7 +11,7 @@
             <label>Tipo Storage: </label>
             <asp:DropDownList ID="ddlTipoStorageForm" runat="server"></asp:DropDownList>
         </div>
-        <div class="formCampos">
+        <div class="formCamposDdl">
             <label>Capacidad Asignada: </label>
             <asp:TextBox ID="txtCapacidad" runat="server" TextMode="Number"></asp:TextBox>&nbsp;
             <asp:DropDownList ID="ddlCapacidad" runat="server">
@@ -24,8 +24,8 @@
             <asp:RequiredFieldValidator ID="rfvCapacidadAsignada" runat="server" ErrorMessage="*Asignacion de memoria requerida." ControlToValidate="txtCapacidad" ForeColor="Red" ValidationGroup="Storage"></asp:RequiredFieldValidator>
         </div>
         <div class="formBotones">
-            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" ValidationGroup="Storage" OnClick="btnGuardar_Click" />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+            <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" ValidationGroup="Storage" OnClick="btnGuardar_Click" />
+            <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlStorage" runat="server">

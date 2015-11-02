@@ -4,21 +4,23 @@
         <asp:HiddenField ID="hdfEstado" runat="server" />
         <asp:HiddenField ID="hdfIdServidor" runat="server" />
         <asp:HiddenField ID="hdfIdAlmacenamiento" runat="server" />
-        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+        <div class="agregarNuevo">
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+        </div>
     </div>
-    <asp:Panel ID="pnlForm" Visible="false" runat="server">
+    <asp:Panel ID="pnlForm" CssClass="miFormulario" Visible="false" runat="server">
 
-        <label>Nombre de Unidad</label>
-        <div>
+        <div class="formCampos">
+            <label>Nombre de Unidad</label>
             <asp:TextBox ID="txtUnidad" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvUnidad" runat="server" ErrorMessage="*Nombre de unidad requerida." ControlToValidate="txtUnidad" ForeColor="Red" ValidationGroup="Almacenamiento"></asp:RequiredFieldValidator>
         </div>
-        <label>Tipo de almacenamiento</label>
-        <div>
+        <div class="formCampos">
+            <label>Tipo de almacenamiento</label>
             <asp:DropDownList ID="ddlTipoAlmacenamiento" runat="server"></asp:DropDownList>
         </div>
-        <label>Capacidad</label>
-        <div>
+        <div class="formCamposDdl">
+            <label>Capacidad</label>
             <asp:TextBox ID="txtCapacidad" TextMode="Number" runat="server"></asp:TextBox>
             &nbsp;
                 <asp:DropDownList ID="ddlCapacidad" runat="server">
@@ -27,16 +29,15 @@
                     <asp:ListItem Text="GB" Value="GB"></asp:ListItem>
                     <asp:ListItem Text="TB" Value="TB"></asp:ListItem>
                 </asp:DropDownList>
-            <br />
             <asp:RequiredFieldValidator ID="rfvCapacidad" runat="server" ErrorMessage="*Capacidad requerida." ControlToValidate="txtCapacidad" ForeColor="Red" ValidationGroup="Almacenamiento"></asp:RequiredFieldValidator>
         </div>
-        <div>
-            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" ValidationGroup="Almacenamiento" OnClick="btnGuardar_Click" />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+        <div class="formBotones">
+            <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" ValidationGroup="Almacenamiento" OnClick="btnGuardar_Click" />
+            <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlAlmacenamiento" runat="server">
-        <asp:GridView ID="gdvAlmacenamiento" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvAlmacenamiento_RowDataBound" OnRowDeleting="gdvAlmacenamiento_RowDeleting" OnSelectedIndexChanged="gdvAlmacenamiento_SelectedIndexChanged">
+        <asp:GridView ID="gdvAlmacenamiento" runat="server" CssClass="miTabla8" AutoGenerateColumns="False" OnRowDataBound="gdvAlmacenamiento_RowDataBound" OnRowDeleting="gdvAlmacenamiento_RowDeleting" OnSelectedIndexChanged="gdvAlmacenamiento_SelectedIndexChanged">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
