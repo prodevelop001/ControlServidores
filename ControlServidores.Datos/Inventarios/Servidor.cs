@@ -19,13 +19,13 @@ namespace ControlServidores.Datos.Inventarios
 
                     if (a.Modelo != null)
                     {
-                        crit.CreateAlias("s.Modelo", "idModelo", NHibernate.SqlCommand.JoinType.InnerJoin);                        
+                        crit.CreateAlias("s.Modelo", "idModelo", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
                         if (a.Modelo.IdModelo != 0 && a.Modelo.IdModelo.ToString() != "")
                             crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idModelo.IdModelo", a.Modelo.IdModelo)));
                     }
                     if(a.Especificacion != null)
                     {
-                        crit.CreateAlias("s.Especificacion", "idEspecificacion", NHibernate.SqlCommand.JoinType.InnerJoin);
+                        crit.CreateAlias("s.Especificacion", "idEspecificacion", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
                         if (a.Especificacion.IdEspecificacion != 0 && a.Especificacion.IdEspecificacion.ToString() != "")
                             crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idEspecificacion.IdEspecificacion", a.Especificacion.IdEspecificacion)));
                     }

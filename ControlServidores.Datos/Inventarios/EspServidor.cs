@@ -22,7 +22,9 @@ namespace ControlServidores.Datos.Inventarios
 
                     if (a.IdEspecificacion != 0 && a.IdEspecificacion.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEspecificacion", a.IdEspecificacion));
-					if (a.IdProcesador != 0 && a.IdProcesador.ToString() != "")
+                    if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
+                        crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
+                    if (a.IdProcesador != 0 && a.IdProcesador.ToString() != "")
                         crit.Add(Restrictions.Eq("IdProcesador", a.IdProcesador));
                    if (a.NumProcesadores != 0 && a.NumProcesadores.ToString() != "")
                         crit.Add(Restrictions.Eq("NumProcesadores", a.NumProcesadores));

@@ -5,6 +5,8 @@ namespace ControlServidores.Entidades
 	public class EspServidor
 	{
 		public virtual int IdEspecificacion {get;set;}
+
+        public virtual int IdServidor { get; set; }
 		
 		public virtual int IdProcesador {get; set; }
 		

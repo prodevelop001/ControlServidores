@@ -29,7 +29,7 @@ namespace ControlServidores.Web.Controles
             if(!IsPostBack)
             {
                 hdfIdServidor.Value = _IdServidor.ToString();
-                datosPrincipales();
+                datosPrincipales(1);
             }
         }
 
@@ -45,38 +45,307 @@ namespace ControlServidores.Web.Controles
             }
         }
 
-        private void datosPrincipales()
+        private void datosPrincipales(int opcion)
         {
             List<Entidades.Servidor> servidores = new List<Entidades.Servidor>();
             servidores = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdServidor = _IdServidor, IdVirtualizador = -1 });
-            if (servidores.Count > 0)
+            if(opcion == 1)
             {
-                lblAliasServidor.Text = servidores.First().AliasServidor;
-                lblDescripcionUso.Text = servidores.First().DescripcionUso;
-                lblTipoServidor.Text = servidores.First().TipoServidor.Tipo;
-                hdfIdModelo.Value = servidores.First().IdModelo.ToString();
-                lblModelo.Text = servidores.First().Modelo.NombreModelo;
-                lblNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
-                lblCapacidadRam.Text = servidores.First().Especificacion.CapacidadRAM;
-                lblProcesador.Text = servidores.First().Especificacion.Procesador.Nombre + "<br>";
-                lblProcesador.Text += servidores.First().Especificacion.Procesador.NumCores.ToString() + " Core(s) <br>";
-                lblProcesador.Text += "Velocidad de " + servidores.First().Especificacion.Procesador.Velocidad + "<br>";
-                lblProcesador.Text += "Cache " + servidores.First().Especificacion.Procesador.Cache + "<br>";
-                lblProcesador.Text += "Tamaño de instrucción " + servidores.First().Especificacion.Procesador.TamanoPalabra + "<br>";
-                lblArregloDiscos.Text = servidores.First().Especificacion.TipoArregloDisco.Tipo;
+                if (servidores.Count > 0)
+                {
+                    lblAliasServidor.Text = servidores.First().AliasServidor;
+                    lblDescripcionUso.Text = servidores.First().DescripcionUso;
+                    if(servidores.First().TipoServidor != null)
+                        lblTipoServidor.Text = servidores.First().TipoServidor.Tipo;
+                    hdfIdModelo.Value = servidores.First().IdModelo.ToString();
+                    if (servidores.First().Modelo != null)
+                        lblModelo.Text = servidores.First().Modelo.NombreModelo;
+                    if (servidores.First().Especificacion != null)
+                    {
+                        lblNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
+                        lblCapacidadRam.Text = servidores.First().Especificacion.CapacidadRAM;
+                        lblProcesador.Text = servidores.First().Especificacion.Procesador.Nombre + "<br>";
+                        lblProcesador.Text += servidores.First().Especificacion.Procesador.NumCores.ToString() + " Core(s) <br>";
+                        lblProcesador.Text += "Velocidad de " + servidores.First().Especificacion.Procesador.Velocidad + "<br>";
+                        lblProcesador.Text += "Cache " + servidores.First().Especificacion.Procesador.Cache + "<br>";
+                        lblProcesador.Text += "Tamaño de instrucción " + servidores.First().Especificacion.Procesador.TamanoPalabra + "<br>";
+                    }
+                    if (servidores.First().Especificacion != null)
+                    {
+                        if (servidores.First().Especificacion.TipoArregloDisco != null)
+                            lblArregloDiscos.Text = servidores.First().Especificacion.TipoArregloDisco.Tipo;
+                    }
+
+                }
+                lblSoporte.ForeColor = System.Drawing.Color.Red;
+                List<Entidades.Soporte> soporte = new List<Entidades.Soporte>();
+                int IdModelo = !string.IsNullOrEmpty(hdfIdModelo.Value) ? Convert.ToInt32(hdfIdModelo.Value) : -1;
+                soporte = Negocio.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdModelo = IdModelo });
+                if (soporte.Count > 0)
+                {
+                    lblSoporte.ForeColor = System.Drawing.Color.Green;
+                    lblSoporte.Text = " de ";
+                    lblSoporte.Text += ((DateTime)soporte.First().FechaInicio).ToString("dd/MM/yyyy") + " a ";
+                    lblSoporte.Text += ((DateTime)soporte.First().FechaFin).ToString("dd/MM/yyyy") + "<br>";
+                    lblSoporte.Text += soporte.First().Empresa.Nombre + "<br>";
+                    lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
+                }
             }
-            lblSoporte.ForeColor = System.Drawing.Color.Red;
-            List<Entidades.Soporte> soporte = new List<Entidades.Soporte>();
-            int IdModelo = !string.IsNullOrEmpty(hdfIdModelo.Value) ? Convert.ToInt32(hdfIdModelo.Value) : -1;
-            soporte = Negocio.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdModelo = IdModelo });
-            if (soporte.Count > 0)
+            else if(opcion == 2)
             {
-                lblSoporte.ForeColor = System.Drawing.Color.Green;
-                lblSoporte.Text = " de ";
-                lblSoporte.Text += ((DateTime)soporte.First().FechaInicio).ToString("dd/MM/yyyy") + " a ";
-                lblSoporte.Text += ((DateTime)soporte.First().FechaFin).ToString("dd/MM/yyyy") + "<br>";
-                lblSoporte.Text += soporte.First().Empresa.Nombre + "<br>";
-                lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
+                if (servidores.Count > 0)
+                {
+                    txtAliasServidor.Text = servidores.First().AliasServidor;
+                    txtDescripcion.Text = servidores.First().DescripcionUso;
+                    if(servidores.First().IdVirtualizador != 0)
+                    {
+                        ddlVirtualizador.Enabled = true;
+                        ddlVirtualizador.SelectedValue = servidores.First().IdVirtualizador.ToString();
+                    }
+                    if (servidores.First().TipoServidor != null)
+                        ddlTipoServidor.SelectedValue = servidores.First().TipoServidor.IdTipoServidor.ToString();                    
+                    if (servidores.First().Modelo != null)
+                    {
+                        hdfIdModelo.Value = servidores.First().IdModelo.ToString();
+                        ddlMarca.SelectedValue = servidores.First().Modelo.IdMarca.ToString();
+                        llenarDdlModelo();
+                        ddlModelo.SelectedValue = servidores.First().Modelo.IdModelo.ToString();
+                    }                       
+                    if (servidores.First().Especificacion != null)
+                    {
+                        txtNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
+                        txtCapacidadRam.Text = servidores.First().Especificacion.CapacidadRAM.Split(' ').ElementAt(0);
+                        ddlCapacidadRam.SelectedValue = servidores.First().Especificacion.CapacidadRAM.Split(' ').ElementAt(1);
+                        ddlProcesador.SelectedValue = servidores.First().Especificacion.Procesador.IdProcesador.ToString();
+                        txtNumProcesadores.Text += servidores.First().Especificacion.Procesador.NumCores.ToString();
+                        
+                    }
+                    if (servidores.First().Especificacion != null)
+                    {
+                        if (servidores.First().Especificacion.TipoArregloDisco != null)
+                            ddlArregloDiscos.SelectedValue = servidores.First().Especificacion.TipoArregloDisco.IdTipoArreglo.ToString();
+                    }
+                    ddlEstatus.SelectedValue = servidores.First().IdEstatus.ToString();
+                }
+            }
+            
+        }
+
+        private void llenarDdlMarcas()
+        {
+            ddlMarca.Items.Clear();
+            ddlMarca.AppendDataBoundItems = true;
+            ddlMarca.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlMarca.DataTextField = "NombreMarca";
+            ddlMarca.DataValueField = "IdMarca";
+            ddlMarca.DataSource = Negocio.Catalogos.MarcaServidor.obtenerMarcaServidor(new Entidades.MarcaServidor());
+            ddlMarca.DataBind();
+        }
+
+        private void llenarDdlModelo()
+        {
+            ddlModelo.Items.Clear();
+            ddlModelo.AppendDataBoundItems = true;
+            ddlModelo.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlModelo.DataTextField = "NombreModelo";
+            ddlModelo.DataValueField = "IdModelo";
+            ddlModelo.DataSource = Negocio.Catalogos.Modelo.Obtener(new Entidades.Modelo() { IdMarca = Convert.ToInt32(ddlMarca.SelectedValue) });
+            ddlModelo.DataBind();
+        }
+
+        private void llenarDdlTipoServidor()
+        {
+            ddlTipoServidor.Items.Clear();
+            ddlTipoServidor.AppendDataBoundItems = true;
+            ddlTipoServidor.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlTipoServidor.DataTextField = "Tipo";
+            ddlTipoServidor.DataValueField = "IdTipoServidor";
+            ddlTipoServidor.DataSource = Negocio.Catalogos.TipoServidor.Obtener(new Entidades.TipoServidor());
+            ddlTipoServidor.DataBind();
+        }
+
+        private void virtualizadoresDisponibles()
+        {
+            ddlVirtualizador.Items.Clear();
+            ddlVirtualizador.AppendDataBoundItems = true;
+            ddlVirtualizador.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlVirtualizador.DataTextField = "AliasServidor";
+            ddlVirtualizador.DataValueField = "IdServidor";
+            ddlVirtualizador.DataSource = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdVirtualizador = 0, TipoServidor = new Entidades.TipoServidor() { IdTipoServidor = 2 } });
+            ddlVirtualizador.DataBind();
+        }
+
+        private void llenarDdlEstatus()
+        {
+            ddlEstatus.Items.Clear();
+            ddlEstatus.AppendDataBoundItems = true;
+            ddlEstatus.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlEstatus.DataTextField = "_Estatus";
+            ddlEstatus.DataValueField = "IdEstatus";
+            ddlEstatus.DataSource = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
+            {
+                IdConceptoEstatus = 6
+            });
+            ddlEstatus.DataBind();
+        }
+
+        private void llenarDdlProcesador()
+        {
+            ddlProcesador.Items.Clear();
+            ddlProcesador.AppendDataBoundItems = true;
+            ddlProcesador.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlProcesador.DataTextField = "Nombre";
+            ddlProcesador.DataValueField = "IdProcesador";
+            ddlProcesador.DataSource = Negocio.Catalogos.Procesador.Obtener(new Entidades.Procesador());
+            ddlProcesador.DataBind();
+        }
+
+        private void llenarDdlArregloDiscos()
+        {
+            ddlArregloDiscos.Items.Clear();
+            ddlArregloDiscos.AppendDataBoundItems = true;
+            ddlArregloDiscos.Items.Add(new ListItem("-- Seleccionar --", "0"));
+            ddlArregloDiscos.DataTextField = "Tipo";
+            ddlArregloDiscos.DataValueField = "IdTipoArreglo";
+            ddlArregloDiscos.DataSource = Negocio.Catalogos.TipoArregloDisco.Obtener(new Entidades.TipoArregloDisco());
+            ddlArregloDiscos.DataBind();
+        }
+
+        protected void ddlProcesador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Entidades.Procesador> lista = new List<Entidades.Procesador>();
+            lista = Negocio.Catalogos.Procesador.Obtener(new Entidades.Procesador() { IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue) });
+            if (lista.Count > 0)
+            {
+                lblCaracteristicasProc.Text = lista.First().NumCores.ToString();
+                lblCaracteristicasProc.Text += " " + lista.First().Velocidad.Trim();
+                lblCaracteristicasProc.Text += " " + lista.First().Cache.Trim();
+                lblCaracteristicasProc.Text += " " + lista.First().TamanoPalabra.Trim();
+            }
+            else
+            {
+                lblCaracteristicasProc.Text = "";
+            }
+            if (ddlProcesador.SelectedValue == "0")
+                lblCaracteristicasProc.Text = "";
+        }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            lblResultado.Text = string.Empty;
+            ddlVirtualizador.Enabled = false;
+            ObtenerDatos();
+            pnlForm.Visible = true;
+            pnlCaracteristicas.Visible = false;
+            llenarDdlMarcas();
+            llenarDdlModelo();
+            llenarDdlTipoServidor();
+            virtualizadoresDisponibles();
+            llenarDdlEstatus();
+            llenarDdlProcesador();
+            llenarDdlArregloDiscos();
+            datosPrincipales(2);
+        }
+
+        protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarDdlModelo();
+        }
+
+        protected void ddlTipoServidor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlVirtualizador.Enabled = false;
+            if (ddlTipoServidor.SelectedValue == "3")
+            {
+                ddlVirtualizador.Enabled = true;
+            }
+        }
+
+        protected void Cancelar_Click(object sender, EventArgs e)
+        {
+            pnlCaracteristicas.Visible = true;
+            pnlForm.Visible = false;
+        }
+
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+            lblResultado.Text = string.Empty;
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            if(ddlModelo.SelectedValue != "0" && ddlTipoServidor.SelectedValue != "0" && ddlEstatus.SelectedValue != "0" && ddlProcesador.SelectedValue != "0" &&ddlCapacidadRam.SelectedValue!="0" && ddlArregloDiscos.SelectedValue != "0")
+            {
+                resultado.resultado = true;
+                if(ddlTipoServidor.SelectedValue == "3")
+                {
+                    if (ddlVirtualizador.SelectedValue == "0")
+                        resultado.resultado = false;
+                }
+
+                if(resultado.resultado == true)
+                {
+                    //TODO
+                    //Empieza la recolección de datos para actualizar el servidor
+                    ObtenerDatos();
+
+                    Entidades.EspServidor especificacion = new Entidades.EspServidor();
+                    especificacion.IdServidor = _IdServidor;
+                    especificacion.Procesador.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
+                    especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
+                    especificacion.CapacidadRAM = txtCapacidadRam.Text.Trim() + " " + ddlCapacidadRam.SelectedValue.Trim();
+                    especificacion.TipoArregloDisco.IdTipoArreglo = Convert.ToInt32(ddlTipoServidor.SelectedValue);
+                    if(!string.IsNullOrWhiteSpace(txtNumSerie.Text.Trim()))
+                    {
+                        especificacion.NumSerie = txtNumSerie.Text.Trim();
+                    }
+
+                    resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
+                    if(resultado.resultado == true)
+                    {
+                        List<Entidades.EspServidor> conEsp = new List<Entidades.EspServidor>();
+                        conEsp = Negocio.Inventarios.EspServidor.Obtener(especificacion);
+                        if(conEsp.Count > 0)
+                        {
+                            Entidades.Servidor servidor = new Entidades.Servidor();
+                            servidor.IdServidor = _IdServidor;
+                            servidor.AliasServidor = txtAliasServidor.Text.Trim();
+                            servidor.Modelo.IdModelo = Convert.ToInt32(ddlModelo.SelectedValue);
+                            servidor.Especificacion.IdEspecificacion = conEsp.First().IdEspecificacion;
+                            servidor.TipoServidor.IdTipoServidor = Convert.ToInt32(ddlTipoServidor.SelectedValue);
+                            servidor.IdVirtualizador = 0;
+                            if (ddlVirtualizador.SelectedValue != "0")
+                                servidor.IdVirtualizador = Convert.ToInt32(ddlVirtualizador.SelectedValue);
+                            servidor.DescripcionUso = txtDescripcion.Text.Trim();
+                            servidor.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+
+                            resultado = Negocio.Inventarios.Servidor.Actualizar(servidor);
+                        }
+                    }
+                }
+                else
+                {
+                    lblResultado.ForeColor = System.Drawing.Color.Red;
+                    lblResultado.Text = "Debe seleccionar un virtualzador";
+                }
+
+                resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                {
+                    lblResultado.ForeColor = System.Drawing.Color.Red;
+                    lblResultado.Text += error.descripcionCorta + "<br/>";
+                });
+
+                lblResultado.ForeColor = System.Drawing.Color.Red;
+                if (resultado.resultado == true)
+                {
+                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    pnlForm.Visible = false;
+                    pnlCaracteristicas.Visible = true;
+                    ObtenerDatos();
+                    datosPrincipales(1);
+                }
+
+            }
+            else
+            {
+                lblResultado.Text = "Rebice le formulario, hay campos que no han sido seleccionados.";
             }
         }
     }
