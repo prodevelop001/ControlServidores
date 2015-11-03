@@ -35,7 +35,7 @@
                 <asp:DropDownList ID="ddlTipoStorage" runat="server" OnSelectedIndexChanged="ddlTipoStorage_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
             </div>
         </div>
-        <asp:GridView ID="gdvStorage" runat="server" CssClass="miTabla7" AutoGenerateColumns="False" EmptyDataText="Sin Storage Asignado" OnSelectedIndexChanged="gdvStorage_SelectedIndexChanged" OnRowDataBound="gdvStorage_RowDataBound" OnRowDeleting="gdvStorage_RowDeleting">
+        <asp:GridView ID="gdvStorage" runat="server" CssClass="miTabla" AutoGenerateColumns="False" EmptyDataText="Sin Storage Asignado" OnSelectedIndexChanged="gdvStorage_SelectedIndexChanged" OnRowDataBound="gdvStorage_RowDataBound" OnRowDeleting="gdvStorage_RowDeleting">
             <Columns>
                 <asp:TemplateField HeaderText="#">
                     <ItemTemplate>
