@@ -87,13 +87,20 @@ namespace ControlServidores.Web.Controles
                 int IdModelo = !string.IsNullOrEmpty(hdfIdModelo.Value) ? Convert.ToInt32(hdfIdModelo.Value) : -1;
                 soporte = Negocio.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdModelo = IdModelo });
                 if (soporte.Count > 0)
-                {
-                    lblSoporte.ForeColor = System.Drawing.Color.Green;
-                    lblSoporte.Text = " de ";
-                    lblSoporte.Text += ((DateTime)soporte.First().FechaInicio).ToString("dd/MM/yyyy") + " a ";
-                    lblSoporte.Text += ((DateTime)soporte.First().FechaFin).ToString("dd/MM/yyyy") + "<br>";
-                    lblSoporte.Text += soporte.First().Empresa.Nombre + "<br>";
-                    lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
+                {                    
+                    if(soporte.First().FechaFin < DateTime.Now)
+                    {
+                        lblSoporte.ForeColor = System.Drawing.Color.Green;
+                        lblSoporte.Text = " de ";
+                        lblSoporte.Text += ((DateTime)soporte.First().FechaInicio).ToString("dd/MM/yyyy") + " a ";
+                        lblSoporte.Text += ((DateTime)soporte.First().FechaFin).ToString("dd/MM/yyyy") + "<br>";
+                        lblSoporte.Text += soporte.First().Empresa.Nombre + "<br>";
+                        lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
+                    }
+                    else
+                    {
+                        lblSoporte.Text = "Sin soporte.";
+                    }
                 }
             }
             else if(opcion == 2)

@@ -4,8 +4,8 @@
     <id name="IdSoporte" column="IdSoporte" type="int">
       <generator class="identity"></generator>
     </id>
-    <property name="IdEmpresa" column="IdEmpresa" type="int"></property>
-    <property name="IdModelo" column="IdModelo" type="int"></property>
+    <!--<property name="IdEmpresa" column="IdEmpresa" type="int"></property>-->
+    <!--<property name="IdModelo" column="IdModelo" type="int"></property>-->
     <property name="FechaInicio" column="FechaInicio" type="Date"></property>
     <property name="FechaFin" column="FechaFin" type="Date"></property>
     <many-to-one name="Modelo" class="ControlServidores.Entidades.Modelo" column="IdModelo" lazy="false"/>

@@ -13,7 +13,70 @@
                 <div>
                     <div class="addNuevo">
                         <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
-                        <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo"/>
+                        <asp:HiddenField ID="hdfIdSoporte" runat="server" />
+                        <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
+                    </div>
+                    <asp:Panel ID="pnlForm" Visible="false" runat="server">
+                        <label>Empresa</label>
+                        <div>
+                            <asp:DropDownList ID="ddlEmpresa" runat="server"></asp:DropDownList>
+                        </div>                        
+                        <label>Marca</label>
+                        <div>
+                            <asp:DropDownList ID="ddlMarca" runat="server" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
+                        </div>                        
+                        <label>Modelo</label>
+                        <div>
+                            <asp:DropDownList ID="ddlModelo" runat="server"></asp:DropDownList>
+                        </div>                        
+                        <label>Fecha inicio</label>
+                        <div>
+                            <asp:TextBox ID="txtFechaIni" runat="server"></asp:TextBox>
+                        </div>                        
+                        <label>Fecha fin</label>
+                        <div>
+                            <asp:TextBox ID="txtFechaFin" runat="server"></asp:TextBox>
+                        </div>                        
+                        <div>
+                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlSoporte" runat="server">
+                        <asp:GridView ID="gdvSoporte" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged">
+                            <Columns>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <%# Container.DataItemIndex + 1 %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="IdSoporte" HeaderText="IdSoporte" >
+                                <HeaderStyle CssClass="hide" />
+                                <ItemStyle CssClass="hide" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Empresa.IdEmpresa" HeaderText="IdEmpresa">
+                                <HeaderStyle CssClass="hide" />
+                                <ItemStyle CssClass="hide" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Empresa.Nombre" HeaderText="Empresa" />
+                                <asp:BoundField DataField="Modelo.IdMarca" HeaderText="IdMarca">
+                                <HeaderStyle CssClass="hide" />
+                                <ItemStyle CssClass="hide" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Modelo.IdModelo" HeaderText="IdModelo">
+                                <HeaderStyle CssClass="hide" />
+                                <ItemStyle CssClass="hide" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Modelo.NombreModelo" HeaderText="Modelo" />
+                                <asp:BoundField DataField="FechaInicio" DataFormatString="{0:d}" HeaderText="Fecha Inicio" />
+                                <asp:BoundField DataField="FechaFin" DataFormatString="{0:d}" HeaderText="Fecha Fin" />
+                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:CommandField ShowDeleteButton="True" />
+                            </Columns>
+                        </asp:GridView>
+                    </asp:Panel>
+                    <div>
+                        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
             </ContentTemplate>

@@ -7,7 +7,7 @@
     <property name="Nombre" column="Nombre" type="string"></property>
     <property name="Telefono" column="Telefono" type="string"></property>
     <property name="Direccion" column="Direccion" type="String"></property>
-    <set name="Soporte" inverse="true" cascade="save-update">
+    <set name="Soporte" inverse="true" cascade="all-delete-orphan">
       <key column= "IdSoporte" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Soporte"/>
     </set>

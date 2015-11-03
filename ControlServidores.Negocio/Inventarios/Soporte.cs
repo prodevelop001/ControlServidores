@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ControlServidores.Negocio.Inventarios
 {
@@ -23,23 +24,39 @@ namespace ControlServidores.Negocio.Inventarios
         {
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
-
-            resultado.resultado = Datos.Inventarios.Soporte.Nuevo(a);
-            if (resultado.resultado == true)
+            resultado.resultado = true;
+            List<Entidades.Soporte> sop = new List<Entidades.Soporte>();
+            sop = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte()
             {
-                error = new Entidades.Logica.Error();
-                error.idError = 1;
-                error.descripcionCorta = "Soporte registrado correctamente.";
-                resultado.errores.Add(error);
-            }
-            else
+                Modelo = new Entidades.Modelo() { IdModelo = a.IdModelo }
+            });
+            if(sop.Count > 0)
             {
+                resultado.resultado = false;
                 error = new Entidades.Logica.Error();
-                error.idError = 2;
-                error.descripcionCorta = "Proceso no completado.";
+                error.idError = 3;
+                error.descripcionCorta = "Este modelo ya tiene soporte.";
                 resultado.errores.Add(error);
             }
 
+            if(resultado.resultado == true)
+            { 
+                resultado.resultado = Datos.Inventarios.Soporte.Nuevo(a);
+                if (resultado.resultado == true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Soporte registrado correctamente.";
+                    resultado.errores.Add(error);
+                }
+                else
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 2;
+                    error.descripcionCorta = "Proceso no completado.";
+                    resultado.errores.Add(error);
+                }
+            }
             return resultado;
         }
 
@@ -53,21 +70,41 @@ namespace ControlServidores.Negocio.Inventarios
         {
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             Entidades.Logica.Error error;
-
-            resultado.resultado = Datos.Inventarios.Soporte.Actualizar(a);
-            if (resultado.resultado == true)
+            resultado.resultado = true;
+            List<Entidades.Soporte> sop = new List<Entidades.Soporte>();
+            sop = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte()
             {
+                Modelo = new Entidades.Modelo() { IdModelo = a.IdModelo }
+            });
+            var dis = from s in sop
+                      where s.IdSoporte != a.IdSoporte
+                      select s;
+            sop = dis.ToList();
+            if (sop.Count > 0)
+            {
+                resultado.resultado = false;
                 error = new Entidades.Logica.Error();
-                error.idError = 1;
-                error.descripcionCorta = "Soporte actualizado correctamente.";
+                error.idError = 3;
+                error.descripcionCorta = "Este modelo ya tiene soporte.";
                 resultado.errores.Add(error);
             }
-            else
+            if (resultado.resultado == true)
             {
-                error = new Entidades.Logica.Error();
-                error.idError = 2;
-                error.descripcionCorta = "Proceso no completado.";
-                resultado.errores.Add(error);
+                resultado.resultado = Datos.Inventarios.Soporte.Actualizar(a);
+                if (resultado.resultado == true)
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 1;
+                    error.descripcionCorta = "Soporte actualizado correctamente.";
+                    resultado.errores.Add(error);
+                }
+                else
+                {
+                    error = new Entidades.Logica.Error();
+                    error.idError = 2;
+                    error.descripcionCorta = "Proceso no completado.";
+                    resultado.errores.Add(error);
+                }
             }
 
             return resultado;

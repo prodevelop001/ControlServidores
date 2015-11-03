@@ -10,7 +10,7 @@
       <key column= "IdModelo" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Servidor"/>
     </set>
-    <set name="Soporte" inverse="true" cascade="save-update">
+    <set name="Soporte" inverse="true" cascade="all-delete-orphan">
       <key column= "IdSoporte" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Soporte"/>
     </set>
