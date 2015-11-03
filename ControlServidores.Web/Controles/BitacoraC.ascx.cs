@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web.Controles
 {
     public partial class BitacoraC : System.Web.UI.UserControl
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         private int _IdServidor;
         
         public int IdServidor
@@ -26,10 +25,15 @@ namespace ControlServidores.Web.Controles
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            if (permisos.R == true)
             {
-                hdfIdServidor.Value = _IdServidor.ToString();
-                Bitacora();
+                if (!IsPostBack)
+                {
+                    hdfIdServidor.Value = _IdServidor.ToString();
+                    Bitacora();
+                }
+                btnAgregar.Enabled = permisos.C;
             }
         }
 
@@ -88,8 +92,10 @@ namespace ControlServidores.Web.Controles
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
+            lblResultado.Text = string.Empty;
             if(!string.IsNullOrWhiteSpace(txtFechaProc.Text.Trim()) && !string.IsNullOrWhiteSpace(txtDescripcion.Text.Trim()))
             {
+                permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
                 ObtenerParametros();
                 Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
                 Entidades.BitacoraMantenimiento bitacora = new Entidades.BitacoraMantenimiento();
@@ -101,7 +107,7 @@ namespace ControlServidores.Web.Controles
                     bitacora.Observaciones = txtObservaciones.Text.Trim();
                 }
 
-                if(hdfEstado.Value == "1")
+                if (hdfEstado.Value == "1" && permisos.C == true)
                 {
                     resultado = Negocio.Bitacoras.BitacoraMantenimiento.Nuevo(bitacora);
                     if(resultado.resultado == true)
@@ -118,7 +124,12 @@ namespace ControlServidores.Web.Controles
                         }
                     }
                 }
-                else if(hdfEstado.Value == "2")
+                else
+                {
+                    lblResultado.Text = "No tienes privilegios para agregar items.";
+                }
+
+                if(hdfEstado.Value == "2" && permisos.U == true)
                 {
                     bitacora.IdBitacora = Convert.ToInt32(hdfIdBitacora.Value);
                     resultado = Negocio.Bitacoras.BitacoraMantenimiento.Actualizar(bitacora);
@@ -141,6 +152,10 @@ namespace ControlServidores.Web.Controles
                             resultado = Negocio.Inventarios.PersonaXservidor.Actualizar(per);
                         }
                      }
+                }
+                else
+                {
+                    lblResultado.Text = "No tienes privilegios para actualizar la información.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

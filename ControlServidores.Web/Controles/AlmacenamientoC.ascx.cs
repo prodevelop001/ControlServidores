@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,6 +7,8 @@ namespace ControlServidores.Web.Controles
 {
     public partial class AlmacenamientoC : System.Web.UI.UserControl
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         private int _IdServidor;
 
         public int IdServidor
@@ -22,15 +22,20 @@ namespace ControlServidores.Web.Controles
             {
                 _IdServidor = value;
             }
-        }
+        }     
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if(!IsPostBack)
+        {           
+            if (!IsPostBack)
             {
-                hdfIdServidor.Value = _IdServidor.ToString();
-                llenarGdvAlmacenamiento();
-            }
+                permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                if (permisos.R == true)
+                {
+                    hdfIdServidor.Value = _IdServidor.ToString();
+                    llenarGdvAlmacenamiento();
+                }
+                btnAgregar.Enabled = permisos.C;
+            }            
         }
 
         private void ObtenerParametros()
@@ -82,8 +87,10 @@ namespace ControlServidores.Web.Controles
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             lblResultado.Text = string.Empty;
-            if(ddlTipoAlmacenamiento.SelectedValue != "0" && ddlCapacidad.SelectedValue != "0")
+            lblResultado.ForeColor = System.Drawing.Color.Red;
+            if (ddlTipoAlmacenamiento.SelectedValue != "0" && ddlCapacidad.SelectedValue != "0")
             {
                 Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
 
@@ -92,14 +99,23 @@ namespace ControlServidores.Web.Controles
                 alm.Unidad = txtUnidad.Text.Trim();
                 alm.TipoMemoria.IdTipoMemoria = Convert.ToInt32(ddlTipoAlmacenamiento.SelectedValue);
                 alm.Capacidad = txtCapacidad.Text.Trim() + " " + ddlCapacidad.SelectedValue;
-                if(hdfEstado.Value == "1")
+                if(hdfEstado.Value == "1" && permisos.C == true)
                 {
                     resultado = Negocio.Inventarios.Almacenamiento.Nuevo(alm);
                 }
-                else if(hdfEstado.Value == "2")
+                else
+                {
+                    lblResultado.Text = "No tienes los privilegios para agregar items.";
+                }
+
+                if(hdfEstado.Value == "2" && permisos.U == true)
                 {
                     alm.IdAlmacenamiento = Convert.ToInt32(hdfIdAlmacenamiento.Value);
                     resultado = Negocio.Inventarios.Almacenamiento.Actualizar(alm);
+                }
+                else
+                {
+                    lblResultado.Text = "No tienes privilegios para actualizar la información.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
@@ -164,24 +180,31 @@ namespace ControlServidores.Web.Controles
         {
             lblResultado.Text = string.Empty;
             lblResultado.ForeColor = System.Drawing.Color.Red;
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            if(permisos.D)
+            { 
+                Entidades.Almacenamiento alm = new Entidades.Almacenamiento();
+                alm.IdAlmacenamiento = Convert.ToInt32(gdvAlmacenamiento.Rows[e.RowIndex].Cells[1].Text);
+                alm.TipoMemoria = null;
 
-            Entidades.Almacenamiento alm = new Entidades.Almacenamiento();
-            alm.IdAlmacenamiento = Convert.ToInt32(gdvAlmacenamiento.Rows[e.RowIndex].Cells[1].Text);
-            alm.TipoMemoria = null;
+                Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+                resultado = Negocio.Inventarios.Almacenamiento.Eliminar(alm);
 
-            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            resultado = Negocio.Inventarios.Almacenamiento.Eliminar(alm);
+                resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                {
+                    lblResultado.Text += error.descripcionCorta + "<br/>";
+                });
 
-            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                if (resultado.resultado == true)
+                {
+                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    ObtenerParametros();
+                    llenarGdvAlmacenamiento();
+                }
+            }
+            else
             {
-                lblResultado.Text += error.descripcionCorta + "<br/>";
-            });
-
-            if (resultado.resultado == true)
-            {
-                lblResultado.ForeColor = System.Drawing.Color.Green;
-                ObtenerParametros();
-                llenarGdvAlmacenamiento();
+                lblResultado.Text = "No tienes privilegios para eliminar información.";
             }
         }
     }

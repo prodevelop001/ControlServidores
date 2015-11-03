@@ -9,6 +9,8 @@ namespace ControlServidores.Web.Controles
 {
     public partial class SistemasOperativosC : System.Web.UI.UserControl
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         private int _IdServidor;
 
         public int IdServidor
@@ -28,8 +30,13 @@ namespace ControlServidores.Web.Controles
         {
             if(!IsPostBack)
             {
-                hdfIdServidor.Value = _IdServidor.ToString();
-                llenarGdvSO();
+                permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                if (permisos.R == true)
+                {
+                    hdfIdServidor.Value = _IdServidor.ToString();
+                    llenarGdvSO();
+                }
+                btnAdd.Enabled = permisos.C;
             }
         }
 
@@ -74,6 +81,9 @@ namespace ControlServidores.Web.Controles
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            lblResultado.Text = string.Empty;
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            lblResultado.ForeColor = System.Drawing.Color.Red;
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             if(ddlSO.SelectedValue != "0")
             {
@@ -82,14 +92,22 @@ namespace ControlServidores.Web.Controles
                 so.Servidor.IdServidor = _IdServidor;
                 so.SO.IdSO = Convert.ToInt32(ddlSO.SelectedValue);
                 so.Estatus = null;
-                if (hdfEstado.Value == "1")
+                if (hdfEstado.Value == "1" && permisos.C == true)
                 {
                     resultado = Negocio.Inventarios.SOxServidor.Nuevo(so);
                 }
-                else if (hdfEstado.Value == "2")
+                else
+                {
+                    lblResultado.Text = "No tiene privilegios para agregar items.";
+                }
+                if (hdfEstado.Value == "2" && permisos.U == true)
                 {
                     so.IdSOxServidor = Convert.ToInt32(hdfIdSoServidor);
                     resultado = Negocio.Inventarios.SOxServidor.Nuevo(so);
+                }
+                else
+                {
+                    lblResultado.Text = "No tiene privilegios para actualizar información.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
@@ -97,7 +115,6 @@ namespace ControlServidores.Web.Controles
                     lblResultado.Text += error.descripcionCorta + "<br/>";
                 });
 
-                lblResultado.ForeColor = System.Drawing.Color.Red;
                 if (resultado.resultado == true)
                 {
                     lblResultado.ForeColor = System.Drawing.Color.Green;
@@ -148,25 +165,33 @@ namespace ControlServidores.Web.Controles
         protected void gdvSO_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             lblResultado.Text = string.Empty;
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             lblResultado.ForeColor = System.Drawing.Color.Red;
             Entidades.SOxServidor so = new Entidades.SOxServidor();
             so.IdSOxServidor = Convert.ToInt32(gdvSO.Rows[e.RowIndex].Cells[1].Text);
             so.Servidor = null;
             so.SO = null;
             so.Estatus = null;
-            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            resultado = Negocio.Inventarios.SOxServidor.Eliminar(so);
+            if(permisos.D)
+            { 
+                Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+                resultado = Negocio.Inventarios.SOxServidor.Eliminar(so);
 
-            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
-            {
-                lblResultado.Text += error.descripcionCorta + "<br/>";
-            });
+                resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                {
+                    lblResultado.Text += error.descripcionCorta + "<br/>";
+                });
 
-            if (resultado.resultado == true)
+                if (resultado.resultado == true)
+                {
+                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    ObtenerParametros();
+                    llenarGdvSO();
+                }
+            }
+            else
             {
-                lblResultado.ForeColor = System.Drawing.Color.Green;
-                ObtenerParametros();
-                llenarGdvSO();
+                lblResultado.Text = "No tienes privilegios para eliminar información";
             }
         }
     }

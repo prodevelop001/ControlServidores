@@ -7,8 +7,9 @@ namespace ControlServidores.Web.Controles
 {
     public partial class InterfacesRedC : System.Web.UI.UserControl
     {
-        private int _IdServidor;
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
 
+        private int _IdServidor;
 
         public int IdServidor
         {
@@ -19,10 +20,15 @@ namespace ControlServidores.Web.Controles
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            if (permisos.R == true)
             {
-                hdfIdConfRed.Value = _IdServidor.ToString();
-                InterfacesRed();
+                if (!IsPostBack)
+                {
+                    hdfIdConfRed.Value = _IdServidor.ToString();
+                    InterfacesRed();
+                }
+                btnAdd.Enabled = permisos.C;
             }
         }
 
@@ -82,7 +88,10 @@ namespace ControlServidores.Web.Controles
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            lblResultado.Text = "";
+            lblResultado.Text = string.Empty;
+            lblResultado.ForeColor = System.Drawing.Color.Red;
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
 
             if (ddlEstatus.SelectedValue != "0")
@@ -102,14 +111,23 @@ namespace ControlServidores.Web.Controles
                 nuevaInterfaz.Estatus.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
 
                 //Guardar
-                if (hdfEstado.Value == "1")
+                if (hdfEstado.Value == "1" && permisos.C == true)
                 {
                     resultado = Negocio.Inventarios.ConfRed.Nuevo(nuevaInterfaz);
                 }
-                else if (hdfEstado.Value == "2") //actualizar
+                else
+                {
+                    lblResultado.Text = "No tienes privilegios para agrregar items.";
+                }
+
+                if (hdfEstado.Value == "2" && permisos.U == true) //actualizar
                 {
                     nuevaInterfaz.IdConfRed = Convert.ToInt32(hdfIdConfRed.Value);
                     resultado = Negocio.Inventarios.ConfRed.Actualizar(nuevaInterfaz);
+                }
+                else
+                {
+                    lblResultado.Text = "No tienes privilegios para actualizar información.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
@@ -132,6 +150,7 @@ namespace ControlServidores.Web.Controles
             {
                 lblResultado.Text = "Debe seleccionar un estatus.";
             }
+            
         }
 
         protected void gdvInterfacesRed_SelectedIndexChanged(object sender, EventArgs e)
@@ -182,23 +201,33 @@ namespace ControlServidores.Web.Controles
 
         protected void gdvInterfacesRed_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            Entidades.ConfRed red = new Entidades.ConfRed();
-            red.IdConfRed = Convert.ToInt32(gdvInterfacesRed.Rows[e.RowIndex].Cells[1].Text);
-            red.Servidor = null;
-            red.Estatus = null;
+            lblResultado.Text = string.Empty;
+            lblResultado.ForeColor = System.Drawing.Color.Red;
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            if(permisos.D == true)
+            { 
+                Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+                Entidades.ConfRed red = new Entidades.ConfRed();
+                red.IdConfRed = Convert.ToInt32(gdvInterfacesRed.Rows[e.RowIndex].Cells[1].Text);
+                red.Servidor = null;
+                red.Estatus = null;
 
-            resultado = Negocio.Inventarios.ConfRed.Eliminar(red);
-            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
-            {
-                lblResultado.Text += error.descripcionCorta + "<br/>";
-            });
+                resultado = Negocio.Inventarios.ConfRed.Eliminar(red);
+                resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                {
+                    lblResultado.Text += error.descripcionCorta + "<br/>";
+                });
 
-            if (resultado.resultado == true)
+                if (resultado.resultado == true)
+                {
+                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    ObtenerParametros();
+                    InterfacesRed();
+                }
+            }
+            else
             {
-                lblResultado.ForeColor = System.Drawing.Color.Green;
-                ObtenerParametros();
-                InterfacesRed();
+                lblResultado.Text = "No tienes privilegios para eliminar información";
             }
         }
     }

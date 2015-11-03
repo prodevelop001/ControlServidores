@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web.Controles
 {
     public partial class CaracteristicasC : System.Web.UI.UserControl
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         private int _IdServidor;
 
         public int IdServidor
@@ -26,10 +26,15 @@ namespace ControlServidores.Web.Controles
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+            if (permisos.R == true)
             {
-                hdfIdServidor.Value = _IdServidor.ToString();
-                datosPrincipales(1);
+                if (!IsPostBack)
+                {
+                    hdfIdServidor.Value = _IdServidor.ToString();
+                    datosPrincipales(1);
+                }
+                btnEditar.Enabled = permisos.U;
             }
         }
 
@@ -270,82 +275,90 @@ namespace ControlServidores.Web.Controles
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             lblResultado.Text = string.Empty;
+            lblResultado.ForeColor = System.Drawing.Color.Red;
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
-            if(ddlModelo.SelectedValue != "0" && ddlTipoServidor.SelectedValue != "0" && ddlEstatus.SelectedValue != "0" && ddlProcesador.SelectedValue != "0" &&ddlCapacidadRam.SelectedValue!="0" && ddlArregloDiscos.SelectedValue != "0")
+            if (permisos.U == true)
             {
-                resultado.resultado = true;
-                if(ddlTipoServidor.SelectedValue == "3")
+                if (ddlModelo.SelectedValue != "0" && ddlTipoServidor.SelectedValue != "0" && ddlEstatus.SelectedValue != "0" && ddlProcesador.SelectedValue != "0" && ddlCapacidadRam.SelectedValue != "0" && ddlArregloDiscos.SelectedValue != "0")
                 {
-                    if (ddlVirtualizador.SelectedValue == "0")
-                        resultado.resultado = false;
-                }
-
-                if(resultado.resultado == true)
-                {
-                    //TODO
-                    //Empieza la recolección de datos para actualizar el servidor
-                    ObtenerDatos();
-
-                    Entidades.EspServidor especificacion = new Entidades.EspServidor();
-                    especificacion.IdServidor = _IdServidor;
-                    especificacion.Procesador.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
-                    especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
-                    especificacion.CapacidadRAM = txtCapacidadRam.Text.Trim() + " " + ddlCapacidadRam.SelectedValue.Trim();
-                    especificacion.TipoArregloDisco.IdTipoArreglo = Convert.ToInt32(ddlTipoServidor.SelectedValue);
-                    if(!string.IsNullOrWhiteSpace(txtNumSerie.Text.Trim()))
+                    resultado.resultado = true;
+                    if (ddlTipoServidor.SelectedValue == "3")
                     {
-                        especificacion.NumSerie = txtNumSerie.Text.Trim();
+                        if (ddlVirtualizador.SelectedValue == "0")
+                            resultado.resultado = false;
                     }
 
-                    resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
-                    if(resultado.resultado == true)
+                    if (resultado.resultado == true)
                     {
-                        List<Entidades.EspServidor> conEsp = new List<Entidades.EspServidor>();
-                        conEsp = Negocio.Inventarios.EspServidor.Obtener(especificacion);
-                        if(conEsp.Count > 0)
-                        {
-                            Entidades.Servidor servidor = new Entidades.Servidor();
-                            servidor.IdServidor = _IdServidor;
-                            servidor.AliasServidor = txtAliasServidor.Text.Trim();
-                            servidor.Modelo.IdModelo = Convert.ToInt32(ddlModelo.SelectedValue);
-                            servidor.Especificacion.IdEspecificacion = conEsp.First().IdEspecificacion;
-                            servidor.TipoServidor.IdTipoServidor = Convert.ToInt32(ddlTipoServidor.SelectedValue);
-                            servidor.IdVirtualizador = 0;
-                            if (ddlVirtualizador.SelectedValue != "0")
-                                servidor.IdVirtualizador = Convert.ToInt32(ddlVirtualizador.SelectedValue);
-                            servidor.DescripcionUso = txtDescripcion.Text.Trim();
-                            servidor.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+                        //TODO
+                        //Empieza la recolección de datos para actualizar el servidor
+                        ObtenerDatos();
 
-                            resultado = Negocio.Inventarios.Servidor.Actualizar(servidor);
+                        Entidades.EspServidor especificacion = new Entidades.EspServidor();
+                        especificacion.IdServidor = _IdServidor;
+                        especificacion.Procesador.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
+                        especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
+                        especificacion.CapacidadRAM = txtCapacidadRam.Text.Trim() + " " + ddlCapacidadRam.SelectedValue.Trim();
+                        especificacion.TipoArregloDisco.IdTipoArreglo = Convert.ToInt32(ddlTipoServidor.SelectedValue);
+                        if (!string.IsNullOrWhiteSpace(txtNumSerie.Text.Trim()))
+                        {
+                            especificacion.NumSerie = txtNumSerie.Text.Trim();
+                        }
+
+                        resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
+                        if (resultado.resultado == true)
+                        {
+                            List<Entidades.EspServidor> conEsp = new List<Entidades.EspServidor>();
+                            conEsp = Negocio.Inventarios.EspServidor.Obtener(especificacion);
+                            if (conEsp.Count > 0)
+                            {
+                                Entidades.Servidor servidor = new Entidades.Servidor();
+                                servidor.IdServidor = _IdServidor;
+                                servidor.AliasServidor = txtAliasServidor.Text.Trim();
+                                servidor.Modelo.IdModelo = Convert.ToInt32(ddlModelo.SelectedValue);
+                                servidor.Especificacion.IdEspecificacion = conEsp.First().IdEspecificacion;
+                                servidor.TipoServidor.IdTipoServidor = Convert.ToInt32(ddlTipoServidor.SelectedValue);
+                                servidor.IdVirtualizador = 0;
+                                if (ddlVirtualizador.SelectedValue != "0")
+                                    servidor.IdVirtualizador = Convert.ToInt32(ddlVirtualizador.SelectedValue);
+                                servidor.DescripcionUso = txtDescripcion.Text.Trim();
+                                servidor.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+
+                                resultado = Negocio.Inventarios.Servidor.Actualizar(servidor);
+                            }
                         }
                     }
+                    else
+                    {
+                        lblResultado.Text = "Debe seleccionar un virtualzador";
+                    }
+
+                    resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+                    {
+                        lblResultado.ForeColor = System.Drawing.Color.Red;
+                        lblResultado.Text += error.descripcionCorta + "<br/>";
+                    });
+
+                    
+                    if (resultado.resultado == true)
+                    {
+                        lblResultado.ForeColor = System.Drawing.Color.Green;
+                        pnlForm.Visible = false;
+                        pnlCaracteristicas.Visible = true;
+                        ObtenerDatos();
+                        datosPrincipales(1);
+                    }
+
                 }
                 else
                 {
-                    lblResultado.ForeColor = System.Drawing.Color.Red;
-                    lblResultado.Text = "Debe seleccionar un virtualzador";
+                    lblResultado.Text = "Revise el formulario, hay campos que no han sido seleccionados.";
                 }
-
-                resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
-                {
-                    lblResultado.ForeColor = System.Drawing.Color.Red;
-                    lblResultado.Text += error.descripcionCorta + "<br/>";
-                });
-
-                lblResultado.ForeColor = System.Drawing.Color.Red;
-                if (resultado.resultado == true)
-                {
-                    lblResultado.ForeColor = System.Drawing.Color.Green;
-                    pnlForm.Visible = false;
-                    pnlCaracteristicas.Visible = true;
-                    ObtenerDatos();
-                    datosPrincipales(1);
-                }
-
             }
             else
             {
-                lblResultado.Text = "Rebice le formulario, hay campos que no han sido seleccionados.";
+                lblResultado.Text = "No tienes privilegios para actualizar la información.";
             }
         }
     }
