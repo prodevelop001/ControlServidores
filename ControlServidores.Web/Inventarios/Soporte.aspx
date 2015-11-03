@@ -11,35 +11,38 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <div>
+                    <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
+                        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+                    </asp:Panel>
                     <div class="addNuevo">
                         <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
                         <asp:HiddenField ID="hdfIdSoporte" runat="server" />
                         <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
                     </div>
                     <asp:Panel ID="pnlForm" Visible="false" runat="server">
-                        <label>Empresa</label>
-                        <div>
+                        <div class="formCampos">
+                            <label>Empresa</label>
                             <asp:DropDownList ID="ddlEmpresa" runat="server"></asp:DropDownList>
-                        </div>                        
-                        <label>Marca</label>
-                        <div>
+                        </div>
+                        <div class="formCampos">
+                            <label>Marca</label>
                             <asp:DropDownList ID="ddlMarca" runat="server" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
-                        </div>                        
-                        <label>Modelo</label>
-                        <div>
+                        </div>                  
+                        <div class="formCampos">      
+                            <label>Modelo</label>
                             <asp:DropDownList ID="ddlModelo" runat="server"></asp:DropDownList>
-                        </div>                        
-                        <label>Fecha inicio</label>
-                        <div>
+                        </div>                   
+                        <div class="formCampos">     
+                            <label>Fecha inicio</label>
                             <asp:TextBox ID="txtFechaIni" runat="server"></asp:TextBox>
                         </div>                        
-                        <label>Fecha fin</label>
-                        <div>
+                        <div class="formCampos">
+                            <label>Fecha fin</label>
                             <asp:TextBox ID="txtFechaFin" runat="server"></asp:TextBox>
                         </div>                        
-                        <div>
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
-                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                        <div class="formBotones">
+                            <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                            <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
                     </asp:Panel>
                     <asp:Panel ID="pnlSoporte" runat="server">
@@ -75,9 +78,6 @@
                             </Columns>
                         </asp:GridView>
                     </asp:Panel>
-                    <div>
-                        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
-                    </div>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
