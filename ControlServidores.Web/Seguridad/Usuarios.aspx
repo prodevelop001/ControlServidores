@@ -53,7 +53,7 @@
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlUsuarios" runat="server">
-                    <asp:GridView ID="gdvUsuarios" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" OnRowDataBound="gdvUsuarios_RowDataBound" OnRowDeleting="gdvUsuarios_RowDeleting" OnSelectedIndexChanged="gdvUsuarios_SelectedIndexChanged">
+                    <asp:GridView ID="gdvUsuarios" runat="server" CssClass="miTabla" AutoGenerateColumns="False" OnRowDataBound="gdvUsuarios_RowDataBound" OnRowDeleting="gdvUsuarios_RowDeleting" OnSelectedIndexChanged="gdvUsuarios_SelectedIndexChanged">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
@@ -83,8 +83,8 @@
                                     <asp:Label ID="lblPersona1" runat="server" Text="Label"></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:CommandField ShowSelectButton="True" />
-                            <asp:CommandField ShowDeleteButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>

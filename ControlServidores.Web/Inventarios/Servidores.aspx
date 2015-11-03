@@ -133,7 +133,7 @@
                                                     <asp:BoundField DataField="DescripcionUso" HeaderText="Description App" />
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'>Ver detalle</a>
+                                                            <a class="icon-search" href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'> Ver detalle</a>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

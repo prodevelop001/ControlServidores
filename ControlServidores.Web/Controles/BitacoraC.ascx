@@ -28,7 +28,7 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlBitacora" runat="server">
-        <asp:GridView ID="gdvBitacora" runat="server" CssClass="miTabla9" AutoGenerateColumns="false" OnSelectedIndexChanged="gdvBitacora_SelectedIndexChanged">
+        <asp:GridView ID="gdvBitacora" runat="server" CssClass="miTabla" AutoGenerateColumns="false" OnSelectedIndexChanged="gdvBitacora_SelectedIndexChanged">
             <Columns>
                 <asp:TemplateField HeaderText="#">
                     <ItemTemplate>
@@ -46,9 +46,10 @@
                 <asp:BoundField DataField="Personas.Nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="Bitacora.FechaCaptura" HeaderText="Fecha de Captura" />
                 <asp:BoundField DataField="Bitacora.FechaMantenimiento" HeaderText="Fecha de procedimiento" />
-                <asp:BoundField DataField="Bitacora.DescripcionMantenimiento" HeaderText="Descripcion" />
+                <asp:BoundField DataField="Bitacora.DescripcionMantenimiento" HeaderText="Descripción" />
                 <asp:BoundField DataField="Bitacora.Observaciones" HeaderText="Observaciones" />
-                <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="False" />
             </Columns>
         </asp:GridView>
     </asp:Panel>

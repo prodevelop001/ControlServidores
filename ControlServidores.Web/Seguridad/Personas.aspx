@@ -52,7 +52,7 @@
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlPersonas" runat="server">
-                    <asp:GridView ID="gdvPersonas" CssClass="miTabla10" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gdvPersonas_SelectedIndexChanged" OnRowDataBound="gdvPersonas_RowDataBound" OnRowDeleting="gdvPersonas_RowDeleting">
+                    <asp:GridView ID="gdvPersonas" CssClass="miTabla" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gdvPersonas_SelectedIndexChanged" OnRowDataBound="gdvPersonas_RowDataBound" OnRowDeleting="gdvPersonas_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
@@ -76,8 +76,8 @@
                                     <asp:Label ID="lblEstatus" runat="server" Text=""></asp:Label>
                                 </ItemTemplate>                               
                             </asp:TemplateField>
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>

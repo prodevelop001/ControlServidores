@@ -51,7 +51,7 @@
             <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
     </asp:Panel>
-    <asp:GridView ID="gdvInterfacesRed" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas." OnSelectedIndexChanged="gdvInterfacesRed_SelectedIndexChanged" OnRowDataBound="gdvInterfacesRed_RowDataBound" OnRowDeleting="gdvInterfacesRed_RowDeleting">
+    <asp:GridView ID="gdvInterfacesRed" runat="server" CssClass="miTabla" AutoGenerateColumns="False" EmptyDataText="Sin Interfaces registradas." OnSelectedIndexChanged="gdvInterfacesRed_SelectedIndexChanged" OnRowDataBound="gdvInterfacesRed_RowDataBound" OnRowDeleting="gdvInterfacesRed_RowDeleting">
         <Columns>
             <asp:TemplateField HeaderText="#">
                 <ItemTemplate>
@@ -70,8 +70,8 @@
             <ItemStyle CssClass="hide" />
             </asp:BoundField>
             <asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />
-            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+            <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+            <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
         </Columns>
     </asp:GridView>
     <div>

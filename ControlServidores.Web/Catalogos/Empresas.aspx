@@ -42,7 +42,7 @@
                     </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlEmpresa" runat="server">
-                    <asp:GridView ID="gdvEmpresas" runat="server" CssClass="miTabla7" AutoGenerateColumns="False" EmptyDataText="No Hay Datos" OnSelectedIndexChanged="gdvEmpresas_SelectedIndexChanged" OnRowDataBound="gdvEmpresas_RowDataBound" OnRowDeleting="gdvConceptos_RowDeleting">
+                    <asp:GridView ID="gdvEmpresas" runat="server" CssClass="miTabla" AutoGenerateColumns="False" EmptyDataText="No Hay Datos" OnSelectedIndexChanged="gdvEmpresas_SelectedIndexChanged" OnRowDataBound="gdvEmpresas_RowDataBound" OnRowDeleting="gdvConceptos_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
@@ -56,8 +56,8 @@
                             <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                             <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
                             <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>

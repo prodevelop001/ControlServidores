@@ -53,8 +53,8 @@
                 </asp:BoundField>
                 <asp:BoundField DataField="CapacidadAsignada" HeaderText="Capacidad Asignada" />
                 <%--<asp:BoundField DataField="Estatus._Estatus" HeaderText="Estado" />--%>
-                <asp:CommandField SelectText=" Seleccionar" ShowSelectButton="True" />
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
     </asp:Panel>

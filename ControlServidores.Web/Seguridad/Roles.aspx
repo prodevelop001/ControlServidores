@@ -69,7 +69,7 @@
                         </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlRoles" runat="server">
-                    <asp:GridView ID="gdvRoles" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" style="text-align: center" OnSelectedIndexChanged="gdvRoles_SelectedIndexChanged" OnRowDataBound="gdvRoles_RowDataBound" OnRowDeleting="gdvRoles_RowDeleting">
+                    <asp:GridView ID="gdvRoles" runat="server" CssClass="miTabla" AutoGenerateColumns="False" style="text-align: center" OnSelectedIndexChanged="gdvRoles_SelectedIndexChanged" OnRowDataBound="gdvRoles_RowDataBound" OnRowDeleting="gdvRoles_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
@@ -85,8 +85,8 @@
                             <asp:CheckBoxField DataField="R" HeaderText="Consultar" ReadOnly="True" />
                             <asp:CheckBoxField DataField="U" HeaderText="Editar" ReadOnly="True" />
                             <asp:CheckBoxField DataField="D" HeaderText="Eliminar" ReadOnly="True" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>

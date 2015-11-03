@@ -32,7 +32,7 @@
                 </div>
             </asp:Panel>
             <asp:Panel ID="pnlTipoStorage" runat="server">
-                <asp:GridView ID="gdvTiposStorage" runat="server" CssClass="miTabla5" AutoGenerateColumns="False" OnRowDataBound="gdvTiposStorage_RowDataBound" OnRowDeleting="gdvTiposStorage_RowDeleting" OnSelectedIndexChanged="gdvTiposStorage_SelectedIndexChanged">
+                <asp:GridView ID="gdvTiposStorage" runat="server" CssClass="miTabla" AutoGenerateColumns="False" OnRowDataBound="gdvTiposStorage_RowDataBound" OnRowDeleting="gdvTiposStorage_RowDeleting" OnSelectedIndexChanged="gdvTiposStorage_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField HeaderText="#">
                             <ItemTemplate>
@@ -44,8 +44,8 @@
                             <ItemStyle CssClass="hide" />
                         </asp:BoundField>
                         <asp:BoundField DataField="Tipo" HeaderText="Tipo de Storage" />
-                        <asp:CommandField SelectText=" Seleccionar" ShowSelectButton="True" />
-                        <asp:CommandField DeleteText=" Eliminar" ShowDeleteButton="True" />
+                        <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                        <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                     </Columns>
                 </asp:GridView>
             </asp:Panel>

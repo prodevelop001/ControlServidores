@@ -37,7 +37,7 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlAlmacenamiento" runat="server">
-        <asp:GridView ID="gdvAlmacenamiento" runat="server" CssClass="miTabla8" AutoGenerateColumns="False" OnRowDataBound="gdvAlmacenamiento_RowDataBound" OnRowDeleting="gdvAlmacenamiento_RowDeleting" OnSelectedIndexChanged="gdvAlmacenamiento_SelectedIndexChanged">
+        <asp:GridView ID="gdvAlmacenamiento" runat="server" CssClass="miTabla" AutoGenerateColumns="False" OnRowDataBound="gdvAlmacenamiento_RowDataBound" OnRowDeleting="gdvAlmacenamiento_RowDeleting" OnSelectedIndexChanged="gdvAlmacenamiento_SelectedIndexChanged">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -55,8 +55,15 @@
                 </asp:BoundField>
                 <asp:BoundField DataField="TipoMemoria.Tipo" HeaderText="Tipo" />
                 <asp:BoundField DataField="Capacidad" HeaderText="Capacidad" />
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:TemplateField HeaderStyle-CssClass="hide" HeaderText="#" ItemStyle-CssClass="hide">
+                    <ItemTemplate>
+                        <%# Container.DataItemIndex + 1 %>
+                    </ItemTemplate>
+                    <HeaderStyle CssClass="hide" />
+                    <ItemStyle CssClass="hide" />
+                </asp:TemplateField>
+                <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
     </asp:Panel>
