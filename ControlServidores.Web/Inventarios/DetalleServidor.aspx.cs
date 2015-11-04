@@ -1,25 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ControlServidores.Web.Inventarios
 {
     public partial class DetalleServidor : System.Web.UI.Page
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         private int _IdServidor;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            //Este ID debe coincidir con el Menú registrado en la BD
+            int IdPagina = 2;
+            if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {
-                ObtenerParametros();
-                VMs();
-                CaracteristicasC.IdServidor = _IdServidor;
-                AlmacenamientoC.IdServidor = _IdServidor;
-                InterfacesRedC.IdServidor = _IdServidor;
-                SistemasOperativosC.IdServidor = _IdServidor;
-                StorageC.IdServidor = _IdServidor;
-                BitacoraC.IdServidor = _IdServidor;
+                if (!IsPostBack)
+                {
+                    permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                    if (permisos.R == true)
+                    {
+                        ObtenerParametros();
+                        VMs();
+                        CaracteristicasC.IdServidor = _IdServidor;
+                        AlmacenamientoC.IdServidor = _IdServidor;
+                        InterfacesRedC.IdServidor = _IdServidor;
+                        SistemasOperativosC.IdServidor = _IdServidor;
+                        StorageC.IdServidor = _IdServidor;
+                        BitacoraC.IdServidor = _IdServidor;
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("~/errorAcceso.aspx");
             }
         }
 

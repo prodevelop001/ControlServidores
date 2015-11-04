@@ -101,10 +101,22 @@ namespace ControlServidores.Web.Inventarios
         {
             HiddenField IdServidor = (HiddenField)e.Item.FindControl("hdfIdServidor");
             //HiddenField IdTipoServidor = (HiddenField)e.Item.FindControl("hdfIdTipoServidor");
+            Label lblIp = (Label)e.Item.FindControl("lblIp");
             int _IdServidor = Convert.ToInt32(IdServidor.Value);
             var _servidores = from l in _Servidores
                               where l.IdVirtualizador == _IdServidor
                               select l;
+
+            List<Entidades.ConfRed> conRed = new List<Entidades.ConfRed>();
+            conRed = Negocio.Inventarios.ConfRed.Obtener(
+                new Entidades.ConfRed()
+                {    Estatus = null,
+                     Servidor= new Entidades.Servidor() { IdServidor = Convert.ToInt32(IdServidor.Value) }
+                });
+            if(conRed.Count > 0)
+            {
+                lblIp.Text = conRed.First().DirIP.Trim();
+            }
             
             GridView gdvServidoresHijos = (GridView)e.Item.FindControl("gdvServidoresHijos");
             //gdvServidoresHijos.DataSource = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdVirtualizador = _IdServidor });
@@ -311,11 +323,6 @@ namespace ControlServidores.Web.Inventarios
                 rptServidores.DataSource = servidoresEncontrados;
                 rptServidores.DataBind();
             }
-        }
-
-        protected void rptServidores_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

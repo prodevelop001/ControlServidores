@@ -32,18 +32,22 @@
                         <label>Fecha inicio</label>
                         <div>
                             <asp:TextBox ID="txtFechaIni" runat="server"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="rfvFechaIni" runat="server" ErrorMessage="*Fecha requerida." ControlToValidate="txtFechaIni" ForeColor="Red" ValidationGroup="Soporte"></asp:RequiredFieldValidator>
                         </div>                        
                         <label>Fecha fin</label>
                         <div>
                             <asp:TextBox ID="txtFechaFin" runat="server"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="rfvFechaFin" runat="server" ErrorMessage="*Fecha requerida." ControlToValidate="txtFechaFin" ForeColor="Red" ValidationGroup="Soporte"></asp:RequiredFieldValidator>
                         </div>                        
                         <div>
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Soporte" />
                             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
                     </asp:Panel>
                     <asp:Panel ID="pnlSoporte" runat="server">
-                        <asp:GridView ID="gdvSoporte" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged">
+                        <asp:GridView ID="gdvSoporte" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged" OnRowDeleting="gdvSoporte_RowDeleting">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>

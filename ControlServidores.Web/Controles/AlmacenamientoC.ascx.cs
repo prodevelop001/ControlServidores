@@ -103,19 +103,14 @@ namespace ControlServidores.Web.Controles
                 {
                     resultado = Negocio.Inventarios.Almacenamiento.Nuevo(alm);
                 }
-                else
-                {
-                    lblResultado.Text = "No tienes los privilegios para agregar items.";
-                }
-
-                if(hdfEstado.Value == "2" && permisos.U == true)
+                else if(hdfEstado.Value == "2" && permisos.U == true)
                 {
                     alm.IdAlmacenamiento = Convert.ToInt32(hdfIdAlmacenamiento.Value);
                     resultado = Negocio.Inventarios.Almacenamiento.Actualizar(alm);
                 }
                 else
                 {
-                    lblResultado.Text = "No tienes privilegios para actualizar la información.";
+                    lblResultado.Text = "No tienes privilegios para realizar esta acción.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

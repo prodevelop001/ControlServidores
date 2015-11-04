@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,16 +6,32 @@ namespace ControlServidores.Web.Inventarios
 {
     public partial class Soporte : System.Web.UI.Page
     {
+        Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            //Este ID debe coincidir con el Menú registrado en la BD
+            int IdPagina = 7;
+            if (Negocio.Seguridad.Seguridad.AccesoPagina(IdPagina) == true)
             {
-                llenarGdvSoporte();
-                Empresas();
-                llenarDdlMarcas();
-                llenarDdlModelo();
-                txtFechaIni.Text = DateTime.Now.ToShortDateString();
-                txtFechaFin.Text = DateTime.Now.ToShortDateString();
+                if (!IsPostBack)
+                {
+                    permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+                    if (permisos.R == true)
+                    {
+                        llenarGdvSoporte();
+                        Empresas();
+                        llenarDdlMarcas();
+                        llenarDdlModelo();
+                        txtFechaIni.Text = DateTime.Now.ToShortDateString();
+                        txtFechaFin.Text = DateTime.Now.ToShortDateString();
+                    }
+                    btnNuevo.Enabled = permisos.C;
+                }
+            }
+            else
+            {
+                Response.Redirect("~/errorAcceso.aspx");
             }
         }
 
@@ -101,9 +114,11 @@ namespace ControlServidores.Web.Inventarios
         {
             lblResultado.Text = string.Empty;
             lblResultado.ForeColor = System.Drawing.Color.Red;
+
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
 
-            if (ddlEmpresa.SelectedValue != "0" && ddlModelo.SelectedValue != "0" && !string.IsNullOrWhiteSpace(txtFechaIni.Text.Trim()) && !string.IsNullOrWhiteSpace(txtFechaFin.Text.Trim()))
+            if (ddlEmpresa.SelectedValue != "0" && ddlModelo.SelectedValue != "0")
             {
                 Entidades.Soporte soporte = new Entidades.Soporte();
                 soporte.Empresa.IdEmpresa = Convert.ToInt32(ddlEmpresa.SelectedValue);
@@ -111,14 +126,18 @@ namespace ControlServidores.Web.Inventarios
                 soporte.FechaInicio = Convert.ToDateTime(txtFechaIni.Text.Trim());
                 soporte.FechaFin = Convert.ToDateTime(txtFechaFin.Text.Trim());
 
-                if (hdfEstado.Value == "1")
+                if (hdfEstado.Value == "1" && permisos.C == true)
                 { 
                     resultado = Negocio.Inventarios.Soporte.Nuevo(soporte);
                 }
-                if(hdfEstado.Value == "2")
+                else if(hdfEstado.Value == "2" && permisos.U == true)
                 {
                     soporte.IdSoporte = Convert.ToInt32(hdfIdSoporte.Value);
                     resultado = Negocio.Inventarios.Soporte.Actualizar(soporte);
+                }
+                else
+                {
+                    lblResultado.Text = "No tiene privilegios esta acción. <br>";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
@@ -133,6 +152,10 @@ namespace ControlServidores.Web.Inventarios
                     pnlSoporte.Visible = true;
                     llenarGdvSoporte();
                 }
+            }
+            else
+            {
+                lblResultado.Text = "Hay campos que no han sido seleccionados.";
             }
         }
 
@@ -171,6 +194,40 @@ namespace ControlServidores.Web.Inventarios
                         }
                     }
                 }
+            }
+        }
+
+        protected void gdvSoporte_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            lblResultado.Text = string.Empty;
+            Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
+            permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
+
+            Entidades.Soporte soporte = new Entidades.Soporte();
+            soporte.IdSoporte = Convert.ToInt32(gdvSoporte.Rows[e.RowIndex].Cells[1].Text.Trim());
+            soporte.Modelo = null;
+            soporte.Empresa = null;
+
+            resultado.resultado = permisos.D;
+
+            if(resultado.resultado == true)
+            { 
+                resultado = Negocio.Inventarios.Soporte.Eliminar(soporte);
+            }
+            else
+            {
+                lblResultado.Text = "No tienes privilegios para realizar esta acción.";
+            }
+
+            resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
+            {
+                lblResultado.Text += error.descripcionCorta + "<br/>";
+            });
+
+            if (resultado.resultado == true)
+            {
+                lblResultado.ForeColor = System.Drawing.Color.Green;
+                llenarGdvSoporte();
             }
         }
     }

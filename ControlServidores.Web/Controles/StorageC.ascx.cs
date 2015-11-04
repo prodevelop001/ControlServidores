@@ -111,19 +111,14 @@ namespace ControlServidores.Web.Controles
                 {
                     resultado = Negocio.Inventarios.Storage.Nuevo(storage);
                 }
-                else
-                {
-                    lblResultado.Text = "No tienes privilegios para agregar items.";
-                }
-
-                if (hdfEstado.Value == "2" && permisos.U == true)
+                else if (hdfEstado.Value == "2" && permisos.U == true)
                 {
                     storage.IdStorage = Convert.ToInt32(hdfStorage.Value);
                     resultado = Negocio.Inventarios.Storage.Actualizar(storage);
                 }
                 else
                 {
-                    lblResultado.Text = "No tienes privilegios para actualizar información";
+                    lblResultado.Text = "No tienes privilegios para realizar esta acción";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

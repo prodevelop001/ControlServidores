@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="listServidores">
-                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound" OnLoad="rptServidores_Load">
+                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="elemServidor">
                                         <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
@@ -118,7 +118,7 @@
                                             <label>Descripción uso : &nbsp;</label>
                                             <asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
                                             <label>Dirección IP : &nbsp;</label>
-                                            
+                                            <asp:Label ID="lblIp" runat="server" Text=""></asp:Label>
                                         </div>
                                         <%--<div class="srvsHijos">--%>
                                         <div class="limpiar"></div>

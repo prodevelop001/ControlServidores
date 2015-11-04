@@ -96,18 +96,14 @@ namespace ControlServidores.Web.Controles
                 {
                     resultado = Negocio.Inventarios.SOxServidor.Nuevo(so);
                 }
-                else
-                {
-                    lblResultado.Text = "No tiene privilegios para agregar items.";
-                }
-                if (hdfEstado.Value == "2" && permisos.U == true)
+                else if (hdfEstado.Value == "2" && permisos.U == true)
                 {
                     so.IdSOxServidor = Convert.ToInt32(hdfIdSoServidor);
                     resultado = Negocio.Inventarios.SOxServidor.Nuevo(so);
                 }
                 else
                 {
-                    lblResultado.Text = "No tiene privilegios para actualizar información.";
+                    lblResultado.Text = "No tiene privilegios para realizar esta acción.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)

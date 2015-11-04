@@ -8,6 +8,7 @@ namespace ControlServidores.Web
     public partial class Empresas : System.Web.UI.Page
     {
         Entidades.RolUsuario permisos = new Entidades.RolUsuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Este ID debe coincidir con el Menú registrado en la BD

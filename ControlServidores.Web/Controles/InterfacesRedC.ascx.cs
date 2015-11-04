@@ -115,19 +115,14 @@ namespace ControlServidores.Web.Controles
                 {
                     resultado = Negocio.Inventarios.ConfRed.Nuevo(nuevaInterfaz);
                 }
-                else
-                {
-                    lblResultado.Text = "No tienes privilegios para agrregar items.";
-                }
-
-                if (hdfEstado.Value == "2" && permisos.U == true) //actualizar
+                else if (hdfEstado.Value == "2" && permisos.U == true) //actualizar
                 {
                     nuevaInterfaz.IdConfRed = Convert.ToInt32(hdfIdConfRed.Value);
                     resultado = Negocio.Inventarios.ConfRed.Actualizar(nuevaInterfaz);
                 }
                 else
                 {
-                    lblResultado.Text = "No tienes privilegios para actualizar información.";
+                    lblResultado.Text = "No tienes privilegios para realizar esta acción.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
