@@ -23,7 +23,7 @@ namespace ControlServidores.Web.Inventarios
                 Empresas();
                 llenarDdlMarcas();
                 llenarDdlModelo();
-                pnlResultado.Visible = false;
+                //pnlResultado.Visible = false;
                 txtFechaIni.Text = DateTime.Now.ToShortDateString();
                 txtFechaFin.Text = DateTime.Now.ToShortDateString();
             }
@@ -99,7 +99,7 @@ namespace ControlServidores.Web.Inventarios
             Empresas();
             llenarDdlMarcas();
             llenarDdlModelo();
-            pnlResultado.Visible = false;
+            //pnlResultado.Visible = false;
             txtFechaIni.Text = DateTime.Now.ToShortDateString();
             txtFechaFin.Text = DateTime.Now.ToShortDateString();
             Limpiar();
@@ -109,7 +109,7 @@ namespace ControlServidores.Web.Inventarios
         {
             hdfEstado.Value = "0";
             pnlForm.Visible = false;
-            pnlResultado.Visible = false;
+            //pnlResultado.Visible = false;
             pnlSoporte.Visible = true;
         }
 
@@ -152,7 +152,7 @@ namespace ControlServidores.Web.Inventarios
                 {
                     //lblResultado.ForeColor = System.Drawing.Color.Green;
                     lblResultado.Attributes["style"] = "color: #008000;";
-                    pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
+                    //pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                     pnlForm.Visible = false;
                     pnlSoporte.Visible = true;
                     llenarGdvSoporte();
@@ -176,7 +176,7 @@ namespace ControlServidores.Web.Inventarios
             llenarDdlMarcas();
             ddlMarca.SelectedValue = gdvSoporte.SelectedRow.Cells[4].Text;
             llenarDdlModelo();
-            pnlResultado.Visible = false;
+            //pnlResultado.Visible = false;
             ddlModelo.SelectedValue = gdvSoporte.SelectedRow.Cells[5].Text;
             txtFechaIni.Text = gdvSoporte.SelectedRow.Cells[7].Text;
             txtFechaFin.Text = gdvSoporte.SelectedRow.Cells[8].Text;
