@@ -36,7 +36,7 @@
                 </div>
             </asp:Panel>
             <asp:Panel ID="pnlTipoArreglo" runat="server">
-                <asp:GridView ID="gdvTiposArreglos" runat="server" CssClass="miTabla6" AutoGenerateColumns="False" OnRowDataBound="gdvTiposArreglos_RowDataBound" OnRowDeleting="gdvTiposArreglos_RowDeleting" OnSelectedIndexChanged="gdvTiposArreglos_SelectedIndexChanged">
+                <asp:GridView ID="gdvTiposArreglos" runat="server" CssClass="miTabla" AutoGenerateColumns="False" OnRowDataBound="gdvTiposArreglos_RowDataBound" OnRowDeleting="gdvTiposArreglos_RowDeleting" OnSelectedIndexChanged="gdvTiposArreglos_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField HeaderText="#">
                             <ItemTemplate>
@@ -49,8 +49,8 @@
                         </asp:BoundField>
                         <asp:BoundField DataField="Tipo" HeaderText="Tipo de Arreglo" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
-                        <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                        <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                        <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                        <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                     </Columns>
                 </asp:GridView>
             </asp:Panel>

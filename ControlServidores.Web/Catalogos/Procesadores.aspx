@@ -51,7 +51,7 @@
                         </div>
                 </asp:Panel>
                 <asp:Panel ID="pnlProcesadores" runat="server">
-                    <asp:GridView ID="gdvProcesadores" runat="server" CssClass="miTabla9" AutoGenerateColumns="False" style="text-align: center" OnSelectedIndexChanged="gdvProcesadores_SelectedIndexChanged" OnRowDataBound="gdvProcesadores_RowDataBound" OnRowDeleting="gdvProcesadores_RowDeleting">
+                    <asp:GridView ID="gdvProcesadores" runat="server" CssClass="miTabla" AutoGenerateColumns="False" style="text-align: center" OnSelectedIndexChanged="gdvProcesadores_SelectedIndexChanged" OnRowDataBound="gdvProcesadores_RowDataBound" OnRowDeleting="gdvProcesadores_RowDeleting">
                         <Columns>
                             <asp:TemplateField HeaderText="#">
                                 <ItemTemplate>
@@ -67,8 +67,8 @@
                             <asp:BoundField DataField="Velocidad" HeaderText="Velocidad" />
                             <asp:BoundField DataField="Cache" HeaderText="Caché" />
                             <asp:BoundField DataField="TamanoPalabra" HeaderText="Tamaño de Palabra" />
-                            <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                            <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                            <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>

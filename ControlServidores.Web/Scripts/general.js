@@ -11,6 +11,7 @@
 //    y[i].className = y.className + " icon-cross";
 //}
 //-----------------------------Agregar Iconos-----------------------------------------
+/*
 function agregar_iconos() {
     var num = document.getElementById("numCols").innerHTML;
     //---Icono Editar
@@ -29,7 +30,7 @@ function agregar_iconos() {
         y2[i2].className = y2.className + " icon-cross";
     }
 }
-
+*/
 
     //-----------------------------Modificar DIV padre------------------------------
 document.getElementById("ppalServidores").addEventListener("onmouseover", hacerAlgo());
@@ -53,13 +54,13 @@ function hacerAlgo(){
     }    
 }
 //-----------------------------Modificar DIV padre------------------------------
-
+/*
     var Tipo = document.getElementById('lblIdTipoServidor').innerHTML;
     if (Tipo === "2") {
         var Padre = document.getElementById('lblIdTipoServidor').parentNode;
         Padre.style.width = '96%';
     }
-
+*/
 
 
 

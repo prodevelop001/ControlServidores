@@ -80,9 +80,9 @@
                             <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
                     </asp:Panel>
-                    <div style="width: 100%; margin: 0; float: left;">
+                    <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
-                    </div>
+                    </asp:Panel>
                     <asp:Panel ID="pnlServidores" DefaultButton="btnBuscar" Visible="false" runat="server">
                         <div class="formBusqueda">
                             <div class="busquedaGrp">
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="listServidores">
-                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
+                            <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound" OnLoad="rptServidores_Load">
                                 <ItemTemplate>
                                     <div class="elemServidor">
                                         <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
@@ -115,10 +115,11 @@
                                             <%--<label>Server name:&nbsp;</label>--%>
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
                                         <div class="descripcion">
-                                            <label>Descripción uso : &nbsp;</label>
+                                            <label><b>Descripción uso :</b> &nbsp;</label>
                                             <asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
-                                            <label>Dirección IP : &nbsp;</label>
-                                            <asp:Label ID="lblIp" runat="server" Text=""></asp:Label>
+                                            <br /><label><b>Dirección IP :</b> X.X.X.X</label>
+                                            <br /><label><b>Sistema Operativo:</b> ABCDEFGHI JKL-MN</label>
+                                            <br /><label><b>Encargado: </b>Fulanito</label>
                                         </div>
                                         <%--<div class="srvsHijos">--%>
                                         <div class="limpiar"></div>
@@ -133,7 +134,7 @@
                                                     <asp:BoundField DataField="DescripcionUso" HeaderText="Description App" />
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'>Ver detalle</a>
+                                                            <a class="icon-search" href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'> Ver detalle</a>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

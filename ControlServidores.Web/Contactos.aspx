@@ -29,7 +29,7 @@
                     <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
                 </div>
             </div>
-                <asp:GridView ID="gdvPersonas" CssClass="miTabla4" runat="server" AutoGenerateColumns="False">
+                <asp:GridView ID="gdvPersonas" CssClass="miTabla" runat="server" AutoGenerateColumns="False">
                     <Columns>
                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                         <asp:BoundField DataField="Puesto" HeaderText="Puesto" />

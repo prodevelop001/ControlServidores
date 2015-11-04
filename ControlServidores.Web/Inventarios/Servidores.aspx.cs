@@ -23,6 +23,7 @@ namespace ControlServidores.Web.Inventarios
                     if (permisos.R == true)
                     {
                         pnlServidores.Visible = true;
+                        pnlResultado.Visible = false;
                         llenarRprServidores();
                     }
                     btnNuevo.Enabled = permisos.C;
@@ -132,6 +133,7 @@ namespace ControlServidores.Web.Inventarios
                 lblResultado.Text = string.Empty;
                 pnlNuevoServidor.Visible = true;
                 pnlServidores.Visible = false;
+                pnlResultado.Visible = false;
                 txtAliasServidor.Text = string.Empty;
                 txtDescripcionUso.Text = string.Empty;
                 txtInterfazRed.Text = string.Empty;
@@ -151,12 +153,15 @@ namespace ControlServidores.Web.Inventarios
         {
             pnlNuevoServidor.Visible = false;
             pnlServidores.Visible = true;
+            pnlResultado.Visible = false;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             lblResultado.Text = string.Empty;
-            lblResultado.ForeColor = System.Drawing.Color.Red;
+            //lblResultado.ForeColor = System.Drawing.Color.Red;
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             if (ddlEstatusServidor.SelectedValue != "0" && ddlSO.SelectedValue != "0")
             {
@@ -269,13 +274,16 @@ namespace ControlServidores.Web.Inventarios
                 }
                 if(resultado.resultado == true)
                 {
-                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    //lblResultado.ForeColor = System.Drawing.Color.Green;
+                    lblResultado.Attributes["style"] = "color: #008000;";
+                    pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 }
             }
             else
             {
-                lblResultado.Text = "Falta seleecionar algu item,revise vuelva a intentar.";
+                lblResultado.Text = "Falta seleecionar algun item, revise y vuelva a intentar.";
             }
+            pnlResultado.Visible = true;
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)

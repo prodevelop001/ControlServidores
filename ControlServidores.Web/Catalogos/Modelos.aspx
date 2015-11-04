@@ -44,7 +44,7 @@
                         <asp:DropDownList ID="ddlMarca" runat="server" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                     </div>
                 </div>
-                <asp:GridView ID="gdvNombreModelo" runat="server" CssClass="miTabla6" AutoGenerateColumns="False" OnRowDataBound="gdvNombreModelo_RowDataBound" OnRowDeleting="gdvNombreModelo_RowDeleting" OnSelectedIndexChanged="gdvNombreModelo_SelectedIndexChanged">
+                <asp:GridView ID="gdvNombreModelo" runat="server" CssClass="miTabla" AutoGenerateColumns="False" OnRowDataBound="gdvNombreModelo_RowDataBound" OnRowDeleting="gdvNombreModelo_RowDeleting" OnSelectedIndexChanged="gdvNombreModelo_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField HeaderText="#">
                             <ItemTemplate>
@@ -60,8 +60,8 @@
                             <ItemStyle CssClass="hide" />
                         </asp:BoundField>
                         <asp:BoundField DataField="NombreModelo" HeaderText="Nombre del Modelo" />
-                        <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
-                        <asp:CommandField DeleteText="Eliminar" ShowDeleteButton="True" />
+                        <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                        <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                     </Columns>
                 </asp:GridView>
             </asp:Panel>

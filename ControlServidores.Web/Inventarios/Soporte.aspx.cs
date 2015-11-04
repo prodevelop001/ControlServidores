@@ -18,14 +18,15 @@ namespace ControlServidores.Web.Inventarios
                 {
                     permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
                     if (permisos.R == true)
-                    {
-                        llenarGdvSoporte();
-                        Empresas();
-                        llenarDdlMarcas();
-                        llenarDdlModelo();
-                        txtFechaIni.Text = DateTime.Now.ToShortDateString();
-                        txtFechaFin.Text = DateTime.Now.ToShortDateString();
-                    }
+            {
+                llenarGdvSoporte();
+                Empresas();
+                llenarDdlMarcas();
+                llenarDdlModelo();
+                pnlResultado.Visible = false;
+                txtFechaIni.Text = DateTime.Now.ToShortDateString();
+                txtFechaFin.Text = DateTime.Now.ToShortDateString();
+            }
                     btnNuevo.Enabled = permisos.C;
                 }
             }
@@ -98,6 +99,7 @@ namespace ControlServidores.Web.Inventarios
             Empresas();
             llenarDdlMarcas();
             llenarDdlModelo();
+            pnlResultado.Visible = false;
             txtFechaIni.Text = DateTime.Now.ToShortDateString();
             txtFechaFin.Text = DateTime.Now.ToShortDateString();
             Limpiar();
@@ -107,6 +109,7 @@ namespace ControlServidores.Web.Inventarios
         {
             hdfEstado.Value = "0";
             pnlForm.Visible = false;
+            pnlResultado.Visible = false;
             pnlSoporte.Visible = true;
         }
 
@@ -147,7 +150,9 @@ namespace ControlServidores.Web.Inventarios
 
                 if (resultado.resultado == true)
                 {
-                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    //lblResultado.ForeColor = System.Drawing.Color.Green;
+                    lblResultado.Attributes["style"] = "color: #008000;";
+                    pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                     pnlForm.Visible = false;
                     pnlSoporte.Visible = true;
                     llenarGdvSoporte();
@@ -156,7 +161,7 @@ namespace ControlServidores.Web.Inventarios
             else
             {
                 lblResultado.Text = "Hay campos que no han sido seleccionados.";
-            }
+        }
         }
 
         protected void gdvSoporte_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,6 +176,7 @@ namespace ControlServidores.Web.Inventarios
             llenarDdlMarcas();
             ddlMarca.SelectedValue = gdvSoporte.SelectedRow.Cells[4].Text;
             llenarDdlModelo();
+            pnlResultado.Visible = false;
             ddlModelo.SelectedValue = gdvSoporte.SelectedRow.Cells[5].Text;
             txtFechaIni.Text = gdvSoporte.SelectedRow.Cells[7].Text;
             txtFechaFin.Text = gdvSoporte.SelectedRow.Cells[8].Text;
