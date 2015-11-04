@@ -17,6 +17,7 @@ namespace ControlServidores.Web.Inventarios
                 Empresas();
                 llenarDdlMarcas();
                 llenarDdlModelo();
+                pnlResultado.Visible = false;
                 txtFechaIni.Text = DateTime.Now.ToShortDateString();
                 txtFechaFin.Text = DateTime.Now.ToShortDateString();
             }
@@ -85,6 +86,7 @@ namespace ControlServidores.Web.Inventarios
             Empresas();
             llenarDdlMarcas();
             llenarDdlModelo();
+            pnlResultado.Visible = false;
             txtFechaIni.Text = DateTime.Now.ToShortDateString();
             txtFechaFin.Text = DateTime.Now.ToShortDateString();
             Limpiar();
@@ -94,13 +96,16 @@ namespace ControlServidores.Web.Inventarios
         {
             hdfEstado.Value = "0";
             pnlForm.Visible = false;
+            pnlResultado.Visible = false;
             pnlSoporte.Visible = true;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             lblResultado.Text = string.Empty;
-            lblResultado.ForeColor = System.Drawing.Color.Red;
+            //lblResultado.ForeColor = System.Drawing.Color.Red;
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
 
             if (ddlEmpresa.SelectedValue != "0" && ddlModelo.SelectedValue != "0" && !string.IsNullOrWhiteSpace(txtFechaIni.Text.Trim()) && !string.IsNullOrWhiteSpace(txtFechaFin.Text.Trim()))
@@ -128,12 +133,15 @@ namespace ControlServidores.Web.Inventarios
 
                 if (resultado.resultado == true)
                 {
-                    lblResultado.ForeColor = System.Drawing.Color.Green;
+                    //lblResultado.ForeColor = System.Drawing.Color.Green;
+                    lblResultado.Attributes["style"] = "color: #008000;";
+                    pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                     pnlForm.Visible = false;
                     pnlSoporte.Visible = true;
                     llenarGdvSoporte();
                 }
             }
+            pnlResultado.Visible = true;
         }
 
         protected void gdvSoporte_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,6 +156,7 @@ namespace ControlServidores.Web.Inventarios
             llenarDdlMarcas();
             ddlMarca.SelectedValue = gdvSoporte.SelectedRow.Cells[4].Text;
             llenarDdlModelo();
+            pnlResultado.Visible = false;
             ddlModelo.SelectedValue = gdvSoporte.SelectedRow.Cells[5].Text;
             txtFechaIni.Text = gdvSoporte.SelectedRow.Cells[7].Text;
             txtFechaFin.Text = gdvSoporte.SelectedRow.Cells[8].Text;
