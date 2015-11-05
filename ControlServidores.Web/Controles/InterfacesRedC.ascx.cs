@@ -25,7 +25,7 @@ namespace ControlServidores.Web.Controles
             {
                 if (!IsPostBack)
                 {
-                    hdfIdConfRed.Value = _IdServidor.ToString();
+                    hdfIdServidor.Value = _IdServidor.ToString();
                     InterfacesRed();
                 }
                 btnAdd.Enabled = permisos.C;
@@ -34,7 +34,7 @@ namespace ControlServidores.Web.Controles
 
         private void ObtenerParametros()
         {
-            _IdServidor = Convert.ToInt32(hdfIdConfRed.Value);
+            _IdServidor = Convert.ToInt32(hdfIdServidor.Value);
         }
 
         private void InterfacesRed()
@@ -97,7 +97,7 @@ namespace ControlServidores.Web.Controles
             if (ddlEstatus.SelectedValue != "0")
             {
                 Entidades.ConfRed nuevaInterfaz = new Entidades.ConfRed();
-                nuevaInterfaz.Servidor.IdServidor = Convert.ToInt32(hdfIdConfRed.Value);
+                nuevaInterfaz.Servidor.IdServidor = Convert.ToInt32(hdfIdServidor.Value);
                 nuevaInterfaz.InterfazRed = txtInterfazRed.Text.Trim();
                 nuevaInterfaz.DirMac = txtDirMAC.Text.Trim();
                 nuevaInterfaz.DirIP = txtDirIP.Text.Trim();

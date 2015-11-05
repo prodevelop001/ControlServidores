@@ -51,7 +51,7 @@
             </div>
             <label>Número de procesadores</label>
             <div>
-            <asp:TextBox ID="txtNumProcesadores" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="txtNumProcesadores" TextMode="Number" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvNumProcesadores" runat="server" ErrorMessage="*Campo requerido" ControlToValidate="txtNumProcesadores" ForeColor="Red" ValidationGroup="Caracteristicas"></asp:RequiredFieldValidator>
             </div>
             <label>Capacidad de RAM</label>
@@ -72,6 +72,10 @@
             <label>Númer de serie</label>
             <div>
             <asp:TextBox ID="txtNumSerie" runat="server"></asp:TextBox>
+            </div>
+            <label>Persona a cargo:</label>
+            <div>
+                <asp:DropDownList ID="ddlPersona" runat="server"></asp:DropDownList>
             </div>
         <%--</div>--%>
         <div>
@@ -115,6 +119,10 @@
         <label>Soporte:</label>
         <div>
             <asp:Label ID="lblSoporte" runat="server" Text="Sin Soporte"></asp:Label>
+        </div>
+        <label>Persona encargada</label>
+        <div>
+            <asp:Label ID="lblPersonaEncargada" runat="server" Text=""></asp:Label>
         </div>
     </asp:Panel>
     <div>

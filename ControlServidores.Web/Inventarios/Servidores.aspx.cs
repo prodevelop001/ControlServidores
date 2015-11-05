@@ -103,6 +103,9 @@ namespace ControlServidores.Web.Inventarios
             HiddenField IdServidor = (HiddenField)e.Item.FindControl("hdfIdServidor");
             //HiddenField IdTipoServidor = (HiddenField)e.Item.FindControl("hdfIdTipoServidor");
             Label lblIp = (Label)e.Item.FindControl("lblIp");
+            Label lblSO = (Label)e.Item.FindControl("lblSO");
+            Label lblEncargado = (Label)e.Item.FindControl("lblEncargado");
+
             int _IdServidor = Convert.ToInt32(IdServidor.Value);
             var _servidores = from l in _Servidores
                               where l.IdVirtualizador == _IdServidor
@@ -118,7 +121,33 @@ namespace ControlServidores.Web.Inventarios
             {
                 lblIp.Text = conRed.First().DirIP.Trim();
             }
-            
+            List<Entidades.SOxServidor> so = new List<Entidades.SOxServidor>();
+            so = Negocio.Inventarios.SOxServidor.Obtener(new Entidades.SOxServidor()
+            {
+                 Estatus = null,
+                 SO = null,
+                 Servidor = new Entidades.Servidor() { IdServidor = Convert.ToInt32(IdServidor.Value) }
+            });
+            if(so.Count > 0)
+            {
+                lblSO.Text = so.First().SO.NombreSO.Trim();
+            }
+
+            Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
+            persona.Servidor.IdServidor = _IdServidor;
+            persona.Personas = null;
+            persona.Bitacora = null;
+            List<Entidades.PersonaXservidor> pso = new List<Entidades.PersonaXservidor>();
+            pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);
+            var enc = from l in pso
+                      where l.Bitacora == null
+                      select l;
+            pso = enc.ToList();
+            if (pso.Count > 0)
+            {
+                lblEncargado.Text = pso.First().Personas.Nombre.Trim();
+            }
+
             GridView gdvServidoresHijos = (GridView)e.Item.FindControl("gdvServidoresHijos");
             //gdvServidoresHijos.DataSource = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdVirtualizador = _IdServidor });
             gdvServidoresHijos.DataSource = _servidores;

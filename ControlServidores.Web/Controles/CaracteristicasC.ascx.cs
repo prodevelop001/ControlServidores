@@ -50,6 +50,15 @@ namespace ControlServidores.Web.Controles
             }
         }
 
+        private void limpiar()
+        {
+            txtAliasServidor.Text =
+            txtCapacidadRam.Text =
+            txtDescripcion.Text =
+            txtNumProcesadores.Text =
+            txtNumSerie.Text = string.Empty;
+        }
+
         private void datosPrincipales(int opcion)
         {
             List<Entidades.Servidor> servidores = new List<Entidades.Servidor>();
@@ -88,7 +97,7 @@ namespace ControlServidores.Web.Controles
                 soporte = Negocio.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdModelo = IdModelo });
                 if (soporte.Count > 0)
                 {                    
-                    if(soporte.First().FechaFin < DateTime.Now)
+                    if(soporte.First().FechaFin > DateTime.Now)
                     {
                         lblSoporte.ForeColor = System.Drawing.Color.Green;
                         lblSoporte.Text = " de ";
@@ -102,9 +111,26 @@ namespace ControlServidores.Web.Controles
                         lblSoporte.Text = "Sin soporte.";
                     }
                 }
+
+                Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
+                persona.Servidor.IdServidor = _IdServidor;
+                persona.Personas = null;
+                persona.Bitacora = null;
+
+                List<Entidades.PersonaXservidor> pso = new List<Entidades.PersonaXservidor>();
+                pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);
+                var enc = from l in pso
+                          where l.Bitacora == null
+                          select l;
+                pso = enc.ToList();
+                if (pso.Count > 0)
+                {                   
+                    lblPersonaEncargada.Text = pso.First().Personas.Nombre.Trim();
+                }
             }
             else if(opcion == 2)
             {
+                limpiar();
                 if (servidores.Count > 0)
                 {
                     txtAliasServidor.Text = servidores.First().AliasServidor;
@@ -138,6 +164,23 @@ namespace ControlServidores.Web.Controles
                             ddlArregloDiscos.SelectedValue = servidores.First().Especificacion.TipoArregloDisco.IdTipoArreglo.ToString();
                     }
                     ddlEstatus.SelectedValue = servidores.First().IdEstatus.ToString();
+
+                    Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
+                    persona.Servidor.IdServidor = _IdServidor;
+                    persona.Personas = null;
+                    persona.Bitacora = null;
+
+                    List<Entidades.PersonaXservidor> pso = new List<Entidades.PersonaXservidor>();
+                    pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);
+                    pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);
+                    var enc = from l in pso
+                              where l.Bitacora == null
+                              select l;
+                    pso = enc.ToList();
+                    if (pso.Count > 0)
+                    {
+                        ddlPersona.SelectedValue = pso.First().Personas.IdPersona.ToString();
+                    }
                 }
             }
             
@@ -223,6 +266,17 @@ namespace ControlServidores.Web.Controles
             ddlArregloDiscos.DataBind();
         }
 
+        private void llenarDdlPersona()
+        {
+            ddlPersona.Items.Clear();
+            ddlPersona.AppendDataBoundItems = true;
+            ddlPersona.Items.Add(new ListItem("-- Seleccionar --","0"));
+            ddlPersona.DataTextField = "Nombre";
+            ddlPersona.DataValueField = "IdPersona";
+            ddlPersona.DataSource = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas());
+            ddlPersona.DataBind();
+        }
+
         protected void ddlProcesador_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<Entidades.Procesador> lista = new List<Entidades.Procesador>();
@@ -256,6 +310,7 @@ namespace ControlServidores.Web.Controles
             llenarDdlEstatus();
             llenarDdlProcesador();
             llenarDdlArregloDiscos();
+            llenarDdlPersona();
             datosPrincipales(2);
         }
 
@@ -304,6 +359,10 @@ namespace ControlServidores.Web.Controles
 
                         Entidades.EspServidor especificacion = new Entidades.EspServidor();
                         especificacion.IdServidor = _IdServidor;
+
+                        List<Entidades.EspServidor> esp = new List<Entidades.EspServidor>();
+                        esp = Negocio.Inventarios.EspServidor.Obtener(especificacion);
+
                         especificacion.Procesador.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
                         especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
                         especificacion.CapacidadRAM = txtCapacidadRam.Text.Trim() + " " + ddlCapacidadRam.SelectedValue.Trim();
@@ -312,8 +371,17 @@ namespace ControlServidores.Web.Controles
                         {
                             especificacion.NumSerie = txtNumSerie.Text.Trim();
                         }
-
-                        resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
+                        
+                        if(esp.Count > 0)
+                        {
+                            especificacion.IdEspecificacion = esp.First().IdEspecificacion;
+                            resultado = Negocio.Inventarios.EspServidor.Actualizar(especificacion);
+                        }
+                        else
+                        {
+                            resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
+                        }             
+                                   
                         if (resultado.resultado == true)
                         {
                             List<Entidades.EspServidor> conEsp = new List<Entidades.EspServidor>();
@@ -331,6 +399,28 @@ namespace ControlServidores.Web.Controles
                                     servidor.IdVirtualizador = Convert.ToInt32(ddlVirtualizador.SelectedValue);
                                 servidor.DescripcionUso = txtDescripcion.Text.Trim();
                                 servidor.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+
+                                Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
+                                persona.Servidor.IdServidor = _IdServidor;
+                                persona.Personas.IdPersona = Convert.ToInt32(ddlPersona.SelectedValue);
+                                persona.Bitacora = null;
+
+                                List<Entidades.PersonaXservidor> pso = new List<Entidades.PersonaXservidor>();
+                                pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);                               
+
+                                var enc = from l in pso
+                                          where l.Bitacora == null
+                                          select l;
+                                pso = enc.ToList();
+                                if (pso.Count > 0)
+                                {
+                                    persona.IdPersonaServidor = pso.First().IdPersonaServidor;
+                                    resultado = Negocio.Inventarios.PersonaXservidor.Actualizar(persona);
+                                }
+                                else
+                                {
+                                    resultado = Negocio.Inventarios.PersonaXservidor.Nuevo(persona);
+                                }
 
                                 resultado = Negocio.Inventarios.Servidor.Actualizar(servidor);
                             }

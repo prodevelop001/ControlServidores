@@ -64,7 +64,7 @@ namespace ControlServidores.Web.Inventarios
         {
             try
             {
-            _IdServidor = Convert.ToInt32(Request.QueryString["IdServidor"] ?? "0");
+                _IdServidor = Convert.ToInt32(Request.QueryString["IdServidor"] ?? "0");
             }
             catch
             {
