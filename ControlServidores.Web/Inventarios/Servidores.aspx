@@ -108,11 +108,8 @@
                                     <div class="elemServidor">
                                         <asp:HiddenField ID="hdfIdServidor" Value='<%# Eval("IdServidor") %>' runat="server" />
                                         <asp:HiddenField ID="hdfIdVirtualizador" Value='<%# Eval("IdVirtualizador") %>' runat="server" />
-                                        <%--<asp:HiddenField ID="hdfIdTipoServidor" Value='<%# Eval("TipoServidor.IdTipoServidor") %>' runat="server" />--%>
-                                        <%--<asp:Label ID="lblIdTipoServidor" CssClass="tipoServidor" runat="server" Text='<%# Eval("TipoServidor.IdTipoServidor") %>'></asp:Label>--%>
                                         <div class="tipoServidor"><%# Eval("TipoServidor.IdTipoServidor") %></div>
-                                        <div class="titulos">
-                                            <%--<label>Server name:&nbsp;</label>--%>
+                                        <div class="titulos">                                            
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
                                         <div class="descripcion">
                                             <label><b>Descripción uso :</b> &nbsp;</label>
@@ -120,10 +117,11 @@
                                             <br /><label><b>Dirección IP :</b></label>
                                             <b>
                                                 <asp:Label ID="lblIp" runat="server" Text=""></asp:Label></b>
-                                            <br /><label><b>Sistema Operativo:</b> ABCDEFGHI JKL-MN</label>
-                                            <br /><label><b>Encargado: </b>Fulanito</label>
-                                        </div>
-                                        <%--<div class="srvsHijos">--%>
+                                            <br /><label><b>Sistema Operativo:</b></label>
+                                            <asp:Label ID="lblSO" runat="server" Text=""></asp:Label>
+                                            <br /><label><b>Encargado: </b></label>
+                                            <asp:Label ID="lblEncargado" runat="server" Text=""></asp:Label>
+                                        </div>                                        
                                         <div class="limpiar"></div>
                                             <asp:GridView ID="gdvServidoresHijos" CssClass="srvsHijos" AutoGenerateColumns="false" runat="server" >
                                                 <Columns>
@@ -140,8 +138,7 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
-                                            </asp:GridView>
-                                        <%--</div>--%>
+                                            </asp:GridView>                                       
                                     </div>
                                 </ItemTemplate>
                             </asp:Repeater>

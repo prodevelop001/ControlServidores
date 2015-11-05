@@ -17,8 +17,10 @@ namespace ControlServidores.Datos.Inventarios
                     //Option
                     ICriteria crit = session.CreateCriteria(typeof(Entidades.EspServidor),"es");
 
-                    crit.CreateAlias("es.TipoArregloDisco", "idTipoArreglo", NHibernate.SqlCommand.JoinType.InnerJoin);
-                    crit.CreateAlias("es.Procesador", "idProcesador", NHibernate.SqlCommand.JoinType.InnerJoin);
+                    if(a.TipoArregloDisco != null)
+                        crit.CreateAlias("es.TipoArregloDisco", "idTipoArreglo", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
+                    if(a.Procesador != null)
+                        crit.CreateAlias("es.Procesador", "idProcesador", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
 
                     if (a.IdEspecificacion != 0 && a.IdEspecificacion.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEspecificacion", a.IdEspecificacion));

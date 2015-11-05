@@ -238,6 +238,15 @@ namespace ControlServidores.Web.Controles {
         protected global::System.Web.UI.WebControls.TextBox txtNumSerie;
         
         /// <summary>
+        /// ddlPersona control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPersona;
+        
+        /// <summary>
         /// btnActualizar control.
         /// </summary>
         /// <remarks>
@@ -344,6 +353,15 @@ namespace ControlServidores.Web.Controles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSoporte;
+        
+        /// <summary>
+        /// lblPersonaEncargada control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPersonaEncargada;
         
         /// <summary>
         /// lblResultado control.

@@ -26,7 +26,7 @@ namespace ControlServidores.Datos.Catalogos
                     lista = (List<Entidades.Estatus>)crit.List<Entidades.Estatus>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

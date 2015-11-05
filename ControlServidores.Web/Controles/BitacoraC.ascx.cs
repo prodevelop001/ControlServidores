@@ -124,12 +124,7 @@ namespace ControlServidores.Web.Controles
                         }
                     }
                 }
-                else
-                {
-                    lblResultado.Text = "No tienes privilegios para agregar items.";
-                }
-
-                if(hdfEstado.Value == "2" && permisos.U == true)
+                else if(hdfEstado.Value == "2" && permisos.U == true)
                 {
                     bitacora.IdBitacora = Convert.ToInt32(hdfIdBitacora.Value);
                     resultado = Negocio.Bitacoras.BitacoraMantenimiento.Actualizar(bitacora);
@@ -155,7 +150,7 @@ namespace ControlServidores.Web.Controles
                 }
                 else
                 {
-                    lblResultado.Text = "No tienes privilegios para actualizar la información.";
+                    lblResultado.Text = "No tienes privilegios para realizar esta acción.";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
