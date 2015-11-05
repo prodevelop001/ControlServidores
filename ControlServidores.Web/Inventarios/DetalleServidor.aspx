@@ -31,10 +31,14 @@
     </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
+<div  class="principal">
+    
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div class="principal">
+            <div class="ttlPrincipal">
+                <h1><asp:Label ID="lblNombreServidor" runat="server">Aquí el Nombre</asp:Label></h1>
+            </div>
                 <div id="numCols" class="hide">9</div>
                 <div class="detallesGenerales">
                     <div class="tituloDetalles">
@@ -89,7 +93,8 @@
                     </div>
                     <uc1:BitacoraC runat="server" ID="BitacoraC" />
                 </div>
-            </div>
+            
         </ContentTemplate>
     </asp:UpdatePanel>
+</div>
 </asp:Content>

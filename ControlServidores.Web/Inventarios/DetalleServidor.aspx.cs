@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace ControlServidores.Web.Inventarios
 {
@@ -19,6 +24,7 @@ namespace ControlServidores.Web.Inventarios
                     permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
                     if (permisos.R == true)
                     {
+                        imprimirTitulo();
                         ObtenerParametros();
                         VMs();
                         CaracteristicasC.IdServidor = _IdServidor;
@@ -34,6 +40,24 @@ namespace ControlServidores.Web.Inventarios
             {
                 Response.Redirect("~/errorAcceso.aspx");
             }
+        }
+
+        private void imprimirTitulo()
+        {
+            Entidades.Servidor nServidor = new Entidades.Servidor();
+
+            List<Entidades.Servidor> s = new List<Entidades.Servidor>();
+            s = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor()
+            {
+                IdServidor = Convert.ToInt32(Request.QueryString["IdServidor"] ?? "0")
+            }
+            );
+            if(s.Count > 0)
+            {
+                nServidor = s.First();
+            }
+            //lblNombreServidor.Text = nServidor.AliasServidor;
+
         }
 
         private void ObtenerParametros()
