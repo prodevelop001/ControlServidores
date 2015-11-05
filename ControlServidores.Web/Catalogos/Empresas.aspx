@@ -22,18 +22,18 @@
                     <div class="formCampos">
                         <asp:HiddenField ID="lblIdNombreEmpresa" runat="server" />
                         <div class="grpInput">
-                            <label>Empresa</label>
-                            <asp:TextBox ID="txtEmpresa" runat="server"></asp:TextBox>
+                            <label>Empresa :</label>
+                            <asp:TextBox ID="txtEmpresa" runat="server" placeholder="Ej: Tecno Compu"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvEmpresa" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtEmpresa" ForeColor="Red" ValidationGroup="Empresas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Teléfono</label>
-                            <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                            <label>Teléfono :</label>
+                            <asp:TextBox ID="txtTelefono" runat="server" placeholder="Ej: 55134859"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvEmpresaTel" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtTelefono" ForeColor="Red" ValidationGroup="Empresas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Dirección</label>
-                            <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+                            <label>Dirección :</label>
+                            <asp:TextBox ID="txtDireccion" runat="server" placeholder="Ej: Av. Reforma No. 43"></asp:TextBox>
                         </div>
                     </div>
                     <div class="formBotones">

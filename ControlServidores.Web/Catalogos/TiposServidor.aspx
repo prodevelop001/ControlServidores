@@ -21,13 +21,13 @@
                 <div class="formCampos">
                     <asp:HiddenField ID="lblIdTipoServidor" runat="server" />
                     <div class="grpInput">
-                        <label>Tipo de Servidor</label>
-                        <asp:TextBox ID="txtTipoServidor" runat="server"></asp:TextBox>
+                        <label>Tipo de Servidor :</label>
+                        <asp:TextBox ID="txtTipoServidor" runat="server" placeholder="Ej: VM"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvTipoServidor" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtTipoServidor" ForeColor="Red" ValidationGroup="TiposServidores"></asp:RequiredFieldValidator>
                     </div>
                     <div class="grpInput">
-                        <label>Descripción</label>
-                        <asp:TextBox ID="txtTipoServidorDesc" runat="server"></asp:TextBox>
+                        <label>Descripción :</label>
+                        <asp:TextBox ID="txtTipoServidorDesc" runat="server" placeholder="Ej: Equipo Virtual"></asp:TextBox>
                     </div>
                 </div>
                 <div class="formBotones">

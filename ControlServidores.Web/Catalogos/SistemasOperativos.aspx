@@ -21,8 +21,8 @@
                 <div class="formCampos">
                     <asp:HiddenField ID="lblIdSistemaOperativo" runat="server" />
                     <div class="grpInput">
-                        <label>Nombre de S.O.</label>
-                        <asp:TextBox ID="txtSO" runat="server"></asp:TextBox>
+                        <label>Nombre de S.O. :</label>
+                        <asp:TextBox ID="txtSO" runat="server" placeholder="Ej: Windows Server 2008 R2 x86_64"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvSO" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtSO" ForeColor="Red" ValidationGroup="SistemasOperativos"></asp:RequiredFieldValidator>
                     </div>
                 </div>

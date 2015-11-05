@@ -8,12 +8,12 @@
     </div>
     <asp:Panel ID="pnlForm" Visible="false" runat="server">
         <div class="formCampos">
-            <label>Tipo Storage: </label>
+            <label>Tipo Storage :</label>
             <asp:DropDownList ID="ddlTipoStorageForm" runat="server"></asp:DropDownList>
         </div>
         <div class="formCamposDdl">
-            <label>Capacidad Asignada: </label>
-            <asp:TextBox ID="txtCapacidad" runat="server" TextMode="Number"></asp:TextBox>&nbsp;
+            <label>Capacidad Asignada :</label>
+            <asp:TextBox ID="txtCapacidad" runat="server" TextMode="Number" placeholder="Ej: 750"></asp:TextBox>&nbsp;
             <asp:DropDownList ID="ddlCapacidad" runat="server">
                 <asp:ListItem Text="-- Seleccionar --" Value ="0" Selected="True"></asp:ListItem>
                 <asp:ListItem Text="MB" Value="MB"></asp:ListItem>

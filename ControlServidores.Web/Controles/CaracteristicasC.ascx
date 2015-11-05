@@ -13,53 +13,53 @@
     <asp:Panel ID="pnlForm" Visible="false" runat="server">
         <%--<div style="width: 40%; margin: 0; float: left;">--%>
             <div class="formCampos">
-                <label>Alias Servidor:</label>
-                <asp:TextBox ID="txtAliasServidor" runat="server"></asp:TextBox>
+                <label>Alias Servidor :</label>
+                <asp:TextBox ID="txtAliasServidor" runat="server" placeholder="Ej: server-web"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvAliasServidor" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtAliasServidor" ForeColor="Red" ValidationGroup="Caracteristicas"></asp:RequiredFieldValidator>
             </div>
             <div class="formCampos">
-                <label>Descripción:</label>
-                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                <label>Descripción :</label>
+                <asp:TextBox ID="txtDescripcion" runat="server" placeholder="Ej: Pagina Web principal"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtDescripcion" ForeColor="Red" ValidationGroup="Caracteristicas"></asp:RequiredFieldValidator>
             </div>
             <div class="formCampos">
-                <label>Marca</label>
+                <label>Marca :</label>
                 <asp:DropDownList ID="ddlMarca" runat="server" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
             </div>
             <div class="formCampos">
-                <label>Modelo</label>
+                <label>Modelo :</label>
                 <asp:DropDownList ID="ddlModelo" runat="server"></asp:DropDownList>
             </div>
             <div class="formCampos">
-                <label>Tipo de servidor</label>
+                <label>Tipo de servidor :</label>
                 <asp:DropDownList ID="ddlTipoServidor" runat="server" OnSelectedIndexChanged="ddlTipoServidor_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
             </div>
             <div class="formCampos">
-                <label>VM alojada en </label>
+                <label>VM alojada en :</label>
                 <asp:DropDownList ID="ddlVirtualizador" runat="server" Enabled="False"></asp:DropDownList>
             </div>
             <div class="formCampos">
-                <label>Estatus</label>
+                <label>Estatus :</label>
                 <asp:DropDownList ID="ddlEstatus" runat="server"></asp:DropDownList>
             </div>
         <%--</div>--%>
         <%--<div style="width: 60%; margin: 0; float: left;">--%>
             <div class="formCampos">
-                <label>Procesador</label>
+                <label>Procesador :</label>
                 <asp:DropDownList ID="ddlProcesador" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlProcesador_SelectedIndexChanged"></asp:DropDownList>
             </div>
             <div class="formCampos">
-                <label>Caracteristicas:&nbsp;</label>
+                <label>Caracteristicas : </label>
                 <asp:Label ID="lblCaracteristicasProc" runat="server" Text=""></asp:Label>
             </div>
             <div class="formCampos">
-                <label>Número de procesadores</label>
-                <asp:TextBox ID="txtNumProcesadores" TextMode="Number" runat="server"></asp:TextBox>
+                <label>Número de procesadores :</label>
+                <asp:TextBox ID="txtNumProcesadores" TextMode="Number" runat="server" placeholder="Ej: 2"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvNumProcesadores" runat="server" ErrorMessage="*Campo requerido" ControlToValidate="txtNumProcesadores" ForeColor="Red" ValidationGroup="Caracteristicas"></asp:RequiredFieldValidator>
             </div>
             <div class="formCamposDdl">
-                <label>Capacidad de RAM</label>
-                <asp:TextBox ID="txtCapacidadRam" runat="server" TextMode="Number"></asp:TextBox>
+                <label>Capacidad de RAM :</label>
+                <asp:TextBox ID="txtCapacidadRam" runat="server" TextMode="Number" placeholder="Ej: 128"></asp:TextBox>
                 <asp:DropDownList ID="ddlCapacidadRam" runat="server">
                     <asp:ListItem Value="0" Text="-- Selccionar --" Selected="True"></asp:ListItem>
                     <asp:ListItem Value="MB" Text="MB"></asp:ListItem>
@@ -69,15 +69,15 @@
                 <asp:RequiredFieldValidator ID="rfvCapacidadRam" runat="server" ErrorMessage="*Capacidad de RAM requerida" ControlToValidate="txtCapacidadRam" ForeColor="Red" ValidationGroup="Caracteristicas"></asp:RequiredFieldValidator>
             </div>
             <div class="formCampos">
-                <label>Arreglo de discos</label>
+                <label>Arreglo de discos :</label>
             <asp:DropDownList ID="ddlArregloDiscos" runat="server"></asp:DropDownList>
             </div>
             <div class="formCampos">
-                <label>Númer de serie</label>
-                <asp:TextBox ID="txtNumSerie" runat="server"></asp:TextBox>
+                <label>Númer de serie :</label>
+                <asp:TextBox ID="txtNumSerie" runat="server" placeholder="Ej: 423950000006436"></asp:TextBox>
             </div>
             <div class="formCampos">
-                <label>Persona a cargo:</label>
+                <label>Persona a cargo :</label>
                 <asp:DropDownList ID="ddlPersona" runat="server"></asp:DropDownList>
             </div>
         <%--</div>--%>

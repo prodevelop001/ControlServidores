@@ -87,15 +87,15 @@
                         <div class="formBusqueda">
                             <div class="busquedaGrp">
                                 <label>Por alias:&nbsp;</label>
-                                <asp:TextBox ID="txtPorAlias" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPorAlias" runat="server" placeholder="Ej: server-web"></asp:TextBox>
                             </div>
                             <div class="busquedaGrp">
                                 <label>Por IP:&nbsp;</label>
-                                <asp:TextBox ID="txtPorIp" onkeypress="Enter(event);" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPorIp" onkeypress="Enter(event);" runat="server" placeholder="Ej: 10.1.65.84"></asp:TextBox>
                             </div>
                             <div class="busquedaGrp">
                                 <label>Por aplicación:&nbsp;</label>
-                                <asp:TextBox ID="txtPorAplicacion" onkeypress="Enter(event);" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtPorAplicacion" onkeypress="Enter(event);" runat="server" placeholder="Ej: Pagina Web"></asp:TextBox>
                             </div>
                             <div class="busquedaBoton">
                                 <asp:RegularExpressionValidator ID="revPorIp" runat="server" ErrorMessage="Ip invalida." ControlToValidate="txtPorIp" ForeColor="Red" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])){2}(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" ValidationGroup="Servidor2"></asp:RegularExpressionValidator>

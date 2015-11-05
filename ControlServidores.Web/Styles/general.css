@@ -58,6 +58,7 @@ h1, h2, h3, h4, h5, h6{
 
 .principal{
     background-color: #f0f0f0;
+    background-image: url("../Images/bkgrnd-principal.png");
     padding: 12px 20px 8px;
     min-height: 420px;
 
@@ -388,7 +389,11 @@ h1, h2, h3, h4, h5, h6{
     .formCampos label, .formCamposDdl label{
         text-align: right;
     }
-    .formCampos input, .formCamposDdl input{
+    .formCampos input, 
+    .formCamposDdl input, 
+    .formCampos select, 
+    .formCamposDdl select,
+    .formCampos textarea{
         border: solid 1px #555454;
     }
 
@@ -400,6 +405,9 @@ h1, h2, h3, h4, h5, h6{
         padding: 7px;
 
         box-sizing: border-box;
+    }
+    .formCampos label, .formCamposDdl label{
+        font-weight: 700;
     }
     .formCampos textarea{
         width: 50%;
@@ -652,6 +660,11 @@ h1, h2, h3, h4, h5, h6{
 	        -o-transition: all 0.4s ease-in-out;
 	        -ms-transition: all 0.4s ease-in-out;
 	        transition: all 0.4s ease-in-out;
+
+            box-sizing: border-box;
+        }
+        .busquedaGrp input[type="text"], .busquedaGrp input[type="number"]{
+            border: solid 1px #555454;
 
             box-sizing: border-box;
         }

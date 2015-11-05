@@ -27,8 +27,8 @@
                 <asp:Panel ID="pnlFormulario" CssClass="miFormulario" runat="server" Visible="False">
                     <div class="formCampos">
                         <asp:Label ID="lblIdConceptoEstatus" runat="server" CssClass="hide"></asp:Label>
-                        <label>Concepto </label>
-                        <asp:TextBox ID="txtConcepto" runat="server"></asp:TextBox>
+                        <label>Concepto :</label>
+                        <asp:TextBox ID="txtConcepto" runat="server" placeholder="Ej: Marca"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvConcepto" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtConcepto" ForeColor="Red" ValidationGroup="Conceptos"></asp:RequiredFieldValidator>
                     </div>
                     <div class="formBotones">

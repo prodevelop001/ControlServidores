@@ -25,21 +25,24 @@
                     <div class="formCampos">
                         <asp:Label ID="lblIdPersona" CssClass="hide" runat="server" Text=""></asp:Label>
                         <div class="grpInput">
-                            <label>Nombre</label>
-                            <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
+                            <label>Nombre :</label>
+                            <asp:TextBox ID="txtNombre" runat="server" placeholder="Ej: Miguel Ángel Ramiréz Cuenca">
+                            </asp:TextBox><asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
                             <label>Puesto</label>
-                            <asp:TextBox ID="txtPuesto" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvPuesto" runat="server" ErrorMessage="*Puesto requerido." ControlToValidate="txtPuesto" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtPuesto" runat="server" placeholder="Ej: Supervisor">
+                            </asp:TextBox><asp:RequiredFieldValidator ID="rfvPuesto" runat="server" ErrorMessage="*Puesto requerido." ControlToValidate="txtPuesto" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
                             <label>Extensión</label>
-                            <asp:TextBox ID="txtExtension" runat="server" TextMode="Number" MaxLength="4"></asp:TextBox>
+                            <asp:TextBox ID="txtExtension" runat="server" TextMode="Number" MaxLength="4" placeholder="Ej: 1501"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvExtension" runat="server" ErrorMessage="*Extensión requerida." ControlToValidate="txtExtension" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
                             <label>Correo</label>
-                            <asp:TextBox ID="txtCorreo" runat="server" TextMode="Email"></asp:TextBox><asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ErrorMessage="*Correo requerido." ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtCorreo" runat="server" TextMode="Email" placeholder="Ej: maramirez@finanzas.df.gob.mx">
+                            </asp:TextBox><asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ErrorMessage="*Correo requerido." ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
                             <label>Estatus</label>

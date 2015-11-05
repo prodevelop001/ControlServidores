@@ -22,13 +22,13 @@
                     <asp:HiddenField ID="lblIdModelo" runat="server" />
                     <div class="grpInput">
                         <div class="grpInput">
-                        <label>Marca</label>
+                        <label>Marca :</label>
                         <asp:DropDownList ID="ddlMarcaForm" runat="server" AutoPostBack="True"></asp:DropDownList>
                     </div>
                     </div>
                     <div class="grpInput">
-                        <label>Nombre de Modelo</label>
-                        <asp:TextBox ID="txtNombreModelo" runat="server"></asp:TextBox>
+                        <label>Nombre de Modelo :</label>
+                        <asp:TextBox ID="txtNombreModelo" runat="server" placeholder="Ej: PowerEdge 4200"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNombreModelo" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtNombreModelo" ForeColor="Red" ValidationGroup="NombresModelos"></asp:RequiredFieldValidator>
                     </div>
                 </div>

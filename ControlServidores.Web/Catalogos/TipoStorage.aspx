@@ -21,8 +21,8 @@
                 <div class="formCampos">
                     <asp:HiddenField ID="lblIdTipoStorage" runat="server" />
                     <div class="grpInput">
-                        <label>Tipo de Storage</label>
-                        <asp:TextBox ID="txtTipoStorage" runat="server"></asp:TextBox>
+                        <label>Tipo de Storage :</label>
+                        <asp:TextBox ID="txtTipoStorage" runat="server" placeholder="Ej: Disco Duro"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvTipoStorage" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtTipoStorage" ForeColor="Red" ValidationGroup="TiposStorage"></asp:RequiredFieldValidator>
                     </div>
                 </div>

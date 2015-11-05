@@ -10,17 +10,17 @@
     </div>
     <asp:Panel ID="pnlForm" CssClass="miFormulario" Visible ="false" runat="server">
         <div class="formCampos">
-            <label>Fecha de procedimiento</label>
+            <label>Fecha de procedimiento :</label>
             <asp:TextBox ID="txtFechaProc" runat="server"></asp:TextBox>
         </div>
         <div class="formCampos">
-            <label>Descripción</label>
-            <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" Rows="5" runat="server"></asp:TextBox>
+            <label>Descripción :</label>
+            <asp:TextBox ID="txtDescripcion" TextMode="MultiLine" Rows="5" runat="server" placeholder="Ej: Se convirtió a máquina virtual"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtDescripcion" ForeColor="Red" ValidationGroup="Bitacora"></asp:RequiredFieldValidator>
         </div>
         <div class="formCampos">
-            <label>Observaciones</label>
-            <asp:TextBox ID="txtObservaciones" TextMode="MultiLine" Rows="5" runat="server"></asp:TextBox>
+            <label>Observaciones :</label>
+            <asp:TextBox ID="txtObservaciones" TextMode="MultiLine" Rows="5" runat="server" placeholder="Ej: No tiene IP asignada"></asp:TextBox>
         </div>
         <div class="formBotones">
             <asp:Button ID="btnRegistrar" CssClass="btnGuardar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" ValidationGroup="Bitacora" />

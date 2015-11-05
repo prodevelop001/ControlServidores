@@ -25,8 +25,9 @@
                     <div class="formCampos">
                         <asp:Label ID="lblIdRol" CssClass="hide" runat="server" Text=""></asp:Label>
                         <div class="grpInput">
-                            <label>Nombre</label>
-                            <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox><asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Roles"></asp:RequiredFieldValidator>
+                            <label>Nombre :</label>
+                            <asp:TextBox ID="txtNombre" runat="server" placeholder="Ej: Sólo Lectura">
+                            </asp:TextBox><asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Roles"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInputTitulo">
                             Permisos:

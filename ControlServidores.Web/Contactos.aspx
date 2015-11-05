@@ -14,15 +14,15 @@
             <div class="formBusqueda">
                 <div class="busquedaGrp">
                     <label>Nombre: </label>
-                    <asp:TextBox ID="txtPorNombre" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPorNombre" runat="server" placeholder="Nombre y/o Apellido"></asp:TextBox>
                 </div>
                 <div class="busquedaGrp">
                     <label>Extensión: </label>
-                    <asp:TextBox ID="txtPorExt" TextMode="Number" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPorExt" TextMode="Number" runat="server" placeholder="Ej: 1593"></asp:TextBox>
                 </div>
                 <div class="busquedaGrp">
                     <label>Puesto: </label>
-                    <asp:TextBox ID="txtPorPuesto" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPorPuesto" runat="server" placeholder="Ej: Director"></asp:TextBox>
                 </div>
                 <div class="busquedaBoton">
                     <span>&nbsp;</span>

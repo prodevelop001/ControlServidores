@@ -21,13 +21,13 @@
                 <div class="formCampos">
                     <asp:HiddenField ID="lblIdTipoArreglo" runat="server" />
                     <div class="grpInput">
-                        <label>Tipo de Arreglo</label>
-                        <asp:TextBox ID="txtTipoArreglo" runat="server"></asp:TextBox>
+                        <label>Tipo de Arreglo :</label>
+                        <asp:TextBox ID="txtTipoArreglo" runat="server" placeholder="Ej: RAID 5"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvTipoArreglo" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtTipoArreglo" ForeColor="Red" ValidationGroup="TiposArreglos"></asp:RequiredFieldValidator>
                     </div>
                     <div class="grpInput">
-                        <label>Descripción</label>
-                        <asp:TextBox ID="txtTipoArregloDesc" runat="server"></asp:TextBox>
+                        <label>Descripción :</label>
+                        <asp:TextBox ID="txtTipoArregloDesc" runat="server" placeholder="Ej: Distribuido con Paridad"></asp:TextBox>
                     </div>
                 </div>
                 <div class="formBotones">

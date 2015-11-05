@@ -21,8 +21,8 @@
                 <div class="formCampos">
                     <asp:HiddenField ID="lblIdMarca" runat="server" />
                     <div class="grpInput">
-                        <label>Nombre de la Marca</label>
-                        <asp:TextBox ID="txtMarca" runat="server"></asp:TextBox>
+                        <label>Nombre de la Marca :</label>
+                        <asp:TextBox ID="txtMarca" runat="server" placeholder="Ej: DELL"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvMarca" runat="server" ErrorMessage="*Concepto requerido." ControlToValidate="txtMarca" ForeColor="Red" ValidationGroup="Marcas"></asp:RequiredFieldValidator>
                     </div>
                 </div>

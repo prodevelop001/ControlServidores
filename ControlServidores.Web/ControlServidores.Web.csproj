@@ -87,6 +87,7 @@
     <Content Include="errorAcceso.aspx" />
     <Content Include="fonts\ctrl_srvs.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bkgrnd-principal.png" />
     <Content Include="Images\favicon.png" />
     <Content Include="Images\fondo-login.png" />
     <Content Include="Images\server-fondo.png" />

@@ -24,25 +24,25 @@
                     <div class="formCampos">
                         <asp:Label ID="lblIdUsuario" runat="server" CssClass="hide" Text="Label"></asp:Label>
                         <div class="grpInput">
-                            <label>Nombre de usuario</label>
-                            <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
+                            <label>Nombre de Usuario :</label>
+                            <asp:TextBox ID="txtNombreUsuario" runat="server" placeholder="Ej: mramirez"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvUsuario" runat="server" ErrorMessage="*Nombre de usuario requerido." ControlToValidate="txtNombreUsuario" ForeColor="Red" ValidationGroup="Usuarios"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Rol</label>
+                            <label>Rol :</label>
                             <asp:DropDownList ID="ddlRol" runat="server"></asp:DropDownList>   
                         </div> 
                         <div class="grpInput">                   
-                            <label>Ligar a </label>
+                            <label>Ligar a :</label>
                             <asp:DropDownList ID="ddlPersona" runat="server"></asp:DropDownList>
                         </div>
                         <div class="grpInput">
-                            <label>Contraseña</label>
+                            <label>Contraseña :</label>
                             <asp:TextBox ID="txtPass1" runat="server" TextMode="Password"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvPass1" runat="server" ErrorMessage="*Contraseña requerida." ControlToValidate="txtPass1" ForeColor="Red" ValidationGroup="Usuarios"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Confirmar contraseña</label>
+                            <label>Confirmar Contraseña :</label>
                             <asp:TextBox ID="txtPass2" runat="server" TextMode="Password"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvPass2" runat="server" ErrorMessage="*Confirmacion requerida." ControlToValidate="txtPass2" ForeColor="Red" ValidationGroup="Usuarios"></asp:RequiredFieldValidator>
                         </div>

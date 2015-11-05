@@ -21,26 +21,26 @@
                     <div class="formCampos">
                         <asp:HiddenField ID="lblIdProcesador" runat="server"></asp:HiddenField>
                         <div class="grpInput">
-                            <label>Nombre</label>
-                            <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                            <label>Nombre :</label>
+                            <asp:TextBox ID="txtNombre" runat="server" placeholder="Ej: Intel Xeon E5-2600"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNombre" ForeColor="Red" ValidationGroup="Procesadores"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Número de Cores</label>
-                            <asp:TextBox ID="txtNumCores" runat="server"></asp:TextBox>
+                            <label>Número de Cores :</label>
+                            <asp:TextBox ID="txtNumCores" runat="server" placeholder="Ej: 8"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvNumCores" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtNumCores" ForeColor="Red" ValidationGroup="Procesadores"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Velocidad</label>
-                            <asp:TextBox ID="txtVelocidad" runat="server"></asp:TextBox>
+                            <label>Velocidad :</label>
+                            <asp:TextBox ID="txtVelocidad" runat="server" placeholder="Ej: 3.2 GHz"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvVelocidad" runat="server" ErrorMessage="*Nombre requerido." ControlToValidate="txtVelocidad" ForeColor="Red" ValidationGroup="Procesadores"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
-                            <label>Caché</label>
-                            <asp:TextBox ID="txtCache" runat="server"></asp:TextBox>
+                            <label>Caché :</label>
+                            <asp:TextBox ID="txtCache" runat="server" placeholder="Ej: 15 MB"></asp:TextBox>
                         </div>
                         <div class="grpInput">
-                            <label>Tamaño de Palaba</label>
+                            <label>Tamaño de Palaba :</label>
                             <asp:DropDownList ID="ddlTamanoPalabra" runat="server">
                             </asp:DropDownList>
                         </div>
