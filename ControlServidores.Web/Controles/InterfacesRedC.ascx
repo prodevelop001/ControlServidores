@@ -5,6 +5,7 @@
     </div>
     <asp:Panel ID="pnlFormIntRed" CssClass="miFormulario" Visible="false" runat="server">
         <asp:HiddenField ID="hdfEstado" runat="server" />
+        <asp:HiddenField ID="hdfIdServidor" runat="server" />
         <asp:HiddenField ID="hdfIdConfRed" runat="server" />
         <div class="formCampos">
             <label>Nombre de la interfaz</label>

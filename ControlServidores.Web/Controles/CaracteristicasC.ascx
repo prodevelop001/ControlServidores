@@ -51,7 +51,7 @@
             </div>
             <label>Número de procesadores</label>
             <div>
-            <asp:TextBox ID="txtNumProcesadores" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtNumProcesadores" TextMode="Number" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvNumProcesadores" runat="server" ErrorMessage="*Campo requerido" ControlToValidate="txtNumProcesadores" ForeColor="Red" ValidationGroup="Caracteristicas"></asp:RequiredFieldValidator>
             </div>
             <label>Capacidad de RAM</label>
