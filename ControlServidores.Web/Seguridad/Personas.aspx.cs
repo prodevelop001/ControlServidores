@@ -113,18 +113,6 @@ namespace ControlServidores.Web.Seguridad
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                //Label lblEstatus = e.Row.FindControl("lblEstatus") as Label;
-
-                //int IdEstatus = Convert.ToInt32(e.Row.Cells[6].Text);
-                //List<Entidades.Estatus> listEstatus = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
-                //{
-                //    IdEstatus = IdEstatus
-                //});
-                //if (listEstatus.Count > 0 && listEstatus.Count < 2)
-                //    lblEstatus.Text = listEstatus.First()._Estatus;
-                //else
-                //    lblEstatus.Text = "No especificado.";
-
                 foreach (DataControlFieldCell cell in e.Row.Cells)
                 {
                     foreach (Control control in cell.Controls)
@@ -147,7 +135,8 @@ namespace ControlServidores.Web.Seguridad
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
             resultado = Negocio.Seguridad.Personas.Eliminar(new Entidades.Personas()
             {
-                IdPersona = IdPersona
+                IdPersona = IdPersona,
+                Estatus = null
             });
 
             resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
