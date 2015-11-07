@@ -98,8 +98,8 @@ namespace ControlServidores.Web.Controles
                 }
                 else if (hdfEstado.Value == "2" && permisos.U == true)
                 {
-                    so.IdSOxServidor = Convert.ToInt32(hdfIdSoServidor);
-                    resultado = Negocio.Inventarios.SOxServidor.Nuevo(so);
+                    so.IdSOxServidor = Convert.ToInt32(hdfIdSoServidor.Value);
+                    resultado = Negocio.Inventarios.SOxServidor.Actualizar(so);
                 }
                 else
                 {
@@ -129,6 +129,7 @@ namespace ControlServidores.Web.Controles
         protected void gdvSO_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblResultado.Text = string.Empty;
+            hdfIdSoServidor.Value = gdvSO.SelectedRow.Cells[1].Text.Trim();
             hdfEstado.Value = "2";
             pnlForm.Visible = true;
             pnlSO.Visible = false;
