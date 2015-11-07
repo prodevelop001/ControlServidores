@@ -21,7 +21,9 @@ namespace ControlServidores.Datos.Catalogos
 						crit.Add(Restrictions.Eq("IdMarca", a.IdMarca));
 					if (!string.IsNullOrEmpty(a.NombreModelo))
                         crit.Add(Restrictions.Like("NombreModelo", a.NombreModelo));
-					
+
+                    crit.AddOrder(Order.Asc("M.NombreModelo"));
+
                     lista = (List<Entidades.Modelo>)crit.List<Entidades.Modelo>();
                 }
             }

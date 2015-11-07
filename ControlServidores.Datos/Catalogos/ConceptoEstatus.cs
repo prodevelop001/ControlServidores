@@ -20,7 +20,9 @@ namespace ControlServidores.Datos.Catalogos
                         crit.Add(Restrictions.Eq("IdConceptoEstatus", a.IdConceptoEstatus));
                    if (!string.IsNullOrEmpty(a.Concepto))
                         crit.Add(Restrictions.Like("Concepto", a.Concepto));
-					
+
+                    crit.AddOrder(Order.Asc("Concepto"));
+
                     lista = (List<Entidades.ConceptoEstatus>)crit.List<Entidades.ConceptoEstatus>();
                 }
             }

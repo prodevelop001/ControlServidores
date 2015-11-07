@@ -23,7 +23,9 @@ namespace ControlServidores.Datos.Catalogos
                         crit.Add(Restrictions.Like("Telefono", a.Telefono));
 					if (!string.IsNullOrEmpty(a.Direccion))
                         crit.Add(Restrictions.Like("Direccion", a.Direccion));
-					
+
+                    crit.AddOrder(Order.Asc("Nombre"));
+
                     lista = (List<Entidades.Empresa>)crit.List<Entidades.Empresa>();
                 }
             }

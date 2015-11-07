@@ -47,6 +47,8 @@ namespace ControlServidores.Datos.Inventarios
                     if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
 
+                    crit.AddOrder(Order.Asc("s.AliasServidor"));
+
                     lista = (List<Entidades.Servidor>)crit.List<Entidades.Servidor>();
                 }
             }

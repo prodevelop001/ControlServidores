@@ -21,7 +21,9 @@ namespace ControlServidores.Datos.Catalogos
                         crit.Add(Restrictions.Like("Tipo", a.Tipo));
 					if (!string.IsNullOrEmpty(a.Descripcion))
                         crit.Add(Restrictions.Like("Descripcion", a.Descripcion));
-					
+
+                    crit.AddOrder(Order.Asc("Tipo"));
+
                     lista = (List<Entidades.TipoServidor>)crit.List<Entidades.TipoServidor>();
                 }
             }

@@ -20,7 +20,9 @@ namespace ControlServidores.Datos.Catalogos
                    
 					if (!string.IsNullOrEmpty(a.Tipo))
                         crit.Add(Restrictions.Like("Tipo", a.Tipo));
-					
+
+                    crit.AddOrder(Order.Asc("Tipo"));
+
                     lista = (List<Entidades.TipoMemoria>)crit.List<Entidades.TipoMemoria>();
                 }
             }

@@ -29,6 +29,8 @@ namespace ControlServidores.Datos.Seguridad
                     if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
                         crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
 
+                    crit.AddOrder(Order.Asc("Nombre"));
+
                     lista = (List<Entidades.Personas>)crit.List<Entidades.Personas>();
                 }
             }

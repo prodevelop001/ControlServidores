@@ -20,7 +20,9 @@ namespace ControlServidores.Datos.Catalogos
                         crit.Add(Restrictions.Eq("IdSO", a.IdSO));
                    if (!string.IsNullOrEmpty(a.NombreSO))
                         crit.Add(Restrictions.Like("NombreSO", a.NombreSO));
-					
+
+                    crit.AddOrder(Order.Asc("NombreSO"));
+
                     lista = (List<Entidades.SO>)crit.List<Entidades.SO>();
                 }
             }

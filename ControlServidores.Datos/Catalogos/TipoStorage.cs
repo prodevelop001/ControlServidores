@@ -19,7 +19,9 @@ namespace ControlServidores.Datos.Catalogos
                         crit.Add(Restrictions.Eq("IdTipoStorage", a.IdTipoStorage));
 					if (!string.IsNullOrEmpty(a.Tipo))
                         crit.Add(Restrictions.Like("Tipo", a.Tipo));
-			
+
+                    crit.AddOrder(Order.Asc("Tipo"));
+
                     lista = (List<Entidades.TipoStorage>)crit.List<Entidades.TipoStorage>();
                 }
             }

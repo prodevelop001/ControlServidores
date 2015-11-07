@@ -21,6 +21,8 @@ namespace ControlServidores.Datos.Catalogos
                     if (!string.IsNullOrEmpty(ms.NombreMarca))
                         crit.Add(Restrictions.Like("NombreMarca", ms.NombreMarca));
 
+                    crit.AddOrder(Order.Asc("NombreMarca"));
+
                     lista = (List<Entidades.MarcaServidor>)crit.List<Entidades.MarcaServidor>();
                 }
             }

@@ -32,7 +32,7 @@ namespace ControlServidores.Datos.Catalogos
                     lista = (List<Entidades.Procesador>)crit.List<Entidades.Procesador>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }
