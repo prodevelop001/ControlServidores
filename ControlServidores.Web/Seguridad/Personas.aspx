@@ -70,15 +70,11 @@
                             <asp:BoundField DataField="Puesto" HeaderText="Puesto" />
                             <asp:BoundField DataField="Extension" HeaderText="Extension" />
                             <asp:BoundField DataField="Correo" HeaderText="Correo" />
-                            <asp:BoundField DataField="IdEstatus" HeaderText="IdEstatus" >
+                            <asp:BoundField DataField="Estatus.IdEstatus" HeaderText="IdEstatus" >
                             <HeaderStyle CssClass="hide" />
                             <ItemStyle CssClass="hide" />
                             </asp:BoundField>
-                            <asp:TemplateField HeaderText="Estatus">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblEstatus" runat="server" Text=""></asp:Label>
-                                </ItemTemplate>                               
-                            </asp:TemplateField>
+                            <asp:BoundField DataField="Estatus._Estatus" HeaderText="Estatus" />
                             <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
                             <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                         </Columns>

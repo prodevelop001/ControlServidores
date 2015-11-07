@@ -13,5 +13,7 @@ namespace ControlServidores.Entidades
         public virtual ISet<ConfRed> ConfRed { get; set; }
 
         public virtual ISet<SOxServidor> SOxServidor { get; set; }
+
+        public virtual ISet<Personas> Persona { get; set; }
     }
 }

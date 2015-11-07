@@ -26,7 +26,7 @@ namespace ControlServidores.Web
 
         private void llenarGdvPersonas()
         {
-            gdvPersonas.DataSource = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas() { IdEstatus = 1 });
+            gdvPersonas.DataSource = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas() { Estatus = new Entidades.Estatus() { IdEstatus = 1 } });
             gdvPersonas.DataBind();
         }
 
@@ -37,7 +37,8 @@ namespace ControlServidores.Web
             {
                 List<Entidades.Personas> consultaPersona = new List<Entidades.Personas>();
                 consultaPersona = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas() {
-                    Nombre = "%" + txtPorNombre.Text.Trim() + "%"
+                    Nombre = "%" + txtPorNombre.Text.Trim() + "%",
+                    Estatus = new Entidades.Estatus() { IdEstatus = 1 }
                 });
                 consultaPersona.ForEach(delegate (Entidades.Personas p)
                 {
@@ -50,6 +51,8 @@ namespace ControlServidores.Web
                 consultaPersona = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
                 {
                     Puesto = "%" + txtPorPuesto.Text.Trim() + "%"
+                    ,
+                    Estatus = new Entidades.Estatus() { IdEstatus = 1 }
                 });
                 consultaPersona.ForEach(delegate (Entidades.Personas p)
                 {
@@ -61,7 +64,8 @@ namespace ControlServidores.Web
                 List<Entidades.Personas> consultaPersona = new List<Entidades.Personas>();
                 consultaPersona = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
                 {
-                    Extension = "%" + txtPorExt.Text.Trim() + "%"
+                    Extension = "%" + txtPorExt.Text.Trim() + "%",
+                    Estatus = new Entidades.Estatus() { IdEstatus = 1 }
                 });
                 consultaPersona.ForEach(delegate (Entidades.Personas p)
                 {

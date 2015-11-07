@@ -15,7 +15,15 @@ namespace ControlServidores.Datos.Seguridad
                 using (ISession session = NHibernateHelper.OpenSession())
                 {
                     //Option
-                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Personas));
+                    ICriteria crit = session.CreateCriteria(typeof(Entidades.Personas),"P");
+
+                    if (a.Estatus != null)
+                    {
+                        crit.CreateAlias("P.Estatus", "Estatus", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
+                        if (a.Estatus.IdEstatus != 0 && a.Estatus.IdEstatus.ToString() != "")
+                            crit.Add(Restrictions.Eq("Estatus.IdEstatus", a.Estatus.IdEstatus));
+                    }
+
                     if (a.IdPersona != 0 && a.IdPersona.ToString() != "")
                         crit.Add(Restrictions.Eq("IdPersona", a.IdPersona));
                    if (!string.IsNullOrEmpty(a.Nombre))
@@ -24,17 +32,15 @@ namespace ControlServidores.Datos.Seguridad
                         crit.Add(Restrictions.Like("Puesto", a.Puesto));
 					if (!string.IsNullOrEmpty(a.Extension))
                         crit.Add(Restrictions.Like("Extension", a.Extension));
-					if (!string.IsNullOrEmpty(a.Correo))
+                    if (!string.IsNullOrEmpty(a.Correo))
                         crit.Add(Restrictions.Like("Correo", a.Correo));
-                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
 
                     crit.AddOrder(Order.Asc("Nombre"));
 
                     lista = (List<Entidades.Personas>)crit.List<Entidades.Personas>();
                 }
             }
-            catch
+            catch(Exception err)
             {
                 return lista;
             }

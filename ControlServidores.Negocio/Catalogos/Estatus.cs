@@ -180,7 +180,7 @@ namespace ControlServidores.Negocio.Catalogos
             }
 
             List<Entidades.Personas> personasL = new List<Entidades.Personas>();
-            personasL = Datos.Seguridad.Personas.Obtener(new Entidades.Personas() { IdEstatus = a.IdEstatus });
+            personasL = Datos.Seguridad.Personas.Obtener(new Entidades.Personas() { Estatus= new Entidades.Estatus() { IdEstatus = a.IdEstatus } });
             if (personasL.Count > 0)
             {
                 resultado.resultado = false;

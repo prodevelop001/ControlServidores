@@ -113,17 +113,17 @@ namespace ControlServidores.Web.Seguridad
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                Label lblEstatus = e.Row.FindControl("lblEstatus") as Label;
+                //Label lblEstatus = e.Row.FindControl("lblEstatus") as Label;
 
-                int IdEstatus = Convert.ToInt32(e.Row.Cells[6].Text);
-                List<Entidades.Estatus> listEstatus = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
-                {
-                    IdEstatus = IdEstatus
-                });
-                if (listEstatus.Count > 0 && listEstatus.Count < 2)
-                    lblEstatus.Text = listEstatus.First()._Estatus;
-                else
-                    lblEstatus.Text = "No especificado.";
+                //int IdEstatus = Convert.ToInt32(e.Row.Cells[6].Text);
+                //List<Entidades.Estatus> listEstatus = Negocio.Catalogos.Estatus.Obtener(new Entidades.Estatus()
+                //{
+                //    IdEstatus = IdEstatus
+                //});
+                //if (listEstatus.Count > 0 && listEstatus.Count < 2)
+                //    lblEstatus.Text = listEstatus.First()._Estatus;
+                //else
+                //    lblEstatus.Text = "No especificado.";
 
                 foreach (DataControlFieldCell cell in e.Row.Cells)
                 {
@@ -179,7 +179,7 @@ namespace ControlServidores.Web.Seguridad
             persona.Puesto = txtPuesto.Text.Trim();
             persona.Extension = txtExtension.Text.Trim();
             persona.Correo = txtCorreo.Text.Trim();
-            persona.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+            persona.Estatus.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
             if (hdfEstado.Value == "1" && permisos.C == true && ddlEstatus.SelectedValue != "0")
             {
                 resultado = Negocio.Seguridad.Personas.Nuevo(persona);

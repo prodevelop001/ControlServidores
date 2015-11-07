@@ -14,10 +14,17 @@ namespace ControlServidores.Entidades
 		
 		public virtual string Correo {get;set;}
 
-        public virtual int IdEstatus { get; set; }
+        //public virtual int IdEstatus { get; set; }
 
         public virtual ISet<Usuarios> Usuarios { get; set; }
 
         public virtual ISet<PersonaXservidor> PersonaXservidor { get; set;  }
+
+        public virtual Estatus Estatus { get; set; }
+
+        public Personas()
+        {
+            Estatus = new Estatus();
+        }
 	}
 }

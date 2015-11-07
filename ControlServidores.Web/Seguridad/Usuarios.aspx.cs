@@ -50,7 +50,8 @@ namespace ControlServidores.Web.Seguridad
             ddlPersona.DataValueField = "IdPersona";
             ddlPersona.DataSource = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas()
             {
-                IdEstatus = 1
+                Estatus = new Entidades.Estatus() { IdEstatus = 1 }
+            
             });
             ddlPersona.DataBind();
         }
