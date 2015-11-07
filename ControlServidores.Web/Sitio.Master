@@ -48,5 +48,6 @@
     </form>
 </body>
 <script type="text/javascript" src="http://localhost:1810/Scripts/general.js"></script>
+<script type="text/javascript" src="http://localhost/Scripts/general.js"></script>
 </html>
 
