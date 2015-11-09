@@ -31,6 +31,15 @@ namespace ControlServidores.Web.Inventarios {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// lblNombreServidor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreServidor;
+        
+        /// <summary>
         /// CaracteristicasC control.
         /// </summary>
         /// <remarks>

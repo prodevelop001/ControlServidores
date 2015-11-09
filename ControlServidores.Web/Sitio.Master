@@ -47,7 +47,35 @@
         <div class="clear"></div>
     </form>
 </body>
-<script type="text/javascript" src="http://localhost:1810/Scripts/general.js"></script>
-<script type="text/javascript" src="http://localhost/Scripts/general.js"></script>
+<%--<script type="text/javascript" src="http://localhost:1810/Scripts/general.js"></script>
+<script type="text/javascript" src="http://localhost/Scripts/general.js"></script>--%>
+    <script type="text/javascript">
+        document.getElementById("ppalServidores").addEventListener("onmouseover", hacerAlgo());
+        var Tipo2;
+        function hacerAlgo() {
+            var Tipo = document.getElementsByClassName("tipoServidor");
+            Tipo2 = Tipo;
+            var z;
+            //var tpSrv;
+            
+            for (z = 0 ; z < Tipo.length ; z++) {
+                if (Tipo[z].innerHTML === "2") {
+                    //alert("Hola desde IF");
+                    var Padre = Tipo[z].parentNode;
+                    Padre.style.width = '96%';
+                }
+            }
+        }
+        
+        //------
+        function checkMe() {
+            if (confirm("¿Está seguro de eliminar el registro?")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
 </html>
 

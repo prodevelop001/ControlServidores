@@ -56,7 +56,8 @@ namespace ControlServidores.Web.Inventarios
             {
                 nServidor = s.First();
             }
-            //lblNombreServidor.Text = nServidor.AliasServidor;
+            lblNombreServidor.Text = nServidor.AliasServidor;
+            lblNombreServidor.Attributes["style"] = "text-transform: uppercase;";
 
         }
 

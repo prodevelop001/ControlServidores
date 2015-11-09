@@ -37,7 +37,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="ttlPrincipal">
-                <h1><asp:Label ID="lblNombreServidor" runat="server">Aquí el Nombre</asp:Label></h1>
+                <h1><asp:Label ID="lblNombreServidor" runat="server"></asp:Label></h1>
             </div>
                 <div id="numCols" class="hide">9</div>
                 <div class="detallesGenerales">

@@ -27,6 +27,8 @@ namespace ControlServidores.Web.Inventarios
                         llenarRprServidores();
                     }
                     btnNuevo.Enabled = permisos.C;
+
+                    btnCancelar.Attributes.Add("OnClick", "javascript:return hacerAlgo_dos();");
                 }
             }
             else

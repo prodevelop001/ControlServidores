@@ -86,45 +86,45 @@
             <asp:Button ID="Cancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="Cancelar_Click" />
         </div>
     </asp:Panel>
-    <asp:Panel ID="pnlCaracteristicas" runat="server">        
-        <label>Alias Servidor:</label>
-        <div>
+    <asp:Panel ID="pnlCaracteristicas" class="detallesSrvs" runat="server">        
+        <div class="elementoDetalle">
+            <label>Alias Servidor:</label>
             <asp:Label ID="lblAliasServidor" runat="server" Text=""></asp:Label>
         </div>
-        <label>Descripción:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Descripción:</label>
             <asp:Label ID="lblDescripcionUso" runat="server" Text=""></asp:Label>
         </div>
-        <label>Tipo de servidor:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Tipo de servidor:</label>
             <asp:Label ID="lblTipoServidor" runat="server" Text=""></asp:Label>
         </div>
-        <label>Modelo:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Modelo:</label>
             <asp:Label ID="lblModelo" runat="server" Text=""></asp:Label>
         </div>
-        <label>Procesador:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Procesador:</label>
             <asp:Label ID="lblProcesador" runat="server" Text=""></asp:Label>
         </div>
-        <label>Número de procesadores:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Núm. de Procesadores:</label>
             <asp:Label ID="lblNumProcesadores" runat="server" Text=""></asp:Label>
         </div>
-        <label>Capacidad de RAM:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Capacidad de RAM:</label>
             <asp:Label ID="lblCapacidadRam" runat="server" Text=""></asp:Label>
         </div>
-        <label>Arreglo de discos:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Arreglo de discos:</label>
             <asp:Label ID="lblArregloDiscos" runat="server" Text=""></asp:Label>
         </div>
-        <label>Soporte:</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Soporte:</label>
             <asp:Label ID="lblSoporte" runat="server" Text="Sin Soporte"></asp:Label>
         </div>
-        <label>Persona encargada</label>
-        <div>
+        <div class="elementoDetalle">
+            <label>Persona encargada:</label>
             <asp:Label ID="lblPersonaEncargada" runat="server" Text=""></asp:Label>
         </div>
     </asp:Panel>

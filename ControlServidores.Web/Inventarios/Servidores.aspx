@@ -155,7 +155,6 @@
                     var obj = document.getElementById("<%=btnBuscar.ClientID%>");
                     obj.click();
                 }
-
             }
         </script>
     </div>
