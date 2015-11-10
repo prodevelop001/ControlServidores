@@ -155,7 +155,13 @@ namespace ControlServidores.Web.Controles
                         txtCapacidadRam.Text = servidores.First().Especificacion.CapacidadRAM.Split(' ').ElementAt(0);
                         ddlCapacidadRam.SelectedValue = servidores.First().Especificacion.CapacidadRAM.Split(' ').ElementAt(1);
                         ddlProcesador.SelectedValue = servidores.First().Especificacion.Procesador.IdProcesador.ToString();
-                        txtNumProcesadores.Text += servidores.First().Especificacion.Procesador.NumCores.ToString();
+                        
+                        lblCaracteristicasProc.Text = servidores.First().Especificacion.Procesador.NumCores.ToString();
+                        lblCaracteristicasProc.Text += " " + servidores.First().Especificacion.Procesador.Velocidad.Trim();
+                        lblCaracteristicasProc.Text += " " + servidores.First().Especificacion.Procesador.Cache.Trim();
+                        lblCaracteristicasProc.Text += " " + servidores.First().Especificacion.Procesador.TamanoPalabra.Trim();
+
+                        txtNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
                         
                     }
                     if (servidores.First().Especificacion != null)
