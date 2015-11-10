@@ -366,7 +366,7 @@ namespace ControlServidores.Web.Controles
                         especificacion.Procesador.IdProcesador = Convert.ToInt32(ddlProcesador.SelectedValue);
                         especificacion.NumProcesadores = Convert.ToInt32(txtNumProcesadores.Text.Trim());
                         especificacion.CapacidadRAM = txtCapacidadRam.Text.Trim() + " " + ddlCapacidadRam.SelectedValue.Trim();
-                        especificacion.TipoArregloDisco.IdTipoArreglo = Convert.ToInt32(ddlTipoServidor.SelectedValue);
+                        especificacion.TipoArregloDisco.IdTipoArreglo = Convert.ToInt32(ddlArregloDiscos.SelectedValue);
                         if (!string.IsNullOrWhiteSpace(txtNumSerie.Text.Trim()))
                         {
                             especificacion.NumSerie = txtNumSerie.Text.Trim();
