@@ -50,7 +50,7 @@
                         </div>
                     </asp:Panel>
                     <asp:Panel ID="pnlSoporte" runat="server">
-                        <asp:GridView ID="gdvSoporte" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged" OnRowDeleting="gdvSoporte_RowDeleting">
+                        <asp:GridView ID="gdvSoporte" CssClass="miTabla" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged" OnRowDeleting="gdvSoporte_RowDeleting">
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -77,8 +77,8 @@
                                 <asp:BoundField DataField="Modelo.NombreModelo" HeaderText="Modelo" />
                                 <asp:BoundField DataField="FechaInicio" DataFormatString="{0:d}" HeaderText="Fecha Inicio" />
                                 <asp:BoundField DataField="FechaFin" DataFormatString="{0:d}" HeaderText="Fecha Fin" />
-                                <asp:CommandField ShowSelectButton="True" />
-                                <asp:CommandField ShowDeleteButton="True" />
+                                <asp:CommandField ControlStyle-CssClass="icon-pencil" SelectText=" Seleccionar" ShowSelectButton="True" />
+                                <asp:CommandField ControlStyle-CssClass="icon-cross" DeleteText=" Eliminar" ShowDeleteButton="True" />
                             </Columns>
                         </asp:GridView>
                     </asp:Panel>

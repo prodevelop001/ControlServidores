@@ -119,7 +119,9 @@
                                                 <asp:Label ID="lblIp" runat="server" Text=""></asp:Label></b>
                                             <br /><label><b>Sistema Operativo:</b></label>
                                             <asp:Label ID="lblSO" runat="server" Text=""></asp:Label>
-                                            <br /><label><b>Encargado: </b></label>
+                                            <label><b>Tipo :</b></label>
+                                            <asp:Label ID="lblTipo" runat="server" Text="???"></asp:Label>
+                                            <br /><label><b>Encargado :</b></label>
                                             <asp:Label ID="lblEncargado" runat="server" Text=""></asp:Label>
                                         </div>                                        
                                         <div class="limpiar"></div>

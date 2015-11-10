@@ -49,16 +49,16 @@
                 <%--Fin detalles General--%>
                 <asp:Panel ID="pnlVms" Visible="false" CssClass="hostVirtual" runat="server">
                     <div class="tituloDetalles">
-                        <h4>VMs que aloja</h4>
+                        <h4>MVs que aloja</h4>
                     </div>
-                    <asp:GridView ID="gdvVMs" runat="server" AutoGenerateColumns="False">
+                    <asp:GridView ID="gdvVMs" CssClass="miTabla" runat="server" AutoGenerateColumns="False">
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <%# Container.DataItemIndex + 1 %>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="AliasServidor" HeaderText="VM" />
+                            <asp:BoundField DataField="AliasServidor" HeaderText="Máquina Virtual" />
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>
@@ -83,13 +83,13 @@
                 </div>
                 <div class="storage">
                     <div class="tituloDetalles">
-                        <h4>Storage</h4>
+                        <h4>Almacenamiento Externo</h4>
                     </div>
                     <uc1:StorageC runat="server" ID="StorageC" />
                 </div>
                 <div class="bitacora">
                     <div class="tituloDetalles">
-                        <h4>Bitacora</h4>
+                        <h4>Bitácora</h4>
                     </div>
                     <uc1:BitacoraC runat="server" ID="BitacoraC" />
                 </div>

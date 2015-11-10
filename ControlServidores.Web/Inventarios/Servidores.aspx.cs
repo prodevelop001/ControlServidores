@@ -107,13 +107,16 @@ namespace ControlServidores.Web.Inventarios
             Label lblIp = (Label)e.Item.FindControl("lblIp");
             Label lblSO = (Label)e.Item.FindControl("lblSO");
             Label lblEncargado = (Label)e.Item.FindControl("lblEncargado");
+            
+            //Label lblTipo = (Label)e.Item.FindControl("lblTipo");            
 
             int _IdServidor = Convert.ToInt32(IdServidor.Value);
             var _servidores = from l in _Servidores
                               where l.IdVirtualizador == _IdServidor
                               select l;
 
-            List<Entidades.ConfRed> conRed = new List<Entidades.ConfRed>();
+
+            List <Entidades.ConfRed> conRed = new List<Entidades.ConfRed>();
             conRed = Negocio.Inventarios.ConfRed.Obtener(
                 new Entidades.ConfRed()
                 {    Estatus = null,
