@@ -4,9 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div class="principal">
-        <p>
+        <div class="errorAcceso">
             <asp:Label ID="lblInfo" runat="server" Text="No tienes los privilegios para accesar a la pagina solicitada."></asp:Label>
             <asp:HyperLink ID="hlkRedirLogin" NavigateUrl="~/Login.aspx"  Text="Ir a Login" Visible="false" runat="server"></asp:HyperLink>
-        </p>
+        </div>
     </div>
 </asp:Content>
