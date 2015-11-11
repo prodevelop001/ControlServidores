@@ -18,5 +18,9 @@
       <key column= "IdPersona" not-null="true"/>
       <one-to-many class="ControlServidores.Entidades.Personas" />
     </set>
+    <set name="Servidor" inverse="true" cascade="all-delete-orphan">
+      <key column= "IdServidor" not-null="true"/>
+      <one-to-many class="ControlServidores.Entidades.Servidor" />
+    </set>
   </class>
 </hibernate-mapping>

@@ -55,10 +55,9 @@ namespace ControlServidores.Web.Inventarios
             if(s.Count > 0)
             {
                 nServidor = s.First();
+                lblNombreServidor.Text = nServidor.AliasServidor;
+                lblNombreServidor.Attributes["style"] = "text-transform: uppercase;";
             }
-            lblNombreServidor.Text = nServidor.AliasServidor;
-            lblNombreServidor.Attributes["style"] = "text-transform: uppercase;";
-
         }
 
         private void ObtenerParametros()

@@ -87,13 +87,17 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="pnlCaracteristicas" class="detallesSrvs" runat="server">        
-        <div class="elementoDetalle">
+        <%--<div class="elementoDetalle">
             <label>Alias Servidor:</label>
             <asp:Label ID="lblAliasServidor" runat="server" Text=""></asp:Label>
-        </div>
+        </div>--%>
         <div class="elementoDetalle">
             <label>Descripción:</label>
             <asp:Label ID="lblDescripcionUso" runat="server" Text=""></asp:Label>
+        </div>
+         <div class="elementoDetalle">
+            <label>Estatus:</label>
+            <asp:Label ID="lblEstatusServidor" runat="server" Text=""></asp:Label>
         </div>
         <div class="elementoDetalle">
             <label>Tipo de servidor:</label>

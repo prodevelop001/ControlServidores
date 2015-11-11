@@ -67,8 +67,12 @@ namespace ControlServidores.Web.Controles
             {
                 if (servidores.Count > 0)
                 {
-                    lblAliasServidor.Text = servidores.First().AliasServidor;
+                    //lblAliasServidor.Text = servidores.First().AliasServidor;
                     lblDescripcionUso.Text = servidores.First().DescripcionUso;
+                    if(servidores.First().Estatus != null)
+                    {
+                        lblEstatusServidor.Text = servidores.First().Estatus._Estatus;
+                    }
                     if(servidores.First().TipoServidor != null)
                         lblTipoServidor.Text = servidores.First().TipoServidor.Tipo;
                     hdfIdModelo.Value = servidores.First().IdModelo.ToString();
@@ -169,7 +173,7 @@ namespace ControlServidores.Web.Controles
                         if (servidores.First().Especificacion.TipoArregloDisco != null)
                             ddlArregloDiscos.SelectedValue = servidores.First().Especificacion.TipoArregloDisco.IdTipoArreglo.ToString();
                     }
-                    ddlEstatus.SelectedValue = servidores.First().IdEstatus.ToString();
+                    ddlEstatus.SelectedValue = servidores.First().Estatus.IdEstatus.ToString();
 
                     Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
                     persona.Servidor.IdServidor = _IdServidor;
@@ -404,7 +408,7 @@ namespace ControlServidores.Web.Controles
                                 if (ddlVirtualizador.SelectedValue != "0")
                                     servidor.IdVirtualizador = Convert.ToInt32(ddlVirtualizador.SelectedValue);
                                 servidor.DescripcionUso = txtDescripcion.Text.Trim();
-                                servidor.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
+                                servidor.Estatus.IdEstatus = Convert.ToInt32(ddlEstatus.SelectedValue);
 
                                 Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
                                 persona.Servidor.IdServidor = _IdServidor;

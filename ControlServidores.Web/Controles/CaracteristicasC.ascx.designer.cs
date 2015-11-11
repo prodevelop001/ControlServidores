@@ -274,15 +274,6 @@ namespace ControlServidores.Web.Controles {
         protected global::System.Web.UI.WebControls.Panel pnlCaracteristicas;
         
         /// <summary>
-        /// lblAliasServidor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAliasServidor;
-        
-        /// <summary>
         /// lblDescripcionUso control.
         /// </summary>
         /// <remarks>
@@ -290,6 +281,15 @@ namespace ControlServidores.Web.Controles {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescripcionUso;
+        
+        /// <summary>
+        /// lblEstatusServidor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstatusServidor;
         
         /// <summary>
         /// lblTipoServidor control.

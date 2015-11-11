@@ -35,6 +35,12 @@ namespace ControlServidores.Datos.Inventarios
                         if (a.TipoServidor.IdTipoServidor != 0 && a.TipoServidor.IdTipoServidor.ToString() != "")
                             crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idTipoServidor.IdTipoServidor", a.TipoServidor.IdTipoServidor)));
                     }
+                    if (a.Estatus != null)
+                    {
+                        crit.CreateAlias("s.Estatus", "Estatus", NHibernate.SqlCommand.JoinType.LeftOuterJoin);
+                        if (a.Estatus.IdEstatus != 0 && a.Estatus.IdEstatus.ToString() != "")
+                            crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("Estatus.IdEstatus", a.Estatus.IdEstatus)));
+                    }
 
                     if (a.IdServidor != 0 && a.IdServidor.ToString() != "")
                         crit.Add(Restrictions.Eq("IdServidor", a.IdServidor));
@@ -44,8 +50,6 @@ namespace ControlServidores.Datos.Inventarios
                         crit.Add(Restrictions.Eq("IdVirtualizador", a.IdVirtualizador));
                     if (!string.IsNullOrEmpty(a.DescripcionUso))
                         crit.Add(Restrictions.Like("DescripcionUso", a.DescripcionUso));
-                    if (a.IdEstatus != 0 && a.IdEstatus.ToString() != "")
-                        crit.Add(Restrictions.Eq("IdEstatus", a.IdEstatus));
 
                     crit.AddOrder(Order.Asc("s.AliasServidor"));
 

@@ -223,7 +223,7 @@ namespace ControlServidores.Web.Inventarios
                     servidor.Modelo = null;
                     servidor.Especificacion = null;
                     servidor.TipoServidor = null;
-                    servidor.IdEstatus = Convert.ToInt32(ddlEstatusServidor.SelectedValue);
+                    servidor.Estatus.IdEstatus = Convert.ToInt32(ddlEstatusServidor.SelectedValue);
                     resultado = Negocio.Inventarios.Servidor.Nuevo(servidor);
                     resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
                     {

@@ -15,5 +15,7 @@ namespace ControlServidores.Entidades
         public virtual ISet<SOxServidor> SOxServidor { get; set; }
 
         public virtual ISet<Personas> Persona { get; set; }
+
+        public virtual ISet<Servidor> Servidor { get; set; }
     }
 }

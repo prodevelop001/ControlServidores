@@ -120,7 +120,7 @@
                                             <br /><label><b>Sistema Operativo:</b></label>
                                             <asp:Label ID="lblSO" runat="server" Text=""></asp:Label>
                                             <label><b>Tipo :</b></label>
-                                            <asp:Label ID="lblTipo" runat="server" Text="???"></asp:Label>
+                                            <asp:Label ID="lblTipo" runat="server" Text='<%# Eval("TipoServidor.Tipo") %>'></asp:Label>
                                             <br /><label><b>Encargado :</b></label>
                                             <asp:Label ID="lblEncargado" runat="server" Text=""></asp:Label>
                                         </div>                                        

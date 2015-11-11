@@ -158,7 +158,7 @@ namespace ControlServidores.Negocio.Catalogos
             }
 
             List<Entidades.Servidor> servsL = new List<Entidades.Servidor>();
-            servsL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdEstatus = a.IdEstatus, Especificacion= null, Modelo= null, Red = null, TipoServidor = null });
+            servsL = Datos.Inventarios.Servidor.Obtener(new Entidades.Servidor() { Estatus = new Entidades.Estatus() { IdEstatus = a.IdEstatus }, Especificacion= null, Modelo= null, Red = null, TipoServidor = null });
             if (servsL.Count > 0)
             {
                 resultado.resultado = false;

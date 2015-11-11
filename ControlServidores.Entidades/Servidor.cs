@@ -18,7 +18,9 @@ namespace ControlServidores.Entidades
 
         public virtual string DescripcionUso { get; set; }
 
-        public virtual int IdEstatus { get; set; }
+        //public virtual int IdEstatus { get; set; }
+
+        public virtual Estatus Estatus { get; set; }
 
         public virtual Modelo Modelo { get; set; }
 
@@ -39,6 +41,7 @@ namespace ControlServidores.Entidades
             Modelo = new Modelo();
             Especificacion = new EspServidor();
             TipoServidor = new TipoServidor();
+            Estatus = new Estatus();
         }       
     }
 }
