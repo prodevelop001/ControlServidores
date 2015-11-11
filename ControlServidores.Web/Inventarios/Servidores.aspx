@@ -112,17 +112,30 @@
                                         <div class="titulos">                                            
                                             <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a></div>
                                         <div class="descripcion">
-                                            <label><b>Descripción uso :</b> &nbsp;</label>
-                                            <asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
-                                            <br /><label><b>Dirección IP :</b></label>
-                                            <b>
-                                                <asp:Label ID="lblIp" runat="server" Text=""></asp:Label></b>
-                                            <br /><label><b>Sistema Operativo:</b></label>
-                                            <asp:Label ID="lblSO" runat="server" Text=""></asp:Label>
-                                            <label><b>Tipo :</b></label>
-                                            <asp:Label ID="lblTipo" runat="server" Text='<%# Eval("TipoServidor.Tipo") %>'></asp:Label>
-                                            <br /><label><b>Encargado :</b></label>
-                                            <asp:Label ID="lblEncargado" runat="server" Text=""></asp:Label>
+                                            <div class="elemDesFull">
+                                                <label>Descripción uso :</label>
+                                                <asp:Label ID="LblDescripcion" runat="server" Text='<%# Eval("DescripcionUso") %>'></asp:Label>
+                                            </div>
+                                            <div class="elemDesHalf">
+                                                <label>Dirección IP :</label>
+                                                <asp:Label ID="lblIp" runat="server" Text=""></asp:Label>
+                                            </div>
+                                            <div class="elemDesHalf">
+                                                <label>Tipo :</label>
+                                                <asp:Label ID="lblTipo" runat="server" Text='<%# Eval("TipoServidor.Tipo") %>'></asp:Label>
+                                            </div>
+                                            <div class="elemDesFull">
+                                                <label>Sistema Operativo :</label>
+                                                <asp:Label ID="lblSO" runat="server" Text=""></asp:Label>                                            
+                                            </div>
+                                            <div class="elemDesHalf">
+                                                <label>Encargado :</label>
+                                                <asp:Label ID="lblEncargado" runat="server" Text=""></asp:Label>
+                                            </div>
+                                            <div class="elemDesHalf">
+                                                <label>Ext. :</label>
+                                                <asp:Label ID="lblExtension" runat="server" Text=""></asp:Label>
+                                            </div>
                                         </div>                                        
                                         <div class="limpiar"></div>
                                             <asp:GridView ID="gdvServidoresHijos" CssClass="srvsHijos" AutoGenerateColumns="false" runat="server" >

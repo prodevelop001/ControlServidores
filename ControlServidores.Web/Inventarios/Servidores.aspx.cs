@@ -107,6 +107,7 @@ namespace ControlServidores.Web.Inventarios
             Label lblIp = (Label)e.Item.FindControl("lblIp");
             Label lblSO = (Label)e.Item.FindControl("lblSO");
             Label lblEncargado = (Label)e.Item.FindControl("lblEncargado");
+            Label lblExtension = (Label)e.Item.FindControl("lblExtension");
             
             //Label lblTipo = (Label)e.Item.FindControl("lblTipo");            
 
@@ -151,6 +152,7 @@ namespace ControlServidores.Web.Inventarios
             if (pso.Count > 0)
             {
                 lblEncargado.Text = pso.First().Personas.Nombre.Trim();
+                lblExtension.Text = pso.First().Personas.Extension.Trim();
             }
 
             GridView gdvServidoresHijos = (GridView)e.Item.FindControl("gdvServidoresHijos");
