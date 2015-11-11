@@ -4,8 +4,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div class="principal">
+        <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="../Scripts/jquery_ui/jquery-ui.js"></script>
+        <link href="../Scripts/jquery_ui/jquery-ui.css" rel="stylesheet" />
+
         <div class="ttlPrincipal">
             <h1>Soporte a Modelos de Servidores</h1>
+        </div>
+        <div class="formCampos">
+            <label>Fecha :</label>
+            <input id="pruebaFecha" type="text" />
         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -14,27 +22,13 @@
                     <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                     </asp:Panel>
+                    
                     <div class="addNuevo">
                         <asp:HiddenField ID="hdfEstado" runat="server"></asp:HiddenField>
                         <asp:HiddenField ID="hdfIdSoporte" runat="server" />
                         <asp:Button ID="btnNuevo" CssClass="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
                     </div>
                     <asp:Panel ID="pnlForm" Visible="false" runat="server">
-                        <script src="../Scripts/jquery-2.1.1.js"></script>
-                        <script src="../Scripts/jquery_ui/jquery-ui.js"></script>
-                        <link href="../Scripts/jquery_ui/jquery-ui.css" rel="stylesheet" />
-                        <script type="text/javascript">
-                                $(function () {
-                                    $('#<%= txtFechaIni.ClientID%>').datepicker({
-                                        changeMonth: true,
-                                        changeYear: true
-                                    });
-                                    $('#<%= txtFechaFin.ClientID%>').datepicker({
-                                        changeMonth: true,
-                                        changeYear: true
-                                    });
-                                });
-                        </script>
                         <div class="formCampos">
                             <label>Empresa</label>
                             <asp:DropDownList ID="ddlEmpresa" runat="server"></asp:DropDownList>
@@ -59,12 +53,17 @@
                             <br />
                             <asp:RequiredFieldValidator ID="rfvFechaFin" runat="server" ErrorMessage="*Fecha requerida." ControlToValidate="txtFechaFin" ForeColor="Red" ValidationGroup="Soporte"></asp:RequiredFieldValidator>
                         </div>
+                        
                         <div class="formBotones">
                             <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                             <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
                     </asp:Panel>
                     <asp:Panel ID="pnlSoporte" runat="server">
+                        <div class="formCampos">
+                            <label>FechaDentro :</label>
+                            <asp:TextBox ID="pruebaFechaDentro" runat="server" ></asp:TextBox>
+                        </div>
                         <asp:GridView ID="gdvSoporte" CssClass="miTabla" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged" OnRowDeleting="gdvSoporte_RowDeleting">
                             <Columns>
                                 <asp:TemplateField>
@@ -100,5 +99,29 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
+        <script type="text/javascript">
+            //-----------FECHA
+            $(function () {
+                        $("#<%=txtFechaIni.ClientID%>").datepicker({
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                    
+                        $("#<%=txtFechaFin.ClientID%>").datepicker({
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                        $("#pruebaFecha").datepicker({
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                        $("#<%=pruebaFechaDentro.ClientID%>").datepicker({
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                        
+            });
+
+        </script>
     </div>
 </asp:Content>
