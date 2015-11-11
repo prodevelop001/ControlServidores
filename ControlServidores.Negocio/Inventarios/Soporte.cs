@@ -28,7 +28,8 @@ namespace ControlServidores.Negocio.Inventarios
             List<Entidades.Soporte> sop = new List<Entidades.Soporte>();
             sop = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte()
             {
-                Modelo = new Entidades.Modelo() { IdModelo = a.IdModelo }
+                Modelo = new Entidades.Modelo() { IdModelo = a.Modelo.IdModelo },
+                Empresa = null
             });
             if(sop.Count > 0)
             {
@@ -74,7 +75,8 @@ namespace ControlServidores.Negocio.Inventarios
             List<Entidades.Soporte> sop = new List<Entidades.Soporte>();
             sop = Datos.Inventarios.Soporte.Obtener(new Entidades.Soporte()
             {
-                Modelo = new Entidades.Modelo() { IdModelo = a.IdModelo }
+                Modelo = new Entidades.Modelo() { IdModelo = a.Modelo.IdModelo },
+                Empresa = null
             });
             var dis = from s in sop
                       where s.IdSoporte != a.IdSoporte

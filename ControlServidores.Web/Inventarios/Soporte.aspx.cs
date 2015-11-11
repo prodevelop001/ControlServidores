@@ -140,7 +140,7 @@ namespace ControlServidores.Web.Inventarios
                 }
                 else
                 {
-                    lblResultado.Text = "No tiene privilegios esta acción. <br>";
+                    lblResultado.Text = "No tiene privilegios para realizar esta acción. <br>";
                 }
 
                 resultado.errores.ForEach(delegate (Entidades.Logica.Error error)
