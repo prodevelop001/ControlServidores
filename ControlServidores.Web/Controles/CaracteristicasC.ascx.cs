@@ -63,21 +63,23 @@ namespace ControlServidores.Web.Controles
         {
             List<Entidades.Servidor> servidores = new List<Entidades.Servidor>();
             servidores = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdServidor = _IdServidor, IdVirtualizador = -1 });
-            if(opcion == 1)
+            if (opcion == 1)
             {
                 if (servidores.Count > 0)
                 {
                     //lblAliasServidor.Text = servidores.First().AliasServidor;
                     lblDescripcionUso.Text = servidores.First().DescripcionUso;
-                    if(servidores.First().Estatus != null)
+                    if (servidores.First().Estatus != null)
                     {
                         lblEstatusServidor.Text = servidores.First().Estatus._Estatus;
                     }
-                    if(servidores.First().TipoServidor != null)
+                    if (servidores.First().TipoServidor != null)
                         lblTipoServidor.Text = servidores.First().TipoServidor.Tipo;
-                    hdfIdModelo.Value = servidores.First().IdModelo.ToString();
                     if (servidores.First().Modelo != null)
+                    {
+                        hdfIdModelo.Value = servidores.First().Modelo.IdModelo.ToString();
                         lblModelo.Text = servidores.First().Modelo.NombreModelo;
+                    }
                     if (servidores.First().Especificacion != null)
                     {
                         lblNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
@@ -97,23 +99,30 @@ namespace ControlServidores.Web.Controles
                 }
                 lblSoporte.ForeColor = System.Drawing.Color.Red;
                 List<Entidades.Soporte> soporte = new List<Entidades.Soporte>();
-                int IdModelo = !string.IsNullOrEmpty(hdfIdModelo.Value) ? Convert.ToInt32(hdfIdModelo.Value) : -1;
-                soporte = Negocio.Inventarios.Soporte.Obtener(new Entidades.Soporte() { IdModelo = IdModelo });
-                if (soporte.Count > 0)
-                {                    
-                    if(soporte.First().FechaFin > DateTime.Now)
+                int IdModelo = !string.IsNullOrEmpty(hdfIdModelo.Value) ? Convert.ToInt32(hdfIdModelo.Value) : 0;
+                if (IdModelo > 0)
+                {
+                    soporte = Negocio.Inventarios.Soporte.Obtener(new Entidades.Soporte() { Modelo = new Entidades.Modelo() { IdModelo = IdModelo } });
+                    if (soporte.Count > 0)
                     {
-                        lblSoporte.ForeColor = System.Drawing.Color.Green;
-                        lblSoporte.Text = " de ";
-                        lblSoporte.Text += ((DateTime)soporte.First().FechaInicio).ToString("dd/MM/yyyy") + " a ";
-                        lblSoporte.Text += ((DateTime)soporte.First().FechaFin).ToString("dd/MM/yyyy") + "<br>";
-                        lblSoporte.Text += soporte.First().Empresa.Nombre + "<br>";
-                        lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
+                        if (soporte.First().FechaInicio < DateTime.Now && DateTime.Now < soporte.First().FechaFin)
+                        {
+                            lblSoporte.ForeColor = System.Drawing.Color.Green;
+                            lblSoporte.Text = " de ";
+                            lblSoporte.Text += ((DateTime)soporte.First().FechaInicio).ToString("dd/MM/yyyy") + " a ";
+                            lblSoporte.Text += ((DateTime)soporte.First().FechaFin).ToString("dd/MM/yyyy") + "<br>";
+                            lblSoporte.Text += soporte.First().Empresa.Nombre + "<br>";
+                            lblSoporte.Text += "Tel:" + soporte.First().Empresa.Telefono + "<br>";
+                        }
+                        else
+                        {
+                            lblSoporte.Text = "Sin soporte.";
+                        }
                     }
-                    else
-                    {
-                        lblSoporte.Text = "Sin soporte.";
-                    }
+                }
+                else
+                {
+                    lblSoporte.Text = "Sin soporte.";
                 }
 
                 Entidades.PersonaXservidor persona = new Entidades.PersonaXservidor();
@@ -128,45 +137,45 @@ namespace ControlServidores.Web.Controles
                           select l;
                 pso = enc.ToList();
                 if (pso.Count > 0)
-                {                   
+                {
                     lblPersonaEncargada.Text = pso.First().Personas.Nombre.Trim();
                 }
             }
-            else if(opcion == 2)
+            else if (opcion == 2)
             {
                 limpiar();
                 if (servidores.Count > 0)
                 {
                     txtAliasServidor.Text = servidores.First().AliasServidor;
                     txtDescripcion.Text = servidores.First().DescripcionUso;
-                    if(servidores.First().IdVirtualizador != 0)
+                    if (servidores.First().IdVirtualizador != 0)
                     {
                         ddlVirtualizador.Enabled = true;
                         ddlVirtualizador.SelectedValue = servidores.First().IdVirtualizador.ToString();
                     }
                     if (servidores.First().TipoServidor != null)
-                        ddlTipoServidor.SelectedValue = servidores.First().TipoServidor.IdTipoServidor.ToString();                    
+                        ddlTipoServidor.SelectedValue = servidores.First().TipoServidor.IdTipoServidor.ToString();
                     if (servidores.First().Modelo != null)
                     {
                         hdfIdModelo.Value = servidores.First().IdModelo.ToString();
                         ddlMarca.SelectedValue = servidores.First().Modelo.IdMarca.ToString();
                         llenarDdlModelo();
                         ddlModelo.SelectedValue = servidores.First().Modelo.IdModelo.ToString();
-                    }                       
+                    }
                     if (servidores.First().Especificacion != null)
                     {
                         txtNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
                         txtCapacidadRam.Text = servidores.First().Especificacion.CapacidadRAM.Split(' ').ElementAt(0);
                         ddlCapacidadRam.SelectedValue = servidores.First().Especificacion.CapacidadRAM.Split(' ').ElementAt(1);
                         ddlProcesador.SelectedValue = servidores.First().Especificacion.Procesador.IdProcesador.ToString();
-                        
+
                         lblCaracteristicasProc.Text = servidores.First().Especificacion.Procesador.NumCores.ToString();
                         lblCaracteristicasProc.Text += " " + servidores.First().Especificacion.Procesador.Velocidad.Trim();
                         lblCaracteristicasProc.Text += " " + servidores.First().Especificacion.Procesador.Cache.Trim();
                         lblCaracteristicasProc.Text += " " + servidores.First().Especificacion.Procesador.TamanoPalabra.Trim();
 
                         txtNumProcesadores.Text = servidores.First().Especificacion.NumProcesadores.ToString();
-                        
+
                     }
                     if (servidores.First().Especificacion != null)
                     {
@@ -193,7 +202,7 @@ namespace ControlServidores.Web.Controles
                     }
                 }
             }
-            
+
         }
 
         private void llenarDdlMarcas()
@@ -280,7 +289,7 @@ namespace ControlServidores.Web.Controles
         {
             ddlPersona.Items.Clear();
             ddlPersona.AppendDataBoundItems = true;
-            ddlPersona.Items.Add(new ListItem("-- Seleccionar --","0"));
+            ddlPersona.Items.Add(new ListItem("-- Seleccionar --", "0"));
             ddlPersona.DataTextField = "Nombre";
             ddlPersona.DataValueField = "IdPersona";
             ddlPersona.DataSource = Negocio.Seguridad.Personas.Obtener(new Entidades.Personas());
@@ -381,8 +390,8 @@ namespace ControlServidores.Web.Controles
                         {
                             especificacion.NumSerie = txtNumSerie.Text.Trim();
                         }
-                        
-                        if(esp.Count > 0)
+
+                        if (esp.Count > 0)
                         {
                             especificacion.IdEspecificacion = esp.First().IdEspecificacion;
                             resultado = Negocio.Inventarios.EspServidor.Actualizar(especificacion);
@@ -390,8 +399,8 @@ namespace ControlServidores.Web.Controles
                         else
                         {
                             resultado = Negocio.Inventarios.EspServidor.Nuevo(especificacion);
-                        }             
-                                   
+                        }
+
                         if (resultado.resultado == true)
                         {
                             List<Entidades.EspServidor> conEsp = new List<Entidades.EspServidor>();
@@ -416,7 +425,7 @@ namespace ControlServidores.Web.Controles
                                 persona.Bitacora = null;
 
                                 List<Entidades.PersonaXservidor> pso = new List<Entidades.PersonaXservidor>();
-                                pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);                               
+                                pso = Negocio.Inventarios.PersonaXservidor.Obtener(persona);
 
                                 var enc = from l in pso
                                           where l.Bitacora == null
@@ -447,7 +456,7 @@ namespace ControlServidores.Web.Controles
                         lblResultado.Text += error.descripcionCorta + "<br/>";
                     });
 
-                    
+
                     if (resultado.resultado == true)
                     {
                         lblResultado.ForeColor = System.Drawing.Color.Green;

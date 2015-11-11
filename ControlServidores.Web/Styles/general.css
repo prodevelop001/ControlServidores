@@ -326,6 +326,7 @@ h1, h2, h3, h4, h5, h6{
 
     box-sizing: border-box;
 }
+
     /***Encabezados de la Tabla***/
     .miTabla tbody tr th{
         background-color: #E31E73;
@@ -748,6 +749,7 @@ h1, h2, h3, h4, h5, h6{
     margin-left: 2%;
     margin-bottom: 13px;
     float: left;
+    min-height: 190px;
 
     -webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -761,7 +763,10 @@ h1, h2, h3, h4, h5, h6{
     .elemServidor .titulos{
         display: block;
         width: 90%;
-        margin: 9px 5%;
+        margin-top: 9px;
+        margin-bottom: 0px;
+        margin-left: 5%;
+        margin-right: 5%;
         float: left;
         text-align: center;
         
@@ -785,12 +790,33 @@ h1, h2, h3, h4, h5, h6{
     .elemServidor .descripcion {
         display: block;
         width: 100%;
-        margin: 5px auto;
+        margin: 0px auto;
         padding: 7px 20px;
         float: left;
 
+        overflow: hidden;
         box-sizing: border-box;
     }
+    .elemDesFull, .elemDesHalf{
+        margin-bottom: 7px;
+        font-size: 14px;
+    }
+    .elemDesFull{
+        width: 100%;
+        float: left;
+    }
+    .elemDesHalf:nth-child(2),.elemDesHalf:nth-child(5){
+        width: 62%;
+        float: left;
+    }
+    .elemDesHalf:nth-child(3), .elemDesHalf:nth-child(6){
+        width: 38%;
+        float: left;
+    }
+
+        .elemDesFull label, .elemDesHalf label{
+            font-weight: 700;
+        }
 
 .srvsHijos{
     /*border: 1px solid blue;*/
