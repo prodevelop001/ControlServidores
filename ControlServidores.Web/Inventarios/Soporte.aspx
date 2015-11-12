@@ -53,17 +53,23 @@
                             <br />
                             <asp:RequiredFieldValidator ID="rfvFechaFin" runat="server" ErrorMessage="*Fecha requerida." ControlToValidate="txtFechaFin" ForeColor="Red" ValidationGroup="Soporte"></asp:RequiredFieldValidator>
                         </div>
-                        
+                        <!-- Fecha con Calendario -->
+                        <div class="formCampos">
+                            <label>FechaDentro INICIO:</label>
+                            <asp:TextBox ID="pruebaFechaDentro" runat="server" ></asp:TextBox>
+                        </div>
+                        <div class="formCampos">
+                            <label>FechaDentro FIN:</label>
+                            <asp:TextBox ID="pruebaFechaDentroFin" runat="server" ></asp:TextBox>
+                        </div>
                         <div class="formBotones">
                             <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                             <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
                         </div>
                     </asp:Panel>
                     <asp:Panel ID="pnlSoporte" runat="server">
-                        <div class="formCampos">
-                            <label>FechaDentro :</label>
-                            <asp:TextBox ID="pruebaFechaDentro" runat="server" ></asp:TextBox>
-                        </div>
+                        
+                        
                         <asp:GridView ID="gdvSoporte" CssClass="miTabla" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdvSoporte_RowDataBound" OnSelectedIndexChanged="gdvSoporte_SelectedIndexChanged" OnRowDeleting="gdvSoporte_RowDeleting">
                             <Columns>
                                 <asp:TemplateField>
@@ -99,29 +105,34 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <script type="text/javascript">
-            //-----------FECHA
-            $(function () {
-                        $("#<%=txtFechaIni.ClientID%>").datepicker({
-                            changeMonth: true,
-                            changeYear: true
-                        });
-                    
-                        $("#<%=txtFechaFin.ClientID%>").datepicker({
-                            changeMonth: true,
-                            changeYear: true
-                        });
-                        $("#pruebaFecha").datepicker({
-                            changeMonth: true,
-                            changeYear: true
-                        });
-                        $("#<%=pruebaFechaDentro.ClientID%>").datepicker({
-                            changeMonth: true,
-                            changeYear: true
-                        });
-                        
-            });
-
-        </script>
+        
     </div>
+    <script type="text/javascript">
+        $("body").delegate("#<%=pruebaFechaDentro.ClientID%>", "focusin",function () {
+            $("#<%=pruebaFechaDentro.ClientID%>").datepicker({
+                        changeMonth: true,
+                        changeYear: true
+                    });
+        });
+        $("body").delegate("#<%=pruebaFechaDentroFin.ClientID%>", "focusin",function () {
+            $("#<%=pruebaFechaDentroFin.ClientID%>").datepicker({
+                        changeMonth: true,
+                        changeYear: true
+                    });
+        });
+        $("body").delegate("#<%=txtFechaIni.ClientID%>>", "focusin",function () {
+            $("#<%=txtFechaIni.ClientID%>").datepicker({
+                        changeMonth: true,
+                        changeYear: true
+                    });
+        });
+        $("body").delegate("#<%=txtFechaFin.ClientID%>", "focusin",function () {
+            $("#<%=txtFechaFin.ClientID%>>").datepicker({
+                        changeMonth: true,
+                        changeYear: true
+                    });
+        });
+
+    </script>
 </asp:Content>
+
