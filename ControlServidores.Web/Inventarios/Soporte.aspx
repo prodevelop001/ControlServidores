@@ -1,22 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitio.Master" AutoEventWireup="true" CodeBehind="Soporte.aspx.cs" Inherits="ControlServidores.Web.Inventarios.Soporte" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
+    <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery_ui/jquery-ui.js"></script>
+    <link href="../Scripts/jquery_ui/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function InIEvent() 
+        {
+            $('#<%= txtFechaIni.ClientID%>').datepicker({
+                        changeMonth: true,
+                        changeYear: true
+            });
+            $('#<%= txtFechaFin.ClientID%>').datepicker({
+                        changeMonth: true,
+                        changeYear: true
+            });
+        };
+        $(document).ready(InIEvent);
+  </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div class="principal">
-        <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
-        <script type="text/javascript" src="../Scripts/jquery_ui/jquery-ui.js"></script>
-        <link href="../Scripts/jquery_ui/jquery-ui.css" rel="stylesheet" />
-
         <div class="ttlPrincipal">
             <h1>Soporte a Modelos de Servidores</h1>
         </div>
-        <div class="formCampos">
-            <label>Fecha :</label>
-            <input id="pruebaFecha" type="text" />
-        </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <script type="text/javascript">
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(InIEvent);
+        </script>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
                 <div>
                     <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
@@ -54,14 +66,14 @@
                             <asp:RequiredFieldValidator ID="rfvFechaFin" runat="server" ErrorMessage="*Fecha requerida." ControlToValidate="txtFechaFin" ForeColor="Red" ValidationGroup="Soporte"></asp:RequiredFieldValidator>
                         </div>
                         <!-- Fecha con Calendario -->
-                        <div class="formCampos">
+                        <%--<div class="formCampos">
                             <label>FechaDentro INICIO:</label>
                             <asp:TextBox ID="pruebaFechaDentro" runat="server" ></asp:TextBox>
                         </div>
                         <div class="formCampos">
                             <label>FechaDentro FIN:</label>
                             <asp:TextBox ID="pruebaFechaDentroFin" runat="server" ></asp:TextBox>
-                        </div>
+                        </div>--%>
                         <div class="formBotones">
                             <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                             <asp:Button ID="btnCancelar" CssClass="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
@@ -107,32 +119,5 @@
         </asp:UpdatePanel>
         
     </div>
-    <script type="text/javascript">
-        $("body").delegate("#<%=pruebaFechaDentro.ClientID%>", "focusin",function () {
-            $("#<%=pruebaFechaDentro.ClientID%>").datepicker({
-                        changeMonth: true,
-                        changeYear: true
-                    });
-        });
-        $("body").delegate("#<%=pruebaFechaDentroFin.ClientID%>", "focusin",function () {
-            $("#<%=pruebaFechaDentroFin.ClientID%>").datepicker({
-                        changeMonth: true,
-                        changeYear: true
-                    });
-        });
-        $("body").delegate("#<%=txtFechaIni.ClientID%>>", "focusin",function () {
-            $("#<%=txtFechaIni.ClientID%>").datepicker({
-                        changeMonth: true,
-                        changeYear: true
-                    });
-        });
-        $("body").delegate("#<%=txtFechaFin.ClientID%>", "focusin",function () {
-            $("#<%=txtFechaFin.ClientID%>>").datepicker({
-                        changeMonth: true,
-                        changeYear: true
-                    });
-        });
-
-    </script>
 </asp:Content>
 

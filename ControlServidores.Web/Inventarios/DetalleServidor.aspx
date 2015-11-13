@@ -7,28 +7,10 @@
 <%@ Register Src="~/Controles/BitacoraC.ascx" TagPrefix="uc1" TagName="BitacoraC" %>
 <%@ Register Src="~/Controles/CaracteristicasC.ascx" TagPrefix="uc1" TagName="CaracteristicasC" %>
 
-
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="cabecera" runat="server">
-    <%--    <style>
-        .marco {
-            float: left;
-            border: 1px solid gray;
-            border-radius: 5px;
-            margin: 2px;
-            padding: 0;
-            z-index: 5;
-        }
-
-        .headCaja {
-            height: 20px;
-            /*border: 1px solid gray;
-            border-top-left-radius:5px;
-            border-top-right-radius:5px;*/
-            text-align: right;
-        }
-    </style>--%>
+   <script type="text/javascript" src="../Scripts/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery_ui/jquery-ui.js"></script>
+    <link href="../Scripts/jquery_ui/jquery-ui.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
 <div  class="principal">

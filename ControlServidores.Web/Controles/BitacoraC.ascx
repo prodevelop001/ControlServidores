@@ -1,4 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BitacoraC.ascx.cs" Inherits="ControlServidores.Web.Controles.BitacoraC" %>
+<script type="text/javascript">
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(InIEvent);
+     function InIEvent() 
+        {
+            $('#<%= txtFechaProc.ClientID%>').datepicker({
+                        changeMonth: true,
+                        changeYear: true
+            });
+        };
+        $(document).ready(InIEvent);
+</script>
 <div>
     <div>
         <asp:HiddenField ID="hdfIdServidor" runat="server" />
