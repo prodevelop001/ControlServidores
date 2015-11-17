@@ -23,6 +23,7 @@ namespace ControlServidores.Web.Inventarios
                 Empresas();
                 llenarDdlMarcas();
                 llenarDdlModelo();
+                pnlResultado.Visible = false;
                 //pnlResultado.Visible = false;
                 txtFechaIni.Text = DateTime.Now.ToShortDateString();
                 txtFechaFin.Text = DateTime.Now.ToShortDateString();
@@ -99,6 +100,7 @@ namespace ControlServidores.Web.Inventarios
             Empresas();
             llenarDdlMarcas();
             llenarDdlModelo();
+            pnlResultado.Visible = false;
             //pnlResultado.Visible = false;
             txtFechaIni.Text = DateTime.Now.ToShortDateString();
             txtFechaFin.Text = DateTime.Now.ToShortDateString();
@@ -111,13 +113,15 @@ namespace ControlServidores.Web.Inventarios
             pnlForm.Visible = false;
             //pnlResultado.Visible = false;
             pnlSoporte.Visible = true;
+            pnlResultado.Visible = false;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             lblResultado.Text = string.Empty;
-            lblResultado.ForeColor = System.Drawing.Color.Red;
-
+            //lblResultado.ForeColor = System.Drawing.Color.Red;
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
             Entidades.Logica.Ejecucion resultado = new Entidades.Logica.Ejecucion();
 
@@ -152,7 +156,7 @@ namespace ControlServidores.Web.Inventarios
                 {
                     //lblResultado.ForeColor = System.Drawing.Color.Green;
                     lblResultado.Attributes["style"] = "color: #008000;";
-                    //pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
+                    pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                     pnlForm.Visible = false;
                     pnlSoporte.Visible = true;
                     llenarGdvSoporte();
@@ -161,7 +165,8 @@ namespace ControlServidores.Web.Inventarios
             else
             {
                 lblResultado.Text = "Hay campos que no han sido seleccionados.";
-        }
+            }
+            pnlResultado.Visible = true;
         }
 
         protected void gdvSoporte_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,7 +181,7 @@ namespace ControlServidores.Web.Inventarios
             llenarDdlMarcas();
             ddlMarca.SelectedValue = gdvSoporte.SelectedRow.Cells[4].Text;
             llenarDdlModelo();
-            //pnlResultado.Visible = false;
+            pnlResultado.Visible = false;
             ddlModelo.SelectedValue = gdvSoporte.SelectedRow.Cells[5].Text;
             txtFechaIni.Text = gdvSoporte.SelectedRow.Cells[7].Text;
             txtFechaFin.Text = gdvSoporte.SelectedRow.Cells[8].Text;
@@ -229,12 +234,16 @@ namespace ControlServidores.Web.Inventarios
             {
                 lblResultado.Text += error.descripcionCorta + "<br/>";
             });
-
+            lblResultado.Attributes["style"] = "color: #F00;";
+            pnlResultado.Attributes["style"] = "background: rgba(252, 55, 55, 0.2);";
             if (resultado.resultado == true)
             {
-                lblResultado.ForeColor = System.Drawing.Color.Green;
+                //lblResultado.ForeColor = System.Drawing.Color.Green;
+                lblResultado.Attributes["style"] = "color: #008000;";
+                pnlResultado.Attributes["style"] = "background: rgba(147, 252, 55, 0.22);";
                 llenarGdvSoporte();
             }
+            pnlResultado.Visible = true;
         }
     }
 }

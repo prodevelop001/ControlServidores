@@ -121,6 +121,7 @@
     <Content Include="fonts\ctrl_srvs.woff" />
     <Content Include="Sitio.Master" />
     <None Include="Properties\PublishProfiles\miProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\nuevo.pubxml" />
     <None Include="Properties\PublishProfiles\seminario.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
