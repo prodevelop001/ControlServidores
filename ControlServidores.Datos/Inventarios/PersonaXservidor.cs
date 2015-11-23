@@ -32,7 +32,7 @@ namespace ControlServidores.Datos.Inventarios
                     if (a.Bitacora != null)
                     {
                         crit.CreateAlias("pes.Bitacora", "idBitacora", NHibernate.SqlCommand.JoinType.InnerJoin);
-                        if (a.IdBitacora != 0 && a.IdBitacora.ToString() != "")
+                        if (a.Bitacora.IdBitacora != 0 && a.Bitacora.IdBitacora.ToString() != "")
                             crit.Add(Restrictions.Disjunction().Add(Restrictions.Eq("idBitacora.IdBitacora", a.Bitacora.IdBitacora)));
                     }
 

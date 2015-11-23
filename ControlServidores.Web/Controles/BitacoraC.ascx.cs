@@ -77,7 +77,7 @@ namespace ControlServidores.Web.Controles
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             hdfEstado.Value = "1";
-            btnAgregar.Text = "Agregar";
+            btnRegistrar.Text = "Agregar";
             pnlForm.Visible = true;
             pnlBitacora.Visible = false;
             limpiar();
@@ -173,6 +173,7 @@ namespace ControlServidores.Web.Controles
 
         protected void gdvBitacora_SelectedIndexChanged(object sender, EventArgs e)
         {
+            limpiar();
             ObtenerParametros();
             hdfEstado.Value = "2";
             pnlForm.Visible = true;
