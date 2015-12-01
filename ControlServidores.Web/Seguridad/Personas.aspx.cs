@@ -118,7 +118,7 @@ namespace ControlServidores.Web.Seguridad
                     foreach (Control control in cell.Controls)
                     {
                         LinkButton button = control as LinkButton;
-                        if (button != null && button.Text == "Eliminar")
+                        if (button != null && button.Text == " Eliminar")
                         {
                             button.Enabled = permisos.D;
                             button.OnClientClick = "return checkMe()";

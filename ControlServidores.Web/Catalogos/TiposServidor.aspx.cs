@@ -148,7 +148,7 @@ namespace ControlServidores.Web.Catalogos
                     {
                         //LinkButton button = (LinkButton)control;
                         LinkButton button = control as LinkButton;
-                        if (button != null && button.Text == "Eliminar")
+                        if (button != null && button.Text == " Eliminar")
                         {
                             button.Enabled = permisos.D;
                             if (button.Enabled)
