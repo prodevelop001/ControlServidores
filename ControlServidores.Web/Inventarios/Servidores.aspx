@@ -7,6 +7,22 @@
             border-radius: 5px;
         }
     </style>--%>
+    <style>
+        
+        .pagination {list-style:none; margin:10px 0px 0px 0px; padding:0px; clear:both;}
+        .pagination li{float:left; margin:3px;}
+        .pagination li a{   display:block; padding:3px 5px; color:#fff; background-color:#F84CA4; text-decoration:none;}
+        .pagination li a.active {border:1px solid #000; color:#000; background-color:#fff;}
+        .pagination li a.inactive {background-color:#eee; color:#777; border:1px solid #ccc;}
+    </style>
+    <%--<script src="../Scripts/jquery-2.1.1.js" type="text/javascript"></script>--%>
+    <script src="../Scripts/jquery-jPaginate.js" type="text/javascript"></script>
+    <script src="../Scripts/jPaginate.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $("#content").jPaginate();                       
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
     <div id="ppalServidores" class="principal">
@@ -102,7 +118,7 @@
                                 <asp:Button ID="btnBuscar" CssClass="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click"  ValidationGroup="Servidor2" />
                             </div>
                         </div>
-                        <div class="listServidores">
+                        <div id="content" class="listServidores">
                             <asp:Repeater ID="rptServidores" runat="server" OnItemDataBound="rptServidores_ItemDataBound">
                                 <ItemTemplate>
                                     <div class="elemServidor">

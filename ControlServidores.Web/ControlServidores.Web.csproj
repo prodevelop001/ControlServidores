@@ -98,7 +98,9 @@
     <Content Include="Perfil.aspx" />
     <Content Include="Scripts\elementosTeclado.js" />
     <Content Include="Scripts\general.js" />
+    <Content Include="Scripts\jPaginate.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-jPaginate.js" />
     <Content Include="Scripts\jquery_ui\images\ui-icons_444444_256x240.png" />
     <Content Include="Scripts\jquery_ui\images\ui-icons_555555_256x240.png" />
     <Content Include="Scripts\jquery_ui\images\ui-icons_777620_256x240.png" />
