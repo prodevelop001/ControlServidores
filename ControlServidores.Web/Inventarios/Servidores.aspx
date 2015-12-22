@@ -20,8 +20,13 @@
     <script src="../Scripts/jPaginate.js" type="text/javascript"></script>
     <script>
         $(document).ready(function(){
-            $("#content").jPaginate();                       
+            $("#content").jPaginate();
         });
+        
+        //function mensaje()
+        //{
+        //    alert("Hola aloH");
+        //}
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">
@@ -93,7 +98,7 @@
                             </div>
                         <div class="servidoresBotones">
                             <asp:Button ID="btnGuardar" runat="server" CssClass="btnGuardar" Text="Guardar" OnClick="btnGuardar_Click" ValidationGroup="Servidor" />
-                            <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click" />
+                            <asp:Button ID="btnCancelar" runat="server" CssClass="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click"/>
                         </div>
                     </asp:Panel>
                     <asp:Panel ID="pnlResultado" CssClass="barraEstatus" runat="server">
@@ -186,6 +191,11 @@
                     var obj = document.getElementById("<%=btnBuscar.ClientID%>");
                     obj.click();
                 }
+            }
+            
+            function miMensaje()
+            {
+                alert("Este es mi mensaje");
             }
         </script>
     </div>

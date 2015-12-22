@@ -28,7 +28,8 @@ namespace ControlServidores.Web.Inventarios
                     }
                     btnNuevo.Enabled = permisos.C;
 
-                    btnCancelar.Attributes.Add("OnClick", "javascript:return hacerAlgo_dos();");
+                    //btnCancelar.Attributes.Add("OnClick", "javascript:return mensaje();");
+                    //btnCancelar.Attributes.Add("OnClick", "$('#content').jPaginate();");
                 }
             }
             else
@@ -190,6 +191,7 @@ namespace ControlServidores.Web.Inventarios
             pnlNuevoServidor.Visible = false;
             pnlServidores.Visible = true;
             pnlResultado.Visible = false;
+            Response.Redirect("~/Inventarios/Servidores.aspx");
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

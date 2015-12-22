@@ -9,7 +9,7 @@
         <asp:HiddenField ID="hdfIdConfRed" runat="server" />
         <div class="formCampos">
             <label>Nombre de la interfaz :</label>
-            <asp:TextBox ID="txtInterfazRed" runat="server" placeholder="Ej: server-web"></asp:TextBox>
+            <asp:TextBox ID="txtInterfazRed" runat="server" placeholder="Ej: eth0"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvNombreInterfaz" runat="server" ErrorMessage="*Campo requerido." ControlToValidate="txtInterfazRed" ForeColor="Red" ValidationGroup="InterfazRed"></asp:RequiredFieldValidator>
         </div>
         <div class="formCampos">
