@@ -76,9 +76,10 @@
                 <label>Númer de serie :</label>
                 <asp:TextBox ID="txtNumSerie" runat="server" placeholder="Ej: 423950000006436"></asp:TextBox>
             </div>
-            <div class="formCampos">
+            <div class="formCamposDdl">
                 <label>Persona a cargo :</label>
-                <asp:DropDownList ID="ddlPersona" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlPersona" runat="server" ></asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvPersonaCargo" runat="server" InitialValue="0" ErrorMessage="*Persona requerida" ControlToValidate="ddlPersona" ForeColor="Red" ValidationGroup="Caracteristicas" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
         <%--</div>--%>
         <div class="formBotones">
