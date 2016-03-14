@@ -19,14 +19,17 @@
     <script src="../Scripts/jquery-jPaginate.js" type="text/javascript"></script>
     <script src="../Scripts/jPaginate.js" type="text/javascript"></script>
     <script>
-        $(document).ready(function(){
+        function InIEvent() {
             $("#content").jPaginate();
-        });
+        }
+
+        $(document).ready(InIEvent);
         
         //function mensaje()
         //{
         //    alert("Hola aloH");
         //}
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(InIEvent);
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpoPpal" runat="server">

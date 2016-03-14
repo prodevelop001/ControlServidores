@@ -132,6 +132,11 @@
             <label>Persona encargada:</label>
             <asp:Label ID="lblPersonaEncargada" runat="server" Text=""></asp:Label>
         </div>
+        <div class="elementoDetalle">
+            <!--<label>Virtualizador:</label>-->
+            <asp:Label ID="lblVirtualizador" runat="server" Text="Virtualizador: "></asp:Label>
+            <asp:HyperLink ID="hlkVirtualizador" runat="server"></asp:HyperLink>
+        </div>
     </asp:Panel>
     <div>
         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>

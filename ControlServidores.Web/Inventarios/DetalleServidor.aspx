@@ -40,7 +40,12 @@
                                     <%# Container.DataItemIndex + 1 %>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="AliasServidor" HeaderText="Máquina Virtual" />
+                            <%--<asp:BoundField DataField="AliasServidor" HeaderText="Máquina Virtual" />--%>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <a href='DetalleServidor.aspx?IdServidor=<%# Eval("IdServidor") %>'><%# Eval("AliasServidor") %></a>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </asp:Panel>

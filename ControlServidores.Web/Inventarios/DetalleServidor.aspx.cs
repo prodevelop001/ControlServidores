@@ -21,8 +21,8 @@ namespace ControlServidores.Web.Inventarios
                     permisos = Negocio.Seguridad.Seguridad.verificarPermisos();
                     if (permisos.R == true)
                     {
-                        imprimirTitulo();
                         ObtenerParametros();
+                        imprimirTitulo();                        
                         VMs();
                         CaracteristicasC.IdServidor = _IdServidor;
                         AlmacenamientoC.IdServidor = _IdServidor;
@@ -46,7 +46,14 @@ namespace ControlServidores.Web.Inventarios
             List<Entidades.Servidor> s = new List<Entidades.Servidor>();
             s = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor()
             {
-                IdServidor = Convert.ToInt32(Request.QueryString["IdServidor"] ?? "0")
+                IdServidor = _IdServidor,
+                Modelo = null,
+                Especificacion = null,
+                TipoServidor = null,
+                Estatus = null,
+                AliasServidor = null,
+                IdVirtualizador = -1,
+                DescripcionUso = null
             }
             );
             if(s.Count > 0)

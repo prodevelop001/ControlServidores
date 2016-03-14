@@ -65,6 +65,10 @@ namespace ControlServidores.Web.Controles
             servidores = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdServidor = _IdServidor, IdVirtualizador = -1 });
             if (opcion == 1)
             {
+                lblVirtualizador.Visible =
+                hlkVirtualizador.Visible = false;
+
+                int InVirtualizador = 0;
                 if (servidores.Count > 0)
                 {
                     //lblAliasServidor.Text = servidores.First().AliasServidor;
@@ -95,7 +99,21 @@ namespace ControlServidores.Web.Controles
                         if (servidores.First().Especificacion.TipoArregloDisco != null)
                             lblArregloDiscos.Text = servidores.First().Especificacion.TipoArregloDisco.Tipo;
                     }
+                    InVirtualizador = servidores.First().IdVirtualizador ;
+                }
 
+                if (InVirtualizador != 0)
+                {
+                    servidores = new List<Entidades.Servidor>();
+                    servidores = Negocio.Inventarios.Servidor.Obtener(new Entidades.Servidor() { IdServidor = InVirtualizador, IdVirtualizador = -1 });
+                    if (servidores.Count > 0)
+                    {
+                        lblVirtualizador.Attributes["style"] = "font-weight: 600;font-size:14px;font-style:normal;text-shadow:none;margin:0;padding:0;";
+                        lblVirtualizador.Visible =
+                        hlkVirtualizador.Visible = true;
+                        hlkVirtualizador.Text = servidores.First().AliasServidor;
+                        hlkVirtualizador.NavigateUrl = "../Inventarios/DetalleServidor.aspx?IdServidor=" + servidores.First().IdServidor.ToString();
+                    }
                 }
                 lblSoporte.ForeColor = System.Drawing.Color.Red;
                 List<Entidades.Soporte> soporte = new List<Entidades.Soporte>();
