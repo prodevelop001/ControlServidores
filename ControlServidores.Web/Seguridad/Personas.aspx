@@ -36,7 +36,7 @@
                         </div>
                         <div class="grpInput">
                             <label>Extensión</label>
-                            <asp:TextBox ID="txtExtension" runat="server" TextMode="Number" MaxLength="4" placeholder="Ej: 1501"></asp:TextBox>
+                            <asp:TextBox ID="txtExtension" runat="server" placeholder="Ej: 1501"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="rfvExtension" runat="server" ErrorMessage="*Extensión requerida." ControlToValidate="txtExtension" ForeColor="Red" ValidationGroup="Personas"></asp:RequiredFieldValidator>
                         </div>
                         <div class="grpInput">
